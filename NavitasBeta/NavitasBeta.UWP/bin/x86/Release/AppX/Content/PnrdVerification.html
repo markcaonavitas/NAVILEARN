@@ -1,0 +1,898 @@
+<!-- This example is an all in one file right now to demonstrate the configuarability of this WEB App page
+I tried to make references to the open source MIT or ??? Licensed things that we can use and change
+without worry.
+
+The code behind is "Vanilla Javascript" to gain some experience without public frameworks like
+Angular.js or jQurey.js. The refrences to jQuery are because some of the widgets use them AND it stil
+has a lot of code saving techniques.
+
+Remeber Unit testing is the key, this doesn't have it Per se develop a simulator to at least develop
+code quicker.
+-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>PRND Verification</title>
+    <link rel="stylesheet" href="./themes/odometer-theme-car.css" />
+    <!-- for easeier development  goto and install liverreload.something on your PC. It will automatically (live)update the screen when any file is saved -->
+    <script>
+        var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        if (!isMobile)
+        { //assume debugger utility below is only when running on PC
+        }
+        else
+        {
+            //Below is necessary because Android does not start at full screen
+            //doesn't runn on PC so we can use the screen resizing for some format checks
+            document.documentElement.style.height = screen.height + 'px';
+        }
+    </script>
+    <!-- jquery does have some very usefull functions but be aware that javascript abilities get updated every few years -->
+    <script src="./frameworks/jquery-3.4.1.min.js"></script>
+    <script src="./frameworks/jquery.xml2json.js"></script>
+    <!--The next three are used in NavitasMotorControllerModel.js for backwards compatible things so that Safari(iOS webview) can handle the new Custom Event super() inheritance
+    very confusing for newbies and I should be carefull not to bring in new javascript/html revision features that may not be supported by iOS yet-->
+    <script src="./frameworks/min.js"></script>
+    <script src="./frameworks/ResizeObserver.global.js"></script>
+    <script src="./frameworks/polyfill.min.js"></script>
+    <!-- Navitas framework -->
+    <!-- NavitasMotorControllerModel.js is frameworkless, written to allow some simple MVVM (notify property has changed things) that frame works like Angular.js would do. It is a demonstration
+    of the high level but basic abilities of standalone javascript.  The style some code is meant to show similaritiies (reusable) to C#-->
+    <script src="./frameworks/List.js"></script>
+    <script src="./frameworks/ViewModelHook.js"></script>
+    <script src="./frameworks/TACDictionary.js"></script>
+    <script src="./frameworks/TSXDictionary.js"></script>
+    <script src="./frameworks/NavitasMotorControllerModel.js"></script>
+    <script src="./frameworks/CommunicationsInterface.js"></script>
+    <script src="./frameworks/SimulatedCommandInterface.js"></script>
+    <!-- New Javascript to Hardware Interfaces -->
+<!--    <script src="./js/RegressionTestBoxModelADictionary.js"></script>-->
+<!--    <script src="./js/RegressionTestBoxModelA.js"></script>-->
+    <script src="./frameworks/PageParameterList.js"></script>
+    <script src="./frameworks/PageCommunicationsList.js"></script>
+    <script src="./frameworks/NavitasGeneralPageView.js"></script>
+    <script src="./frameworks/Queue.js"></script>
+    <script src="./frameworks/NavitasModbus.js"></script>
+<!--    <script src="./js/Eb100Modbus.js"></script>-->
+<!--    <script src="./js/FirmwareDownload.js"></script>-->
+    <!-- if below file is found HasBrowserCommandInterface is defined -->
+    <script src="./frameworks/BrowserCommandInterface.js"></script>
+    <!-- 
+    Vanilla Javascript is a term used when no frameworks are used (I don't consider jQuery to be a framework, it is a convienience Utility)
+    App.NavitasMotorController.JsonCommands.js implements the JSON interface between this webview and our phone App.
+
+    The best thing to happen to javascript in 20 years is the Async..Await features. Using them with the promise concept allows code to hide callback hell
+    -->
+    <!--graphing stuff. Note: This fully uses jQuery-->
+    <!-- <script language="javascript" type="text/javascript" src="./widgets/jquery.flot.min.js"></script> -->
+    <script language="javascript" type="text/javascript" src="./widgets/jquery.flot.js"></script> <!-- I modified the original source to get a different legend box size -->
+    <link href="./themes/examples.css" rel="stylesheet" type="text/css" />
+    <!-- Navitas custom Progess Bar -->
+    <script language="javascript" type="text/javascript" src="./widgets/ProgressBarPercentPassFail.js"></script> <!-- lots of room for graphics improvement -->
+    <script>
+        if (typeof HasBrowserCommandInterface != 'undefined') {
+            App = { //just so it looks like the c# NavitasBeta App.
+                NavitasMotorController: new NavitasMotorControllerModel(new CommunicationsInterface(new NavitasModbus())),
+            }
+        }
+        else {
+            App = { //just so it looks like the c# NavitasBeta App.
+                NavitasMotorController: new NavitasMotorControllerModel(new CommunicationsInterface({})),
+            }
+        }
+        let task = new Task();
+        window.addEventListener("unload", async function ()
+        {
+            App.NavitasMotorController.Communications.bEnableCommunicationTransmissions = false;
+            //App.RegressionTestBoxModelA.Communications.bEnableCommunicationTransmissions = false;
+            console.log("Trying to Close ");
+            App.NavitasMotorController.Communications.DeviceSocket.websocket.close();
+            //App.RegressionTestBoxModelA.Communications.DeviceSocket.websocket.close();
+        });
+
+        //var thing = document.querySelectorAll("[data-action]");
+        //App.NavitasMotorController.Communications.BeginThread();
+        //App.NavitasMotorController.Communications.protocal.bEnableCommunicationTransmissions = true;
+        //App.RegressionTestBoxModelA.Communications.BeginThread();
+        //App.RegressionTestBoxModelA.Communications.protocal.bEnableCommunicationTransmissions = true;
+        // $(document).ready(function() {
+        //   /* Do things after DOM has fully loaded */
+        // });
+
+        // Without jQuery
+        // Define a convenience method and use it
+        var ready = (callback) =>
+        {
+            if (document.readyState != "loading") callback();
+            else document.addEventListener("DOMContentLoaded", callback);
+        }
+        ready(async () =>
+        {
+            //Debug to standard Chrome/firefox/safari debugger, console.log
+            //or Debug to your own window I call MyConsoleLog. use this if consol log output is not visible like when debugging without Visual Studio debugger
+            //MyConsoleLog("w x h " + window.innerWidth.toString() + " x " + window.innerHeight.toString());
+            //console.log("w x h " + window.innerWidth.toString() + " x " + window.innerHeight.toString());
+
+            InitializeStateMachine();
+            await WaitForPhoneAppToStartThis();
+        });
+
+        var SimulationCheckTimeout = 80; //a global var because static var is not a thing
+
+        async function WaitForPhoneAppToStartThis()
+        {
+            //if this is running in the actual Phone App then the App will inject a function called invokeCSharpAction()
+            //so give it a couple seconds to do that (should only take 100ms)
+            //SimulationCheckTimeout = 0; //simulate immediately for development
+            if (typeof HasBrowserCommandInterface != 'undefined')
+            { //This must be running from a browser
+                //RG Nov 27, Something has to be done here if simulating
+                while (App.NavitasMotorController.ModelType == "")// || App.RegressionTestBoxModelA.ModelType == "" || App.firmwareDownload.AlreadyTalkingToBootloader == true) //wait for communications to start
+                    await Task.Delay(500);
+                invokeSimulatedActionIsEnabled = false;
+                App.NavitasMotorController.CommandHandler = new BrowserCommandInterface(App.NavitasMotorController);
+                //App.RegressionTestBoxModelA.CommandHandler = new BrowserCommandInterface(App.RegressionTestBoxModelA);
+                //await App.firmwareDownload.Download(); //works as a test
+                TestStateMachine(100);
+            }
+            else if (typeof invokeCSharpAction == 'function')
+            { //This must be running from the Phone App
+                invokeSimulatedActionIsEnabled = false;
+                TestStateMachine(100);
+            }
+            else
+            { //if not, then we must be running out of a browser and developing so turn on the simulator to help design for test
+                if (SimulationCheckTimeout == 0)
+                {
+                    invokeSimulatedActionIsEnabled = true;
+                    App.NavitasMotorController.Model = "TAC";
+                    App.SimulatedMotorController = new NavitasMotorControllerModel(new CommunicationsInterface({}));
+                    App.SimulatedMotorController.Model = "TAC";
+                    App.NavitasMotorController.CommandHandler = new SimulatedCommandInterface(App.NavitasMotorController, App.SimulatedMotorController);
+                    setTimeout(() => App.NavitasMotorController.CommandHandler.StartNavitasControllerSimulator(10, () => { LocalSimulator() }), 101); //to run your specific Unit Test simulator
+                    TestStateMachine(100);
+                }
+                else
+                {
+                    SimulationCheckTimeout -= 1;
+                    setTimeout(WaitForPhoneAppToStartThis, 100);
+                }
+            }
+        }
+        //after a Read Contiuously is issued the Phone App just constantly send unsolicited responses with the latest data
+        var footSwitchThrottleScopeTriggeredContinuousReadCommand = {
+            ReadContinuously: {
+                "ROTORRPM": 1,
+                "VTHROTTLEV": 22,
+                "FOOTSW": 12.4,
+                "DATASCOPECOMMAND": 18,
+                "SWITCHBITS": 60
+            }
+        };
+
+        var footSwitchThrottleScopeTriggeredContinuousReadCommandTSX = {
+            ReadContinuously: {
+                "PARMOTORRPM": 11,
+                "PARPRIMTHROTVOLTS": 22,
+                "PARSWITCHSTATES": 33
+            }
+        };
+        var footSwitchThrottleScopeTriggeredContinuousReadCommandHolder;
+
+        var VTHROTTLEVAddress = "15";
+        var FOOTSWVAddress = "25";
+        ///////////////////////////////////////////////////////////////////General Static Variables
+        //These are globals because Javascript does not have a static variable concept
+        //ie., "static var" declare in function but persistent between function calls
+        //makes things a bit messy
+
+        var slowLogDown = 0;
+        var simulatorStartTime;
+
+        var bar1ProgressPercentage = 0;
+        var bar1ProgressPercentage2 = 0;
+        var progressArea;
+        var primaryStep = "Initialize stuff";
+        var PrimaryStepMessageList = ["", "", "", "", ""]; //limit list to 5 messages
+        var PrimaryStepWords;
+
+        var secondaryStep = "initialize";
+        var SecondaryStepMessageList = ["", "", "", "", ""]; //limit list to 5 messages
+        var SecondaryStepWords;
+        var secondaryStepTimeout = 0;
+
+        var AcceptValueAndSaveParametersAndClosePopUp = false;
+        var DeclineAndClosePopUp = false;
+
+        ///////////////////////////////////////////////////////////////////WebApp Specific Static Variables
+        var PrndInitialValue;
+
+        function InitializeStateMachine()
+        {
+            slowLogDown = 0;
+            simulatorStartTime;
+
+            bar1ProgressPercentage = 0;
+            bar1ProgressPercentage2 = 0;
+            progressArea;
+            primaryStep = "Initialize stuff";
+
+            secondaryStep = "initialize";
+            PrimaryStepMessageList = ["", "", "", "", ""]; //limit list to 5 messages
+            SecondaryStepMessageList = ["", "", "", "", ""]; //limit list to 5 messages
+            PrimaryStepWords;
+            secondaryStepTimeout = 0;
+
+            AcceptValueAndSaveParametersAndClosePopUp = false;
+            DeclineAndClosePopUp = false;
+
+            PRNDAnimation('P');
+        }
+
+        function InitializeAll()
+        {
+            $("#DiagnosticsResultsList").empty();
+
+            bar1ProgressPercentage = 0;
+            bar1ProgressPercentage2 = 0;
+            PrimaryStepMessageList = ["", "", "", "", ""]; //limit list to 5 messages
+            SecondaryStepMessageList = ["", "", "", "", ""]; //limit list to 5 messages
+            secondaryStepTimeout = 0;
+        }
+
+        //more static vars
+        var FootSwitchInitialValue;
+        var ThrottleInitialValue;
+        var SeriesVehicleInputs = false;
+        var tryAnotherWay = false;
+
+        async function TestStateMachine(pollingTimer)
+        {
+            /////////////////////////////////////////////////Polled General stuff used by all states////////////////////////////////////////////////////////////
+
+            // var nowTime = (new Date().getTime() / 1000).toFixed(3); //can be used to debug timing if necessary
+            var PRND;
+            var FootSwitchValue;
+            var ThrottleValue;
+            //to help with the restart all this buttons especially for hidden static variables
+            //start watching for foot switch
+
+            if (primaryStep == "Initialize stuff")
+            { // done this way so that the polling stuff outside the state machine starts up properly
+                await App.NavitasMotorController.JsonCommands({ GetAppParameters: {}}); //wiill update things like App.NavitasMotorController.ModelType
+                document.getElementById("DeterminingVehicleTypeContainer").style.visibility = "hidden";
+
+                if (App.NavitasMotorController.ModelType.includes("TAC"))
+                {
+
+                    document.getElementById("PRNDContainer").style.visibility = "visible";
+                    document.getElementById("FootSwitchThrottleContainer").style.visibility = "hidden";
+                    footSwitchThrottleScopeTriggeredContinuousReadCommandHolder = footSwitchThrottleScopeTriggeredContinuousReadCommand;
+                }
+                else
+                {
+                    await App.NavitasMotorController.JsonCommands({ Read: { 'PARMOTORTYPE': 1} });
+                    document.getElementById("verificationHelper").style.visibility = "visible";
+                    //TODO: get some more of the view model working
+                    //like App.NavitasMotorController.GetParameter("PARMOTORTYPE").enum
+                    if(!tryAnotherWay)
+                    {
+                        if (App.NavitasMotorController.GetParameter("PARMOTORTYPE").parameterValue == 1 || App.NavitasMotorController.GetParameter("PARMOTORTYPE").parameterValue == 2)
+                        {
+                            SeriesVehicleInputs = true;
+                            document.getElementById("PRNDContainer").style.visibility = "hidden"
+                            document.getElementById("FootSwitchThrottleContainer").style.visibility = "visible"
+                        }
+                        else
+                        {
+                            document.getElementById("PRNDContainer").style.visibility = "visible";
+                            document.getElementById("FootSwitchThrottleContainer").style.visibility = "hidden";
+                        }
+                    }
+
+                    footSwitchThrottleScopeTriggeredContinuousReadCommandHolder = footSwitchThrottleScopeTriggeredContinuousReadCommandTSX;
+                }
+                InitializeAll();
+            }
+            else
+            {
+                /////////////////////////////////////////////////End of General stuff used by all states
+                PRND = App.NavitasMotorController.GetParameter("SWITCHBITS").parameterValue & 0x6;
+                //if (PRND != 0)
+                {
+                    //turnOnPnrdPopup();
+                    var letter;
+
+                    if (PRND == 2)
+                        letter = "F";
+                    else if (PRND == 4)
+                        letter = "R";
+                    else if (PRND == 0)
+                        letter = "N";
+                    else
+                        letter = "P";
+
+                    PRNDAnimation(letter);
+                }
+                //else
+                //turnOffPnrdPopup();
+
+                FootSwitchValue = App.NavitasMotorController.GetParameter("FOOTSW").parameterValue;
+                ThrottleValue = App.NavitasMotorController.GetParameter("VTHROTTLEV").parameterValue;
+
+            }
+
+
+            ///////////////////////////////////////////////////// Polled State Machine ////////////////////////////////////////////////////////////
+            //for on screen debuggin keep this whole try/catch
+            //but sometimes it is clearer to let the browser display it's own errors at the correct line number
+            //then comment it out
+            try
+            { //This state maching some times uses primaryStep or secondary and state1, state2...once in a while I change to a more descriptive name
+                //just to show how
+
+                switch (primaryStep)
+                {
+                case "Initialize stuff":
+
+                    simulatorStartTime = (new Date().getTime() / 1000).toFixed(3);
+                    simulatedSWITCHBITS = 4;
+
+                        await App.NavitasMotorController.JsonCommands(footSwitchThrottleScopeTriggeredContinuousReadCommandHolder); //now just start to blow them down
+
+                    primaryStep = "Primary Step 1";
+                    secondaryStep = "initialize";
+
+                    break;
+                case "Primary Step 1": //latch inputs we started with
+                    //////////////////////////////////////a separate state machine for this step
+                    switch (secondaryStep)
+                    {
+
+                    case "initialize": //build your visual area, it is created dynamically for visual effect
+                        PrndInitialValue = PRND;
+                        FootSwitchInitialValue = FootSwitchValue;
+                        ThrottleInitialValue = ThrottleValue;
+
+                        PrimaryStepWords = $("#PrimaryInstructions");
+                        SecondaryStepWords = $("#SecondaryInstructions");
+                        //in general blur/fade other areas to focus on this one
+                            PrimaryStepMessageList[0] = "TO ALLOW YOUR FIRST CHANGE TO THIS VEHICLE, FOLLOW THE STEPS BELOW";
+                        if (!SeriesVehicleInputs)
+                        {
+                            if (PrndInitialValue & 2)
+                            {
+                                SecondaryStepMessageList[0] = "Change from FORWARD to REVERSE";
+                            }
+                            else if (PrndInitialValue & 4)
+                            {
+                                SecondaryStepMessageList[0] = "Change from REVERSE to FORWARD";
+                            }
+                            else
+                            {
+                                SecondaryStepMessageList[0] = "Change from NEUTRAL to FORWARD";
+                            }
+                        }
+                        else
+                        {
+
+                            SecondaryStepMessageList[0] = "Slowly press the throttle<br>We are checking for a small change";
+                        }
+
+                        progressArea = document.getElementById('DiagnosticsResultsFullPopUp Progress Circle 1');
+                        bar1ProgressPercentage = progressBar(progressArea, 0, "", "");
+                        secondaryStep = "Secondary Step 1";
+                        secondaryStepTimeout = 50; //5 seconds
+
+                        break;
+
+                    case "Secondary Step 1": //prompt to go back to initial values
+                        if (PRND != PrndInitialValue || (FootSwitchInitialValue != FootSwitchValue || Math.abs(ThrottleInitialValue - ThrottleValue) > 0.5))
+                        {
+                            secondaryStep = "Secondary Step 2"; //all this should be done only once,  move on
+
+                            if (PrndInitialValue & 2 && !SeriesVehicleInputs)
+                            {
+                                SecondaryStepMessageList[0] = "Change back to FORWARD";
+                            }
+                            else if (PrndInitialValue & 4 && !SeriesVehicleInputs)
+                            {
+                                SecondaryStepMessageList[0] = "Change back to REVERSE";
+                            }
+                            else if (!SeriesVehicleInputs)
+                            {
+                                SecondaryStepMessageList[0] = "Change back to NEUTRAL";
+                            }
+                            else if ((FootSwitchInitialValue != FootSwitchValue || Math.abs(ThrottleInitialValue - ThrottleValue) > 0.5) && SeriesVehicleInputs)
+                                SecondaryStepMessageList[0] = "Release the throttle";
+
+                        }
+                        break;
+                    case "Secondary Step 2": //wait for signals to go back to what they started at
+                        if (PRND == PrndInitialValue && !SeriesVehicleInputs)
+                        {
+                            secondaryStep = "Secondary Step 3";
+                                    await App.NavitasMotorController.JsonCommands({ ControlVerified: null});
+                        }
+                        else if (FootSwitchInitialValue == FootSwitchValue && Math.abs(ThrottleInitialValue - ThrottleValue) < 0.2 && SeriesVehicleInputs)
+                        {
+                            secondaryStep = "Secondary Step 3";
+                                    await App.NavitasMotorController.JsonCommands({ ControlVerified: null });
+                        }
+                        break;
+                    case "Secondary Step 3":
+                        primaryStep = "End Primary Steps";
+                        SecondaryStepMessageList[0] = "Complete, closing verification";
+                        break;
+                    }
+
+                    break;
+
+                case "End Primary Steps":
+                        await App.NavitasMotorController.JsonCommands({ Close: null });
+                    return; //final return
+                    break;
+                }
+
+                if (PrimaryStepWords != null)
+                    PrimaryStepWords.html(PrimaryStepMessageList[0] + PrimaryStepMessageList[1] + PrimaryStepMessageList[2] + PrimaryStepMessageList[4]);
+                if (SecondaryStepWords != null)
+                    SecondaryStepWords.html(SecondaryStepMessageList[0] + SecondaryStepMessageList[1] + SecondaryStepMessageList[2] + SecondaryStepMessageList[4]);
+            }
+            catch (e)
+            { //sometimes it is easier to debug by letting the normal console tell you where the exception is,
+                // so comment out the whole try catch
+                //console.log("Something went wrong" + e.toString());
+                //MyConsoleLog("Something went wrong" + e.toString());
+                await App.NavitasMotorController.JsonCommands({ Close: null });
+            }
+
+            ///////////////////////////////////////////only one loop can call kdfdskjak
+            if (AcceptValueAndSaveParametersAndClosePopUp)
+            {
+                AcceptValueAndSaveParametersAndClosePopUp = false
+            }
+
+            if (DeclineAndClosePopUp)
+            {
+                DeclineAndClosePopUp = false;
+                turnOffInteractionFullPagePopup();
+            }
+            //End of laskdjflsakdj
+
+            setTimeout(() => TestStateMachine(pollingTimer), pollingTimer); //start again in this time and pass the same value to this call
+
+            //dont't blow out to many console logs but uncomment below to Debug the executtion time of this routine
+            // var nowTime1 = (new Date().getTime() / 1000).toFixed(3);
+            // if (slowLogDown % 10 == 1)
+            // {
+            //     //MyConsoleLog("Time to execute = " + (nowTime1 - nowTime).toFixed(3).toString());
+            //     console.log("Time to execute = " + (nowTime1 - nowTime).toFixed(3).toString());
+            //     if (!tracerHasRoom)
+            //         console.log("throttleTracer is full");
+            // }
+            // slowLogDown++;
+        }
+
+        var SimulatorNoise = false;
+        var minimumBufferFilled = false
+        var nextMinThrottleWillWait = true;
+
+        var simulatedFOOTSW = 0;
+        var simulatedVTHROTTLEV = 0.1;
+        var SimulatedPARMOTORTYPE = 0;
+
+        var previousLetter = " ";
+
+        function PRNDAnimation(letter)
+        {
+            if (previousLetter != letter)
+            {
+                if (previousLetter != " ")
+                    $("#" + previousLetter).toggleClass("hovered");
+                // if (letter == "P")
+                // {
+                //     // $("#myKey img").addClass("hovered");
+                //     $("#myKey img").show(); //even another method to change css
+                //     $("#myKey img").addClass("blinkThis");
+                // }
+                // else
+                // {
+                //     // $("#myKey img").removeClass("hovered");
+                //     $("#myKey img").hide();
+                //     $("#myKey img").removeClass("blinkThis");
+                // }
+
+                $("#" + letter).toggleClass("hovered");
+                var elem = document.getElementById("myAnimation")
+                let elemPosition = elem.getBoundingClientRect();;
+                if (previousLetter == " ")
+                    previousLetter = "P";
+                let box = document.getElementById(previousLetter).getBoundingClientRect();
+                let pos = box.left - document.getElementById('PRNDContainer').getBoundingClientRect().left + (box.width / 2 - elemPosition.width / 2);
+                elem.style.left = pos + 'px';
+                elem.style.top = elemPosition.height * 1.2;
+                box = document.getElementById(letter).getBoundingClientRect();
+                let letterPosition = box.left - document.getElementById('PRNDContainer').getBoundingClientRect().left + (box.width / 2 - elemPosition.width / 2);
+                var id = setInterval(frame, 1);
+                previousLetter = letter;
+
+                function frame()
+                {
+                    if (pos <= letterPosition)
+                    {
+                        pos++;
+                        //elem.style.top = pos + 'px';
+                        elem.style.left = pos + 'px';
+                        if (pos >= letterPosition)
+                        {
+                            clearInterval(id);
+                        }
+                    }
+                    else
+                    {
+                        pos--;
+                        //elem.style.top = pos + 'px';
+                        elem.style.left = pos + 'px';
+                        if (pos <= letterPosition)
+                        {
+                            clearInterval(id);
+                        }
+                    }
+                }
+            }
+
+        }
+        //Design for test makes your life easier
+        //keep you simulators functional and up to date or you will hate yourself later
+        let Simulator;
+        function InitializeSimulatorModel() {
+            Simulator = {
+                decrementVTHROTTLEV: false,
+                ROTORRPM: App.SimulatedMotorController.GetParameter("ROTORRPM"),
+                VTHROTTLEV: App.SimulatedMotorController.GetParameter("VTHROTTLEV"),
+                FOOTSW: App.SimulatedMotorController.GetParameter("FOOTSW"),
+                THROTTLEMAX: App.SimulatedMotorController.GetParameter("THROTTLEMAX"),
+                THROTTLEMIN: App.SimulatedMotorController.GetParameter("THROTTLEMIN"),
+                SWITCHBITS: App.SimulatedMotorController.GetParameter("SWITCHBITS")
+            }
+
+            Simulator.VTHROTTLEV.parameterValue = 0.1;
+        }
+
+        function LocalSimulator()
+        {
+            if (Simulator == undefined)
+                InitializeSimulatorModel();
+
+           var nowTime = (new Date().getTime() / 1000).toFixed(3);
+
+            if ((nowTime - simulatorStartTime > 6.0))
+            {
+                Simulator.SWITCHBITS.parameterValue = 0;
+            }
+            else if ((nowTime - simulatorStartTime > 4.0))
+            {
+                Simulator.SWITCHBITS.parameterValue = 4;
+            }
+            else if ((nowTime - simulatorStartTime > 2.0))
+            {
+                Simulator.SWITCHBITS.parameterValue = 2;
+            }
+
+            //dont't blow out to many console logs but uncomment below to Debug the executtion time of this routine
+            // var nowTime1 = (new Date().getTime() / 1000).toFixed(3);
+            // if (slowLogDown2 % 10 == 1)
+            // {
+            //     //MyConsoleLog("Time to execute = " + (nowTime1 - nowTime).toFixed(3).toString());
+            //     console.log("Time to execute = " + (nowTime1 - nowTime).toFixed(3).toString());
+            //     if (!tracerHasRoom)
+            //         console.log("throttleTracer is full");
+            // }
+            // slowLogDown2++;
+
+            // MyConsoleLog("Test");
+        } //end of Graph Simulated data
+        function GeneralProgressTiming(pollingTimer)
+        { //asychronous to other things
+            if (document.getElementById('DiagnosticsResultsFullPopUp Progress Circle 1').style.visibility == "visible")
+            {
+                bar1ProgressPercentage2 = progressBar(document.getElementById('DiagnosticsResultsFullPopUp Progress Circle 1'), 101 + bar1ProgressPercentage2, "", "", 100, '#e7f2ba', 'Saving...') + 4;
+                setTimeout(() => GeneralProgressTiming(pollingTimer), pollingTimer); //start again in this time and pass the same value to this call
+            }
+        }
+
+        function toggleFlipVerification()
+        {
+            InitializeStateMachine();
+            tryAnotherWay = true;
+            if (document.getElementById("PRNDContainer").style.visibility == "visible")
+            {
+                SeriesVehicleInputs = true;
+                document.getElementById("PRNDContainer").style.visibility = "hidden";
+                document.getElementById("FootSwitchThrottleContainer").style.visibility = "visible";
+            }
+            else
+            {
+                SeriesVehicleInputs = false;
+                document.getElementById("PRNDContainer").style.visibility = "visible";
+                document.getElementById("FootSwitchThrottleContainer").style.visibility = "hidden";
+            }
+
+        }
+
+        // function ImHere()
+        // {
+
+        //     document.getElementById("DeterminingVehicleTypeContainer").style.visibility = "hidden";
+        //     document.getElementById("ImHere").style.visibility = "visible";
+        // }
+    </script>
+    <!--The below type of inline styling is used just to demonstrate it can be,
+    normally a separate .css file contains this-->
+    <style>
+        body {
+            position:relative;
+            background-color:#40404080;
+        }
+        
+        img {
+            width: 100%;
+        }
+
+        .boxshadow {
+            -moz-box-shadow: 6px 6px 10px #535353;
+            -webkit-box-shadow: 6px 6px 10px #535353;
+            box-shadow: 6px 3px 10px #535353;
+        }
+
+        .roundbox {
+            -moz-border-radius: 1vw 1vw 1vw 1vw;
+            -webkit-border-radius: 1vw;
+            border-radius: 0.5vw 0.5vw 0.5vw 0.5vw;
+        }
+
+        #PRNDContainer span {
+            padding: 1vw;
+            line-height: 6.5vw;
+            height: 6.5vw;
+            transition: font 0.3s ease;
+            font: 4.5vw Verdana;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        #PRNDContainer span.hovered {
+            font-size: 6vw;
+        }
+
+        .boxcontenttext {
+            background: #DCECDC;
+            font: 4.5vw Verdana;
+            width: 100%;
+            height:100%;
+        }
+
+        #DiagnosticsResults {
+            width:100%;
+        }
+
+        #MyConsoleLogOutputArea{
+            visibility: hidden;
+            position: absolute;
+            width:100%;
+            top: 50%;
+            z-index: 100;
+        }
+
+        #PnrdPopup {
+            position: absolute;
+            visibility:visible;
+            top: 25%;
+            left:5%;
+            width: 90%;
+            border: solid 2px steelblue;
+        }
+
+        #InstructionTitle {
+            text-align:center;
+            color: red;
+            padding:5% 0;
+        }
+
+        #DeterminingVehicleTypeContainer{
+            width:100%;
+            visibility:visible;
+            animation: blink 1s;
+            animation-iteration-count: infinite;
+        }
+
+        #SecondaryInstructions{
+            margin-top: 30%;
+            text-align:center;
+            padding-bottom: 10%;
+            animation: blink 1s;
+            animation-iteration-count: infinite;
+        }
+
+        #btnContainer{
+            padding-bottom: 5%;
+        }
+
+        #btnContainer > button, #verificationHelper{
+            font: 3.5vw Verdana;
+            white-space: nowrap;
+            text-align: center;
+        }
+
+        #DiagnosticsResultsFullPopUp{
+            position: absolute;
+            top: 50%;
+            visibility:hidden;
+            left:5%;
+            width: 90%;
+            border: solid 2px steelblue;
+        }
+
+        #DiagnosticsResultsFullPopUpProgressCircle1{
+            visibility:hidden;
+            position: absolute;
+            top:30%;
+            left:30%;
+            width:50%;
+        }
+
+
+        #myKey img.hovered {
+            height: 10vw;
+        }
+
+        #myKey {
+            /*padding-top: 0;*/
+            /*display: flex;*/
+            /*align-items: flex-end;*/
+            /*height: 200%*/
+            /*            width: 200px;
+            height: 400px;
+*/
+            /*object-fit: cover;*/
+            width: 5vw;
+            height: 5vw;
+            position: absolute;
+            top: .5vw;
+            left: 0;
+        }
+
+        @-webkit-keyframes blink {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .blinkThis {
+            -webkit-animation: blink 1s;
+            -webkit-animation-iteration-count: infinite;
+        }
+
+        #myAnimation {
+            width: 1.75vw;
+            height: 3vw;
+            position: absolute;
+            top: 4.5vw;
+            left: 0;
+        }
+
+        #PRNDContainer {
+            position: absolute;
+            top: 20%;
+            height: 7vw;
+            left: 35%;
+            background-color: #080808;
+            display: flex;
+            justify-content: space-between;
+            width: 15%;
+            color: #E8E8E8;
+            overflow: hidden;
+            -webkit-box-shadow: inset 0 0 2px #444444;
+            box-shadow: inset 0 0 2px #444444;
+        }
+
+        #FootSwitchThrottleContainer {
+            position: absolute;
+            top: 10%;
+            /*height: 7vw;*/
+            left: 35%;
+            background-color: #080808;
+            display: flex;
+            justify-content: space-between;
+            width: 15%;
+            color: #E8E8E8;
+            overflow: hidden;
+            -webkit-box-shadow: inset 0 0 2px #444444;
+            box-shadow: inset 0 0 2px #444444;
+        }
+
+        .myButton {
+            box-shadow: 0px 1px 0px 0px #f0f7fa;
+            background: linear-gradient(to bottom, #33efbd 5%, #01d29a 100%);
+            background-color: #33efbd;
+            border-radius: 6px;
+            border: 1px solid #057fd0;
+            display: inline-block;
+            cursor: pointer;
+            color: #ffffff;
+            font-family: Arial;
+            font-size: 15px;
+            font-weight: bold;
+            padding: 6px 24px;
+            text-decoration: none;
+            text-shadow: 0px -1px 0px #5b7861;
+            font: 3.5vw Verdana;
+            margin-top: 5%;
+            /*another one of 50 ways to place it*/
+            float: right;
+        }
+
+        .myButton:hover {
+            background: linear-gradient(to bottom, #01d29a 5%, #33efbd 100%);
+            background-color: #01d29a;
+        }
+
+        .myButton:active {
+            position: relative;
+            top: 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- as a popup webapp show some of the background -->
+    <!-- for one type of debugging, becomes visible if written to with MyConsoleLog("words") -->
+    <!-- starts half way down the screen using top: 50%; -->
+    <div id="MyConsoleLogOutputArea">
+    </div>
+    <div id="DiagnosticsResults">
+        <div id="PnrdPopup" class="roundbox boxshadow">
+            <div class="boxcontenttext roundbox">
+                <div id="InstructionTitle">VERIFICATION NEEDED</div>
+                <div id="PrimaryInstructions" align="center">TO ALLOW YOUR FIRST CHANGE TO THIS VEHICLE, FOLLOW THE STEPS BELOW
+                </div>
+                <div id="DeterminingVehicleTypeContainer" align="center">
+                    <span>Determining vehicle type.....</span>
+                </div>
+                <!--                 <div id="ImHere" align="center" style="width:100%;visibility:hidden; animation: blink 1s;animation-iteration-count: infinite; ">
+                    <span>ImHere.</span>
+                </div>
+ -->
+                <div id="PRNDContainer" style="width:30%;margin-top: 25%;visibility:hidden;">
+                    <!-- <div id="myKey"><img src='./images/actualKeyImage.jpeg' style="width:100%;" /></div> -->
+                    <div id="myAnimation"><img src='./images/redPointer.gif'/></div>
+                    <span> </span><span id="P">P</span><span id="R">R</span><span id="N">N</span><span id="F">F</span><span> </span>
+                </div>
+                <div id="FootSwitchThrottleContainer" style="width:25%;margin-top: 30%;visibility:hidden;">
+                    <img src='./images/FootSwitchAndThrottle.gif'/>
+                </div>
+                <div id="SecondaryInstructions" align="center" >Follow these instructions</div>
+                <div id="btnContainer" align="center">
+                    <button onClick='primaryStep = "End Primary Steps";'>Ask me later</button>
+                    <!-- <button onclick="toggleFlipVerification()">Try This</button> -->
+                </div>
+                <div id="verificationHelper" align="center" style="padding-bottom: 5%; visibility: hidden;">Is this hepful ? If not, <a href="javascript:toggleFlipVerification()" >try another way</a></div>
+            </div>
+        </div>
+        <div id=DiagnosticsResultsFullPopUp class="roundbox boxshadow">
+            <canvas id="DiagnosticsResultsFullPopUp Progress Circle 1"></canvas>
+        </div>
+    </div>
+</body>
+
+</html>

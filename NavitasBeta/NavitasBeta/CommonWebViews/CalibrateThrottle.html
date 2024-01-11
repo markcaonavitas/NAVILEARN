@@ -1,0 +1,2173 @@
+﻿<!-- This example is an all in one file right now to demonstrate the configuarability of this WEB App page
+I tried to make references to the open source MIT or ??? Licensed things that we can use and change
+without worry.
+
+The code behind is "Vanilla Javascript" to gain some experience without public frameworks like
+Angular.js or jQurey.js. The refrences to jQuery are because some of the widgets use them AND it stil
+has a lot of code saving techniques.
+
+Remeber Unit testing is the key, this doesn't have it Per se develop a simulator to at least develop
+code quicker.
+-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Dashboard HTML5 Canvas</title>
+    <link rel="stylesheet" href="./themes/odometer-theme-car.css" />
+    <!-- for easeier development  goto and install liverreload.something on your PC. It will automatically (live)update the screen when any file is saved -->
+    <script>
+        if (!(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent))) { //assume debugger utility below is only when running on PC
+        }
+        else {
+            //Below is necessary because Android does not start at full screen
+            //doesn't runn on PC so we can use the screen resizing for some format checks
+            document.documentElement.style.height = screen.height + 'px';
+        }
+    </script>
+    <!-- jquery does have some very usefull functions but be aware that javascript abilities get updated every few years -->
+    <script src="./frameworks/jquery-3.4.1.min.js"></script>
+    <script src="./frameworks/jquery.xml2json.js"></script>
+    <!--The next three are used in NavitasMotorControllerModel.js for backwards compatible things so that Safari(iOS webview) can handle the new Custom Event super() inheritance
+    very confusing for newbies and I should be carefull not to bring in new javascript/html revision features that may not be supported by iOS yet-->
+    <script src="./frameworks/min.js"></script>
+    <script src="./frameworks/ResizeObserver.global.js"></script>
+    <script src="./frameworks/polyfill.min.js"></script>
+    <!-- Navitas framework -->
+    <!-- NavitasMotorControllerModel.js is frameworkless, written to allow some simple MVVM (notify property has changed things) that frame works like Angular.js would do. It is a demonstration
+    of the high level but basic abilities of standalone javascript.  The style some code is meant to show similaritiies (reusable) to C#-->
+    <script src="./frameworks/List.js"></script>
+    <script src="./frameworks/ViewModelHook.js"></script>
+    <script src="./frameworks/TACDictionary.js"></script>
+    <script src="./frameworks/TSXDictionary.js"></script>
+    <script src="./frameworks/NavitasMotorControllerModel.js"></script>
+    <script src="./frameworks/CommunicationsInterface.js"></script>
+    <script src="./frameworks/SimulatedCommandInterface.js"></script>
+    <!-- New Javascript to Hardware Interfaces -->
+    <!--    <script src="../js/RegressionTestBoxModelADictionary.js"></script>-->
+    <!--    <script src="../js/RegressionTestBoxModelA.js"></script>-->
+    <script src="./frameworks/PageParameterList.js"></script>
+    <script src="./frameworks/PageCommunicationsList.js"></script>
+    <script src="./frameworks/NavitasGeneralPageView.js"></script>
+    <script src="./frameworks/Queue.js"></script>
+    <script src="./frameworks/NavitasModbus.js"></script>
+    <!--    <script src="../js/Eb100Modbus.js"></script>-->
+    <!--    <script src="../js/FirmwareDownload.js"></script>-->
+    <!-- if below file is found HasBrowserCommandInterface is set to defined -->
+    <!--<script src="./frameworks/BrowserCommandInterface.js"></script>-->
+    <!--The best thing to happen to javascript in 20 years is the Async..Await features. Using them with the promise concept allows code to hide callback hell-->
+    <!--graphing stuff. Note: This fully uses jQuery-->
+    <!-- <script language="javascript" type="text/javascript" src="./widgets/jquery.flot.min.js"></script> -->
+    <script language="javascript" type="text/javascript" src="./widgets/jquery.flot.js"></script> <!-- I modified the original source to get a different legend box size -->
+    <link href="./themes/examples.css" rel="stylesheet" type="text/css" />
+    <!-- Navitas custom Progess Bar -->
+    <script language="javascript" type="text/javascript" src="./widgets/ProgressBarPercentPassFail.js"></script> <!-- lots of room for graphics improvement -->
+    <script>
+        if (typeof HasBrowserCommandInterface != 'undefined') {
+            App = { //just so it looks like the c# NavitasBeta App.
+                NavitasMotorController: new NavitasMotorControllerModel(new CommunicationsInterface(new NavitasModbus())),
+            }
+        }
+        else {
+            App = { //just so it looks like the c# NavitasBeta App.
+                NavitasMotorController: new NavitasMotorControllerModel(new CommunicationsInterface({})),
+            }
+        }
+        let task = new Task();
+        window.addEventListener("unload", async function () {
+            App.NavitasMotorController.Communications.bEnableCommunicationTransmissions = false;
+            App.RegressionTestBoxModelA.Communications.bEnableCommunicationTransmissions = false;
+            console.log("Trying to Close ");
+            App.NavitasMotorController.Communications.DeviceSocket.websocket.close();
+            App.RegressionTestBoxModelA.Communications.DeviceSocket.websocket.close();
+        });
+
+        //var thing = document.querySelectorAll("[data-action]");
+        //App.NavitasMotorController.Communications.BeginThread();
+        //App.NavitasMotorController.Communications.protocal.bEnableCommunicationTransmissions = true;
+        //App.RegressionTestBoxModelA.Communications.BeginThread();
+        //App.RegressionTestBoxModelA.Communications.protocal.bEnableCommunicationTransmissions = true;
+        // $(document).ready(function() {
+        //   /* Do things after DOM has fully loaded */
+        // });
+
+        // Without jQuery
+        // Define a convenience method and use it
+        var ready = (callback) => {
+            //screen.orientation.addEventListener("change", callback);
+            if (document.readyState != "loading") callback();
+            else document.addEventListener("DOMContentLoaded", callback);
+        }
+        ready(async () => {
+            //Debug to standard Chrome/firefox/safari debugger, console.log
+            //or Debug to your own window I call MyConsoleLog. use this if consol log output is not visible like when debugging without Visual Studio debugger
+            //MyConsoleLog("w x h " + window.innerWidth.toString() + " x " + window.innerHeight.toString());
+            //console.log("w x h " + window.innerWidth.toString() + " x " + window.innerHeight.toString());
+            await WaitForPhoneAppToStartThis(); //uncomment to run App
+        });
+
+        var TacSimulationCheckTimeout = 80; //a global var because static var is not a thing
+        var TsxSimulationCheckTimeout = 81; //a global var because static var is not a thing
+
+        async function WaitForPhoneAppToStartThis() {
+            //if this is running in the actual Phone App then the App will inject a function called invokeCSharpAction()
+            //so give it a couple seconds to do that (should only take 100ms)
+            //TacSimulationCheckTimeout = 0; //simulate immediately for development
+            //TsxSimulationCheckTimeout = 0; //simulate immediately for development
+            if (typeof HasBrowserCommandInterface != 'undefined') { //This must be running from a browser
+                //RG Nov 27, Something has to be done here if simulating
+                invokeSimulatedActionIsEnabled = false;
+                App.NavitasMotorController.Communications.protocal.bEnableCommunicationTransmissions = true;
+                await App.NavitasMotorController.Communications.BeginThread();
+                while (App.NavitasMotorController.ModelType == "")// || App.RegressionTestBoxModelA.ModelType == "" || App.firmwareDownload.AlreadyTalkingToBootloader == true) //wait for communications to start
+                    await Task.Delay(500);
+                App.NavitasMotorController.CommandHandler = new BrowserCommandInterface(App.NavitasMotorController);
+                //App.RegressionTestBoxModelA.CommandHandler = new BrowserCommandInterface(App.RegressionTestBoxModelA);
+                //await App.firmwareDownload.Download(); //works as a test
+                TestStateMachine(100);
+            }
+            else if (typeof invokeCSharpAction == 'function') { //This must be running from the Phone App
+                invokeSimulatedActionIsEnabled = false;
+                await App.NavitasMotorController.JsonCommands({ GetAppParameters: {} }); //wiill update things like App.NavitasMotorController.ModelType
+                TestStateMachine(100);
+            }
+            else { //if not, then we must be running out of a browser and developing so turn on the simulator to help design for test
+                if (TacSimulationCheckTimeout == 0) {
+                    invokeSimulatedActionIsEnabled = true;
+                    App.NavitasMotorController.Model = "TAC";
+                    App.SimulatedMotorController = new NavitasMotorControllerModel(new CommunicationsInterface({}));
+                    App.SimulatedMotorController.Model = "TAC"; //NavitasMotorController has a model object that sets this type
+                    App.NavitasMotorController.CommandHandler = new SimulatedCommandInterface(App.NavitasMotorController, App.SimulatedMotorController);
+                    InitializeSimulatorModel();
+                    setTimeout(() => App.NavitasMotorController.CommandHandler.StartNavitasControllerSimulator(10, () => { TacThrottleCalibrationSimulator() }), 101); //to run your specific Unit Test simulator
+                    TestStateMachine(100);
+                }
+                else if (TsxSimulationCheckTimeout == 0) {
+                    invokeSimulatedActionIsEnabled = true;
+                    App.NavitasMotorController.Model = "TSX"; //NavitasMotorController has a model object that sets this type
+                    App.SimulatedMotorController = new NavitasMotorControllerModel(new CommunicationsInterface({}));
+                    App.SimulatedMotorController.Model = "TSX";
+                    App.NavitasMotorController.CommandHandler = new SimulatedCommandInterface(App.NavitasMotorController, App.SimulatedMotorController);
+                    InitializeSimulatorModel();
+                    setTimeout(() => App.NavitasMotorController.CommandHandler.StartNavitasControllerSimulator(10, () => { TsxThrottleCalibrationSimulator() }), 101); //to run your specific Unit Test simulator
+                    TestStateMachine(100);
+                }
+                else {
+                    //SimulationCheckTimeout -= 1;
+                    setTimeout(WaitForPhoneAppToStartThis, 100);
+                }
+            }
+        }
+
+        //////////////////////////////////////////////////////////global graph variables
+        var xAxisLength = 200; //maximum x axis ticks
+        var maxThrottleVoltageToDisplay = 5.5 //maximum y axis V
+
+        //non displayed straight line used to find voltage(y axis) vs key(x axis position)
+        var lineGuide = new Object
+        lineGuide.data = new Array(xAxisLength);
+        lineGuide.label = ""
+        lineGuide.color = "#FF0000";
+
+        //thick green graph line showing THROTTLEMIN and THROTTLEMAX and knee
+        var throttleLimits = new Object
+        throttleLimits.data = new Array(xAxisLength);
+        throttleLimits.label = "Throttle Power Map Settings";
+        throttleLimits.color = "#74C64880";
+        //throttleLimits.points = { lineWidth: 32, show:true, radius:0.2};
+        throttleLimits.lines = {
+            show: true,
+            lineWidth: 50,
+            font:
+            {
+                size: 310,
+            },
+        }
+
+        //live graph line showing history (dots) of throttle readings
+        var throttleTracer = new Object;
+        throttleTracer.data = [
+            [0, 0],
+        ];
+        throttleTracer.label = ""; //"Throttle  Store"
+        throttleTracer.color = "#000000";
+        throttleTracer.points = {
+            show: true,
+            radius: 0.2,
+            lineWidth: 8
+        };
+
+        //live graph line which looks like a pointer to the present throttle reading
+        var voltagePointer = new Object;
+        voltagePointer.data = new Array(xAxisLength);
+        voltagePointer.color = "#0000ff";
+        voltagePointer.points = {
+            show: false,
+            radius: 0.2,
+            lineWidth: 8
+        };
+
+
+        //foot switch indication area
+        var footSwitchAreaGraph = new Object
+        footSwitchAreaGraph.data = new Array(xAxisLength);
+        //footSwitchAreaGraph.label = "Throttle Power Map Settings";
+        footSwitchAreaGraph.color = "#d0d0d0";
+        //         series: {
+        //     lines: {
+        //         show: true,
+        //         fill: true
+        //     }
+        // }
+
+        footSwitchAreaGraph.lines = {
+            show: true,
+            fill: true,
+            lineWidth: 0,
+            font:
+            {
+                size: 310,
+            },
+        }
+        /////////////////////////////////////////////// preset communication packets
+        //Read commands include a value that is unused just to have similar formatting as write commands
+        var startupParameters;
+
+        //after a Read Contiuously is issued the Phone App just constantly send unsolicited responses with the latest data
+        var footSwitchThrottleScopeTriggeredContinuousReadCommand;
+        var footSwitchThrottleScopeTriggeredReadCommand;
+        var lockVehicleCommand;
+        var unlockVehicleCommand;
+
+        var VTHROTTLEVAddress = "15";
+        var PARPRIMTHROTVOLTSAddress = "15";
+
+        var FOOTSWVAddress = "25";
+        var triggerLevel = 1;
+        ///////////////////////////////////////////////////////////////////Static Variables
+        //These are globals because Javascript does not have a static variable concept
+        //ie., "static var" declare in function but persistent between function calls
+        //makes things a bit messy
+        var slowLogDown = 0;
+        var simulatorStartTime;
+        var xAxisKey = 0;
+        var lastVoltage = 0;
+        var lastTimeWithDifferentVoltage = (new Date().getTime() / 1000).toFixed(3);
+
+        var throttleMinOnThresholdParameter;
+        var throttleFullOnThresholdParameter;
+        var throttleKneeGain;
+
+
+        var bar1ProgressPercentage = 0;
+        var bar1ProgressPercentage2 = 0;
+        var progressArea;
+        var primaryStep = "Initialize stuff";
+
+        var secondaryStep = "initialize";
+        var secondaryStepMessageList = ["", "", "", "", ""]; //limit list to 5 messages
+        var stepItem;
+        var secondaryStepTimeout = 0;
+        var calibrationStarted = false;
+        var AllowStartCalibrationButtonToBeClicked = true;
+        var stepCounter;
+
+        //Step One
+        var showWaitingForFootSwitch = false;
+
+        var ThrottleVoltageParameter; //set later with.... = App.NavitasMotorController.GetParameter("VTHROTTLEV"); //just shorter
+        var FootSwitchParameter;
+
+        //figure out a new and/or proper static global handling
+        var liveScopeCapturedFootSwitch = 0;
+        var watchingForNewFootSwichTrigger = false; //start with immediate reading
+        var liveFootSwitchOnVoltageResult = liveFootSwitchOffVoltageResult = 0;
+        var watchForSteadyThrottleStateToBeEntered = false;
+        var liveThrottleVoltage = 0;
+        var CheckWorthinessOfCalibrationAccepted = true;
+        var CalibrationWorthiness_maxFullVMinusMargin = 0;
+        var CalibrationWorthiness_fswOnVplusMargin = 0;
+        var CaptureFirstRoughInitialFootSwitchOnVoltage = false;
+        var RoughInitialFootSwitchOnVoltage = 1; //Just to limit shaded indication area before an actual scope capture
+        var RedrawTemplate = true;
+        var AcceptValueAndSaveParametersAndClosePopUp = false;
+        var DeclineAndClosePopUp = false;
+        var PreviousLiveFootSwitch = 0;
+        var LiveONThrottleVoltage = 0;
+        var LiveOFFThrottleVoltage = 0;
+
+        function InitializeAll() {
+            //Don't know why I had to add the next four lines to get the graph (flotcharts ie., flot.js) to show up
+            let plotArea = document.getElementById('demo-container');
+            if (/Android/i.test(navigator.userAgent)) {
+                plotArea.style.width = screen.width * 0.95 + "px"; //for some reason it needs these set like this
+                plotArea.style.height = screen.height * 0.45 + "px";
+                SetupPlotGraphicElementScales(screen.width, screen.height);
+            }
+            else {
+                plotArea.style.width = window.innerWidth + "px"; //for some reason it needs these set like this
+                plotArea.style.height = window.innerHeight / 2 + "px";
+                SetupPlotGraphicElementScales(window.innerWidth, window.innerHeight);
+            }
+
+            $("#DiagnosticsResultsList").empty();
+
+            bar1ProgressPercentage = 0;
+            bar1ProgressPercentage2 = 0;
+            secondaryStepMessageList = ["", "", "", "", ""]; //limit list to 5 messages
+            secondaryStepTimeout = 0;
+            calibrationStarted = false;
+            AllowStartCalibrationButtonToBeClicked = true;
+            liveScopeCapturedFootSwitch = 0;
+            watchingForNewFootSwichTrigger = false;
+            watchForSteadyThrottleStateToBeEntered = false;
+            liveFootSwitchOnVoltageResult = liveFootSwitchOffVoltageResult = 0;
+            TestStateMachine.ScopeTriggered = 0;
+            TestStateMachine.alreadyReportedFootSwichTrigger = false
+            TestStateMachine.maximumMeasuredThrottleVoltage = 0;
+            TestStateMachine.footswitchOnVoltageResult = 0;
+            TestStateMachine.CalibrationWorthiness = true;
+            TestStateMachine.averageThrottleVoltage = liveThrottleVoltage;
+            TestStateMachine.steadyThrottleVoltage = 0;
+            TestStateMachine.steadyThrottleVoltageCounter = 10; //start at steady
+            TestStateMachine.minimumMeasuredThrottleVoltage = 0;
+            TestStateMachine.footSwitchInitialValue = 0;
+            showWaitingForFootSwitch = false;
+            CheckWorthinessOfCalibrationAccepted = true;
+            RedrawTemplate = true;
+            stepCounter = 1;
+
+            if (App.NavitasMotorController.ModelType == "TAC") {
+                startupParameters = {
+                    Read: {
+                        "THROTTLEMIN": 0,
+                        "THROTTLEMAX": 0,
+                        "THROTTLEKNEEGAIN238": 0,
+                        "SWITCHBITS": 0,
+                        "ROTORRPM": 0,
+                        "VTHROTTLEV": 0,
+                        "FOOTSW": 0,
+                        "VEHICLELOCKED": 0,
+                        "SOFTWAREREVISION": 0,
+                        "DATASCOPECOMMAND": 0
+                    }
+                };
+                footSwitchThrottleScopeTriggeredContinuousReadCommand = {
+                    ReadContinuously: {
+                        "ROTORRPM": 0,
+                        "VTHROTTLEV": 0,
+                        "SWITCHBITS": 0,
+                        "FOOTSW": 0,
+                        "DATASCOPECOMMAND": 0
+                    }
+                };
+                footSwitchThrottleScopeTriggeredReadCommand = {
+                    Read: {
+                        "ROTORRPM": 0,
+                        "VTHROTTLEV": 0,
+                        "SWITCHBITS": 0,
+                        "FOOTSW": 0,
+                        "DATASCOPECOMMAND": 0
+                    }
+                };
+                ThrottleVoltageParameter = App.NavitasMotorController.GetParameter("VTHROTTLEV"); //just shorter
+                FootSwitchParameter = App.NavitasMotorController.GetParameter("FOOTSW");
+            }
+            else if (App.NavitasMotorController.ModelType == "TSX") {
+                if (App.NavitasMotorController.GetParameter("PAREMBEDDEDSOFTWAREVER").parameterValue >= 9.5) {
+                    startupParameters = {
+                        Read: {
+                            "PARPRIMARYTHROTTLEFORWARDMIN": 0,
+                            "PARPRIMARYTHROTTLEFORWARDMAX": 0,
+                            "PARMOTORRPM": 0,
+                            "PARPRIMTHROTVOLTS": 0,
+                            "PARSWITCHSTATES": 0,
+                            "VEHICLELOCKED": 0,
+                            "PAREMBEDDEDSOFTWAREVER": 0,
+                            "Parameter257": 0,
+                            "Parameter258": 0
+                        }
+                    };
+                    footSwitchThrottleScopeTriggeredContinuousReadCommand = {
+                        ReadContinuously: {
+                            "PARMOTORRPM": 0,
+                            "PARPRIMTHROTVOLTS": 0,
+                            "PARSWITCHSTATES": 0,
+                            "Parameter257": 0,
+                            "Parameter258": 0
+                        }
+                    };
+                    footSwitchThrottleScopeTriggeredReadCommand = {
+                        Read: {
+                            "PARMOTORRPM": 0,
+                            "PARPRIMTHROTVOLTS": 0,
+                            "PARSWITCHSTATES": 0,
+                            "Parameter257": 0,
+                            "Parameter258": 0
+                        }
+                    };
+                }
+                else {
+                    startupParameters = {
+                        Read: {
+                            "PARPRIMARYTHROTTLEFORWARDMIN": 0,
+                            "PARPRIMARYTHROTTLEFORWARDMAX": 0,
+                            "PARMOTORRPM": 0,
+                            "PARPRIMTHROTVOLTS": 0,
+                            "PARSWITCHSTATES": 0,
+                            "VEHICLELOCKED": 0,
+                            "PAREMBEDDEDSOFTWAREVER": 0
+                          }
+                    };
+                    footSwitchThrottleScopeTriggeredContinuousReadCommand = {
+                        ReadContinuously: {
+                            "PARMOTORRPM": 0,
+                            "PARPRIMTHROTVOLTS": 0,
+                            "PARSWITCHSTATES": 0
+                        }
+                    };
+                    footSwitchThrottleScopeTriggeredReadCommand = {
+                        Read: {
+                            "PARMOTORRPM": 0,
+                            "PARPRIMTHROTVOLTS": 0,
+                            "PARSWITCHSTATES": 0
+                        }
+                    };
+                }
+                ThrottleVoltageParameter = App.NavitasMotorController.GetParameter("PARPRIMTHROTVOLTS"); //just shorter
+                FootSwitchParameter = App.NavitasMotorController.GetParameter("FOOTSW");
+            }
+            lockVehicleCommand = {
+                Write: {
+                    "VEHICLELOCKED": 1
+                }
+            };
+            unlockVehicleCommand = {
+                Write: {
+                    "VEHICLELOCKED": 0
+                }
+            };
+        }
+
+        function HasFootSwitchCapturedThrottleVoltage() {
+            if (App.NavitasMotorController.ModelType == "TAC") {
+                return App.NavitasMotorController.GetParameter("DATASCOPECOMMAND").parameterValue == 2;
+            }
+            else if (App.NavitasMotorController.ModelType == "TSX") {
+                if (triggerLevel == 1) {
+                    if (App.NavitasMotorController.GetParameter("PAREMBEDDEDSOFTWAREVER").parameterValue >= 9.5)
+                        return App.NavitasMotorController.GetParameter("Parameter257").parameterValue != 0;
+                    else
+                        return LiveONThrottleVoltage != 0;
+                }
+                else {
+                    if (App.NavitasMotorController.GetParameter("PAREMBEDDEDSOFTWAREVER").parameterValue >= 9.5)
+                        return App.NavitasMotorController.GetParameter("Parameter258").parameterValue != 0;
+                    else
+                        return LiveOFFThrottleVoltage != 0;
+                }
+            }
+        }
+
+        async function UpdateFootSwitchCapturedThrottleVoltage() {
+            if (App.NavitasMotorController.ModelType == "TAC") {
+                var getFirstScopeBlock = { ReadScopeDataBlock: { "IQA": 0 } }; //confusingly writing to 0x22 is a get scope block
+                await App.NavitasMotorController.JsonCommands(getFirstScopeBlock); //will stop continuous reads
+                // var nowTimeScopeTiming2= (new Date().getTime() / 1000).toFixed(3);
+                // console.log("Scope buffer retrieval time = ", (nowTimeScopeTiming2 - nowTimeScopeTiming1));
+
+                if (triggerLevel == 1) {
+                    liveFootSwitchOnVoltageResult = App.NavitasMotorController.Model.ScopeDataArray[0].parameterTimeAndValuePairList[0].value;
+                    triggerLevel = 0;
+                }
+                else {
+                    liveFootSwitchOffVoltageResult = App.NavitasMotorController.Model.ScopeDataArray[0].parameterTimeAndValuePairList[0].value;
+                    triggerLevel = 1;
+                }
+
+                //trigger on foot switch equal to 1 or 0 and set the scope to run
+                await App.NavitasMotorController.JsonCommands({
+                    Write: {
+                        "DATASCOPETRIGGERLEVEL": triggerLevel,
+                        "DATASCOPECOMMAND": 1
+                    }
+                });
+            }
+            else if (App.NavitasMotorController.ModelType == "TSX") {
+                if (triggerLevel == 1) {
+                    if (App.NavitasMotorController.GetParameter("PAREMBEDDEDSOFTWAREVER").parameterValue >= 9.5)
+                        liveFootSwitchOnVoltageResult = App.NavitasMotorController.GetParameter("Parameter257").parameterValue;
+                    else
+                        liveFootSwitchOnVoltageResult = LiveONThrottleVoltage;
+
+                    triggerLevel = 0;
+                    if (App.NavitasMotorController.GetParameter("PAREMBEDDEDSOFTWAREVER").parameterValue >= 9.5)
+                        await App.NavitasMotorController.JsonCommands({
+                            Write: {
+                                "Parameter258": 0 //hopefully would never be this value so we can check if it gets set
+                            }
+                        });
+                    else
+                        LiveOFFThrottleVoltage = 0;
+                }
+                else {
+                    if (App.NavitasMotorController.GetParameter("PAREMBEDDEDSOFTWAREVER").parameterValue >= 9.5)
+                        liveFootSwitchOffVoltageResult = App.NavitasMotorController.GetParameter("Parameter258").parameterValue;
+                    else
+                        liveFootSwitchOffVoltageResult = LiveOFFThrottleVoltage;
+
+                    triggerLevel = 1;
+                    if (App.NavitasMotorController.GetParameter("PAREMBEDDEDSOFTWAREVER").parameterValue >= 9.5)
+                        await App.NavitasMotorController.JsonCommands({
+                            Write: {
+                                "Parameter257": 0, //hopefully would never be this value so we can check if it gets set
+                            }
+                        });
+                    else
+                        LiveONThrottleVoltage = 0;
+                }
+            }
+        }
+ 
+        //TSX                    await App.NavitasMotorController.JsonCommands({
+
+        async function TestStateMachine(pollingTimer) {
+            /////////////////////////////////////////////////Polled General stuff used by all states////////////////////////////////////////////////////////////
+
+            // var nowTime = (new Date().getTime() / 1000).toFixed(3); //can be used to debug timing if necessary
+
+            //to help with the restart all this buttons especially for hidden static variables
+            console.log("CalibrateThrottle.html is running...")
+            if (primaryStep == "Initialize stuff") { // done this way so that the polling stuff outside the state machine starts up properly
+                if (App.NavitasMotorController.ModelType.includes("TAC")) {
+                    await App.NavitasMotorController.JsonCommands({ Read: { "SOFTWAREREVISION": 0 } });
+                }
+                else if (App.NavitasMotorController.ModelType.includes("TSX")) {
+                    await App.NavitasMotorController.JsonCommands({ Read: { "PAREMBEDDEDSOFTWAREVER": 0 } });
+                }
+                InitializeAll();
+            }
+            else {
+                //the framework updates this live
+
+                liveThrottleVoltage = ThrottleVoltageParameter.parameterValue;
+                liveFootSwitch = FootSwitchParameter.parameterValue;
+
+                if (liveFootSwitch != PreviousLiveFootSwitch) {
+                    if (liveFootSwitch) LiveONThrottleVoltage = liveThrottleVoltage;
+                    else {
+                        LiveOFFThrottleVoltage = liveThrottleVoltage;
+                    }
+                    PreviousLiveFootSwitch = liveFootSwitch;
+                }
+                //a scope trigger poller watching the foot switch
+                if (watchingForNewFootSwichTrigger && HasFootSwitchCapturedThrottleVoltage()) {
+                    //TSX GetParameter("Parameter257").parameterValue == 2) {
+                    // var nowTimeScopeTiming1 = (new Date().getTime() / 1000).toFixed(3);
+                    // console.log("Scope buffer retrieval started = ", (nowTimeScopeTiming1));
+                    await UpdateFootSwitchCapturedThrottleVoltage();
+                    // var nowTimeScopeTiming3= (new Date().getTime() / 1000).toFixed(3);
+                    // console.log("Scope setup write time = ", (nowTimeScopeTiming3 - nowTimeScopeTiming2));
+
+
+                    await App.NavitasMotorController.JsonCommands(footSwitchThrottleScopeTriggeredContinuousReadCommand);
+
+                    // var nowTimeScopeTiming4= (new Date().getTime() / 1000).toFixed(3);
+                    // console.log("Scope setup standard packet time = ", (nowTimeScopeTiming4 - nowTimeScopeTiming3));
+                    //watchingForNewFootSwichTrigger = true; for gui speed issues we will not read until user is not doing to much see steady voltage routine
+                }
+                if (!CaptureFirstRoughInitialFootSwitchOnVoltage && liveFootSwitch) {
+                    CaptureFirstRoughInitialFootSwitchOnVoltage = true;
+                    RoughInitialFootSwitchOnVoltage = liveThrottleVoltage;
+                }
+
+                //Just a type of averaging (like a filter)
+                //logic is to use it when the throttle voltage stays relatively in one place
+                //most likely off or full. Hopefully this way, it will be dificult for a user to keep it this steady in between and the time shift will look logical
+                TestStateMachine.averageThrottleVoltage = (TestStateMachine.averageThrottleVoltage * 0.8) + (liveThrottleVoltage * .2)
+                if (liveThrottleVoltage > TestStateMachine.averageThrottleVoltage - .25 && liveThrottleVoltage < TestStateMachine.averageThrottleVoltage + .25) { //its steady so start counting (10=1sec since the end of this routine calls itself 100ms later)
+                    if (TestStateMachine.steadyThrottleVoltageCounter < 10) {
+                        TestStateMachine.steadyThrottleVoltageCounter += 1;
+                        watchingForNewFootSwichTrigger = false;
+                        watchForSteadyThrottleStateToBeEntered = true;
+                    }
+                    if (TestStateMachine.steadyThrottleVoltageCounter >= 10) //other states watch for steadyThrottleVoltage to be non-zero
+                    {
+                        TestStateMachine.steadyThrottleVoltage = Math.max(TestStateMachine.averageThrottleVoltage, TestStateMachine.steadyThrottleVoltage);
+
+                        //For GUI perception reasons, we don't want to take the .5 seconds for scope buffer reading and the .5 seconds for trigger setup writing
+                        //when the live graph should be drawing points(TODO:figure out why that takes so long to write)
+                        //things like RXV throttles don't move until after the foot switch changes to a high
+                        //without this we would be processing the foot switch trigger to the scope and not be drawing a live graph
+                        //with this we will only setup for the foot switch part of the graph when we enter this steady state (user stopped doing anything)
+                        if (HasFootSwitchCapturedThrottleVoltage() && watchForSteadyThrottleStateToBeEntered) {
+                            watchingForNewFootSwichTrigger = true; //get the trigger info and setup for another
+                            watchForSteadyThrottleStateToBeEntered = false;
+                        }
+                    }
+                }
+                else { //its moving so restart
+                    TestStateMachine.steadyThrottleVoltage = 0;
+                    TestStateMachine.steadyThrottleVoltageCounter = 0;
+                    watchingForNewFootSwichTrigger = false;
+                    watchForSteadyThrottleStateToBeEntered = true;
+                }
+                /////////////////////////////////////////////////End of General stuff used by all states
+                var isVehicleLocked = App.NavitasMotorController.GetParameter("VEHICLELOCKED").parameterValue;
+                var PRND = App.NavitasMotorController.GetParameter("SWITCHBITS").parameterValue & 0x6;
+
+                if (PRND != 0 && isVehicleLocked != 1) {
+                    turnOnNeutralWarningPopup();
+                    var letter;
+
+                    if (PRND == 2)
+                        letter = "F";
+                    else if (PRND == 4)
+                        letter = "R";
+                    else if (PRND == 0)
+                        letter = "N";
+                    else
+                        letter = "P";
+
+                    PRNDAnimation(letter);
+                }
+                else
+                    turnOffNeutralWarningPopup();
+
+                if (RedrawTemplate) { //RedrawTemplate can be set asychronously and executs like this
+                    RedrawTemplate = false;
+                    await App.NavitasMotorController.JsonCommands(startupParameters);
+                    await App.NavitasMotorController.JsonCommands(footSwitchThrottleScopeTriggeredContinuousReadCommand);
+                    await FillInGraphWithLimitsAndDraw();
+                }
+            }
+
+
+            ///////////////////////////////////////////////////// Polled State Machine ////////////////////////////////////////////////////////////
+            //for on screen debuggin keep this whole try/catch
+            //but sometimes it is clearer to let the browser display it's own errors at the correct line number
+            //then comment it out
+            try { //This state maching some times uses primaryStep or secondary and state1, state2...once in a while I change to a more descriptive name
+                //just to show how
+                switch (primaryStep) {
+                    case "Initialize stuff":
+
+                        // await App.NavitasMotorController.JsonCommands({ GetAppParameters: {} }); //wiill update things like App.NavitasMotorController.ModelType
+
+                        if (App.NavitasMotorController.ModelType.includes("TAC") || App.NavitasMotorController.ModelType.includes("TSX")) {
+
+                            simulatorStartTime = (new Date().getTime() / 1000).toFixed(3);
+                            //start watching for foot switch
+                            if (App.NavitasMotorController.ModelType == "TAC") {
+                                await App.NavitasMotorController.JsonCommands({
+                                    Write: {
+                                        "DATASCOPECH1SELECT": VTHROTTLEVAddress,
+                                        "DATASCOPETRIGGERLEVEL": 1,
+                                        "DATASCOPETRIGGERMASK": 0xff,
+                                        "DATASCOPETIMEBASE": 1,
+                                        "DATASCOPETRIGGERMODE": 2,
+                                        "DATASCOPETRIGGERADDRESS": FOOTSWVAddress,
+                                        "DATASCOPEPRECOUNT": 0,
+                                        "DATASCOPECOMMAND": 1
+                                    }
+                                });
+                            }
+                            else if (App.NavitasMotorController.ModelType == "TSX") {
+                                if (App.NavitasMotorController.GetParameter("PAREMBEDDEDSOFTWAREVER").parameterValue >= 9.5) {
+                                    await App.NavitasMotorController.JsonCommands({
+                                        Write: {
+                                            "Parameter257": 0,
+                                            "Parameter258": 0
+                                        }
+                                    });
+                                }
+                                else {
+                                    LiveONThrottleVoltage = 0;
+                                    LiveOFFThrottleVoltage = 0;
+                                }
+                            }
+
+                            TestStateMachine.ScopeTriggered = 0;
+                            await App.NavitasMotorController.JsonCommands(startupParameters);
+                            await App.NavitasMotorController.JsonCommands(footSwitchThrottleScopeTriggeredReadCommand); //wait for the first read, can be commented out if it is the same as the next
+                            await App.NavitasMotorController.JsonCommands(footSwitchThrottleScopeTriggeredContinuousReadCommand); //now just start to blow them down
+
+                            primaryStep = "Primary Step 1";
+
+                            //binding example (not used by anyone right now but....)
+                            //from parameter to display (like a read only variable in the App)
+                            if (App.NavitasMotorController.ModelType == "TAC") {
+                                App.NavitasMotorController.GetParameter("THROTTLEMIN").addBindingToThisSource(document.getElementById("Rec1PresentValue"), "value", "keyup"); //object binding to element
+                                App.NavitasMotorController.GetParameter("THROTTLEMAX").addBindingToThisSource(document.getElementById("Rec2PresentValue"), "value", "keyup"); //object binding to element
+                            }
+                            else if (App.NavitasMotorController.ModelType == "TSX") {
+                                App.NavitasMotorController.GetParameter("PARPRIMARYTHROTTLEFORWARDMIN").addBindingToThisSource(document.getElementById("Rec1PresentValue"), "value", "keyup"); //object binding to element
+                                App.NavitasMotorController.GetParameter("PARPRIMARYTHROTTLEFORWARDMAX").addBindingToThisSource(document.getElementById("Rec2PresentValue"), "value", "keyup"); //object binding to element
+                            }
+
+                            TestStateMachine.averageThrottleVoltage = liveThrottleVoltage;
+                            watchForSteadyThrottleStateToBeEntered = true;
+                            //Not shown yet is binding to a writable parameter (like the write only page in the App)
+                            //.......... TODO
+                        }
+                        else {
+                            //no implementation yet
+                        }
+                        secondaryStep = "initialize";
+
+                        break;
+                    case "Primary Step 1": //get the minimum throttle and foot switch value
+                        //////////////////////////////////////a separate state machine for this step
+                        switch (secondaryStep) {
+                            case "initialize": //build your visual area, it is created dynamically for visual effect
+                                buildHtml("Idle Values");
+                                resultStepItem();
+                                secondaryStepMessage();
+                                break;
+                            case "Secondary Step 1": //check min throttle voltages
+                                CheckMinThrottleVoltage();
+                                break;
+                            case "Secondary Step 2": //then check footswitch is off
+                                CheckFootSwitchOff();
+                                break;
+                            case "End Secondary Steps":
+                                //check for any failures
+                                CheckFailuresWhenIdle();
+                                break;
+                        }
+                        break;
+
+                    case "Primary Step 2":
+                        //////////////////////////////////////local state machine for this step
+                        switch (secondaryStep) {
+                            case "WaitForStarCalibration":
+                                break;
+                            case "initialize": //build your visual area if it is created dynamically for visual effect
+                                buildHtml("Throttle On Values");
+                                resultStepItem();
+                                secondaryStepMessage();
+                                await readCommandAndInitialize();
+                                break;
+                            case "Secondary Step 1":
+                                TestStateMachine.footSwitchInitialValue = App.NavitasMotorController.GetParameter("FOOTSW").parameterValue;
+                                if (App.NavitasMotorController.ModelType == "TAC") {
+                                    TestStateMachine.ScopeTriggered = App.NavitasMotorController.GetParameter("DATASCOPECOMMAND").parameterValue;
+                                }
+                                else if (App.NavitasMotorController.ModelType == "TSX") {
+                                    if (App.NavitasMotorController.GetParameter("PAREMBEDDEDSOFTWAREVER").parameterValue >= 9.5)
+                                        TestStateMachine.ScopeTriggered = App.NavitasMotorController.GetParameter("Parameter257").parameterValue;
+                                    else
+                                        TestStateMachine.ScopeTriggered = LiveONThrottleVoltage;
+                                }
+
+                                ////////////////////////////////////////////Checking for throttle changes//////////////////////////////////////////////////////
+                                CheckThrottleChanges();
+                                ////////////////////////////////////////////Checking for foot switch changes//////////////////////////////////////////////////////
+                                CheckFootSwitchChanges();
+
+                                CalibrationProcess();
+
+                                //check if they have done something to start this (with or without us asking)
+                                // if (((TestStateMachine.alreadyReportedFootSwichTrigger) || (liveThrottleVoltage > (TestStateMachine.minimumMeasuredThrottleVoltage + .25))) &&
+                                //     !calibrationStarted)
+                                // { // prompt them to finish
+                                //     calibrationStarted = true; //so start the time out (mainly because we will assume they are heading for max throttle position)
+                                //     secondaryStepTimeout = 100; //10seconds since routine runs at 100ms
+                                //     stepItem.siblings().css("opacity", ".2"); //bluring out other stuff visually says something has happened and focus on this
+                                // }
+
+                                break;
+                            case "End Secondary Steps":
+                                VerifyFootSwitchAndThrottleVoltage();
+                                //////////////////////////////////////////////check if it is worth calibrating/////////////////////////////////////////////////
+                                //now check margins to see if calibration might help
+                                //TODO:
+                                //check for any failures
+                                CheckFailuresWhenFootSwitchOnAndThrottleOn();
+                                break;
+                        }
+                        break;
+                    case "Calibration Step":
+                        //////////////////////////////////////local state machine for this step
+                        switch (secondaryStep) {
+                            case "initialize": //build your visual area if it is created dynamically for visual effect
+                                buildHtml("Calibration");
+                                resultStepItem();
+                                secondaryStepMessage();
+                                recommendationAndWarningPopUp();
+                                break;
+
+                            case "Check worthiness of Calibration": //build your visual area if it is created dynamically for visual effect
+                                CheckWorthinessCalibration();
+                                break;
+
+                            case "End Callibration": //build your visual area if it is created dynamically for visual effect
+                                //setup for another Calibration
+                                newCalibrationSetup();
+                                break;
+                        }
+                        break;
+                    case "End Primary Steps":
+                        $("#DiagnosticsResultsStep3").siblings().css("opacity", "1");
+                        break;
+                }
+                if (stepItem != null) //hard coded to second child is where messages go
+                {
+                    if (primaryStep == "Primary Step 2" && secondaryStep != "WaitForStarCalibration") {
+                        $("#notification").addClass("active");
+                        $("#notification-text").html(secondaryStepMessageList[0]);
+                    }
+                    else {
+                        $("#notification").removeClass("active");
+                    }
+                    stepItem.children(":nth-child(2)").html(secondaryStepMessageList[0] + secondaryStepMessageList[1] + secondaryStepMessageList[2] + secondaryStepMessageList[4]);
+                }
+            }
+            catch (e) { //sometimes it is easier to debug by letting the normal console tell you where the error is,
+                // so comment out the whole try catch
+                console.log("Something went wrong" + e.toString());
+                // MyConsoleLog("Something went wrong" + e.toString());
+            }
+
+            ///////////////////////////////////////////only one loop can call kdfdskjak
+            if (AcceptValueAndSaveParametersAndClosePopUp) {
+                AcceptValueAndSaveParametersAndClosePopUp = false
+                document.getElementById('DiagnosticsResultsFullPopUp ProgressCircle1').style.visibility = "visible";
+                document.getElementById('DiagnosticsResultsFullPopUp').style.opacity = "0.5";
+                GeneralProgressTiming(100)
+                // console.log("Writing parameters");
+                CheckWorthinessOfCalibrationAccepted = true;
+                if (App.NavitasMotorController.ModelType == "TAC")
+                    await App.NavitasMotorController.JsonCommands({ Write: { 'THROTTLEMIN': parseFloat(document.getElementById('Recommendation1ChangeValue').value), 'THROTTLEMAX': parseFloat(document.getElementById('Recommendation2ChangeValue').value) } });
+                else if (App.NavitasMotorController.ModelType == "TSX")
+                    await App.NavitasMotorController.JsonCommands({ Write: { 'PARPRIMARYTHROTTLEFORWARDMIN': parseFloat(document.getElementById('Recommendation1ChangeValue').value), 'PARPRIMARYTHROTTLEFORWARDMAX': parseFloat(document.getElementById('Recommendation2ChangeValue').value) } });
+
+                // console.log("Sending saveparameters ");
+                if (App.NavitasMotorController.ModelType == "TAC")
+                    await App.NavitasMotorController.JsonCommands({ Write: { 'SAVEPARAMS': 1 } }, 6000);
+                else if (App.NavitasMotorController.ModelType == "TSX")
+                    await App.NavitasMotorController.JsonCommands({ Write: { 'PARWRITETOEEPROM': 1 } }, 6000);
+
+                document.getElementById('DiagnosticsResultsFullPopUp').style.opacity = "1";
+                document.getElementById('DiagnosticsResultsFullPopUp ProgressCircle1').style.visibility = "hidden";
+                turnOffInteractionFullPagePopup();
+                RedrawTemplate = true; //only the main loop can call
+            }
+
+            if (DeclineAndClosePopUp) {
+                DeclineAndClosePopUp = false;
+                CheckWorthinessOfCalibrationAccepted = false;
+                turnOffInteractionFullPagePopup();
+                RedrawTemplate = true;
+            }
+            //End of laskdjflsakdj
+
+            setTimeout(() => TestStateMachine(pollingTimer), pollingTimer); //start again in this time and pass the same value to this call
+
+            //dont't blow out to many console logs but uncomment below to Debug the executtion time of this routine
+            // var nowTime1 = (new Date().getTime() / 1000).toFixed(3);
+            // if (slowLogDown % 10 == 1)
+            // {
+            //     //MyConsoleLog("Time to execute = " + (nowTime1 - nowTime).toFixed(3).toString());
+            //     console.log("Time to execute = " + (nowTime1 - nowTime).toFixed(3).toString());
+            //     if (!tracerHasRoom)
+            //         console.log("throttleTracer is full");
+            // }
+            // slowLogDown++;
+            if (primaryStep != "Initialize stuff")
+                //if (App.NavitasMotorController.ModelType == "TAC") {
+                //}
+                //else if (App.NavitasMotorController.ModelType == "TSX") {
+                //}
+                if (App.NavitasMotorController.ModelType == "TAC") {
+                    redrawGraph(App.NavitasMotorController.GetParameter("VTHROTTLEV"));
+                }
+                else if (App.NavitasMotorController.ModelType == "TSX") {
+                    redrawGraph(App.NavitasMotorController.GetParameter("PARPRIMTHROTVOLTS"));
+                }
+        }
+
+        function CheckMinThrottleVoltage() {
+            if (TestStateMachine.steadyThrottleVoltage != 0 && (TestStateMachine.steadyThrottleVoltage < throttleMinOnThresholdParameter)) { //average found
+                TestStateMachine.minimumMeasuredThrottleVoltage = TestStateMachine.steadyThrottleVoltage;
+                secondaryStepMessageList[0] = "Minimum measured is " + TestStateMachine.steadyThrottleVoltage.toFixed(2) + "V passed";
+                secondaryStepMessageList[1] = "<hr>" + "Checking foot switch is off";
+                secondaryStep = "Secondary Step 2";
+                secondaryStepTimeout = 50;
+            }
+            else if (TestStateMachine.steadyThrottleVoltage != 0 && TestStateMachine.steadyThrottleVoltage > throttleMinOnThresholdParameter) { //waiting for average to be lower
+                TestStateMachine.minimumMeasuredThrottleVoltage = TestStateMachine.steadyThrottleVoltage;
+                secondaryStepMessageList[0] = "Waiting for voltage to fall below " + throttleMinOnThresholdParameter.toFixed(2);
+                //change activity options to 5s is full and it counts down with red
+                bar1ProgressPercentage = progressBar(progressArea, (secondaryStepTimeout / 50 * 5).toFixed(0), "", "s", 5, "#E00000");
+            }
+            else { //anything above 100 just causes a reverse circle, 4 increases speed
+                bar1ProgressPercentage = progressBar(progressArea, 101 + bar1ProgressPercentage, "", "") + 4;
+                secondaryStepMessageList[0] = "Testing idle throttle voltages";
+            }
+
+            if (secondaryStepTimeout == 0) {
+                if (TestStateMachine.steadyThrottleVoltage == 0) secondaryStepMessageList[0] = "Minimum measured is " + TestStateMachine.steadyThrottleVoltage.toFixed(2) + "V passed";
+                else secondaryStepMessageList[0] = "Idle throttle voltage failed:\n   because " + TestStateMachine.steadyThrottleVoltage.toFixed(2) + " is greater than " + throttleMinOnThresholdParameter.toFixed(2) + " \n";
+                secondaryStepMessageList[1] = "<hr>" + "Checking foot switch is off";
+                secondaryStep = "Secondary Step 2";
+                secondaryStepTimeout = 50;
+            }
+
+            if (secondaryStepTimeout > 0) {
+                secondaryStepTimeout -= 1;
+            }
+        }
+
+        function CheckFootSwitchOff() {
+            if (typeof TestStateMachine.footSwitchInitialValue == 'undefined') { //I'm all over the place with the best method for static vars
+                TestStateMachine.footSwitchInitialValue = 0;
+            }
+
+            TestStateMachine.footSwitchInitialValue = App.NavitasMotorController.GetParameter("FOOTSW").parameterValue;
+
+            if (TestStateMachine.footSwitchInitialValue == 0) {
+                secondaryStepMessageList[1] = "<hr>" + "Foot switch position is off passed \n";
+                secondaryStep = "End Secondary Steps";
+            }
+            else if (TestStateMachine.footSwitchInitialValue == 1) //also serves as a timer for this step
+            {
+                secondaryStepMessageList[1] = "<hr>" + "Waiting for foot switch to go off.";
+                //change activity options to 5s is full and it counts down with red
+                bar1ProgressPercentage = progressBar(progressArea, (secondaryStepTimeout / 50 * 5).toFixed(0), "", "s", 5, "#E00000");
+            }
+            else { //anything above 100 just causes a reverse circle, 4 increases speed
+                bar1ProgressPercentage = progressBar(progressArea, 101 + bar1ProgressPercentage, "", "") + 4;
+            }
+
+            if (secondaryStepTimeout == 0) {
+                secondaryStepMessageList[1] = "<hr>" + "Foot switch failed:\n  because it is on but should be off\n ";
+                AllowStartCalibrationButtonToBeClicked = false; //force them to fix it. callibration can't help
+                $("#DiagnosticsResultsStep1").find(".myButton").html("Restart");
+                secondaryStep = "End Secondary Steps";
+            }
+
+            if (secondaryStepTimeout > 0) {
+                secondaryStepTimeout -= 1;
+            }
+        }
+
+        function buildHtml(content) {
+            let htmlString = `\<div id="DiagnosticsResultsStep${stepCounter}" class="boxWithTitle">
+                                                                                                \<span> ${content} </span>
+                                                                                                \<div style="float:left;width:70%;word-break: break-all; word-wrap: break-word; white-space: pre;">...loading...</div>
+                                                                                                \<canvas id="ProgressCircle${stepCounter}" style="float:right; width:30%"></canvas>`;
+
+            if (primaryStep == "Primary Step 1") {
+                htmlString += '<button onClick="StartCalibration();" class="myButton" >Start Calibration</button>';
+            }
+            htmlString += '</div>';
+            $("#DiagnosticsResultsList").append(htmlString);
+        }
+
+        function resultStepItem() {
+            //get some pointers to the above visual area
+            progressArea = document.getElementById(`ProgressCircle${stepCounter}`);
+            stepItem = $(`#DiagnosticsResultsStep${stepCounter}`);
+            stepItem.find(".myButton").css("visibility", "hidden");
+            if (stepCounter == 1 || stepCounter == 3) {
+                //in general blur/fade other areas to focus on this one
+                stepItem.siblings().css("opacity", ".2");
+            }
+            else {
+                stepItem.siblings().css("opacity", ".8");
+            }
+        }
+
+        function secondaryStepMessage() {
+            if (stepCounter != 1) {
+                secondaryStepTimeout = 1; //not zero
+                TestStateMachine.secondaryStepTimer = 0;
+            }
+            else {
+                secondaryStepTimeout = 50; //5seconds
+                secondaryStepMessageList[0] = "Checking idle throttle voltage ";
+                bar1ProgressPercentage = progressBar(progressArea, 0, "", "");
+            }
+
+            if (stepCounter == 1 || stepCounter == 2) {
+                secondaryStep = "Secondary Step 1"; //all this should be done only once so move on
+            }
+            else {
+                //Calibration
+                secondaryStep = "Check worthiness of Calibration"; //all this should be done only once so move on
+            }
+            secondaryStepMessageList = ["", "", "", "", ""]; //empty the old list
+            stepCounter++;
+        }
+
+        function CalibrationProcess() {
+            let progressNotificationArea = document.getElementById("ProgressCircleNotification");
+            //automatic starting is now blocked but incase we decide to use it, keep the calibrationStarted stuff
+            if (AllowStartCalibrationButtonToBeClicked && !calibrationStarted) { // prompt them to finish
+                calibrationStarted = true; //so start the time out (mainly because we will assume they are heading for max throttle position)
+                secondaryStepTimeout = 100; //10 seconds since routine runs at 100ms
+            }
+
+            if (calibrationStarted) {
+                if (secondaryStepTimeout > 0) {
+                    secondaryStepTimeout -= 1;
+                }
+                //change activity options to 5s is full and it counts down with red
+                bar1ProgressPercentage = progressBar(progressArea, (secondaryStepTimeout / 100 * 10).toFixed(0), "", "s", 10, "#E00000");
+                bar1ProgressPercentage = progressBar(progressNotificationArea, (secondaryStepTimeout / 100 * 10).toFixed(0), "", "s", 10, "#E00000");
+            }
+            else { //anything above 100 just causes a reverse circle, 4 increases speed
+                bar1ProgressPercentage = progressBar(progressArea, 101 + bar1ProgressPercentage, "", "") + 4;
+                bar1ProgressPercentage = progressBar(progressNotificationArea, 101 + bar1ProgressPercentage, "", "") + 4;
+            }
+
+            if (calibrationStarted && TestStateMachine.maximumMeasuredThrottleVoltage > throttleFullOnThresholdParameter && TestStateMachine.footswitchOnVoltageResult != 0)
+                secondaryStep = "End Secondary Steps";
+
+            if (secondaryStepTimeout == 0)
+                secondaryStep = "End Secondary Steps";
+        }
+
+        async function readCommandAndInitialize() {
+            //quick reads mean one BLE 20 byte packet which is 5 parameters + protocal overhead
+            //MyConsoleLog("Made it here 2:");
+            await App.NavitasMotorController.JsonCommands(footSwitchThrottleScopeTriggeredContinuousReadCommand);
+            //MyConsoleLog("Made it here 3:");
+            TestStateMachine.steadyThrottleVoltage = 0;
+            TestStateMachine.ScopeTriggered = 0;
+            TestStateMachine.alreadyReportedFootSwichTrigger = false
+            TestStateMachine.maximumMeasuredThrottleVoltage = 0;
+            TestStateMachine.footswitchOnVoltageResult = 0;
+            liveFootSwitchOnVoltageResult = 0;
+        }
+
+        function recommendationAndWarningPopUp() {
+            var thisPopup;
+
+            if (TestStateMachine.CalibrationWorthiness) {
+                var popupMessages = ["", "", "", ""];
+                $("#WarningParagraph1").remove(); //clean up if one is there
+                $("#WarningParagraph2").remove(); //clean up if one is there
+                //the lower the foot switch on voltage the better?
+                //if it is too close to the throttleMinOnThresholdParameter may cause a "foot switch on but throttle is to high... error".
+                //and they will have to release the throttle and try again
+                var lowestSafeFswOnV = Math.max(TestStateMachine.footswitchOnVoltageResult, 0); //anything below is good above it we will check and use
+                var Margin = (TestStateMachine.maximumMeasuredThrottleVoltage - lowestSafeFswOnV) * 0.1;
+                //So to start we need a on threshold with some margin
+
+                CalibrationWorthiness_fswOnVplusMargin = lowestSafeFswOnV + Margin; // 0.35; //so absolute minimum is 0.35+0.35=0.7
+                document.getElementById("Recommendation1ChangeValue").value = CalibrationWorthiness_fswOnVplusMargin.toFixed(2);
+
+                if (lowestSafeFswOnV > 2.0) {
+                    thisPopup = turnOnInteractionFullPagePopup(); //returns a jquery object so we can use .text() function later
+
+                    // secondaryStepMessageList[0] =
+                    $(("<p id=WarningParagraph1><span style='color:orange;'>Warning:\n</span>Your foot switch comes on\n with an unsafe high throttle voltage\n of " + lowestSafeFswOnV + " and should be repaired before continuing\n</p>")).insertBefore(thisPopup.children(":nth-child(1)").children(":nth-child(1)"))
+
+                }
+                else if (lowestSafeFswOnV > 1.5) {
+                    thisPopup = turnOnInteractionFullPagePopup(); //returns a jquery object so we can use .text() function later
+
+                    $(("<p id=WarningParagraph1><span style='color:orange;'>Warning:\n</span>Your foot switch comes on\n with an unusually high throttle voltage\n of " + lowestSafeFswOnV + " and should be repaired before continuing\n</p>")).insertBefore(thisPopup.children(":nth-child(1)").children(":nth-child(1)"))
+                }
+                else {
+                    //TODO: may be check if things are close enough just say everything ok and pass it
+                    thisPopup = turnOnInteractionFullPagePopup(); //returns a jquery object so we can use .text() function later
+                }
+
+                //the higher the maximum throttle voltage the better?
+                //if it is too close to the thottleOverVoltage  may cause a "throttle is to high... error".
+                //This error is for safety but not always enabled because of the dual redundancy of foot switch and throttle checks
+                //and they will have to release the throttle and try again
+                CalibrationWorthiness_maxFullVMinusMargin = TestStateMachine.maximumMeasuredThrottleVoltage - Margin;//0.35; //anything below is good above it we will check and use
+                document.getElementById("Recommendation2ChangeValue").value = CalibrationWorthiness_maxFullVMinusMargin.toFixed(2);
+                if (CalibrationWorthiness_maxFullVMinusMargin - CalibrationWorthiness_fswOnVplusMargin < 1.5) {
+                    $(("<p id=WarningParagraph2><span style='color:orange;'>Warning:\n</span>Your throttle has an unsafe small range\nof " + (CalibrationWorthiness_maxFullVMinusMargin - CalibrationWorthiness_fswOnVplusMargin).toFixed(2) + "\nand should be repaired before continuing\n</p>")).insertBefore(thisPopup.children(":nth-child(1)").children(":nth-child(1)"))
+                }
+                else if (CalibrationWorthiness_maxFullVMinusMargin - CalibrationWorthiness_fswOnVplusMargin < 2.0) {
+                    $(("<p id=WarningParagraph2><span style='color:orange;'>Warning:\n</span>Your throttle has an unusually small range\nof " + (CalibrationWorthiness_maxFullVMinusMargin - CalibrationWorthiness_fswOnVplusMargin).toFixed(2) + "\nshould be checked or replaced would\n you like to accept this and continue\n</p>")).insertBefore(thisPopup.children(":nth-child(1)").children(":nth-child(1)"))
+                }
+                else { }
+            }
+        }
+
+        function VerifyFootSwitchAndThrottleVoltage() {
+            if (typeof TestStateMachine.CalibrationWorthiness == 'undefined') //if one is undefined then they all are
+            {
+                TestStateMachine.CalibrationWorthiness = true;
+            }
+
+            if (TestStateMachine.footswitchOnVoltageResult == 0 && (TestStateMachine.maximumMeasuredThrottleVoltage > 1.6 - .1 && TestStateMachine.maximumMeasuredThrottleVoltage < 1.6 + .1)) {
+                secondaryStepMessageList[0] = "Both the Foot Switch and Throttle failed:\n whole mechanism seems to be disconnected\n";
+                TestStateMachine.CalibrationWorthiness = false;
+                $("#DiagnosticsResultsStep1").find(".myButton").html("Restart");
+            }
+            else if (TestStateMachine.maximumMeasuredThrottleVoltage < .25) {
+                secondaryStepMessageList[0] = "Throttle failed:\n  It is stuck low at " + TestStateMachine.maximumMeasuredThrottleVoltage.toFixed(2) + "(V)\n";
+                TestStateMachine.CalibrationWorthiness = false;
+                $("#DiagnosticsResultsStep1").find(".myButton").html("Restart");
+            }
+            else if (TestStateMachine.minimumMeasuredThrottleVoltage > 4.5) {
+                secondaryStepMessageList[0] = "Throttle failed:\n  It is stuck hi at " + TestStateMachine.minimumMeasuredThrottleVoltage.toFixed(2) + "(V)\n"
+                TestStateMachine.CalibrationWorthiness = false;
+                $("#DiagnosticsResultsStep1").find(".myButton").html("Restart");
+            }
+            else if (TestStateMachine.maximumMeasuredThrottleVoltage > TestStateMachine.minimumMeasuredThrottleVoltage - .25 && TestStateMachine.maximumMeasuredThrottleVoltage < TestStateMachine.minimumMeasuredThrottleVoltage + .25) {
+                secondaryStepMessageList[0] = "Throttle failed:\n  has never changed from " + TestStateMachine.minimumMeasuredThrottleVoltage.toFixed(2) + "\n";
+                TestStateMachine.CalibrationWorthiness = false;
+                $("#DiagnosticsResultsStep1").find(".myButton").html("Restart");
+            }
+            else if (TestStateMachine.maximumMeasuredThrottleVoltage < throttleFullOnThresholdParameter) {
+                secondaryStepMessageList[0] = "Throttle failed:\n  did not get above " + throttleFullOnThresholdParameter.toFixed(2) + "\n";
+            }
+            else if (TestStateMachine.minimumMeasuredThrottleVoltage > throttleMinOnThresholdParameter) {
+                secondaryStepMessageList[0] = "Throttle failed:\n  did not get below " + throttleMinOnThresholdParameter.toFixed(2) + "\n";
+            }
+
+            if (TestStateMachine.footswitchOnVoltageResult == 0) {
+                secondaryStepMessageList[1] = "<hr>" + "Failed Foot switch:\n  it did not transition to on\n";
+                TestStateMachine.CalibrationWorthiness = false;
+                $("#DiagnosticsResultsStep1").find(".myButton").html("Restart");
+            }
+            else if (TestStateMachine.footswitchOnVoltageResult > throttleMinOnThresholdParameter) {
+                secondaryStepMessageList[1] = "<hr>" + "Failed Foot switch:\n  turned on above " + throttleFullOnThresholdParameter.toFixed(2) + "\n";
+            }
+
+            var range = (TestStateMachine.maximumMeasuredThrottleVoltage - Math.max(TestStateMachine.footswitchOnVoltageResult, 0));
+            if (range < 1.0) {
+                secondaryStepMessageList[1] = "<hr>" + "Throttle range failed:\n" + range.toFixed(2) + " volts is less than 1.0 volt\n";
+                TestStateMachine.CalibrationWorthiness = false;
+                $("#DiagnosticsResultsStep1").find(".myButton").html("Restart");
+            }
+
+
+        }
+
+        function CheckFailuresWhenIdle() {
+            var foundFailures = false;
+            //instead of another variable just search the previous messages for the word 'fail'
+            secondaryStepMessageList.forEach(function (value, index, array) {
+                if (array[index].search(/fail/gi) != -1) foundFailures = true;
+            });
+
+            if (foundFailures) //if(true) to test
+            {
+                bar1ProgressPercentage = progressBar(progressArea, bar1ProgressPercentage, "Fail");
+            }
+            else {
+                //remove redundant passed messages since the main passed symbol for the whole step will be shown
+                //just a visual thing for fun
+                secondaryStepMessageList.forEach(function (value, index, array) {
+                    array[index] = value.replace(/passed/gi, "")
+                });
+                bar1ProgressPercentage = progressBar(progressArea, bar1ProgressPercentage, "Pass");
+            }
+
+            primaryStep = "Primary Step 2";
+            stepItem.find(".myButton").css("visibility", "visible");
+            progressArea = null
+
+            bar1ProgressPercentage = 0;
+            secondaryStep = "WaitForStarCalibration"; //start for next primary step
+
+            $("#DiagnosticsResultsStep1").siblings().css("opacity", "1");
+        }
+
+        function CheckFailuresWhenFootSwitchOnAndThrottleOn() {
+            var foundFailures = false;
+            secondaryStepMessageList.forEach(function (value, index, array) {
+                if (array[index].search(/fail/gi) != -1)
+                    foundFailures = true;
+            });
+
+            if (foundFailures) {
+                bar1ProgressPercentage = progressBar(progressArea, bar1ProgressPercentage, "Fail");
+            }
+
+            if ($("#DiagnosticsResultsStep1").find(".myButton").html() == "Restart") { //Failures are so significant we can't calibrate them out safely
+                primaryStep = "End Primary Steps";
+            }
+            else {
+                //remove redundant passed messages since the main passed symbol for the whole step will be shown
+                secondaryStepMessageList.forEach(function (value, index, array) {
+                    array[index] = value.replace(/passed/gi, "")
+                });
+                bar1ProgressPercentage = progressBar(progressArea, bar1ProgressPercentage, "Pass");
+                primaryStep = "Calibration Step";
+            }
+
+            progressArea = null;
+
+            bar1ProgressPercentage = 0;
+            secondaryStep = "initialize"; //start for next primary step
+
+            $("#DiagnosticsResultsStep2").siblings().css("opacity", "1");
+            $("#DiagnosticsResultsStep1").find(".myButton").css("visibility", "visible");
+        }
+
+        function CheckThrottleChanges() {
+            //always watch for steady voltage, steadyThrottleVoltage is non-zero after a few seconds of an average not moving much
+            if (TestStateMachine.steadyThrottleVoltage > TestStateMachine.maximumMeasuredThrottleVoltage) { //keep capturing any new maxes
+                TestStateMachine.maximumMeasuredThrottleVoltage = TestStateMachine.steadyThrottleVoltage;
+            }
+            if (!TestStateMachine.alreadyReportedFootSwichTrigger &&
+                (TestStateMachine.steadyThrottleVoltage > TestStateMachine.minimumMeasuredThrottleVoltage - .25) && (TestStateMachine.steadyThrottleVoltage < TestStateMachine.minimumMeasuredThrottleVoltage + .25)) { //nothing is happening
+                secondaryStepMessageList[0] = "Slowly increase throttle to full\n";
+            }
+            else if (TestStateMachine.steadyThrottleVoltage == 0) { //something is happening but the voltage is not steady
+                secondaryStepMessageList[0] = "Hold at full throttle:\n...averaging throttle voltages " + TestStateMachine.averageThrottleVoltage.toFixed(2) + "\n";
+            }
+            else if (TestStateMachine.steadyThrottleVoltage <= throttleFullOnThresholdParameter) { //voltage is steady but not enough to get past throttleFullOnThresholdParameter
+                secondaryStepMessageList[0] = "Waiting for more throttle " + TestStateMachine.steadyThrottleVoltage.toFixed(2) + "\n";
+            }
+            else if (TestStateMachine.steadyThrottleVoltage >= TestStateMachine.maximumMeasuredThrottleVoltage) { //keep reporting any new maxes
+                secondaryStepMessageList[0] = "Maximum measured is " + TestStateMachine.maximumMeasuredThrottleVoltage.toFixed(2) + "\n";
+                showWaitingForFootSwitch = true;
+            }
+         }
+
+        function CheckFootSwitchChanges() {
+            //always watching for scope to trigger
+            if (liveFootSwitchOnVoltageResult != 0 && !TestStateMachine.alreadyReportedFootSwichTrigger) {
+                TestStateMachine.footswitchOnVoltageResult = liveFootSwitchOnVoltageResult;
+                secondaryStepMessageList[1] = "<hr>" + "Foot switch turned on at " + TestStateMachine.footswitchOnVoltageResult.toFixed(2) + "\n";
+                TestStateMachine.alreadyReportedFootSwichTrigger = true;
+            }
+            else if (!TestStateMachine.alreadyReportedFootSwichTrigger && showWaitingForFootSwitch)
+                secondaryStepMessageList[1] = "<hr>" + "Waiting for foot switch to turn on\n";
+        }
+
+        function CheckWorthinessCalibration() {
+            if (document.getElementById("DiagnosticsResultsFullPopUp").style.visibility == "visible") { //popup is on a waiting for an answer
+                //graph stays alive
+            }
+            else {
+                if (CheckWorthinessOfCalibrationAccepted) {
+                    secondaryStepMessageList[0] = "0% Throttle(V) changed to " + CalibrationWorthiness_fswOnVplusMargin.toFixed(2) + " passed";
+                    secondaryStepMessageList[1] = "<hr>" + "100% Throttle(V) changed to " + CalibrationWorthiness_maxFullVMinusMargin.toFixed(2) + " passed";
+                }
+                else {
+                    secondaryStepMessageList[0] = "Changes declined passed";
+                    secondaryStepMessageList[1] = "";
+                }
+                secondaryStep = "End Callibration";
+            }
+        }
+
+        function newCalibrationSetup() {
+            $("#DiagnosticsResultsStep1").find(".myButton").css("visibility", "visible");
+            $("#DiagnosticsResultsStep1").find(".myButton").html("Restart");
+            AllowStartCalibrationButtonToBeClicked = false;
+
+            var foundFailures = false;
+            secondaryStepMessageList.forEach(function (value, index, array) {
+                if (array[index].search(/fail/gi) != -1)
+                    foundFailures = true;
+            });
+
+            if (foundFailures) {
+                bar1ProgressPercentage = progressBar(progressArea, bar1ProgressPercentage, "Fail");
+                bar1ProgressPercentage = progressBar(progressArea, bar1ProgressPercentage, "Fail");
+                $("#DiagnosticsResultsStep1").find(".myButton").html("Restart");
+            }
+            else {
+                //remove redundant passed messages since the main passed symbol for the whole step will be shown
+                secondaryStepMessageList.forEach(function (value, index, array) {
+                    array[index] = value.replace(/passed/gi, "")
+                });
+                bar1ProgressPercentage = progressBar(progressArea, bar1ProgressPercentage, "Pass");
+                primaryStep = "End Primary Steps";
+            }
+        }
+
+        function turnOffInteractionLowPagePopup() {
+            document.getElementById("DiagnosticsResultsList").style.opacity = "1";
+            document.getElementById("DiagnosticsResultsListLowPopUp").style.visibility = "hidden";
+        }
+
+        function turnOnInteractionLowPagePopup() {
+            document.getElementById("DiagnosticsResultsList").style.opacity = "1";
+            document.getElementById("DiagnosticsResultsListLowPopUp").style.visibility = "visible";
+        }
+
+        function turnOffInteractionFullPagePopup() {
+            document.getElementById("DiagnosticsResults").style.visibility = "visible";
+            document.getElementById("DiagnosticsResultsList").style.visibility = "visible";
+            //document.getElementById("MyConsoleLogOutputArea").style.visibility = "visible";
+            document.getElementById("DiagnosticsResultsFullPopUp").style.visibility = "hidden";
+        }
+
+        function turnOnInteractionFullPagePopup() {
+            document.getElementById("DiagnosticsResults").style.visibility = "hidden";
+            document.getElementById("DiagnosticsResultsList").style.visibility = "hidden";
+            //document.getElementById("MyConsoleLogOutputArea").style.visibility = "hidden";
+            document.getElementById("DiagnosticsResultsFullPopUp").style.visibility = "visible";
+            return ($("#DiagnosticsResultsFullPopUp")); //return jquery objext so we can use .text() function
+        }
+
+        function turnOnNeutralWarningPopup() {
+            document.getElementById("DiagnosticsResultsList").style.opacity = "1";
+            document.getElementById("NeutralWarningPopup").style.visibility = "visible";
+            if (App.NavitasMotorController.ModelType == "TAC") {
+                if (App.NavitasMotorController.GetParameter("SOFTWAREREVISION").parameterValue >= 2.7)
+                    document.getElementById("isNeedLock").style.visibility = "visible";
+            }
+            else if (App.NavitasMotorController.ModelType == "TSX") {
+                if (App.NavitasMotorController.GetParameter("PAREMBEDDEDSOFTWAREVER").parameterValue >= 2.7)
+                    document.getElementById("isNeedLock").style.visibility = "visible";
+            }
+        }
+
+        function turnOffNeutralWarningPopup() {
+            document.getElementById("DiagnosticsResults").style.visibility = "visible";
+            document.getElementById("DiagnosticsResultsList").style.visibility = "visible";
+            //document.getElementById("MyConsoleLogOutputArea").style.visibility = "visible";
+            document.getElementById("NeutralWarningPopup").style.visibility = "hidden";
+            document.getElementById("isNeedLock").style.visibility = "hidden";
+        }
+
+        //Flots.js our default graph options
+        function legendFormatter(label, series) {
+            return '<div ' +
+                'style="font-size:8pt;text-align:center;padding:2px;">' +
+                label + ' 100%</div>';
+        };
+        var chartOptions = {
+            xaxis:
+            {
+                tickDecimals: 0,
+                tickSize: 0,
+                tickLength: 0,
+                show: false,
+            },
+            yaxis:
+            {
+                ticks: maxThrottleVoltageToDisplay + 1,
+                max: maxThrottleVoltageToDisplay,
+                min: 0,
+                tickSize: maxThrottleVoltageToDisplay,
+                tickLength: 0,
+                font:
+                {
+                    size: 32,
+                },
+                color: "#000000"
+            },
+            //points:{show:true, radius:0.2, lineWidth: 8},
+            //lines:{show:false, lineWidth: 8},
+            //colors: ["#FFFF00", "#74C648", "#0080f8", "#4da74d", "#9440ed"],
+            grid:
+            {
+                // clickable: true,
+                // hoverable: true,
+                borderWidth:
+                {
+                    top: 0,
+                    right: 0,
+                    bottom: 2,
+                    left: 2
+                }
+                //show: false
+            },
+            legend:
+            {
+                show: true,
+                noColumns: 1,
+                position: "nw", // position of default legend container within plot
+                labelFormatter: function (label, series) {
+                    return '<div style="font-size:3.5vw;">' + label + ' ' + '</div>'; //'100%</>';
+                }
+            }
+        };
+
+        function FillInGraphWithLimitsAndDraw() {
+
+            if (App.NavitasMotorController.ModelType == "TAC") {
+                throttleMinOnThresholdParameter = App.NavitasMotorController.GetParameter("THROTTLEMIN").parameterValue
+                throttleFullOnThresholdParameter = App.NavitasMotorController.GetParameter("THROTTLEMAX").parameterValue;
+                throttleKneeGain = App.NavitasMotorController.GetParameter("THROTTLEKNEEGAIN238").parameterValue;
+            }
+            else if (App.NavitasMotorController.ModelType == "TSX") {
+                throttleMinOnThresholdParameter = App.NavitasMotorController.GetParameter("PARPRIMARYTHROTTLEFORWARDMIN").parameterValue
+                throttleFullOnThresholdParameter = App.NavitasMotorController.GetParameter("PARPRIMARYTHROTTLEFORWARDMAX").parameterValue;
+                throttleKneeGain = 1365 / 4096; //App.NavitasMotorController.GetParameter("THROTTLEKNEEGAIN238").parameterValue;
+            }
+
+            TestStateMachine.averageThrottleVoltage = TestStateMachine.steadyThrottleVoltage = ThrottleVoltageParameter.parameterValue; //start at average = actual;
+
+            for (i = 0; i < xAxisLength; i++) {
+                var value = maxThrottleVoltageToDisplay / xAxisLength * i;
+
+
+                //Copy of TAC code to help with the throttle knee logic
+                //Thottle 50% mapping
+                // long mappedThrottle = 0;
+                // long throttleKneeGainPu_q12 = _ThrottleKneeGainPu_q12;
+                // if(rateLimitedThrottle < ((long) 1 << (24 - 1))) // less than 50%, mappedThrottle = rateLimitedThrottle*2*gain
+                //     mappedThrottle = (rateLimitedThrottle >> (12 - 1)) * ((long) throttleKneeGainPu_q12);
+                // else
+                //     // greater than 50%, mappedThrottle = gain + (rateLimitedThrottle-.5)*2*(1-gain)
+                //     mappedThrottle = ((long) throttleKneeGainPu_q12 << 12) + (((rateLimitedThrottle - ((long) 1 << (24 - 1))) >> (12 - 1)) * (((long) 1 << 12) - (long) throttleKneeGainPu_q12));
+
+                //maybe it too confusing for the end user to also see a knee which they do not need to be aware of
+                //displaying the knee this way is not technically acurate but shows how the throttle appears
+                //internally as a smaller value until you hit the knee
+
+                var throttleInVoltage = i / xAxisLength * maxThrottleVoltageToDisplay;
+
+                var rateLimitedThrottle = (throttleInVoltage - throttleMinOnThresholdParameter) / (throttleFullOnThresholdParameter - throttleMinOnThresholdParameter);
+                rateLimitedThrottle = Math.min(Math.max(rateLimitedThrottle, 0), 1); //0 to 100%
+
+                var mappedThrottle;
+
+                if (rateLimitedThrottle < 0.5) //50% torque and or speed depending on TAC velocity torque mode settings
+                    mappedThrottle = (rateLimitedThrottle) * 2 * throttleKneeGain;
+                else
+                    mappedThrottle = throttleKneeGain + (rateLimitedThrottle - 0.5) * 2 * (1 - throttleKneeGain);
+
+                if (throttleInVoltage < throttleMinOnThresholdParameter)
+                    yAxisVoltage = throttleInVoltage;
+                else if (throttleInVoltage < throttleFullOnThresholdParameter)
+                    yAxisVoltage = throttleMinOnThresholdParameter + mappedThrottle * (throttleFullOnThresholdParameter - throttleMinOnThresholdParameter);
+                else
+                    yAxisVoltage = throttleInVoltage;
+
+                //MyConsoleLog("throttleInVoltage = " + throttleInVoltage.toFixed(3));
+                // MyConsoleLog("yAxisVoltage = " + yAxisVoltage.toFixed(3));
+                //MyConsoleLog("throttleKneeGain = " + throttleKneeGain.toFixed(3));
+                // MyConsoleLog("throttleFullOnThresholdParameter = " + throttleFullOnThresholdParameter.toFixed(3));
+                // MyConsoleLog("throttleMinOnThresholdParameter = " + throttleMinOnThresholdParameter.toFixed(3));
+                lineGuide.data[i] = [i, yAxisVoltage];
+                var limitedData = Math.min(Math.max(yAxisVoltage, throttleMinOnThresholdParameter), throttleFullOnThresholdParameter);
+                throttleLimits.data[i] = [i, limitedData];
+            }
+
+
+        }
+
+        var slowLogDown2 = 0;
+
+        function redrawGraph(ThrottleVoltageParameter) {
+            //The graph use https://www.flotcharts.org/flot/examples/
+            //it is a simple call like  $.plot("#placeholder", [voltagePointer, throttleLimits, throttleTracer, footSwitchAreaGraph], chartOptions);
+            //the complicated part is setting up all the data and options
+
+            //This graph is VERY custom to a throttle map and diagnostics
+            //and probably not every used elsewhere
+            //so comments may be sparse and unclear
+            if (typeof lineGuide.data[xAxisKey] != 'undefined') {
+                var nowTime = (new Date().getTime() / 1000).toFixed(3); //used in multiple places
+                //find the x axis key (0 to xAxisLength) that this value may fit if not already filled
+                xAxisKey = 0; //acces key is global for this files simulator so reset it here
+                while (xAxisKey < lineGuide.data.length && liveThrottleVoltage > lineGuide.data[xAxisKey][1])
+                    xAxisKey++;
+                if (xAxisKey >= lineGuide.data.length)
+                    console.log("odd that the value is above the max you set");
+
+                //////////////////////////////////Find the present location of the voltage value in the exsisting persistent tracer
+                var xAxisKeyLocation = 0;
+                //search for the first occurance of this key if any.
+                while (xAxisKeyLocation < throttleTracer.data.length && throttleTracer.data[xAxisKeyLocation][0] < xAxisKey)
+                    xAxisKeyLocation++;
+
+                //find last  occurance
+                var keyCount = 0;
+                while (xAxisKeyLocation < throttleTracer.data.length && throttleTracer.data[xAxisKeyLocation][0] == xAxisKey) {
+                    keyCount++;
+                    xAxisKeyLocation++;
+                }
+
+                xAxisKeyLocation--; //we were either pointing 1 past the matching keys (keyCount > 0) or 1 past where we can put it (keyCount = 0)
+
+                /////////////////////////////////////////make plot draw like scope by time shifting
+                //if the throttle stays at the same voltage for more than 2 seconds then make the plot look like a time plot
+                if (Math.abs(liveThrottleVoltage - lastVoltage) > 0.1) //enough throttle movement
+                {
+                    lastTimeWithDifferentVoltage = (new Date().getTime() / 1000).toFixed(3);
+                    lastVoltage = liveThrottleVoltage;
+                }
+
+                if ((nowTime - lastTimeWithDifferentVoltage) > 1) {
+                    //To make everything look like a time variant plot, we will start to shift the data from 0 to axis key to the left
+                    //relabeling the key to it plots before the position of concern
+                    //remember this particular type of chart is using the key as the x position and value as y, the data does not have
+                    //to have sequential x coordinates but we force it to so it is easier to manipulate
+                    if (liveThrottleVoltage > 2.5) {
+                        if (xAxisKey < lineGuide.data.length - 1) {
+                            xAxisKey += 1; //later ploting routine will use this
+                            xAxisKeyLocation += 1; //and this
+                            keyCount = 1; //to force it to be inserted
+                        }
+                        for (var i = xAxisKeyLocation; i < throttleTracer.data.length; i++) {
+                            // if(i < throttleTracer.data.length-1 && throttleTracer.data[i][0] > throttleTracer.data[i+1][0])
+                            //     throttleTracer.data.splice(i+1, 1); //so time to remove it
+
+                            throttleTracer.data[i][0] += 1;
+                            if (throttleTracer.data[i][0] > lineGuide.data.length - 1) //no x coordinates bigger than this
+                            {
+                                throttleTracer.data.splice(i, 1); //so time to remove it
+                            }
+
+                        }
+                    }
+                    else if (liveThrottleVoltage < 2.5) {
+                        for (var i = 0; i < xAxisKeyLocation; i++) {
+                            throttleTracer.data[i][0] -= 1;
+                            if (throttleTracer.data[i][0] < 0) //no negative x coordinates
+                            {
+                                throttleTracer.data.splice(0, 1); //so time to remove it
+                                xAxisKeyLocation -= 1; //since one at start is removed
+                            }
+
+                        }
+                    }
+                }
+
+                var multiPointNoiseCount = 4;
+                var tracerHasRoom;
+                if (throttleTracer.data.length < lineGuide.data.length * multiPointNoiseCount)
+                    tracerHasRoom = true;
+                else
+                    tracerHasRoom = false;
+
+                //////////////////////////////Clean up non sequenctial data points
+                // which should only happen because of time shifted stuff
+                for (var i = 0; i < xAxisKeyLocation - 1; i++) {
+                    //points that have greater values to the right (greater time from time shifting)
+                    if (throttleTracer.data[i][1] > throttleTracer.data[i + 1][1] && throttleTracer.data[i][0] != throttleTracer.data[i + 1][0]) {
+                        throttleTracer.data.splice(i, 1); //so time to remove it
+                        if (i <= xAxisKeyLocation)
+                            xAxisKeyLocation -= 1; //since one below it is removedis removed
+                    }
+                }
+
+                /////////////////////////////////////////////collect the persistent plot points
+                for (i = 0; i < throttleTracer.data.length && tracerHasRoom; i++) {
+                    //if multiple key counts is maxed then replace one
+                    if (keyCount < multiPointNoiseCount) { //add one
+                        throttleTracer.data.splice(xAxisKeyLocation + 1, 0, [xAxisKey, liveThrottleVoltage]);
+                        i = throttleTracer.data.length; //found a spot so leave
+                    }
+                    else { //over write one
+                        throttleTracer.data.splice(xAxisKeyLocation, 1, [xAxisKey, liveThrottleVoltage]);
+                        i = throttleTracer.data.length; //found a spot so leave
+                    }
+                }
+                ////////////////////////////////////////////This draws a line that floats around with the value
+                //Remember this flots.js just needs a couple points to draw a line across the whole plot
+                //voltagePointer.label = ThrottleVoltageParameter.Name;
+                voltagePointer.data.splice(0, voltagePointer.data.length) //empty it as opposes to a "new" one
+                voltagePointer.data.push([xAxisKey, liveThrottleVoltage]);
+                voltagePointer.data.push([170, liveThrottleVoltage]); //170 is where the live text below  will go
+                //////////////////////////////////////////////////////////////draw it
+                var placeholder = $("#placeholder");
+                var plot = $.plot("#placeholder", [voltagePointer, throttleLimits, throttleTracer, footSwitchAreaGraph], chartOptions);
+
+                /////////////////////////////////////////////////////////Append text to the screen (or images)
+                //show live voltage on actual throttle voltage pointer
+                //Append it to the placeholder that Flot already uses for positioning
+                o = plot.pointOffset(
+                    {
+                        x: voltagePointer.data[1][0],
+                        y: voltagePointer.data[1][1]
+                    });
+                placeholder.append("<div style='position:absolute;left:" + (o.left) + "px;top:" + (o.top - 25) + "px;color:#0000FF;font-size:3.5vw'>" + liveThrottleVoltage.toFixed(2) + " V</div>");
+
+                //label the min and max in the green line
+                o1 = plot.pointOffset(
+                    {
+                        x: throttleLimits.data[0][0],
+                        y: throttleLimits.data[0][1]
+                    });
+
+                var maxCorner = 199;
+                while (maxCorner > 0 && (throttleLimits.data[maxCorner][1] == throttleLimits.data[maxCorner - 1][1])) maxCorner--;
+
+                o2 = plot.pointOffset(
+                    {
+                        x: throttleLimits.data[maxCorner][0],
+                        y: throttleLimits.data[maxCorner][1]
+                    });
+
+                if (App.NavitasMotorController.ModelType == "TAC") {
+                    placeholder.append("<div style='position:absolute;left:" + (o1.left + 10) + "px;top:" + (o1.top - 5) + "px;color:#0000FF;font-size:2.5vw'> 0% = " + App.NavitasMotorController.GetParameter("THROTTLEMIN").parameterValue.toFixed(1) + " V</div>");
+                    placeholder.append("<div style='position:absolute;left:" + (o2.left + 10) + "px;top:" + (o2.top - 5) + "px;color:#0000FF;font-size:2.5vw'> 100% = " + App.NavitasMotorController.GetParameter("THROTTLEMAX").parameterValue.toFixed(1) + " V</div>");
+                }
+                else if (App.NavitasMotorController.ModelType == "TSX") {
+                    placeholder.append("<div style='position:absolute;left:" + (o1.left + 10) + "px;top:" + (o1.top - 5) + "px;color:#0000FF;font-size:2.5vw'> 0% = " + App.NavitasMotorController.GetParameter("PARPRIMARYTHROTTLEFORWARDMIN").parameterValue.toFixed(1) + " V</div>");
+                    placeholder.append("<div style='position:absolute;left:" + (o2.left + 10) + "px;top:" + (o2.top - 5) + "px;color:#0000FF;font-size:2.5vw'> 100% = " + App.NavitasMotorController.GetParameter("PARPRIMARYTHROTTLEFORWARDMAX").parameterValue.toFixed(1) + " V</div>");
+                }
+
+                //highlight an area for visual effect outlining when and where the foot switch turned on and lable it
+                for (i = 0; i < xAxisLength; i++) {
+                    if (liveFootSwitchOffVoltageResult == 0 && liveFootSwitchOnVoltageResult == 0) {
+                        footSwitchAreaGraph.data[i] = [i, Math.min(ThrottleVoltageParameter.parameterValue, RoughInitialFootSwitchOnVoltage)];
+                    }
+                    else if (App.NavitasMotorController.GetParameter("FOOTSW").parameterValue == 0 && liveFootSwitchOffVoltageResult != 0) {
+                        if (lineGuide.data[i][1] <= liveFootSwitchOffVoltageResult)
+                            footSwitchAreaGraph.data[i] = [i, liveFootSwitchOffVoltageResult];
+                        else
+                            footSwitchAreaGraph.data[i] = [i, 0];
+                    }
+                    else if (App.NavitasMotorController.GetParameter("FOOTSW").parameterValue == 1 && liveFootSwitchOnVoltageResult != 0) {
+                        if (lineGuide.data[i][1] >= liveFootSwitchOnVoltageResult)
+                            footSwitchAreaGraph.data[i] = [i, liveFootSwitchOnVoltageResult];
+                        else
+                            footSwitchAreaGraph.data[i] = [i, 0];
+                    }
+                    else { }
+                }
+
+                //point where to draw foot switch indications
+                o3 = plot.pointOffset(
+                    {
+                        x: footSwitchAreaGraph.data[Math.trunc(maxCorner * .4)][0],
+                        y: footSwitchAreaGraph.data[Math.trunc(maxCorner * .4)][1]
+                    });
+                o4 = plot.pointOffset(
+                    {
+                        x: lineGuide.data[0][0],
+                        y: lineGuide.data[0][1]
+                    });
+
+                //if no voltage has been capture just label in as on or off without a voltage lable
+                if (App.NavitasMotorController.GetParameter("FOOTSW").parameterValue == 0) {
+                    if (liveFootSwitchOffVoltageResult != 0)
+                        placeholder.append("<div style='position:absolute;left:" + (o3.left - 30) + "px;top:" + (o4.top - 30) + "px;color:#0000FF;font-size:3.5vw'> foot switch is off at " + liveFootSwitchOffVoltageResult.toFixed(2) + " V</div>");
+                    else
+                        placeholder.append("<div style='position:absolute;left:" + (o3.left - 30) + "px;top:" + (o4.top - 30) + "px;color:#0000FF;font-size:3.5vw'> foot switch is off</div>");
+                }
+                else {
+                    if (liveFootSwitchOnVoltageResult != 0)
+                        placeholder.append("<div style='position:absolute;left:" + (o3.left - 30) + "px;top:" + (o4.top - 30) + "px;color:#0000FF;font-size:3.5vw'> foot switch is on at " + liveFootSwitchOnVoltageResult.toFixed(2) + " V</div>");
+                    else
+                        placeholder.append("<div style='position:absolute;left:" + (o3.left - 30) + "px;top:" + (o4.top - 30) + "px;color:#0000FF;font-size:3.5vw'> foot switch is on</div>");
+
+                }
+            }
+        } //End of redrawGraph()
+
+        function SetupPlotGraphicElementScales(width, height) {
+            chartOptions.yaxis.font.size *= height / 1500;
+            throttleLimits.lines.lineWidth *= height / 2000;
+            //throttleTracer.points.radius *= height/2000;
+        }
+        var SimulatorNoise = false;
+        var minimumBufferFilled = false
+        var nextMinThrottleWillWait = true;
+
+        var previousLetter = " ";
+
+        function PRNDAnimation(letter) {
+            if (previousLetter != letter) {
+                if (previousLetter != " ")
+                    $("#" + previousLetter).toggleClass("hovered");
+                // if (letter == "P")
+                // {
+                //     // $("#myKey img").addClass("hovered");
+                //     $("#myKey img").show(); //even another method to change css
+                //     $("#myKey img").addClass("blinkThis");
+                // }
+                // else
+                // {
+                //     // $("#myKey img").removeClass("hovered");
+                //     $("#myKey img").hide();
+                //     $("#myKey img").removeClass("blinkThis");
+                // }
+
+                $("#" + letter).toggleClass("hovered");
+                var elem = document.getElementById("myAnimation")
+                let elemPosition = elem.getBoundingClientRect();;
+                if (previousLetter == " ")
+                    previousLetter = "P";
+                let box = document.getElementById(previousLetter).getBoundingClientRect();
+                let pos = box.left - document.getElementById('PRNDContainer').getBoundingClientRect().left + (box.width / 2 - elemPosition.width / 2);
+                elem.style.left = pos + 'px';
+                elem.style.top = elemPosition.height * 1.2;
+                box = document.getElementById(letter).getBoundingClientRect();
+                let letterPosition = box.left - document.getElementById('PRNDContainer').getBoundingClientRect().left + (box.width / 2 - elemPosition.width / 2);
+                var id = setInterval(frame, 1);
+                previousLetter = letter;
+
+                function frame() {
+                    if (pos <= letterPosition) {
+                        pos++;
+                        //elem.style.top = pos + 'px';
+                        elem.style.left = pos + 'px';
+                        if (pos >= letterPosition) {
+                            clearInterval(id);
+                        }
+                    }
+                    else {
+                        pos--;
+                        //elem.style.top = pos + 'px';
+                        elem.style.left = pos + 'px';
+                        if (pos <= letterPosition) {
+                            clearInterval(id);
+                        }
+                    }
+                }
+            }
+        }
+
+        async function VehicleLock() {
+            await App.NavitasMotorController.JsonCommands(lockVehicleCommand);
+            await App.NavitasMotorController.JsonCommands(footSwitchThrottleScopeTriggeredContinuousReadCommand);
+        }
+
+        //Design for test makes your life easier
+        //keep you simulators functional and up to date or you will hate yourself later
+        let Simulator = {}
+
+        function InitializeSimulatorModel() {
+            if (App.NavitasMotorController.ModelType == "TAC") {
+                Simulator = {
+                    decrementVTHROTTLEV: false,
+                    ROTORRPM: App.SimulatedMotorController.GetParameter("ROTORRPM"),
+                    VTHROTTLEV: App.SimulatedMotorController.GetParameter("VTHROTTLEV"),
+                    FOOTSW: App.SimulatedMotorController.GetParameter("FOOTSW")
+                };
+                Simulator.VTHROTTLEV.parameterValue = 0.1;
+            }
+            else if (App.NavitasMotorController.ModelType == "TSX") {
+                Simulator = {
+                    decrementPARPRIMTHROTVOLTS: false,
+                    PARMOTORRPM: App.SimulatedMotorController.GetParameter("PARMOTORRPM"),
+                    PARPRIMTHROTVOLTS: App.SimulatedMotorController.GetParameter("PARPRIMTHROTVOLTS"),
+                    FOOTSW: App.SimulatedMotorController.GetParameter("FOOTSW")
+                };
+                Simulator.PARPRIMTHROTVOLTS.parameterValue = 0.1;
+            }
+        }
+
+        function TacThrottleCalibrationSimulator() {
+            let nowTime = (new Date().getTime() / 1000).toFixed(3);
+            App.NavitasMotorController.CommandHandler.decrementSimulatedVTHROTTLEV = Simulator.decrementVTHROTTLEV;
+
+            if (!App.NavitasMotorController.CommandHandler.decrementSimulatedROTORRPM)
+                Simulator.ROTORRPM.parameterValue += 200;
+            else
+                Simulator.ROTORRPM.parameterValue -= 200;
+
+            if (Simulator.ROTORRPM.parameterValue >= 3000)
+                App.NavitasMotorController.CommandHandler.decrementSimulatedROTORRPM = true;
+            if (Simulator.ROTORRPM.parameterValue <= 0)
+                App.NavitasMotorController.CommandHandler.decrementSimulatedROTORRPM = false;
+            if (Simulator.ROTORRPM.parameterValue < 0)
+                Simulator.ROTORRPM.parameterValue = 0;
+            if (Simulator.ROTORRPM.parameterValue > 3000)
+                Simulator.ROTORRPM.parameterValue = 3000;
+
+            if ((nowTime - simulatorStartTime < 5.0) || throttleTracer.data.length < xAxisKey && !minimumBufferFilled) {
+                minimumBufferFilled = true;
+                SimulatorNoise ^= 1;
+                var noise;
+                if (SimulatorNoise)
+                    noise = 0.02;
+                else
+                    noise = -0.02;
+
+                Simulator.VTHROTTLEV.parameterValue += noise;
+            }
+            else if (Simulator.VTHROTTLEV.parameterValue > App.SimulatedMotorController.GetParameter("THROTTLEMAX").parameterValue) {
+                if (!Simulator.decrementVTHROTTLEV)
+                    Simulator.VTHROTTLEV.parameterValue += .01;
+                else
+                    Simulator.VTHROTTLEV.parameterValue -= .01;
+                if (Simulator.VTHROTTLEV.parameterValue > 5)
+                    simulatorStartTime = nowTime;
+
+
+            }
+            else if (Simulator.VTHROTTLEV.parameterValue < App.SimulatedMotorController.GetParameter("THROTTLEMIN").parameterValue) {
+                if (!Simulator.decrementVTHROTTLEV)
+                    Simulator.VTHROTTLEV.parameterValue += .01;
+                else
+                    Simulator.VTHROTTLEV.parameterValue -= .01;
+
+                if (Simulator.VTHROTTLEV.parameterValue < .3)
+                    simulatorStartTime = nowTime;
+
+            }
+            else {
+                if (!Simulator.decrementVTHROTTLEV)
+                    Simulator.VTHROTTLEV.parameterValue += .06;
+                else
+                    Simulator.VTHROTTLEV.parameterValue -= .06;
+            }
+            if (Simulator.VTHROTTLEV.parameterValue >= 5)
+                Simulator.decrementVTHROTTLEV = true;
+            if (Simulator.VTHROTTLEV.parameterValue <= 0.3)
+                Simulator.decrementVTHROTTLEV = false;
+            if (Simulator.VTHROTTLEV.parameterValue < 0.3)
+                Simulator.VTHROTTLEV.parameterValue = 0.3;
+            if (Simulator.VTHROTTLEV.parameterValue > 5)
+                Simulator.VTHROTTLEV.parameterValue = 5;
+
+            if (Simulator.VTHROTTLEV.parameterValue > .87)
+                Simulator.FOOTSW.parameterValue = 1;
+            if (Simulator.VTHROTTLEV.parameterValue < .62)
+                Simulator.FOOTSW.parameterValue = 0;
+
+            //dont't blow out to many console logs but uncomment below to Debug the executtion time of this routine
+            // var nowTime1 = (new Date().getTime() / 1000).toFixed(3);
+            // if (slowLogDown3 % 10 == 1)
+            // {
+            //     //MyConsoleLog("Time to execute = " + (nowTime1 - nowTime).toFixed(3).toString());
+            //     console.log("Time to execute = " + (nowTime1 - nowTime).toFixed(3).toString());
+            //     if (!tracerHasRoom)
+            //         console.log("throttleTracer is full");
+            // }
+            // slowLogDown3++;
+
+            // MyConsoleLog("Test");
+        } //end of Graph Simulated data
+        function TsxThrottleCalibrationSimulator() {
+            let nowTime = (new Date().getTime() / 1000).toFixed(3);
+            App.NavitasMotorController.CommandHandler.decrementSimulatedPARPRIMTHROTVOLTS = Simulator.decrementPARPRIMTHROTVOLTS;
+
+            if (!App.NavitasMotorController.CommandHandler.decrementSimulatedPARMOTORRPM)
+                Simulator.PARMOTORRPM.parameterValue += 200;
+            else
+                Simulator.PARMOTORRPM.parameterValue -= 200;
+
+            if (Simulator.PARMOTORRPM.parameterValue >= 3000)
+                App.NavitasMotorController.CommandHandler.decrementSimulatedPARMOTORRPM = true;
+            if (Simulator.PARMOTORRPM.parameterValue <= 0)
+                App.NavitasMotorController.CommandHandler.decrementSimulatedPARMOTORRPM = false;
+            if (Simulator.PARMOTORRPM.parameterValue < 0)
+                Simulator.PARMOTORRPM.parameterValue = 0;
+            if (Simulator.PARMOTORRPM.parameterValue > 3000)
+                Simulator.PARMOTORRPM.parameterValue = 3000;
+
+            if ((nowTime - simulatorStartTime < 5.0) || throttleTracer.data.length < xAxisKey && !minimumBufferFilled) {
+                minimumBufferFilled = true;
+                SimulatorNoise ^= 1;
+                var noise;
+                if (SimulatorNoise)
+                    noise = 0.02;
+                else
+                    noise = -0.02;
+
+                Simulator.PARPRIMTHROTVOLTS.parameterValue += noise;
+            }
+            else if (Simulator.PARPRIMTHROTVOLTS.parameterValue > App.SimulatedMotorController.GetParameter("PARPRIMARYTHROTTLEFORWARDMAX").parameterValue) {
+                if (!Simulator.decrementPARPRIMTHROTVOLTS)
+                    Simulator.PARPRIMTHROTVOLTS.parameterValue += .01;
+                else
+                    Simulator.PARPRIMTHROTVOLTS.parameterValue -= .01;
+                if (Simulator.PARPRIMTHROTVOLTS.parameterValue > 5)
+                    simulatorStartTime = nowTime;
+
+
+            }
+            else if (Simulator.PARPRIMTHROTVOLTS.parameterValue < App.SimulatedMotorController.GetParameter("PARPRIMARYTHROTTLEFORWARDMIN").parameterValue) {
+                if (!Simulator.decrementPARPRIMTHROTVOLTS)
+                    Simulator.PARPRIMTHROTVOLTS.parameterValue += .01;
+                else
+                    Simulator.PARPRIMTHROTVOLTS.parameterValue -= .01;
+
+                if (Simulator.PARPRIMTHROTVOLTS.parameterValue < .3)
+                    simulatorStartTime = nowTime;
+
+            }
+            else {
+                if (!Simulator.decrementPARPRIMTHROTVOLTS)
+                    Simulator.PARPRIMTHROTVOLTS.parameterValue += .06;
+                else
+                    Simulator.PARPRIMTHROTVOLTS.parameterValue -= .06;
+            }
+            if (Simulator.PARPRIMTHROTVOLTS.parameterValue >= 5)
+                Simulator.decrementPARPRIMTHROTVOLTS = true;
+            if (Simulator.PARPRIMTHROTVOLTS.parameterValue <= 0.3)
+                Simulator.decrementPARPRIMTHROTVOLTS = false;
+            if (Simulator.PARPRIMTHROTVOLTS.parameterValue < 0.3)
+                Simulator.PARPRIMTHROTVOLTS.parameterValue = 0.3;
+            if (Simulator.PARPRIMTHROTVOLTS.parameterValue > 5)
+                Simulator.PARPRIMTHROTVOLTS.parameterValue = 5;
+
+            if (Simulator.PARPRIMTHROTVOLTS.parameterValue > .87)
+                Simulator.FOOTSW.parameterValue = 1;
+            if (Simulator.PARPRIMTHROTVOLTS.parameterValue < .62)
+                Simulator.FOOTSW.parameterValue = 0;
+
+            //dont't blow out to many console logs but uncomment below to Debug the executtion time of this routine
+            // var nowTime1 = (new Date().getTime() / 1000).toFixed(3);
+            // if (slowLogDown3 % 10 == 1)
+            // {
+            //     //MyConsoleLog("Time to execute = " + (nowTime1 - nowTime).toFixed(3).toString());
+            //     console.log("Time to execute = " + (nowTime1 - nowTime).toFixed(3).toString());
+            //     if (!tracerHasRoom)
+            //         console.log("throttleTracer is full");
+            // }
+            // slowLogDown3++;
+
+            // MyConsoleLog("Test");
+        } //end of Graph Simulated data
+
+        function StartCalibration() {
+            if ($("#DiagnosticsResultsStep1").find(".myButton").html() == "Restart") { //something stopped the ability to calibrate
+                primaryStep = "Initialize stuff";
+                secondaryStep = "initialize";
+                $("#DiagnosticsResultsStep1").find(".myButton").html("Start Calibration");
+            }
+            else {
+                secondaryStep = "initialize"; //start for next primary step
+                $("#DiagnosticsResultsStep1").find(".myButton").css("visibility", "hidden"); //hopefully someone unhides it when it is done
+            }
+            //for debugging you can force a state if it is hard to test with simulator
+            // primaryStep = "Calibration Step";
+            // secondaryStep = "initialize";
+        }
+
+        function GeneralProgressTiming(pollingTimer) { //asychronous to other things
+            if (document.getElementById('DiagnosticsResultsFullPopUp ProgressCircle1').style.visibility == "visible") {
+                bar1ProgressPercentage2 = progressBar(document.getElementById('DiagnosticsResultsFullPopUp ProgressCircle1'), 101 + bar1ProgressPercentage2, "", "", 100, '#e7f2ba', 'Saving...') + 4;
+                setTimeout(() => GeneralProgressTiming(pollingTimer), pollingTimer); //start again in this time and pass the same value to this call
+            }
+        }
+        // log event in console
+        function MyConsoleLog(msg) {
+        //    var log = document.getElementById("MyConsoleLogOutputArea");
+        //    if (log == null) {
+        //        //console.log("MyConsoleLogOutputArea is disabled");
+        //        return;
+        //    }
+        //    log.innerHTML += "<br>" + msg;
+        //    var ot = log.scrollHeight - log.clientHeight;
+        //    if (ot > 0) log.scrollTop = ot;
+        //    log.style.visibility = "visible"; //someone called it so make it visible
+        } //
+    </script>
+    <!--The below type of inline styling is used just to demonstrate it can be,
+    normally a separate .css file contains this-->
+    <style>
+        .boxshadow {
+            -moz-box-shadow: 6px 6px 10px #535353;
+            -webkit-box-shadow: 6px 6px 10px #535353;
+            box-shadow: 6px 3px 10px #535353;
+        }
+
+        .boxWithTitle {
+            clear: both;
+            width: 100%;
+            height: 25%;
+        }
+
+        .notification {
+            display: none;
+        }
+
+        .active {
+            display: block;
+            position: absolute;
+            width: 50vw;
+            height: 30vh;
+            color: blue;
+            background-color: #DCECDC;
+            font: 3.5vw Verdana;
+            left: 25%;
+            margin: 0 auto;
+            text-align: center;
+            z-index: 4;
+        }
+
+        .roundbox {
+            -moz-border-radius: 1vw 1vw 1vw 1vw;
+            -webkit-border-radius: 1vw;
+            border-radius: 0.5vw 0.5vw 0.5vw 0.5vw;
+        }
+
+        #PRNDContainer span {
+            padding-top: 1vw;
+            line-height: 5.5vw;
+            height: 5.5vw;
+            transition: font 0.3s ease;
+            font: 4.5vw Verdana;
+            display: flex;
+            align-items: flex-end;
+        }
+
+            #PRNDContainer span.hovered {
+                font-size: 6.5vw;
+            }
+
+        #myKey img.hovered {
+            height: 10vw;
+        }
+
+        #myKey {
+            /*padding-top: 0;*/
+            /*display: flex;*/
+            /*align-items: flex-end;*/
+            /*height: 200%*/
+            /*width: 200px;
+            height: 400px;*/
+            /*object-fit: cover;*/
+            width: 5vw;
+            height: 5vw;
+            position: absolute;
+            top: .5vw;
+            left: 0;
+        }
+
+        @-webkit-keyframes blink {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .blinkThis {
+            -webkit-animation: blink 1s;
+            -webkit-animation-iteration-count: infinite;
+        }
+
+        #myAnimation {
+            width: 1.75vw;
+            height: 3vw;
+            position: absolute;
+            top: 4.5vw;
+            left: 0;
+        }
+
+        #PRNDContainer {
+            position: absolute;
+            top: 20%;
+            height: 7vw;
+            left: 43%;
+            background-color: #080808;
+            display: flex;
+            justify-content: space-between;
+            width: 15%;
+            color: #E8E8E8;
+            overflow: hidden;
+            -webkit-box-shadow: inset 0 0 2px #444444;
+            box-shadow: inset 0 0 2px #444444;
+        }
+
+        .myButton {
+            box-shadow: 0px 1px 0px 0px #f0f7fa;
+            background: linear-gradient(to bottom, #33efbd 5%, #01d29a 100%);
+            background-color: #33efbd;
+            border-radius: 6px;
+            border: 1px solid #057fd0;
+            display: inline-block;
+            cursor: pointer;
+            color: #ffffff;
+            font-family: Arial;
+            font-size: 15px;
+            font-weight: bold;
+            padding: 6px 24px;
+            text-decoration: none;
+            text-shadow: 0px -1px 0px #5b7861;
+            font: 3.5vw Verdana;
+            margin-top: 5%;
+            /*another one of 50 ways to place it*/
+            float: right;
+        }
+
+            .myButton:hover {
+                background: linear-gradient(to bottom, #01d29a 5%, #33efbd 100%);
+                background-color: #01d29a;
+            }
+
+            .myButton:active {
+                position: relative;
+                top: 1px;
+            }
+    </style>
+</head>
+
+<body style="position:relative;background-color:#FEFEFE;">
+    <!-- for one type of debugging, becomes visible if written to with MyConsoleLog("words") -->
+    <!-- starts half way down the screen using top: 50%; -->
+    <div id="MyConsoleLogOutputArea" style="visibility: hidden; position: absolute; width:100%; top: 50%;z-index:100;">
+    </div>
+    <!--     <div id="header">
+    <h2>Throttle Diagnostics
+    </h2>
+    </div>-->
+    <div id="DiagnosticsResults" style="width:100%;">
+        <div id="DiagnosticsResultsCanvas" style="position: absolute;top: 0%">
+            <div id="demo-container" class="demo-container" style="float:left; text-align:center;">
+                <div id="placeholder" counter="0" class="demo-placeholder" style="display: inline-block"></div>
+                <div id="notification" class="notification roundbox boxshadow">
+                    <p id="notification-text" style="height:10vh;"></p>
+                    <canvas id="ProgressCircleNotification" style="width:75%;"></canvas>
+                </div>
+            </div>
+        </div>
+        <div id="DiagnosticsResultsList" style="position: absolute;top: 50%;visibility: visible; font: 3.5vw Verdana; width:100%; height:25%; vertical-align: middle; text-align:left">
+            <!-- The code will add results in here with the below type of formatting
+            <div id="DiagnosticsResultsStep1" style="clear:both; width:100%; height:50%;">
+            <div style="float:left;width:70%;word-break: break-all; word-wrap: break-word;">step1 words to be overwritten</div>
+            <canvas id="ProgressCircle1" style="float:right; width:30%"></canvas>
+            </div>-->
+        </div>
+        <div id=NeutralWarningPopup class="roundbox boxshadow" style="position: absolute; top: 50%; visibility: hidden; left: 5%; width: 90%; border: solid 2px steelblue">
+            <div class="boxcontenttext roundbox" style="background: #DCECDC; font: 3.5vw Verdana; width: 100%; height: 100%; text-align: center;">
+                <div style="color: red; font-weight: bold;">
+                    WARNING: The throttle will still run the vehicle
+                </div>
+                <div id="PRNDContainer" style="width:20%;margin-top: 5%;">
+                    <!-- <div id="myKey"><img src='./images/actualKeyImage.jpeg' style="width:100%;" /></div> -->
+                    <div id="myAnimation"><img src='./images/redPointer.gif' style="width:100%;" /></div>
+                    <span> </span><span id="P">P</span><span id="R">R</span><span id="N">N</span><span id="F">F</span><span> </span>
+                </div>
+                <div style="margin-top: 30%;">
+                    To safely perform a throttle calibration:<br>Place Vehicle in neutral
+                    <div id="isNeedLock" style="visibility: hidden;">
+                        OR<br>Lock Vehicle by pressing the button below<br>
+                        <input type="image" onclick="VehicleLock()" src='./images/ionunlocked.png' style="width: 20%;" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id=DiagnosticsResultsFullPopUp class="roundbox boxshadow" style="position: absolute;top: 50%;visibility:hidden; left:5%;width: 90%;border: solid 2px steelblue">
+            <div class="boxcontenttext roundbox" style="background: #DCECDC;font: 3.5vw Verdana; width: 100%;">
+                <div style="font: 4vw Verdana; color:blue;text-align:left;">
+                    <div style="float:left;width: 80%;margin-top: 2%;"></div>
+                    <div style="float:left;width: 80%;margin-top: 2%;">
+                        0% Throttle(Volts) is:
+                    </div>
+                    <!-- Note: Bound values(where we can't write the text directly) can use the html input step="0.01" feature to  limit decimal places -->
+                    <input id="Rec1PresentValue" step="0.01" disabled style="float:right;width: 20%;margin-top: 2%;font: 4vw Verdana;text-align:right;">
+                    <div style="float:left;width: 80%;margin-top: 2%;">
+                        Recommend changing it to:
+                    </div>
+                    <input id="Recommendation1ChangeValue" step="0.01" style="float:right;width: 20%;margin-top: 2%;font: 4vw Verdana;text-align:right;">
+                </div>
+                <div style="font: 4vw Verdana; color:blue;text-align:left;">
+                    <div style="float:left;width: 80%;margin-top: 2%;">
+                        <hr>100% Throttle(Volts) is:
+                    </div>
+                    <input id="Rec2PresentValue" step="0.01" disabled style="float:right;width: 20%;margin-top: 2%;font: 4vw Verdana;text-align:right;">
+                    <div style="float:left;width: 80%;margin-top: 2%;">
+                        Recommend changing it to:
+                    </div>
+                    <input id="Recommendation2ChangeValue" step="0.01" style="float:right;width: 20%;margin-top: 2%;font: 4vw Verdana;text-align:right;">
+                </div>
+                <div style="clear:both; display: flex;justify-content:space-around;padding: 2vw;">
+                    <button onClick='AcceptValueAndSaveParametersAndClosePopUp=true;' style="font: 3.5vw Verdana;white-space: nowrap; text-align: center;">
+                        Accept and Save
+                    </button>
+                    <button onClick='DeclineAndClosePopUp=true;' style="font: 3.5vw Verdana;white-space: nowrap; text-align: center;">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+            <canvas id="DiagnosticsResultsFullPopUp ProgressCircle1" style="visibility:hidden;position: absolute;top:30%;left:30%;width:50%;"></canvas>
+        </div>
+    </div>
+</body>
+
+</html>

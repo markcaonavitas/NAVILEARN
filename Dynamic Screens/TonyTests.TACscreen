@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PageViewModel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<PageTitle>Tony stuff</PageTitle>
+	<PageType>TAC</PageType>
+	<PageControl>Show Only This Page</PageControl>
+	<PageGroups>
+    <PageGroup>
+      <GroupViewType>Label</GroupViewType>
+      <GroupTitle>Vehicle Diagnostics</GroupTitle>
+      <GroupDescription>Troubleshoot vehicle</GroupDescription>
+      <PageButtons>
+        <PageButton>
+          <Text>Start Diagnose.html</Text>
+        </PageButton>
+      </PageButtons>
+    </PageGroup>
+    <PageGroup>
+      <GroupViewType>Label</GroupViewType>
+      <GroupTitle>Test</GroupTitle>
+      <GroupDescription>Modular Test</GroupDescription>
+      <PageButtons>
+        <PageButton>
+          <Text>Main Solenoid Test.html</Text>
+        </PageButton>
+      </PageButtons>
+    </PageGroup>
+    <PageGroup>
+      <GroupViewType>Label</GroupViewType>
+      <GroupTitle>Test</GroupTitle>
+      <GroupDescription>Modular Test</GroupDescription>
+      <PageButtons>
+        <PageButton>
+          <Text>Reverse Buzzer Test.html</Text>
+        </PageButton>
+      </PageButtons>
+    </PageGroup>
+  </PageGroups>
+</PageViewModel>

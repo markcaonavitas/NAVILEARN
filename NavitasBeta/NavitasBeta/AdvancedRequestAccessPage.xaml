@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NavitasBeta.AdvancedRequestAccessPage"
+             NavigationPage.HasNavigationBar="False" >
+    <AbsoluteLayout>
+        <Image Source="drawableportxxhdpiscreenlogin.png" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill"      AbsoluteLayout.LayoutBounds="0, 0, .98, 1" AbsoluteLayout.LayoutFlags="All"></Image>
+        <StackLayout Orientation="Horizontal" VerticalOptions="Start" BackgroundColor="#68B04D" Padding="1"
+               AbsoluteLayout.LayoutBounds="0, 0, 1, 0.12"
+               AbsoluteLayout.LayoutFlags="All">
+            <StackLayout x:Name="SignUpBackButton" Orientation="Horizontal" >
+                <StackLayout.GestureRecognizers>
+                    <!--this is the back button not a cancel button-->
+                    <TapGestureRecognizer Tapped="BackToLoginPage" NumberOfTapsRequired="1" />
+                </StackLayout.GestureRecognizers>
+                <Label Text=" &lt;" FontSize="Large" TextColor="White" VerticalOptions="Center" HorizontalOptions="End"/>
+                <Image Source="icon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+            </StackLayout>
+            <Label Text="" FontSize="Default" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+        </StackLayout>
+        <ScrollView AbsoluteLayout.LayoutBounds="0, 1, 1, 0.58"
+                    AbsoluteLayout.LayoutFlags="All">
+            <StackLayout AbsoluteLayout.LayoutBounds="0, 0, .98, 1"
+                         AbsoluteLayout.LayoutFlags="All"
+                         VerticalOptions="StartAndExpand">
+                <StackLayout.Padding>
+                    <OnIdiom x:TypeArguments="Thickness" Tablet="180,0" Phone="0"/>
+                </StackLayout.Padding>
+                <Label x:Name="messageLabel"
+                       Text =""
+                       HorizontalOptions="CenterAndExpand"/>
+                <Label Padding="5,1,5,1"
+                       TextColor="Red"
+                       FontSize="18"
+                       VerticalOptions="Center"
+                       HorizontalOptions="FillAndExpand"
+                       HorizontalTextAlignment="Center"
+                       LineHeight="1.5"
+                       Text="Advanced access is at the discretion of Navitas Vehicle Systems Ltd and is subject to verification.&#x0a;" />
+
+                <FlexLayout Direction="Row"
+                            Wrap="Wrap"
+                            JustifyContent="Start">
+                    <StackLayout FlexLayout.Grow="1">
+                        <Label Text="First Name" />
+                        <Entry x:Name="firstNameEntry"
+                               Placeholder="Enter your first name"
+                               Unfocused="UnfocusEvent"/>
+                    </StackLayout>
+                    <StackLayout FlexLayout.Grow="1">
+                        <Label Text="Last Name" />
+                        <Entry x:Name="lastNameEntry"
+                               Placeholder="Enter your last name"
+                               Unfocused="UnfocusEvent"/>
+                    </StackLayout>
+                </FlexLayout>
+                <Label Text="Address" />
+                <Entry x:Name="addressEntry"
+                       Placeholder="Enter your address"
+                       Unfocused="UnfocusEvent"/>
+                <FlexLayout Direction="Row"
+                            Wrap="Wrap"
+                            JustifyContent="Start">
+                    <StackLayout FlexLayout.Grow="1">
+                        <Label Text="Country" />
+                        <Picker x:Name="Country"
+                                    Title="Select a country"
+                                    ItemsSource="{Binding country_states}"
+                                    ItemDisplayBinding="{Binding name}"
+                                    SelectedItem="{Binding SelectedCountry}">
+                        </Picker>
+                    </StackLayout>
+                    <StackLayout FlexLayout.Grow="1">
+                        <Label x:Name="lblState"
+                               Text="{Binding StateLabel}" />
+                        <Picker x:Name="State"
+                                    Title="{Binding StateTitle}"
+                                    ItemsSource="{Binding SelectedCountry.states}"
+                                    ItemDisplayBinding="{Binding name}"
+                                    SelectedItem="{Binding SelectedProvince}"
+                                    IsVisible="{Binding IsDropDownProvinceAvailable}">
+                        </Picker>
+                        <Entry x:Name="EntryState"
+                               Placeholder="Enter your province"
+                               IsVisible="{Binding HaveToInputProvinceManually}"/>
+                    </StackLayout>
+                </FlexLayout>
+                <FlexLayout Direction="Row"
+                            Wrap="Wrap"
+                            JustifyContent="Start">
+                    <StackLayout FlexLayout.Grow="1">
+                        <Label Text="City" />
+                        <Entry x:Name="cityEntry"
+                               Placeholder="Enter your city"
+                               Unfocused="UnfocusEvent"/>
+                    </StackLayout>
+                    <StackLayout FlexLayout.Grow="1">
+                        <Label x:Name="lblPostalCode"
+                               Text="{Binding lblPostalCode}"/>
+                        <Entry x:Name="postalCodeEntry"
+                                   Placeholder="{Binding phdPostalCode}"
+                                   IsEnabled="{Binding isPostalCodeEnable}">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="Default" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="LightGray" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </Entry>
+                    </StackLayout>
+                </FlexLayout>
+                <Label Text="Phone Number" />
+                <Entry x:Name="phoneNumberEntry"
+                       Placeholder="Enter your phone number"/>
+                <Button Text="Send Request" Clicked="OnSendRequestButtonClicked" />
+            </StackLayout>
+        </ScrollView>
+
+        <!-- Popups -->
+        <ContentView x:Name="popupRequestInProgress"
+                     AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                     AbsoluteLayout.LayoutFlags="All"
+                     IsVisible="False"
+                     BackgroundColor="#C0202020">
+            <ContentView.Padding>
+                <OnIdiom x:TypeArguments="Thickness" Tablet="180,0" Phone="0"/>
+            </ContentView.Padding>
+            <Frame CornerRadius="10"
+                   BackgroundColor="#C2C3C6"
+                   VerticalOptions="CenterAndExpand"
+                   HasShadow="true">
+                <Frame.HeightRequest>
+                    <OnIdiom x:TypeArguments="x:Double" Phone="100" Tablet="150"/>
+                </Frame.HeightRequest>
+                <Label x:Name="WaitingMessage"
+                       FontSize="Default"
+                       TextColor="Black"
+                       FontAttributes="Bold"
+                       VerticalOptions="FillAndExpand"/>
+            </Frame>
+        </ContentView>
+    </AbsoluteLayout>
+</ContentPage>

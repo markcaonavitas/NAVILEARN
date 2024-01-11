@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfSupplierChain xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SupplierChain>
+    <ProfileNumber>1</ProfileNumber>
+    <ModelName>440A Stock Motor</ModelName>
+    <CurrentRating>TSX440A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>1</ProfileNumber>
+    <ModelName>600A Stock Motor</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>2</ProfileNumber>
+    <ModelName>440A Series Motor</ModelName>
+    <CurrentRating>TSX440A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>2</ProfileNumber>
+    <ModelName>600A Series Motor</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>3</ProfileNumber>
+    <ModelName>440A PM Motor</ModelName>
+    <CurrentRating>TSX440A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>3</ProfileNumber>
+    <ModelName>600A PM Motor</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>10</ProfileNumber>
+    <ModelName>440A Admiral RHMOT-A2</ModelName>
+    <CurrentRating>TSX440A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>10</ProfileNumber>
+    <ModelName>600A Admiral RHMOT-A2</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>11</ProfileNumber>
+    <ModelName>440A Admiral RHMOT-A4</ModelName>
+    <CurrentRating>TSX440A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>11</ProfileNumber>
+    <ModelName>600A Admiral RHMOT-A4</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>12</ProfileNumber>
+    <ModelName>440A Admiral RHMOT-B2</ModelName>
+    <CurrentRating>TSX440A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>12</ProfileNumber>
+    <ModelName>600A Admiral RHMOT-B2</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>13</ProfileNumber>
+    <ModelName>440A Admiral RHMOT-B4</ModelName>
+    <CurrentRating>TSX440A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>13</ProfileNumber>
+    <ModelName>600A Admiral RHMOT-B4</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>14</ProfileNumber>
+    <ModelName>440A Admiral RHMOT-D2</ModelName>
+    <CurrentRating>TSX440A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>14</ProfileNumber>
+    <ModelName>600A Admiral RHMOT-D2</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>15</ProfileNumber>
+    <ModelName>440A Admiral RHMOT-D4</ModelName>
+    <CurrentRating>TSX440A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>15</ProfileNumber>
+    <ModelName>600A Admiral RHMOT-D4</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>4</ProfileNumber>
+    <ModelName>440A FSIP Speed</ModelName>
+    <CurrentRating>TSX440A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>4</ProfileNumber>
+    <ModelName>600A FSIP Speed</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>5</ProfileNumber>
+    <ModelName>440A FSIP Torque</ModelName>
+    <CurrentRating>TSX440A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>5</ProfileNumber>
+    <ModelName>600A FSIP Torque</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>20</ProfileNumber>
+    <ModelName>440A NIVEL 7144</ModelName>
+    <CurrentRating>TSX440A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>20</ProfileNumber>
+    <ModelName>600A NIVEL 7144</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>21</ProfileNumber>
+    <ModelName>440A NIVEL 3272</ModelName>
+    <CurrentRating>TSX440A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>21</ProfileNumber>
+    <ModelName>600A NIVEL 3272</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>22</ProfileNumber>
+    <ModelName>440A NIVEL 3268</ModelName>
+    <CurrentRating>TSX440A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>22</ProfileNumber>
+    <ModelName>600A NIVEL 3268</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>23</ProfileNumber>
+    <ModelName>440A NIVEL 54036</ModelName>
+    <CurrentRating>TSX440A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>23</ProfileNumber>
+    <ModelName>600A NIVEL 54036</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>24</ProfileNumber>
+    <ModelName>440A NIVEL 54035</ModelName>
+    <CurrentRating>TSX440A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>24</ProfileNumber>
+    <ModelName>600A NIVEL 54035</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>44</ProfileNumber>
+    <ModelName>440A D&amp;D 170-502-2</ModelName>
+    <CurrentRating>TSX440A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>44</ProfileNumber>
+    <ModelName>600A D&amp;D 170-502-2</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>43</ProfileNumber>
+    <ModelName>440A D&amp;D 170-506-2</ModelName>
+    <CurrentRating>TSX440A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>43</ProfileNumber>
+    <ModelName>600A D&amp;D 170-506-2</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>40</ProfileNumber>
+    <ModelName>440A D&amp;D 170-502-001</ModelName>
+    <CurrentRating>TSX440A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>40</ProfileNumber>
+    <ModelName>600A D&amp;D 170-502-001</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>41</ProfileNumber>
+    <ModelName>440A D&amp;D 170-500-0001</ModelName>
+    <CurrentRating>TSX440A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>41</ProfileNumber>
+    <ModelName>600A D&amp;D 170-500-0001</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>42</ProfileNumber>
+    <ModelName>440A D&amp;D 170-505</ModelName>
+    <CurrentRating>TSX440A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>42</ProfileNumber>
+    <ModelName>600A D&amp;D 170-505</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>45</ProfileNumber>
+    <ModelName>440A D&amp;D ES-63-47</ModelName>
+    <CurrentRating>TSX440A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>45</ProfileNumber>
+    <ModelName>600A D&amp;D ES-63-47</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>46</ProfileNumber>
+    <ModelName>440A D&amp;D ES-9B-50</ModelName>
+    <CurrentRating>TSX440A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>46</ProfileNumber>
+    <ModelName>600A D&amp;D ES-9B-50</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>47</ProfileNumber>
+    <ModelName>440A D&amp;D ES-76</ModelName>
+    <CurrentRating>TSX440A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>47</ProfileNumber>
+    <ModelName>600A D&amp;D ES-76</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>48</ProfileNumber>
+    <ModelName>440A D&amp;D ES-24-14</ModelName>
+    <CurrentRating>TSX440A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>48</ProfileNumber>
+    <ModelName>600A D&amp;D ES-24-14</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>61</ProfileNumber>
+    <ModelName>440A CVG STOCKCHASER</ModelName>
+    <CurrentRating>TSX440A</CurrentRating>
+    <Category>OEMs</Category>
+    <CompanyName>CVG</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>61</ProfileNumber>
+    <ModelName>600A CVG STOCKCHASER</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>OEMs</Category>
+    <CompanyName>CVG</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>62</ProfileNumber>
+    <ModelName>440A CVG EXPEDITER</ModelName>
+    <CurrentRating>TSX440A</CurrentRating>
+    <Category>OEMs</Category>
+    <CompanyName>CVG</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>62</ProfileNumber>
+    <ModelName>600A CVG EXPEDITER</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>OEMs</Category>
+    <CompanyName>CVG</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>71</ProfileNumber>
+    <ModelName>600A TITAN MOTORS</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>74</ProfileNumber>
+    <ModelName>600A Beast</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>72</ProfileNumber>
+    <ModelName>600A HuntVe Master 72V w/309 Motor</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>OEMs</Category>
+    <CompanyName>HuntVe</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>73</ProfileNumber>
+    <ModelName>600A HuntVe Remote 72V w/309 Motor</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>OEMs</Category>
+    <CompanyName>HuntVe</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>78</ProfileNumber>
+    <ModelName>600A HuntVe Master 72V w/341 Motor</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>OEMs</Category>
+    <CompanyName>HuntVe</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>79</ProfileNumber>
+    <ModelName>600A HuntVe Remote 72V w/341 Motor</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>OEMs</Category>
+    <CompanyName>HuntVe</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>80</ProfileNumber>
+    <ModelName>600A HuntVe Master 48V w/309 Motor</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>OEMs</Category>
+    <CompanyName>HuntVe</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>81</ProfileNumber>
+    <ModelName>600A HuntVe Remote 48V w/309 Motor</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>OEMs</Category>
+    <CompanyName>HuntVe</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>82</ProfileNumber>
+    <ModelName>600A HuntVe Master 48V w/341 Motor</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>OEMs</Category>
+    <CompanyName>HuntVe</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>83</ProfileNumber>
+    <ModelName>600A HuntVe Remote 48V w/341 Motor</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>OEMs</Category>
+    <CompanyName>HuntVe</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>90</ProfileNumber>
+    <ModelName>440A PQ Bandit</ModelName>
+    <CurrentRating>TSX440A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>90</ProfileNumber>
+    <ModelName>600A PQ Bandit</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>91</ProfileNumber>
+    <ModelName>440A PQ Executioner</ModelName>
+    <CurrentRating>TSX440A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>91</ProfileNumber>
+    <ModelName>600A PQ Executioner</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>94</ProfileNumber>
+    <ModelName>440A PQ Rhino</ModelName>
+    <CurrentRating>TSX440A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>94</ProfileNumber>
+    <ModelName>600A PQ Rhino</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>93</ProfileNumber>
+    <ModelName>440A PQ SPEED TORQUE</ModelName>
+    <CurrentRating>TSX440A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>93</ProfileNumber>
+    <ModelName>600A PQ SPEED TORQUE</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>95</ProfileNumber>
+    <ModelName>440A PQ TORQUE</ModelName>
+    <CurrentRating>TSX440A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>95</ProfileNumber>
+    <ModelName>600A PQ TORQUE</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>92</ProfileNumber>
+    <ModelName>440A Copperhead</ModelName>
+    <CurrentRating>TSX440A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>92</ProfileNumber>
+    <ModelName>600A Copperhead</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>1006</ProfileNumber>
+    <ModelName>440A GCMod</ModelName>
+    <CurrentRating>TSX440A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>1006</ProfileNumber>
+    <ModelName>600A GCMod</ModelName>
+    <CurrentRating>TSX600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+</ArrayOfSupplierChain>

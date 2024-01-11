@@ -1,0 +1,498 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:NavitasGeneralPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+ xmlns:local="clr-namespace:NavitasBeta;assembly=NavitasBeta"
+            x:Class="NavitasBeta.UserDiagnosticsPageTSX"
+             Title="Diagnostics" >
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <!--won't scroll if full length, hence .98-->
+            <StackLayout Style="{StaticResource toolbarStyle}">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Start" >
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ShowMasterMenu" NumberOfTapsRequired="1" />
+                    </StackLayout.GestureRecognizers>
+                    <Image Source="hamburger.png" Margin="10,0,0,0" Scale="1.5" HorizontalOptions="Start"/>
+                    <Image Source="icon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <local:CustomImage x:Name="CONTROLLERERROR" Scale=".50" Opacity="{Binding Path=parameterValue}" HorizontalOptions="CenterAndExpand" Source="IconError.png"/>
+                    <Image x:Name="COMMERROR" Scale=".8" Opacity="{Binding Path=parameterValue}" HorizontalOptions="Center" Source="IconCommunication.png"/>
+                    <Label x:Name="PARSTARTUPERRORS" Text="Used for controller error display" IsVisible="False"/>
+                    <Label x:Name="PARRUNTIMEERRORSLOW" Text="Used for controller error display" IsVisible="False"/>
+                    <Label x:Name="PARRUNTIMEERRORSHIGH" Text="Used for controller error display" IsVisible="False"/>
+                </StackLayout>
+                <Label Text="" FontSize="Default" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+            </StackLayout>
+            <ScrollView Style="{StaticResource scrollViewProportion}">
+                <StackLayout Orientation="Vertical"  >
+                    <StackLayout Orientation="Vertical">
+                        <StackLayout Orientation="Horizontal">
+                            <Image IsVisible="False" Source="Information_icon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+                            <Label  Text="Vehicle Switches"  TextColor="#367F56"   FontSize="Default"  VerticalOptions="Center" HorizontalOptions="Start" HorizontalTextAlignment="Start"/>
+                            <Image IsVisible="False" Source="collapseIcon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+                            <StackLayout.GestureRecognizers>
+                                <!-- <TapGestureRecognizer Tapped="FillInDescriptions" NumberOfTapsRequired="1"/> -->
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" IsVisible="False">
+                            <Label TextColor="#367F56" FontSize="Default"  VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"
+                            Text="describe this section">
+                            </Label>
+                        </StackLayout>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout Orientation="Vertical" x:Name="KEY">
+                                <!--<StackLayout.GestureRecognizers>
+								<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+							</StackLayout.GestureRecognizers>-->
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalTextAlignment="Start"/>
+                                    <Label Text="{Binding Path=parameterEnumString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+
+                            <StackLayout Orientation="Vertical" x:Name="FORWARDSWITCH">
+                                <!--<StackLayout.GestureRecognizers>
+								<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+							</StackLayout.GestureRecognizers>-->
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalTextAlignment="Start"/>
+                                    <Label Text="{Binding Path=parameterEnumString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+
+                            <StackLayout Orientation="Vertical" x:Name="REVERSESWITCH">
+                                <!--<StackLayout.GestureRecognizers>
+								<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+							</StackLayout.GestureRecognizers>-->
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalTextAlignment="Start"/>
+                                    <Label Text="{Binding Path=parameterEnumString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+
+                            <StackLayout Orientation="Vertical" x:Name="AUX1SWITCH">
+                                <!--<StackLayout.GestureRecognizers>
+								<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+							</StackLayout.GestureRecognizers>-->
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalTextAlignment="Start"/>
+                                    <Label Text="{Binding Path=parameterEnumString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+
+                            <StackLayout Orientation="Vertical" x:Name="SROSWITCH">
+                                <!--<StackLayout.GestureRecognizers>
+								<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+							</StackLayout.GestureRecognizers>-->
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalTextAlignment="Start"/>
+                                    <Label Text="{Binding Path=parameterEnumString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Vertical">
+                        <StackLayout Orientation="Horizontal">
+                            <Image IsVisible="False" Source="Information_icon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+                            <Label  Text="Vehicle Inputs"  TextColor="#367F56"   FontSize="Default"  VerticalOptions="Center" HorizontalOptions="Start" HorizontalTextAlignment="Start"/>
+                            <Image IsVisible="False" Source="collapseIcon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+                            <StackLayout.GestureRecognizers>
+                                <!-- <TapGestureRecognizer Tapped="FillInDescriptions" NumberOfTapsRequired="1"/> -->
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" IsVisible="False">
+                            <Label TextColor="#367F56" FontSize="Default"  VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"
+                            Text="describe this section">
+                            </Label>
+                        </StackLayout>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+
+                            <StackLayout Orientation="Vertical" x:Name="PARBATTERYVOLTS">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalTextAlignment="Start"/>
+                                    <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout Orientation="Vertical" x:Name="PARPRIMTHROTVOLTS">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalTextAlignment="Start"/>
+                                    <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+
+                            <StackLayout Orientation="Vertical" x:Name="PARSVARTHROTTLE">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalTextAlignment="Start"/>
+                                    <Label Text="{Binding Path=parameterValue,  StringFormat='{0:F0}%'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+
+                            <StackLayout Orientation="Vertical" x:Name="PARMOTORRPM">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalTextAlignment="Start"/>
+                                    <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+
+                            <StackLayout Orientation="Vertical" x:Name="SPEED">
+                                <!--<StackLayout.GestureRecognizers>
+								<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+							</StackLayout.GestureRecognizers>-->
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalTextAlignment="Start"/>
+                                    <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Vertical">
+                        <StackLayout Orientation="Horizontal">
+                            <Image IsVisible="False" Source="Information_icon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+                            <Label  Text="Controller Output"  TextColor="#367F56"   FontSize="Default"  VerticalOptions="Center" HorizontalOptions="Start" HorizontalTextAlignment="Start"/>
+                            <Image IsVisible="False" Source="collapseIcon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+                            <StackLayout.GestureRecognizers>
+                                <!-- <TapGestureRecognizer Tapped="FillInDescriptions" NumberOfTapsRequired="1"/> -->
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" IsVisible="False">
+                            <Label TextColor="#367F56" FontSize="Default"  VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"
+                            Text="describe this section">
+                            </Label>
+                        </StackLayout>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+
+                            <StackLayout Orientation="Vertical" x:Name="PARMOTORTYPE">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalTextAlignment="Start"/>
+                                    <Label Text="{Binding Path=parameterEnumString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+
+                            <StackLayout Orientation="Vertical" x:Name="MAINSOLENOID">
+                                <!--<StackLayout.GestureRecognizers>
+								<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+							</StackLayout.GestureRecognizers>-->
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalTextAlignment="Start"/>
+                                    <Label Text="{Binding Path=parameterEnumString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+
+                            <StackLayout Orientation="Vertical" x:Name="BUZZEROUTPUT">
+                                <!--<StackLayout.GestureRecognizers>
+								<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+							</StackLayout.GestureRecognizers>-->
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalTextAlignment="Start"/>
+                                    <Label Text="{Binding Path=parameterEnumString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Vertical">
+                        <StackLayout Orientation="Horizontal">
+                            <Image IsVisible="False" Source="Information_icon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+                            <Label  Text="Motor Output"  TextColor="#367F56"   FontSize="Default"  VerticalOptions="Center" HorizontalOptions="Start" HorizontalTextAlignment="Start"/>
+                            <Image IsVisible="False" Source="collapseIcon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+                            <StackLayout.GestureRecognizers>
+                                <!-- <TapGestureRecognizer Tapped="FillInDescriptions" NumberOfTapsRequired="1"/> -->
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" IsVisible="False">
+                            <Label TextColor="#367F56" FontSize="Default"  VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"
+                            Text="describe this section">
+                            </Label>
+                        </StackLayout>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+
+                            <StackLayout Orientation="Vertical" x:Name="PARBATTERYCURRENT">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalTextAlignment="Start"/>
+                                    <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+
+                            <StackLayout Orientation="Vertical" x:Name="PARARMVOLTS">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalTextAlignment="Start"/>
+                                    <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+
+                            <StackLayout Orientation="Vertical" x:Name="PARARMCURRENT">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalTextAlignment="Start"/>
+                                    <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+
+                            <StackLayout Orientation="Vertical" x:Name="PARFIELDCURRENT">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalTextAlignment="Start"/>
+                                    <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+
+                            <StackLayout Orientation="Vertical" x:Name="PARFIELDVOLTS">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalTextAlignment="Start"/>
+                                    <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+
+                            <StackLayout Orientation="Vertical" x:Name="PARI2TACCUMULATOR">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalTextAlignment="Start"/>
+                                    <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Vertical">
+                        <StackLayout Orientation="Horizontal">
+                            <Image IsVisible="False" Source="Information_icon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+                            <Label  Text="On The Fly Programmer (OTF)"  TextColor="#367F56"   FontSize="Default"  VerticalOptions="Center" HorizontalOptions="Start" HorizontalTextAlignment="Start"/>
+                            <Image IsVisible="False" Source="collapseIcon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+                            <StackLayout.GestureRecognizers>
+                                <!-- <TapGestureRecognizer Tapped="FillInDescriptions" NumberOfTapsRequired="1"/> -->
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" IsVisible="False">
+                            <Label TextColor="#367F56" FontSize="Default"  VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"
+                            Text="describe this section">
+                            </Label>
+                        </StackLayout>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+
+                            <StackLayout Orientation="Vertical" x:Name="LOCKSWITCH">
+                                <!--<StackLayout.GestureRecognizers>
+								<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+							</StackLayout.GestureRecognizers>-->
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalTextAlignment="Start"/>
+                                    <Label Text="{Binding Path=parameterEnumString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+
+                            <StackLayout Orientation="Vertical" x:Name="OTFSPEED">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalTextAlignment="Start"/>
+                                    <Label Text="{Binding Path=parameterValue,  StringFormat='{0:F0}%'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+
+                            <StackLayout Orientation="Vertical" x:Name="PARREGENCURRENTLIMIT">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalTextAlignment="Start"/>
+                                    <Label Text="{Binding Path=parameterValue,  StringFormat='{0:F0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+
+                            <StackLayout Orientation="Vertical" x:Name="PARPRIMARYTHROTTLEFORWARDACCELERATION">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalTextAlignment="Start"/>
+                                    <Label Text="{Binding Path=parameterValue,  StringFormat='{0:F0}%'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Vertical">
+                        <StackLayout Orientation="Horizontal">
+                            <Image IsVisible="False" Source="Information_icon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+                            <Label  Text="Software Revisions"  TextColor="#367F56"   FontSize="Default"  VerticalOptions="Center" HorizontalOptions="Start" HorizontalTextAlignment="Start"/>
+                            <Image IsVisible="False" Source="collapseIcon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+                            <StackLayout.GestureRecognizers>
+                                <!-- <TapGestureRecognizer Tapped="FillInDescriptions" NumberOfTapsRequired="1"/> -->
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" IsVisible="False">
+                            <Label TextColor="#367F56" FontSize="Default"  VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"
+                            Text="describe this section">
+                            </Label>
+                        </StackLayout>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+
+                            <StackLayout Orientation="Vertical" x:Name="PARCONTROLLERMODELNUMBER">
+                                <!--<StackLayout.GestureRecognizers>
+								<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+							</StackLayout.GestureRecognizers>-->
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalTextAlignment="Start"/>
+                                    <Label Text="{Binding Path=parameterEnumString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+
+                            <StackLayout Orientation="Vertical" x:Name="PAREMBEDDEDSOFTWAREVER">
+                                <!--<StackLayout.GestureRecognizers>
+								<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+							</StackLayout.GestureRecognizers>-->
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalTextAlignment="Start"/>
+                                    <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+
+                            <StackLayout Orientation="Vertical" x:Name="PARPRESETPARAMETERSVERSION">
+                                <!--<StackLayout.GestureRecognizers>
+								<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+							</StackLayout.GestureRecognizers>-->
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalTextAlignment="Start"/>
+                                    <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+
+                            <StackLayout Orientation="Vertical" x:Name="PARPROFILENUMBER">
+                                <!--<StackLayout.GestureRecognizers>
+								<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+							</StackLayout.GestureRecognizers>-->
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalTextAlignment="Start"/>
+                                    <Label Text="{Binding Path=parameterEnumString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+
+                            <StackLayout Orientation="Vertical" x:Name="APPVERSION">
+                                <!--<StackLayout.GestureRecognizers>
+								<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+							</StackLayout.GestureRecognizers>-->
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalTextAlignment="Start"/>
+                                    <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+
+                    <!--<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+                        <Grid x:Name="FIRMWARETEST"  >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="7*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}"
+                                   TextColor="Black"
+                                   FontSize="Default"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="FillAndExpand"
+                                   HorizontalTextAlignment="Start"
+                                   Grid.Column="0" />
+                            <Entry x:Name="ModelNumberEntry"
+                                   Text="72"
+                                   Keyboard="Default"
+                                   TextColor="Black"
+                                   FontSize="Default"
+                                   VerticalOptions="Center"
+                                   Completed="ParameterCompleted"
+                                   HorizontalOptions="FillAndExpand"
+                                   HorizontalTextAlignment="End"
+                                   Grid.Column="1" WidthRequest="100" >
+                            </Entry>
+                        </Grid>
+                    </Frame>-->
+
+
+                    <Label x:Name="PARSWITCHSTATES" Text="this is how we read related values that are not shown on this page" IsVisible="False"/>
+                    <Label x:Name="PARDIGOUT" Text="this is how we read related values that are not shown on this page" IsVisible="False"/>
+                    <Label x:Name="TIREDIAMETER" Text="get this because it sets some comm and App opptions" IsVisible="False"/>
+                    <Label x:Name="REARAXLERATIO" Text="get this because it sets some comm and App opptions" IsVisible="False"/>
+                </StackLayout>
+            </ScrollView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</local:NavitasGeneralPage>

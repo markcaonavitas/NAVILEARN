@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PageViewModel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <PageTitle>Can Testing</PageTitle>
+    <PageType>TAC</PageType>
+    <PageControl>Show Only This Page</PageControl>
+    <PageGroups>
+        <PageGroup>
+            <GroupViewType>Label</GroupViewType>
+            <GroupTitle>CAN Status</GroupTitle>
+            <PageItems>
+                <PageItem>
+                    <ViewType>Enum</ViewType>
+                    <PropertyName>CANOpenDataNMT_State</PropertyName>
+                    <!-- <Bit>1</Bit> -->
+                </PageItem>
+                <PageItem>
+                    <ViewType>Enum</ViewType>
+                    <PropertyName>gCANESLow</PropertyName>
+                    <!-- <Bit>1</Bit> -->
+                </PageItem>
+                <PageItem>
+                    <ViewType>Hex</ViewType>
+                    <PropertyName>gCANESHigh</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Hex</ViewType>
+                    <PropertyName>gCANTec</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Hex</ViewType>
+                    <PropertyName>gCANRec</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Float</ViewType>
+                    <Address>422</Address>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Float</ViewType>
+                    <Address>423</Address>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Float</ViewType>
+                    <PropertyName>ShutDownFaultHasOccured</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Float</ViewType>
+                    <PropertyName>gRPDO1_timeout_status</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Float</ViewType>
+                    <PropertyName>gRPDO2_timeout_status</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Float</ViewType>
+                    <PropertyName>gRPDO1_Word1</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Float</ViewType>
+                    <PropertyName>gRPDO1_Word2</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Float</ViewType>
+                    <PropertyName>gRPDO1_Word3</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Float</ViewType>
+                    <PropertyName>gRPDO1_Word4</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Float</ViewType>
+                    <PropertyName>gRPDO2_Word1</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Float</ViewType>
+                    <PropertyName>gRPDO2_Word2</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Float</ViewType>
+                    <PropertyName>gRPDO2_Word3</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Float</ViewType>
+                    <PropertyName>gRPDO2_Word4</PropertyName>
+                </PageItem>
+            </PageItems>
+        </PageGroup>
+        <PageGroup>
+            <GroupViewType>Label</GroupViewType>
+            <GroupTitle>CAN Setup</GroupTitle>
+            <PageItems>
+                <PageItem>
+                    <ViewType>Float</ViewType>
+                    <PropertyName>CanBaudRateKHz</PropertyName>
+                    <!-- <Bit>1</Bit> -->
+                </PageItem>
+                <PageItem>
+                    <ViewType>Float</ViewType>
+                    <PropertyName>CanNetworkControlMode</PropertyName>
+                    <!-- <Bit>1</Bit> -->
+                </PageItem>
+                <PageItem>
+                    <ViewType>Float</ViewType>
+                    <PropertyName>MaximumWheelSpeedDiff_MPHX10</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Float</ViewType>
+                    <PropertyName>ShutDownFaultHasOccured</PropertyName>
+                </PageItem>
+
+                <PageItem>
+                    <ViewType>Hex</ViewType>
+                    <PropertyName>CanDataObjectConfig_6_ID_low</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Hex</ViewType>
+                    <PropertyName>CanDataObjectConfig_6_ID_high</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Hex</ViewType>
+                    <PropertyName>CanDataObjectConfig_6_pdo_map_low</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Hex</ViewType>
+                    <PropertyName>CanDataObjectConfig_6_pdo_map_high</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Float</ViewType>
+                    <PropertyName>CanDataObjectConfig_6_pdoTimer_event_time</PropertyName>
+                </PageItem>
+
+                <PageItem>
+                    <ViewType>Hex</ViewType>
+                    <PropertyName>CanDataObjectConfig_10_ID_low</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Hex</ViewType>
+                    <PropertyName>CanDataObjectConfig_10_ID_high</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Hex</ViewType>
+                    <PropertyName>CanDataObjectConfig_10_pdo_map_low</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Hex</ViewType>
+                    <PropertyName>CanDataObjectConfig_10_pdo_map_high</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Float</ViewType>
+                    <PropertyName>CanDataObjectConfig_10_pdoTimer_event_time</PropertyName>
+                </PageItem>
+
+                
+                <PageItem>
+                    <ViewType>Hex</ViewType>
+                    <PropertyName>CanDataObjectConfig_11_ID_low</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Hex</ViewType>
+                    <PropertyName>CanDataObjectConfig_11_ID_high</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Hex</ViewType>
+                    <PropertyName>CanDataObjectConfig_11_pdo_map_low</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Hex</ViewType>
+                    <PropertyName>CanDataObjectConfig_11_pdo_map_high</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Float</ViewType>
+                    <PropertyName>CanDataObjectConfig_11_pdoTimer_event_time</PropertyName>
+                </PageItem>
+
+                
+                <PageItem>
+                    <ViewType>Hex</ViewType>
+                    <PropertyName>CanDataObjectConfig_12_ID_low</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Hex</ViewType>
+                    <PropertyName>CanDataObjectConfig_12_ID_high</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Hex</ViewType>
+                    <PropertyName>CanDataObjectConfig_12_pdo_map_low</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Hex</ViewType>
+                    <PropertyName>CanDataObjectConfig_12_pdo_map_high</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Float</ViewType>
+                    <PropertyName>CanDataObjectConfig_12_pdoTimer_event_time</PropertyName>
+                </PageItem>
+
+                
+                <PageItem>
+                    <ViewType>Hex</ViewType>
+                    <PropertyName>CanDataObjectConfig_13_ID_low</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Hex</ViewType>
+                    <PropertyName>CanDataObjectConfig_13_ID_high</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Hex</ViewType>
+                    <PropertyName>CanDataObjectConfig_13_pdo_map_low</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Hex</ViewType>
+                    <PropertyName>CanDataObjectConfig_13_pdo_map_high</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Float</ViewType>
+                    <PropertyName>CanDataObjectConfig_13_pdoTimer_event_time</PropertyName>
+                </PageItem>
+
+                
+                <PageItem>
+                    <ViewType>Hex</ViewType>
+                    <PropertyName>CanDataObjectConfig_8_ID_low</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Hex</ViewType>
+                    <PropertyName>CanDataObjectConfig_8_ID_high</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Hex</ViewType>
+                    <PropertyName>CanDataObjectConfig_8_pdo_map_low</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Hex</ViewType>
+                    <PropertyName>CanDataObjectConfig_8_pdo_map_high</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Float</ViewType>
+                    <PropertyName>CanDataObjectConfig_8_pdoTimer_event_time</PropertyName>
+                </PageItem>
+
+                
+                <PageItem>
+                    <ViewType>Hex</ViewType>
+                    <PropertyName>CanDataObjectConfig_9_ID_low</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Hex</ViewType>
+                    <PropertyName>CanDataObjectConfig_9_ID_high</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Hex</ViewType>
+                    <PropertyName>CanDataObjectConfig_9_pdo_map_low</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Hex</ViewType>
+                    <PropertyName>CanDataObjectConfig_9_pdo_map_high</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Float</ViewType>
+                    <PropertyName>CanDataObjectConfig_9_pdoTimer_event_time</PropertyName>
+                </PageItem>
+
+                
+                
+            </PageItems>
+        </PageGroup>
+    </PageGroups>
+</PageViewModel>

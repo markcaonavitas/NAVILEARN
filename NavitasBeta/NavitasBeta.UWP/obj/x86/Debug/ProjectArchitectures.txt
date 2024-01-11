@@ -1,0 +1,9 @@
+C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\NavitasBeta.UWP.csproj;x86
+C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\NavitasBeta.csproj;neutral
+C:\TestRepoMark\NavitasBeta\NavitasBeta\OxyPlot.Xamarin.Forms.Platform.UWP\OxyPlot.Xamarin.Forms.Platform.UWP.csproj;neutral
+C:\TestRepoMark\NavitasBeta\NavitasBeta\OxyPlot.Xamarin.Forms\OxyPlot.Xamarin.Forms.csproj;neutral
+C:\TestRepoMark\NavitasBeta\NavitasBeta\OxyPlot.Xamarin.Forms\OxyPlot.Xamarin.Forms.csproj;neutral
+C:\TestRepoMark\NavitasBeta\NavitasBeta\ParseManager.UWP\ParseManager.UWP.csproj;neutral
+C:\TestRepoMark\NavitasBeta\NavitasBeta\ParseManager\ParseManager.csproj;neutral
+C:\TestRepoMark\NavitasBeta\NavitasBeta\ParseManager\ParseManager.csproj;neutral
+C:\TestRepoMark\NavitasBeta\NavitasBeta\ParseManager\ParseManager.csproj;neutral

@@ -1,0 +1,860 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:NavitasGeneralPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     xmlns:local="clr-namespace:NavitasBeta;assembly=NavitasBeta"
+            x:Class="NavitasBeta.ReadOnlyTSXPage"
+             Title="Read Only" >
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <!--won't scroll if full length, hence .98-->
+            <StackLayout Style="{StaticResource toolbarStyle}">
+                <StackLayout Orientation="Horizontal" >
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ShowMasterMenu" NumberOfTapsRequired="1" />
+                    </StackLayout.GestureRecognizers>
+                    <Image Source="hamburger.png" Margin="10,0,0,0" Scale="1.5" HorizontalOptions="Start"/>
+                    <Image Source="icon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+                </StackLayout>
+                <Label Text="" FontSize="Default" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+            </StackLayout>
+            <ScrollView Style="{StaticResource scrollViewProportion}">
+                <StackLayout Orientation="Vertical">
+                    <Label Text="Vehicle Info" TextColor="#367F56" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"/>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="PARMOTORTYPE">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="7*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                            <Label Text="{Binding Path=parameterEnumString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="1"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="PARCONTROLLERMODELNUMBER">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="7*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                            <Label Text="{Binding Path=parameterEnumString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="1"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="PAREMBEDDEDSOFTWAREVER">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="7*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                            <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="1"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="PARPRESETPARAMETERSVERSION">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="7*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                            <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="1"/>
+                        </Grid>
+                    </Frame>
+
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="PARABSOLUTEARMATURECURRENT">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="7*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                            <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="1"/>
+                        </Grid>
+                    </Frame>
+
+                    <Label Text="Vehicle Switches" TextColor="#367F56" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"/>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="KEY">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" Grid.Column="0"/>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="1"/>
+                            <Label Text="{Binding Path=parameterEnumString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="2"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="FORWARDSWITCH">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" Grid.Column="0"/>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="1"/>
+                            <Label Text="{Binding Path=parameterEnumString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="2"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="REVERSESWITCH">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" Grid.Column="0"/>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="1"/>
+                            <Label Text="{Binding Path=parameterEnumString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="2"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="AUX1SWITCH">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" Grid.Column="0"/>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="1"/>
+                            <Label Text="{Binding Path=parameterEnumString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="2"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="SROSWITCH">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" Grid.Column="0"/>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="1"/>
+                            <Label Text="{Binding Path=parameterEnumString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="2"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="LOCKSWITCH">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" Grid.Column="0"/>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="1"/>
+                            <Label Text="{Binding Path=parameterEnumString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="2"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="PARSWITCHSTATES">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" Grid.Column="0"/>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="1"/>
+                            <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="2"/>
+                        </Grid>
+                    </Frame>
+
+                    <Label Text="Drive Status" TextColor="#367F56" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"/>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="PARBATTERYCURRENT">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" Grid.Column="0"/>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="1"/>
+                            <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="2"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="PARARMVOLTS">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" Grid.Column="0"/>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="1"/>
+                            <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="2"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="PARARMCURRENT">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" Grid.Column="0"/>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="1"/>
+                            <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="2"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="PARFIELDVOLTS">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" Grid.Column="0"/>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="1"/>
+                            <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="2"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="PARFIELDCURRENT">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" Grid.Column="0"/>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="1"/>
+                            <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="2"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="PARTEMPERATURE">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" Grid.Column="0"/>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="1"/>
+                            <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="2"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="PARPRIMTHROTVOLTS">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" Grid.Column="0"/>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="1"/>
+                            <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="2"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="PARMOTORRPM">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" Grid.Column="0"/>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="1"/>
+                            <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="2"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="SPEED">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" Grid.Column="0"/>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="1"/>
+                            <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="2"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="PARBATTERYVOLTS">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" Grid.Column="0"/>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="1"/>
+                            <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="2"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="PARSVARMACHINESTATE2">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" Grid.Column="0"/>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="1"/>
+                            <Label Text="{Binding Path=parameterEnumString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="2"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="PARSVARTHROTTLE">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" Grid.Column="0"/>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="1"/>
+                            <Label Text="{Binding Path=parameterValue,  StringFormat='{0:F0}%'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="2"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="PAROUTPUTARMPWM">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" Grid.Column="0"/>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="1"/>
+                            <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="2"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="PAROUTPUTFIELDPWM">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" Grid.Column="0"/>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="1"/>
+                            <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="2"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="PARSVARSHADOWTHROTTLE">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" Grid.Column="0"/>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="1"/>
+                            <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="2"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="OTFACCELERATION">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" Grid.Column="0"/>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="1"/>
+                            <Label Text="{Binding Path=parameterValue,  StringFormat='{0:F0}%'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="2"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="OTFBRAKE">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" Grid.Column="0"/>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="1"/>
+                            <Label Text="{Binding Path=parameterValue,  StringFormat='{0:F0}%'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="2"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="OTFSPEED">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" Grid.Column="0"/>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="1"/>
+                            <Label Text="{Binding Path=parameterValue,  StringFormat='{0:F0}%'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="2"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="PARI2TACCUMULATOR">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" Grid.Column="0"/>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="1"/>
+                            <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="2"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="PARI2TLIMIT">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" Grid.Column="0"/>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="1"/>
+                            <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="2"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="PARBDIVOLTAGELIMIT">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" Grid.Column="0"/>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="1"/>
+                            <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="2"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="PARAVERAGEBATTERYVOLTAGE">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" Grid.Column="0"/>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="1"/>
+                            <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="2"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="PARGENERICPARAMETER245">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" Grid.Column="0"/>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="1"/>
+                            <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="2"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="PARDIGOUT">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" Grid.Column="0"/>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="1"/>
+                            <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="2"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="PARGENERICPARAMETER247">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" Grid.Column="0"/>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="1"/>
+                            <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="2"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="PARGENERICPARAMETER248">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" Grid.Column="0"/>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="1"/>
+                            <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="2"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="PARGENERICPARAMETER249">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" Grid.Column="0"/>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="1"/>
+                            <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="2"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="PARRUNTIMEWARNINGS">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" Grid.Column="0"/>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="1"/>
+                            <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="2"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="PARGENERICPARAMETER251">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" Grid.Column="0"/>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="1"/>
+                            <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="2"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="PARGENERICPARAMETER252">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" Grid.Column="0"/>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="1"/>
+                            <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="2"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="PARGENERICPARAMETER253">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" Grid.Column="0"/>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="1"/>
+                            <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="2"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="PARGENERICPARAMETER254">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                            </Grid.GestureRecognizers>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" Grid.Column="0"/>
+                            <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="1"/>
+                            <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Grid.Column="2"/>
+                        </Grid>
+                    </Frame>
+                    <Label x:Name="TIREDIAMETER" Text="get this because it sets some comm and App opptions" IsVisible="False"/>
+                    <Label x:Name="REARAXLERATIO" Text="get this because it sets some comm and App opptions" IsVisible="False"/>
+                </StackLayout>
+            </ScrollView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</local:NavitasGeneralPage>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NavitasBeta.WriteTSXPageOld">
+    <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+    <TableView x:Name="tableView" Intent="Form">
+        <TableRoot Title="Data Form">
+            <TableSection Title="Writeable Parameters">
+                <ViewCell>
+                    <Button x:Name="SPEEDOMETERMAXSPEED" Text="{Binding Path=SPEEDOMETERMAXSPEED, StringFormat='Speedometer Max Speed {0}'}" Font="Large" IsEnabled="False" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="TIRERADIUS" Text="{Binding Path=TIRERADIUS, StringFormat='Tire Radius {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="REARAXLERATIO" Text="{Binding Path=REARAXLERATIO, StringFormat='Rear Axle Ratio {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="MILESORKILOMETERS" Text="{Binding Path=MILESORKILOMETERS, StringFormat='0 for miles and 1 for kilometers {0}'}" Font="Large" IsEnabled="False" Clicked="OnButtonClicked" />
+                </ViewCell>
+            </TableSection>
+        </TableRoot>
+    </TableView>
+</ContentPage>

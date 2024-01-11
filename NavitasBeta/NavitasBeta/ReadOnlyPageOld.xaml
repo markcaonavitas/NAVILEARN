@@ -1,0 +1,1433 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit= "clr-namespace:NavitasBeta;assembly=NavitasBeta"
+             xmlns:local="clr-namespace:BluetoothLE.Example"
+             x:Class="NavitasBeta.ReadOnlyPageOld"
+             Title="Read Only" >
+    <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+    <StackLayout>
+        <TableView x:Name="tableView" Intent="Form">
+            <TableRoot Title="Data Form">
+                <TableSection Title="Read Only Parameters">
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0" x:Name="SOFTWAREREVISION" Text="{Binding Path=SOFTWAREREVISION, StringFormat='Software Revision {0}'}" Grid.ColumnSpan="2"  HorizontalOptions="Center" VerticalOptions="Center" IsEnabled="true">
+                                <Label.FontSize>
+                                    <OnIdiom x:TypeArguments="x:Double" Phone="10" Tablet="20" />
+                                </Label.FontSize>
+                            </Label>
+                        </Grid>
+                    </ViewCell>
+
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="VBATVDC" Text="{Binding Path=VBATVDC, StringFormat='Vbat (Vdc) {0}'}" IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>                                
+                            </Button>
+                            
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISVBATVDCCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="IBATADC" Text="{Binding Path=IBATADC, StringFormat='Ibat (Adc) {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISIBATADCCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="IDA" Text="{Binding Path=IDA, StringFormat='Id (A) {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" /> 
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISIDACHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="IQA" Text="{Binding Path=IQA, StringFormat='Iq (A) {0}'}" Font="Large" IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISIQACHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="VDV" Text="{Binding Path=VDV, StringFormat='Vd (V) {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISVDVCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="VQV" Text="{Binding Path=VQV, StringFormat='Vq (V) {0}'}" Font="Large" IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISVQVCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="VECTORCURRENT" Text="{Binding Path=VECTORCURRENT, StringFormat='Vector Current {0}'}" IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISVECTORCURRENTCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="PHASECURRENTLIMITER" Text="{Binding Path=PHASECURRENTLIMITER, StringFormat='Phase Limiter {0}'}" IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISPHASECURRENTLIMITERCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="BATTERYCURRENTLIMITER" Text="{Binding Path=BATTERYCURRENTLIMITER, StringFormat='Battery Limiter {0}'}" IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISBATTERYCURRENTLIMITERCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="SLIP_REF_SNAP_1" Text="{Binding Path=SLIP_REF_SNAP_1, StringFormat='Slip Ref Snap_1 {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISSLIPREFSNAP1CHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="SLIP_REF_SNAP_2" Text="{Binding Path=SLIP_REF_SNAP_2, StringFormat='Slip Ref Snap_2 {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISSLIPREFSNAP2CHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="SLIP_REF_SNAP_3" Text="{Binding Path=SLIP_REF_SNAP_3, StringFormat='Slip Ref Snap_3 {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISSLIPREFSNAP3CHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+//
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="IAA" Text="{Binding Path=IAA, StringFormat='Ia (A) {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISIAACHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="IBA" Text="{Binding Path=IBA, StringFormat='Ib (A) {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISIBACHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="ICA" Text="{Binding Path=ICA, StringFormat='Ic (A) {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISICACHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="IAARMS" Text="{Binding Path=IAARMS, StringFormat='Ia (Arms) {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISIAARMSCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="IBARMS" Text="{Binding Path=IBARMS, StringFormat='Ib (Arms) {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISIBARMSCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="ICARMS" Text="{Binding Path=ICARMS, StringFormat='Ic (Arms) {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISICARMSCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="VABVRMS" Text="{Binding Path=VABVRMS, StringFormat='Vab (Vrms) {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISVABVRMSCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="VBCVRMS" Text="{Binding Path=VBCVRMS, StringFormat='Vbc (Vrms) {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISVBCVRMSCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="VCAVRMS" Text="{Binding Path=VCAVRMS, StringFormat='Vca (Vrms) {0}'}" IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISVCAVRMSCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="ROTORRPM" Text="{Binding Path=ROTORRPM, StringFormat='Rotor RPM {0}'}" IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISROTORRPMCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="ROTORHZ" Text="{Binding Path=ROTORHZ, StringFormat='RotorHz {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISROTORHZCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="STATORHZ" Text="{Binding Path=STATORHZ, StringFormat='StatorHz {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISSTATORHZCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="JERKTIMEFORBRAKETOZEROVELOCITY31" Text="{Binding Path=JERKTIMEFORBRAKETOZEROVELOCITY31, StringFormat='Speed ref RPM {0}'}" IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISJERKTIMEFORBRAKETOZEROVELOCITY31CHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="SLIPFREQHZ" Text="{Binding Path=SLIPFREQHZ, StringFormat='Slip Freq (Hz) {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISSLIPFREQHZCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="RATEDRPMCALC" Text="{Binding Path=RATEDRPMCALC, StringFormat='Rated RPM (calc) {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISRATEDRPMCALCCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="VTHROTTLEV" Text="{Binding Path=VTHROTTLEV, StringFormat='V throttle (V) {0}'}" IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISVTHROTTLEVCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="RAWTHROTTLE" Text="{Binding Path=RAWTHROTTLE, StringFormat='Raw Throttle {0}'}" IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISRAWTHROTTLECHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="VBRAKEV" Text="{Binding Path=VBRAKEV, StringFormat='V brake (V) {0}'}" IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISVBRAKEVCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="VPROG1V" Text="{Binding Path=VPROG1V, StringFormat='V prog1 (V) {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISVPROG1VCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="VPROG2V" Text="{Binding Path=VPROG2V, StringFormat='V prog2 (V) {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISVPROG2VCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="VPROG3V" Text="{Binding Path=VPROG3V, StringFormat='V prog3 (V) {0}'}" IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISVPROG3VCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="MTTEMPV" Text="{Binding Path=MTTEMPV, StringFormat='MT temp (V) {0}'}" IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISMTTEMPVCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="MTTEMPC" Text="{Binding Path=MTTEMPC, StringFormat='MT temp (C) {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISMTTEMPCCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="PBTEMPV" Text="{Binding Path=PBTEMPV, StringFormat='PB temp (V) {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISPBTEMPVCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="PBTEMPC" Text="{Binding Path=PBTEMPC, StringFormat='PB temp (C) {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISPBTEMPCCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="FORWARDSW" Text="{Binding Path=FORWARDSW, StringFormat='Forward SW {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISFORWARDSWCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="REVERSESW" Text="{Binding Path=REVERSESW, StringFormat='Reverse SW {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISREVERSESWCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="KEYIN" Text="{Binding Path=KEYIN, StringFormat='Key In {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISKEYINCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="FOOTSW" Text="{Binding Path=FOOTSW, StringFormat='Foot SW {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISFOOTSWCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="PROGIN" Text="{Binding Path=PROGIN, StringFormat='Prog In {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISPROGINCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="TOWIN" Text="{Binding Path=TOWIN, StringFormat='Tow In {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISTOWINCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="BRAKESW" Text="{Binding Path=BRAKESW, StringFormat='Brake SW {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISBRAKESWCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="CHARGERINTERLOCKIN" Text="{Binding Path=CHARGERINTERLOCKIN, StringFormat='Charger Interlock In {0}'}" IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISCHARGERINTERLOCKINCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="COILFAULTIN" Text="{Binding Path=COILFAULTIN, StringFormat='Coil Fault In {0}'}" IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISCOILFAULTINCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="ENCODERA" Text="{Binding Path=ENCODERA, StringFormat='Encoder A {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISENCODERACHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="ENCODERB" Text="{Binding Path=ENCODERB, StringFormat='Encoder B {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISENCODERBCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="REVERSEBUZZER" Text="{Binding Path=REVERSEBUZZER, StringFormat='Reverse Buzzer {0}'}" IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISREVERSEBUZZERCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="BRAKERES" Text="{Binding Path=BRAKERES, StringFormat='Brake Res {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISBRAKERESCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="MAINCT" Text="{Binding Path=MAINCT, StringFormat='Main CT {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISMAINCTCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="BRAKECT" Text="{Binding Path=BRAKECT, StringFormat='Brake CT {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISBRAKECTCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="RUNINVERTER" Text="{Binding Path=RUNINVERTER, StringFormat='Run Inverter {0}'}" IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISRUNINVERTERCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="AMODULATION" Text="{Binding Path=AMODULATION, StringFormat='A modulation {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISAMODULATIONCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="BMODULATION" Text="{Binding Path=BMODULATION, StringFormat='B modulation {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISBMODULATIONCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="CMODULATION" Text="{Binding Path=CMODULATION, StringFormat='C modulation {0}'}" IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISCMODULATIONCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="FAULTCODE" Text="{Binding Path=FAULTCODESTR, StringFormat='Fault code (O/T,U/V,O/V,O/C) {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISFAULTCODECHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="SPEEDCMDRPM" Text="{Binding Path=SPEEDCMDRPM, StringFormat='Speed Cmd RPM {0}'}" IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISSPEEDCMDRPMCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0"  x:Name="BRAKEOUTPUT" Text="{Binding Path=BRAKEOUTPUT, StringFormat='Brake Output {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISBRAKEOUTPUTCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="THROTTLEBRAKE" Text="{Binding Path=THROTTLEBRAKE, StringFormat='Throttle Brake {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISTHROTTLEBRAKECHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="FORWARDSPEED" Text="{Binding Path=FORWARDSPEED, StringFormat='Forward Speed {0}'}" Font="Large" IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISFORWARDSPEEDCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="REVERSESPEED" Text="{Binding Path=REVERSESPEED, StringFormat='Reverse Speed {0}'}" IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISREVERSESPEEDCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+             <!--       <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="THROTTLEMIN" Text="{Binding Path=THROTTLEMIN, StringFormat='Throttle Min {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISTHROTTLEMINCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="THROTTLEMAX" Text="{Binding Path=THROTTLEMAX, StringFormat='Throttle Max {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISTHROTTLEMAXCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell> -->
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="STATE" Text="{Binding Path=STATESTR, StringFormat='State {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISSTATECHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="STATEINDEX" Text="{Binding Path=STATEINDEX, StringFormat='State Index {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISSTATEINDEXCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="CONFIGURINGTHROTTLE" Text="{Binding Path=CONFIGURINGTHROTTLE, StringFormat='Configuring Throttle {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISCONFIGURINGTHROTTLECHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="OVERCURRENTERRORS" Text="{Binding Path=OVERCURRENTERRORS, StringFormat='Over Current Errors {0}'}" IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISOVERCURRENTERRORSCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="ENCODERISR" Text="{Binding Path=ENCODERISR, StringFormat='Encoder ISR {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISENCODERISRCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="PWMISR" Text="{Binding Path=PWMISR, StringFormat='PWM ISR {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISPWMISRCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="ENCODERISRCOUNTS" Text="{Binding Path=ENCODERISRCOUNTS, StringFormat='Encoder ISR counts {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISENCODERISRCOUNTSCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="ENCODERBADSEQCNT" Text="{Binding Path=ENCODERBADSEQCNT, StringFormat='Encoder bad seq cnt {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISENCODERBADSEQCNTCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="ENCODERDIRCHNGCNT" Text="{Binding Path=ENCODERDIRCHNGCNT, StringFormat='Encoder dir chng cnt {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISENCODERDIRCHNGCNTCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="ENCODERTIMEOUTS" Text="{Binding Path=ENCODERTIMEOUTS, StringFormat='Encoder Timeouts cnt {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISENCODERTIMEOUTSCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="ONEMSTASK" Text="{Binding Path=ONEMSTASK, StringFormat='Onems task {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                            <toolkit:NewCheckBox Grid.Row="0" Grid.Column="1" Text="Datalog" FontSize="Large" IsChecked="{Binding Path=ISONEMSTASKCHECKED,Mode=TwoWay}" CheckedChanged="OnCheckBoxChanged" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="ADDRESS249" Text="{Binding Path=ADDRESS249, StringFormat='ADDRESS249 {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="ADDRESS250" Text="{Binding Path=ADDRESS250, StringFormat='ADDRESS250 {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="ADDRESS251" Text="{Binding Path=ADDRESS251, StringFormat='ADDRESS251 {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="ADDRESS252" Text="{Binding Path=ADDRESS252, StringFormat='ADDRESS252 {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="ADDRESS253" Text="{Binding Path=ADDRESS253, StringFormat='ADDRESS253 {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="ADDRESS254" Text="{Binding Path=ADDRESS254, StringFormat='ADDRESS254 {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                        </Grid>
+                    </ViewCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" x:Name="ADDRESS255" Text="{Binding Path=ADDRESS255, StringFormat='ADDRESS255 {0}'}"  IsEnabled="true">
+                                <Button.Font>
+                                    <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+                                </Button.Font>
+                            </Button>
+                        </Grid>
+                    </ViewCell>
+
+
+
+                </TableSection>
+            </TableRoot>
+        </TableView>
+        <Button  x:Name="START" Text="START DATALOG"  Clicked="OnButtonClicked" IsEnabled="true">
+            <Button.Font>
+                <OnIdiom x:TypeArguments="Font" Phone="Small" Tablet="Large" />
+            </Button.Font>
+        </Button>
+
+    </StackLayout>
+
+</ContentPage>

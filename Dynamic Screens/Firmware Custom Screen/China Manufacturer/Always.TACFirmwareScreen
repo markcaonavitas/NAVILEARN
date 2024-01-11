@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<FirmwaresGroups>
+  <FirmwareGroups>
+    <FirmwareGroup>
+      <Title>Always Manufacturer</Title>
+      <StrogeType>External</StrogeType>
+      <SubDirectory>Released</SubDirectory>
+      <FileItems>
+        <FileItem>
+          <FriendlyFileName>Doubletake 5kw AC</FriendlyFileName>
+          <ActualFileName>DoubleTake_600A_5kW_HuaSheng</ActualFileName>
+        </FileItem>
+      </FileItems>
+    </FirmwareGroup>
+ </FirmwareGroups>
+</FirmwaresGroups>

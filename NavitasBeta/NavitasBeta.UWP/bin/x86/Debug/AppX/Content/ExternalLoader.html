@@ -1,0 +1,97 @@
+﻿<!-- This example is an all in one file right now to demonstrate the configuarability of this WEB App page
+I tried to make references to the open source MIT or ??? Licensed things that we can use and change
+without worry.
+
+The code behind is "Vanilla Javascript" to gain some experience without public frameworks like
+Angular.js or jQurey.js. The refrences to jQuery are because some of the widgets use them AND it stil
+has a lot of code saving techniques.
+
+Remeber Unit testing is the key, this doesn't have it Per se develop a simulator to at least develop
+code quicker.
+-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dashboard HTML5 Canvas</title>
+    <link rel="stylesheet" href="./themes/odometer-theme-car.css" />
+    <link rel="stylesheet" href="./themes/VehicleDiagnostics.css" media="all">
+    <!-- for easeier development  goto and install liverreload.something on your PC. It will automatically (live)update the screen when any file is saved -->
+    <!-- jquery does have some very usefull functions but be aware that javascript abilities get updated every few years -->
+    <script src="./frameworks/jquery-3.4.1.min.js"></script>
+    <script src="./frameworks/jquery.xml2json.js"></script>
+    <!--The next three are used in NavitasMotorControllerModel.js for backwards compatible things so that Safari(iOS webview) can handle the new Custom Event super() inheritance
+    very confusing for newbies and I should be carefull not to bring in new javascript/html revision features that may not be supported by iOS yet-->
+    <script src="./frameworks/min.js"></script>
+    <script src="./frameworks/ResizeObserver.global.js"></script>
+    <script src="./frameworks/polyfill.min.js"></script>
+    <!-- Navitas framework -->
+    <!-- NavitasMotorControllerModel.js is frameworkless, written to allow some simple MVVM (notify property has changed things) that frame works like Angular.js would do. It is a demonstration
+    of the high level but basic abilities of standalone javascript.  The style some code is meant to show similaritiies (reusable) to C#-->
+    <script src="./frameworks/List.js"></script>
+    <script src="./frameworks/ViewModelHook.js"></script>
+    <script src="./frameworks/TACDictionary.js"></script>
+    <script src="./frameworks/TSXDictionary.js"></script>
+    <script src="./frameworks/NavitasMotorControllerModel.js"></script>
+    <script src="./frameworks/CommunicationsInterface.js"></script>
+    <script src="./frameworks/SimulatedCommandInterface.js"></script>
+    <!-- New Javascript to Hardware Interfaces -->
+    <!--    <script src="../js/RegressionTestBoxModelADictionary.js"></script>-->
+    <!--    <script src="../js/RegressionTestBoxModelA.js"></script>-->
+    <script src="./frameworks/PageParameterList.js"></script>
+    <script src="./frameworks/PageCommunicationsList.js"></script>
+    <script src="./frameworks/NavitasGeneralPageView.js"></script>
+    <script src="./frameworks/Queue.js"></script>
+    <script src="./frameworks/NavitasModbus.js"></script>
+    <!--    <script src="../js/Eb100Modbus.js"></script>-->
+    <!--    <script src="../js/FirmwareDownload.js"></script>-->
+    <!-- if below file is found HasBrowserCommandInterface is defined -->
+    <script src="./frameworks/BrowserCommandInterface.js"></script>
+    <!--The best thing to happen to javascript in 20 years is the Async..Await features. Using them with the promise concept allows code to hide callback hell-->
+    <!--graphing stuff. Note: This fully uses jQuery-->
+    <!-- <script language="javascript" type="text/javascript" src="./widgets/jquery.flot.min.js"></script> -->
+    <script language="javascript" type="text/javascript" src="./widgets/jquery.flot.js"></script> <!-- I modified the original source to get a different legend box size -->
+    <link href="./themes/examples.css" rel="stylesheet" type="text/css" />
+    <!-- Navitas custom Progess Bar -->
+    <script language="javascript" type="text/javascript" src="./widgets/ProgressBarPercentPassFail.js"></script> <!-- lots of room for graphics improvement -->
+    <!-- Navitas custom Scanning Image -->
+    <script language="javascript" type="text/javascript" src="./widgets/radarScan.js"></script>
+    <script src="./js/VehicleDiagnostics.js"></script>
+    <script src="./js/TestSequenceDictionary.js"></script>
+    <script>
+
+        // $(document).ready(function() {
+        //   /* Do things after DOM has fully loaded */
+        // });
+
+        // Without jQuery
+        // Define a convenience method and use it
+        var externalLoaderReady = (callback) => {
+            //screen.orientation.addEventListener("change", callback);
+            if (document.readyState != "loading") callback();
+            else document.addEventListener("DOMContentLoaded", callback);
+        }
+        externalLoaderReady(async () => {
+            await WaitForPhoneAppToStartThisEx(); //uncomment to run App
+        });
+
+        function WaitForPhoneAppToStartThisEx() {
+             if (typeof invokeCSharpAction == 'function') { //This must be running from the Phone App
+                invokeSimulatedActionIsEnabled = false;
+                invokeCSharpAction(JSON.stringify({ LoadWholeApp: {} })); //will load the external html file
+            }
+            else {
+                setTimeout(WaitForPhoneAppToStartThisEx, 100);
+            }
+        }
+        function callBackToTrapAndSetBreakpointsForExternallyLoadedJavascript() {
+            console.log("Set Breakpoint Here"); //set breakpoint here then step out when you get it to get to external scripts
+        }
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

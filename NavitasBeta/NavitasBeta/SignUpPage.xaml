@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NavitasBeta.SignUpPage"
+             NavigationPage.HasNavigationBar="False" >
+    <AbsoluteLayout>
+        <Image Source="drawableportxxhdpiscreenlogin.png" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill"      AbsoluteLayout.LayoutBounds="0, 0, .98, 1" AbsoluteLayout.LayoutFlags="All"></Image>
+        <StackLayout Orientation="Horizontal" VerticalOptions="Start" BackgroundColor="#68B04D" Padding="1"
+               AbsoluteLayout.LayoutBounds="0, 0, 1, 0.12"
+               AbsoluteLayout.LayoutFlags="All">
+            <StackLayout x:Name="SignUpBackButton" Orientation="Horizontal" >
+                <StackLayout.GestureRecognizers>
+                    <!--this is the back button not a cancel button-->
+                    <TapGestureRecognizer Tapped="BackToLoginPage" NumberOfTapsRequired="1" />
+                </StackLayout.GestureRecognizers>
+                <Label Text=" &lt;" FontSize="Large" TextColor="White" VerticalOptions="Center" HorizontalOptions="End"/>
+                <Image Source="icon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+            </StackLayout>
+            <Label Text="" FontSize="Default" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+        </StackLayout>
+        <ScrollView AbsoluteLayout.LayoutBounds="0, 1, 1, 0.58"
+                    AbsoluteLayout.LayoutFlags="All">
+            <StackLayout VerticalOptions="StartAndExpand"
+                         AbsoluteLayout.LayoutBounds="0, 0, .98, 1"
+                         AbsoluteLayout.LayoutFlags="All">
+                <StackLayout.Padding>
+                    <OnIdiom x:TypeArguments="Thickness" Tablet="180,0" Phone="10,0"/>
+                </StackLayout.Padding>
+                <Label x:Name="messageLabel" Text ="" HorizontalOptions="CenterAndExpand"/>
+                <Label Text="Username" />
+                <Entry x:Name="usernameEntry" Placeholder="Enter your username" />
+                <Label Text="Email" />
+                <Entry x:Name="emailEntry" Placeholder="Enter Valid email" />
+                <Label Text="Confirm email" />
+                <Entry x:Name="emailConfirmationEntry" Placeholder="Re-enter email" />
+                <Label Text="Password" />
+                <Grid>
+                    <Entry x:Name="passwordEntry" IsPassword="true" Placeholder="Enter your password"/>
+                    <Image x:Name="passwordShowHideIcon"
+                           Source="show.png"
+                           HorizontalOptions="EndAndExpand"
+                           HeightRequest="30"
+                           WidthRequest="30">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ShowHideToggle" NumberOfTapsRequired="1" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Grid>
+                <Label Text="Confirm password" />
+                <Entry x:Name="passwordConfirmationEntry" IsPassword="true" Placeholder="Re-enter  password"/>
+                <Button Text="Sign Up" Clicked="OnSignUpButtonClicked" />
+            </StackLayout>
+        </ScrollView>
+        <!-- Popups -->
+        <ContentView x:Name="popupWaitingForEmailVerification"
+                 AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                 AbsoluteLayout.LayoutFlags="All"
+                 IsVisible="False"
+                 BackgroundColor="#C0202020"
+                 Padding="10, 0">
+            <ScrollView Orientation="Vertical"
+                 AbsoluteLayout.LayoutBounds=".40, .5, .5, .5"
+                 AbsoluteLayout.LayoutFlags="All">
+                <StackLayout
+                   BackgroundColor = "#C2C3C6"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   Padding="10">
+                    <StackLayout
+                        x:Name="popupWaitingForInternetReConnection"
+                        BackgroundColor = "#C2C3C6"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Padding="10"
+                        IsVisible="False">
+                        <Label  FontSize="Large"
+                                TextColor="Red"
+                                HorizontalOptions="Center"
+                                FontAttributes="Bold"
+                                Text="Network Connectivity Error! "/>
+                        <Label  TextColor="Black"
+                                HorizontalOptions="Center"
+                                Text="Your Internet Connection was Intermittent While waiting for Email Verification. Please try to reconnect."/>
+                    </StackLayout>
+                    <BoxView Color="#C2C3C6"
+                         HorizontalOptions="FillAndExpand"
+                         HeightRequest="1.5">
+                    </BoxView>
+                    <!--<Image Source="popupSpeedWarningImage.png" Scale="0.5"></Image>-->
+                    <Label FontSize="Large"
+                       TextColor="Black"
+                       HorizontalOptions="Center"
+                       FontAttributes="Bold"
+                       Text="A Verification Email has been sent to:"/>
+                    <Label x:Name="EmailAddress" FontSize="Default"
+                       TextColor="Black"
+                       HorizontalOptions="Fill"
+                       Text=""/>
+                    <Label FontSize="Default"
+                       TextColor="Black"
+                       HorizontalOptions="Fill"
+                       Text="You need to check your email. In that email, click the link to allow us to continue."/>
+                    <Label Text=""/>
+                    <Label x:Name="WaitingMessage" FontSize="Default"
+                       TextColor="Black"
+                       HorizontalOptions="Fill"
+                       Text=""/>
+                    <StackLayout x:Name="CancelButtons" IsVisible="False"  Orientation="Vertical">
+                        <Label TextColor="Black" Text="Check if this Email went to spam or junk.&#x0a;&#x0a; We will continue waiting for ten more minutes or press Cancel below."/>
+                        <!--<Button Text="Resend Verification Email" Clicked="ResendVerificationEmail"/>-->
+                        <Button Text="Cancel registration and try again" Clicked="CancelAndRemoveNewUserSignUp"/>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </ContentView>
+    </AbsoluteLayout>
+</ContentPage>

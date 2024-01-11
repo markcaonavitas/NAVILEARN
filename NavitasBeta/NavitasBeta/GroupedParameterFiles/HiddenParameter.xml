@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ParameterVehicleItems>
+  <ParameterVehicleList>
+    <ParameterItem>
+      <PropertyName>SWITCHBITS</PropertyName>
+    </ParameterItem>
+    <ParameterItem>
+      <PropertyName>LogicPower_V_q7</PropertyName>
+    </ParameterItem>
+    <ParameterItem>
+      <PropertyName>REVERSEBUZZER</PropertyName>
+    </ParameterItem>
+    <ParameterItem>
+      <PropertyName>BRAKERES</PropertyName>
+    </ParameterItem>
+    <ParameterItem>
+      <PropertyName>MAINCT</PropertyName>
+    </ParameterItem>
+    <ParameterItem>
+      <PropertyName>ENCODERDIRCHNGCNT</PropertyName>
+    </ParameterItem>
+    <ParameterItem>
+      <PropertyName>ENCODERBADSEQCNT</PropertyName>
+    </ParameterItem>
+  </ParameterVehicleList>
+</ParameterVehicleItems>
+

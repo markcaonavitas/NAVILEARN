@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NavitasBeta.CustomOverlay"
+             BackgroundColor="Transparent"
+             InputTransparent ="True"
+             CascadeInputTransparent ="True">
+  <ContentView.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.25*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height=".75*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackLayout Grid.Row="0">
+            </StackLayout>
+            <StackLayout Grid.Row="1"
+                         HeightRequest="250">
+                <Image x:Name="SwipeDownFinger"
+                   Source="SwipeDownFinger"
+                   HeightRequest="80"
+                   VerticalOptions="Center"/>
+            </StackLayout>
+
+            <Label Grid.Row="2"
+                   VerticalOptions="Start"
+                   TextColor="Orange"
+                   HorizontalTextAlignment="Center"
+                   Text="Bluetooth scanning stopped&#x0a;Pull to restart"
+                   FontAttributes="Bold"
+                   LineHeight="1.2"
+                   FontSize="18"/>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

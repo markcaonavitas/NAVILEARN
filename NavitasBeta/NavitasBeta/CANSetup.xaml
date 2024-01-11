@@ -1,0 +1,608 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:NavitasBeta;assembly=NavitasBeta"
+             x:Class="NavitasBeta.CANSetup"
+             Title="CAN Setup" >
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical">
+                <Frame OutlineColor="Black" Padding="5,0,5,0" Margin="5,0,5,0">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                        <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1"  WidthRequest="100"  >
+                            <local:DoneEntry.HorizontalOptions>
+                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                            </local:DoneEntry.HorizontalOptions>
+                        </local:DoneEntry>
+                    </Grid>
+                </Frame>
+                <Frame OutlineColor="Black" Padding="5,0,5,0" Margin="5,0,5,0">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                        <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1"  WidthRequest="100"  >
+                            <local:DoneEntry.HorizontalOptions>
+                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                            </local:DoneEntry.HorizontalOptions>
+                        </local:DoneEntry>
+                    </Grid>
+                </Frame>
+                <Frame OutlineColor="Black" Padding="5,0,5,0" Margin="5,0,5,0">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                        <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1"  WidthRequest="100"  >
+                            <local:DoneEntry.HorizontalOptions>
+                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                            </local:DoneEntry.HorizontalOptions>
+                        </local:DoneEntry>
+                    </Grid>
+                </Frame>
+                <Frame OutlineColor="Black" Padding="5,0,5,0" Margin="5,0,5,0">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                        <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1"  WidthRequest="100"  >
+                            <local:DoneEntry.HorizontalOptions>
+                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                            </local:DoneEntry.HorizontalOptions>
+                        </local:DoneEntry>
+                    </Grid>
+                </Frame>
+                <Frame OutlineColor="Black" Padding="5,0,5,0" Margin="5,0,5,0">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                        <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1"  WidthRequest="100"  >
+                            <local:DoneEntry.HorizontalOptions>
+                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                            </local:DoneEntry.HorizontalOptions>
+                        </local:DoneEntry>
+                    </Grid>
+                </Frame>
+                <Frame OutlineColor="Black" Padding="5,0,5,0" Margin="5,0,5,0">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                        <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1"  WidthRequest="100"  >
+                            <local:DoneEntry.HorizontalOptions>
+                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                            </local:DoneEntry.HorizontalOptions>
+                        </local:DoneEntry>
+                    </Grid>
+                </Frame>
+                <Frame OutlineColor="Black" Padding="5,0,5,0" Margin="5,0,5,0">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                        <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1"  WidthRequest="100"  >
+                            <local:DoneEntry.HorizontalOptions>
+                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                            </local:DoneEntry.HorizontalOptions>
+                        </local:DoneEntry>
+                    </Grid>
+                </Frame>
+                <Frame OutlineColor="Black" Padding="5,0,5,0" Margin="5,0,5,0">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                        <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1"  WidthRequest="100"  >
+                            <local:DoneEntry.HorizontalOptions>
+                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                            </local:DoneEntry.HorizontalOptions>
+                        </local:DoneEntry>
+                    </Grid>
+                </Frame>
+                <Frame OutlineColor="Black" Padding="5,0,5,0" Margin="5,0,5,0">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                        <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1"  WidthRequest="100"  >
+                            <local:DoneEntry.HorizontalOptions>
+                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                            </local:DoneEntry.HorizontalOptions>
+                        </local:DoneEntry>
+                    </Grid>
+                </Frame>
+                <Frame OutlineColor="Black" Padding="5,0,5,0" Margin="5,0,5,0">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                        <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1"  WidthRequest="100"  >
+                            <local:DoneEntry.HorizontalOptions>
+                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                            </local:DoneEntry.HorizontalOptions>
+                        </local:DoneEntry>
+                    </Grid>
+                </Frame>
+                <Frame OutlineColor="Black" Padding="5,0,5,0" Margin="5,0,5,0">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                        <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1"  WidthRequest="100"  >
+                            <local:DoneEntry.HorizontalOptions>
+                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                            </local:DoneEntry.HorizontalOptions>
+                        </local:DoneEntry>
+                    </Grid>
+                </Frame>
+                <Frame OutlineColor="Black" Padding="5,0,5,0" Margin="5,0,5,0">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                        <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1"  WidthRequest="100"  >
+                            <local:DoneEntry.HorizontalOptions>
+                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                            </local:DoneEntry.HorizontalOptions>
+                        </local:DoneEntry>
+                    </Grid>
+                </Frame>
+                <Frame OutlineColor="Black" Padding="5,0,5,0" Margin="5,0,5,0">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                        <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1"  WidthRequest="100"  >
+                            <local:DoneEntry.HorizontalOptions>
+                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                            </local:DoneEntry.HorizontalOptions>
+                        </local:DoneEntry>
+                    </Grid>
+                </Frame>
+                <Frame OutlineColor="Black" Padding="5,0,5,0" Margin="5,0,5,0">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                        <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1"  WidthRequest="100"  >
+                            <local:DoneEntry.HorizontalOptions>
+                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                            </local:DoneEntry.HorizontalOptions>
+                        </local:DoneEntry>
+                    </Grid>
+                </Frame>
+                <Frame OutlineColor="Black" Padding="5,0,5,0" Margin="5,0,5,0">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                        <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1"  WidthRequest="100"  >
+                            <local:DoneEntry.HorizontalOptions>
+                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                            </local:DoneEntry.HorizontalOptions>
+                        </local:DoneEntry>
+                    </Grid>
+                </Frame>
+                <Frame OutlineColor="Black" Padding="5,0,5,0" Margin="5,0,5,0">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                        <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1"  WidthRequest="100"  >
+                            <local:DoneEntry.HorizontalOptions>
+                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                            </local:DoneEntry.HorizontalOptions>
+                        </local:DoneEntry>
+                    </Grid>
+                </Frame>
+                <Frame OutlineColor="Black" Padding="5,0,5,0" Margin="5,0,5,0">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                        <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1"  WidthRequest="100"  >
+                            <local:DoneEntry.HorizontalOptions>
+                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                            </local:DoneEntry.HorizontalOptions>
+                        </local:DoneEntry>
+                    </Grid>
+                </Frame>
+                <Frame OutlineColor="Black" Padding="5,0,5,0" Margin="5,0,5,0">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                        <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1"  WidthRequest="100"  >
+                            <local:DoneEntry.HorizontalOptions>
+                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                            </local:DoneEntry.HorizontalOptions>
+                        </local:DoneEntry>
+                    </Grid>
+                </Frame>
+                <Frame OutlineColor="Black" Padding="5,0,5,0" Margin="5,0,5,0">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                        <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1"  WidthRequest="100"  >
+                            <local:DoneEntry.HorizontalOptions>
+                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                            </local:DoneEntry.HorizontalOptions>
+                        </local:DoneEntry>
+                    </Grid>
+                </Frame>
+                <Frame OutlineColor="Black" Padding="5,0,5,0" Margin="5,0,5,0">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                        <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1"  WidthRequest="100"  >
+                            <local:DoneEntry.HorizontalOptions>
+                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                            </local:DoneEntry.HorizontalOptions>
+                        </local:DoneEntry>
+                    </Grid>
+                </Frame>
+                <Frame OutlineColor="Black" Padding="5,0,5,0" Margin="5,0,5,0">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                        <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1"  WidthRequest="100"  >
+                            <local:DoneEntry.HorizontalOptions>
+                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                            </local:DoneEntry.HorizontalOptions>
+                        </local:DoneEntry>
+                    </Grid>
+                </Frame>
+                <Frame OutlineColor="Black" Padding="5,0,5,0" Margin="5,0,5,0">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                        <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1"  WidthRequest="100"  >
+                            <local:DoneEntry.HorizontalOptions>
+                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                            </local:DoneEntry.HorizontalOptions>
+                        </local:DoneEntry>
+                    </Grid>
+                </Frame>
+                <Frame OutlineColor="Black" Padding="5,0,5,0" Margin="5,0,5,0">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                        <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1"  WidthRequest="100"  >
+                            <local:DoneEntry.HorizontalOptions>
+                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                            </local:DoneEntry.HorizontalOptions>
+                        </local:DoneEntry>
+                    </Grid>
+                </Frame>
+                <Frame OutlineColor="Black" Padding="5,0,5,0" Margin="5,0,5,0">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                        <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1"  WidthRequest="100"  >
+                            <local:DoneEntry.HorizontalOptions>
+                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                            </local:DoneEntry.HorizontalOptions>
+                        </local:DoneEntry>
+                    </Grid>
+                </Frame>
+                <Frame OutlineColor="Black" Padding="5,0,5,0" Margin="5,0,5,0">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                        <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1"  WidthRequest="100"  >
+                            <local:DoneEntry.HorizontalOptions>
+                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                            </local:DoneEntry.HorizontalOptions>
+                        </local:DoneEntry>
+                    </Grid>
+                </Frame>
+                <Frame OutlineColor="Black" Padding="5,0,5,0" Margin="5,0,5,0">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                        <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1"  WidthRequest="100"  >
+                            <local:DoneEntry.HorizontalOptions>
+                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                            </local:DoneEntry.HorizontalOptions>
+                        </local:DoneEntry>
+                    </Grid>
+                </Frame>
+                <Frame OutlineColor="Black" Padding="5,0,5,0" Margin="5,0,5,0">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                        <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1"  WidthRequest="100"  >
+                            <local:DoneEntry.HorizontalOptions>
+                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                            </local:DoneEntry.HorizontalOptions>
+                        </local:DoneEntry>
+                    </Grid>
+                </Frame>
+                <Frame OutlineColor="Black" Padding="5,0,5,0" Margin="5,0,5,0">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                        <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1"  WidthRequest="100"  >
+                            <local:DoneEntry.HorizontalOptions>
+                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                            </local:DoneEntry.HorizontalOptions>
+                        </local:DoneEntry>
+                    </Grid>
+                </Frame>
+                <Frame OutlineColor="Black" Padding="5,0,5,0" Margin="5,0,5,0">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                        <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1"  WidthRequest="100"  >
+                            <local:DoneEntry.HorizontalOptions>
+                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                            </local:DoneEntry.HorizontalOptions>
+                        </local:DoneEntry>
+                    </Grid>
+                </Frame>
+                <Frame OutlineColor="Black" Padding="5,0,5,0" Margin="5,0,5,0">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                        <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1"  WidthRequest="100"  >
+                            <local:DoneEntry.HorizontalOptions>
+                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                            </local:DoneEntry.HorizontalOptions>
+                        </local:DoneEntry>
+                    </Grid>
+                </Frame>
+                <Frame OutlineColor="Black" Padding="5,0,5,0" Margin="5,0,5,0">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                        <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1"  WidthRequest="100"  >
+                            <local:DoneEntry.HorizontalOptions>
+                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                            </local:DoneEntry.HorizontalOptions>
+                        </local:DoneEntry>
+                    </Grid>
+                </Frame>
+                <Frame OutlineColor="Black" Padding="5,0,5,0" Margin="5,0,5,0">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                        <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1"  WidthRequest="100"  >
+                            <local:DoneEntry.HorizontalOptions>
+                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                            </local:DoneEntry.HorizontalOptions>
+                        </local:DoneEntry>
+                    </Grid>
+                </Frame>
+                <Frame OutlineColor="Black" Padding="5,0,5,0" Margin="5,0,5,0">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                        <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1"  WidthRequest="100"  >
+                            <local:DoneEntry.HorizontalOptions>
+                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                            </local:DoneEntry.HorizontalOptions>
+                        </local:DoneEntry>
+                    </Grid>
+                </Frame>
+                <Frame OutlineColor="Black" Padding="5,0,5,0" Margin="5,0,5,0">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                        <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1"  WidthRequest="100"  >
+                            <local:DoneEntry.HorizontalOptions>
+                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                            </local:DoneEntry.HorizontalOptions>
+                        </local:DoneEntry>
+                    </Grid>
+                </Frame>
+                <Frame OutlineColor="Black" Padding="5,0,5,0" Margin="5,0,5,0">
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                        <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1"  WidthRequest="100"  >
+                            <local:DoneEntry.HorizontalOptions>
+                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                            </local:DoneEntry.HorizontalOptions>
+                        </local:DoneEntry>
+                    </Grid>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

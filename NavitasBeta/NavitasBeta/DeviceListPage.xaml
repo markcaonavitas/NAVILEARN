@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:NavitasBeta;assembly=NavitasBeta"
+             x:Class="NavitasBeta.DeviceListPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:RssiToHeight x:Key="rssiToHeight" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout Orientation="Vertical"
+                         VerticalOptions="Start"
+                         BackgroundColor="White"
+                         AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                         AbsoluteLayout.LayoutFlags="All">
+                <!--fake toolbar-->
+                <StackLayout Orientation="Horizontal" VerticalOptions="Start" BackgroundColor="#68B04D" Padding="1">
+                    <Image Source="icon.png" Scale="0.6" />
+                    <Label Text="  Communications" FontSize="Default" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+                <Label Text="Select a controller below"
+                       FontSize="18"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       Padding="5,1"
+                       Margin="5,1">
+                </Label>
+                <Grid  VerticalOptions ="CenterAndExpand" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="7*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="1" x:Name="lblSerialNumber" Text="Serial Number" HorizontalOptions="Start"/>
+                    <Label Grid.Column="2" x:Name="lblSignal" Text="Signal" HorizontalOptions="Center"/>
+                </Grid>
+                <BoxView BackgroundColor="Green"
+                         Margin="20,2,20,10"
+                         HeightRequest="2">
+                </BoxView>
+                <!--<ActivityIndicator x:Name="activityIndicator" />-->
+                <RefreshView x:Name="refreshView">
+                    <CollectionView x:Name="deviceCollectionView"
+                                    SelectionMode="Single">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout IsEnabled="{Binding IsClickable}">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.DeviceTappedCommand, Source={x:Reference refreshView}}"
+                                                              CommandParameter="{Binding .}" />
+                                    </StackLayout.GestureRecognizers>
+                                    <!--<Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1" BackgroundColor="Transparent">-->
+                                    <Grid RowSpacing="2">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="7*" />
+                                            <ColumnDefinition Width="2*" />
+                                        </Grid.ColumnDefinitions>
+                                        <!--<Image Source="BleOpen.png" IsVisible="{Binding NotHasRegisteredUsersButNotYou}" Grid.Column="0" HorizontalOptions="Center" HeightRequest="25" WidthRequest="25" VerticalOptions="Center"/>-->
+
+                                        <Image Source="BleSecured.png"
+                                               IsVisible="{Binding IsRegisteredUser}"
+                                               Grid.Column="0"
+                                               Grid.Row="2"
+                                               HeightRequest="25"/>
+
+                                        <Label Grid.Column="1"
+                                               Grid.Row="0"
+                                               VerticalOptions="Center"
+                                               FontAttributes="{Binding FontAttribute}"
+                                               Text="{Binding Name}">
+                                            <Label.Triggers>
+                                                <DataTrigger TargetType="Label" Binding="{Binding IsClickable}" Value="False">
+                                                    <Setter Property="TextColor" Value="#d3d3d3"/>
+                                                </DataTrigger>
+                                            </Label.Triggers>
+                                        </Label>
+
+                                        <Label x:Name="LabelMySelf"
+                                               Grid.Column="1"
+                                               Grid.Row="1"
+                                               VerticalOptions="Center"
+                                               Text="{Binding NickName}">
+                                            <Label.Triggers>
+                                                <DataTrigger TargetType="Label"
+                                                             Binding="{Binding Source={x:Reference LabelMySelf}, Path=Text.Length}"
+                                                             Value="0">
+                                                    <Setter Property="IsVisible" Value="False"/>
+                                                </DataTrigger>
+                                            </Label.Triggers>
+                                        </Label>
+                                        <StackLayout Grid.Column="1"
+                                                     Grid.Row="2"
+                                                     VerticalOptions="Center">
+                                            <Label Text="{Binding SecureText}"/>
+                                            <Label Text=" "
+                                                   IsVisible="{Binding HoldInitialHeightHack}"/>
+                                        </StackLayout>
+                                        <Label Grid.Column="2"
+                                               Text="{Binding Rssi,  StringFormat='{0}dBm'}"
+                                               HorizontalTextAlignment="Center"
+                                               FontSize="Small" />
+                                        <!--<BoxView BackgroundColor="Green" Grid.Column="1" HeightRequest="{Binding Path = Rssi,Converter={StaticResource rssiToHeight}}" />-->
+                                    </Grid>
+                                    <BoxView BackgroundColor="#ebebeb"  HeightRequest="1"/>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                        <CollectionView.EmptyView>
+                            <ContentView>
+                                <Grid HorizontalOptions="CenterAndExpand">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="1.5*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout Grid.Row="1"
+                                                 HorizontalOptions="CenterAndExpand"
+                                                 VerticalOptions="CenterAndExpand">
+                                        <ActivityIndicator IsRunning="{Binding IsIndicatorRunning}"
+                                                           HeightRequest="30"/>
+                                        <StackLayout BindingContext="{Binding CenterError}">
+                                            <Label Text="{Binding Path=Title}"
+                                                   Style="{StaticResource ErrorTitle}"/>
+                                            <Label Text="{Binding Path=Message}"
+                                                   Style="{StaticResource ErrorMessage}"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <StackLayout Grid.Row="2"
+                                                 BindingContext="{Binding BottomError}"
+                                                 HorizontalOptions="CenterAndExpand"
+                                                 VerticalOptions="EndAndExpand">
+                                        <Label Text="{Binding Path=Title}"
+                                               Style="{StaticResource ErrorTitle}"/>
+                                        <Label Text="{Binding Path=Message}"
+                                               Style="{StaticResource ErrorMessage}"/>
+                                    </StackLayout>
+                                </Grid>
+                            </ContentView>
+                        </CollectionView.EmptyView>
+                    </CollectionView>
+                </RefreshView>
+                <BoxView BackgroundColor="#ebebeb"  HeightRequest="1"/>
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="CenterAndExpand"
+                             VerticalOptions="EndAndExpand"
+                             Padding="10,10">
+                    <Label Text="Explore app features without a controller"
+                           VerticalOptions="Center"
+                           FontSize="{OnPlatform iOS='14', Android='Default'}"
+                           LineHeight="1.2"
+                           HorizontalTextAlignment="Center" />
+                    <Frame HasShadow="True" 
+                           CornerRadius="10"
+                           Margin="10,0"
+                           WidthRequest="130"
+                           Padding="0"
+                           HorizontalOptions="End">
+                        <Button x:Name="btnAppDemo"
+                                Text="Demo"
+                                Command="{Binding SelectAppDemoCommand}"
+                                TextColor="White"
+                                BackgroundColor="#68B04D"/>
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

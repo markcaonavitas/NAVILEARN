@@ -1,0 +1,12 @@
+How to connect with WebDAV server using USB cable:
+
+This can useful when you have USB cable and no network available.
+1) On your phone go to Settings->Applications->Development and set option "USB debugging".
+2) Connect your phone to your PC using USB cable.
+3) Start adb server. On your PC run command "adb start-server".
+adb is a program that you can find on android sdk. Usually you will find it on android-sdk\platform-tools\adb.
+4) Forward needed ports from your PC to your phone. On your PC run command "adb forward tcp:8080 tcp:8080"
+With this, any connection in your pc to 127.0.0.1:8080 will be forwarded to your phone in port 8080.
+5) Run WebDAV server in your phone, open settings and in "Network interfaces" select "Loopback (127.0.0.1)"
+6) Start WebDAV server.
+7) In your PC connect your WebDAV client to http://127.0.0.1:8080 (port might be different, it depends on your WebDAV Server configuration).

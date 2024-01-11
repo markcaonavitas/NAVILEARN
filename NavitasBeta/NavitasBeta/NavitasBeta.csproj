@@ -1,0 +1,636 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7A24E02A-2C57-4ED5-815E-70BFED6570CA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NavitasBeta</RootNamespace>
+    <AssemblyName>NavitasBeta</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile259</TargetFrameworkProfile>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>0</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="AdvancedRequestAccessPage.xaml.cs">
+      <DependentUpon>AdvancedRequestAccessPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppConfiguration.cs" />
+    <Compile Include="FileManager.cs" />
+    <Compile Include="Authentication.cs" />
+    <Compile Include="AutomaticLogin.cs" />
+    <Compile Include="BindingConverters.cs" />
+    <Compile Include="DisplaySetting.cs" />
+    <Compile Include="CloudManager.cs" />
+    <Compile Include="Country.cs" />
+    <Compile Include="CustomOverlay.xaml.cs">
+      <DependentUpon>CustomOverlay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomTabbedPage.cs" />
+    <Compile Include="DealerSettingsPage.xaml.cs">
+      <DependentUpon>DealerSettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceListPage.xaml.cs">
+      <DependentUpon>DeviceListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ControllerTypeLocator.cs" />
+    <Compile Include="CustomImage.cs" />
+    <Compile Include="CustomSwitch.cs" />
+    <Compile Include="CustomYesNoBox.cs" />
+    <Compile Include="DealerSettingsTSXPage.xaml.cs">
+      <DependentUpon>DealerSettingsTSXPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DemoDevice.cs" />
+    <Compile Include="DemoMode.cs" />
+    <Compile Include="DeviceComunication.cs" />
+    <Compile Include="DynamicPage.cs" />
+    <Compile Include="ExpireNotificationPage.xaml.cs">
+      <DependentUpon>ExpireNotificationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FileItem.cs" />
+    <Compile Include="FirmwareDownloadPage.xaml.cs">
+      <DependentUpon>FirmwareDownloadPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FirmwareDownloadTSXPage.xaml.cs">
+      <DependentUpon>FirmwareDownloadTSXPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FirmwaresGroups.cs" />
+    <Compile Include="FlashGetBlockResponseEventArgs.cs" />
+    <Compile Include="FloatConverter.cs" />
+    <Compile Include="GaugePage.xaml.cs">
+      <DependentUpon>GaugePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GaugeTSXPage.xaml.cs">
+      <DependentUpon>GaugeTSXPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GoiParameter.cs" />
+    <Compile Include="HybridWebView.cs" />
+    <Compile Include="IAdapter.cs" />
+    <Compile Include="IDevice.cs" />
+    <Compile Include="IDownloader.cs" />
+    <Compile Include="IInfoService.cs" />
+    <Compile Include="IMode.cs" />
+    <Compile Include="LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage.xaml.cs">
+      <DependentUpon>MasterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPageItem.cs" />
+    <Compile Include="CustomModal.xaml.cs">
+      <DependentUpon>CustomModal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyAccountPage.xaml.cs">
+      <DependentUpon>MyAccountPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyCell.cs" />
+    <Compile Include="NavitasGeneralPage.cs" />
+    <Compile Include="OxyPlotPage.xaml.cs">
+      <DependentUpon>OxyPlotPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PacketReceivedEventArgs.cs" />
+    <Compile Include="HybridWebViewCommunication.cs" />
+    <Compile Include="PageGroup.cs" />
+    <Compile Include="PageItems.cs" />
+    <Compile Include="PageParameterList.cs" />
+    <Compile Include="PageViewModel.cs" />
+    <Compile Include="ParameterFIle.cs" />
+    <Compile Include="ParameterFileItems.cs" />
+    <Compile Include="ParameterFilePage.cs" />
+    <Compile Include="ParameterItem.cs" />
+    <Compile Include="ParameterNameAndValue.cs" />
+    <Compile Include="ParametersViewModel.cs" />
+    <Compile Include="ParametersViewModelTSX.cs" />
+    <Compile Include="ParameterVehicleItem.cs" />
+    <Compile Include="PhysicalMode.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReadOnlyPage.xaml.cs">
+      <DependentUpon>ReadOnlyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReadOnlyTSXPage.xaml.cs">
+      <DependentUpon>ReadOnlyTSXPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ScopeGetBlockResponseEventArgs.cs" />
+    <Compile Include="ScopePage.xaml.cs">
+      <DependentUpon>ScopePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ScriptingPage.cs" />
+    <Compile Include="SetParameterEventArgs.cs" />
+    <Compile Include="SignUpPage.xaml.cs">
+      <DependentUpon>SignUpPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierChain.cs" />
+    <Compile Include="TransparentView.cs" />
+    <Compile Include="UserDiagnosticsPage.xaml.cs">
+      <DependentUpon>UserDiagnosticsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserDiagnosticsPageTSX.xaml.cs">
+      <DependentUpon>UserDiagnosticsPageTSX.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserTabbedPage.xaml.cs">
+      <DependentUpon>UserTabbedPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VehicleData.cs" />
+    <Compile Include="ViewModelBase.cs" />
+    <Compile Include="ViewModelLocator.cs" />
+    <Compile Include="WriteBlockEventArgs.cs" />
+    <Compile Include="WriteEventArgs.cs" />
+    <Compile Include="WritePacketEventArgs.cs" />
+    <Compile Include="WritePage.xaml.cs">
+      <DependentUpon>WritePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WriteTSXPage.xaml.cs">
+      <DependentUpon>WriteTSXPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CommonWebViews\frameworks\List.js" />
+    <EmbeddedResource Include="DealerSettingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FirmwareDownloadPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OxyPlotPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="LoginPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="GaugePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SignUpPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CommonWebViews\images\help\TSX\" />
+    <Folder Include="lib\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="GaugeTSXPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UserTabbedPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OxyPlot.Xamarin.Forms\OxyPlot.Xamarin.Forms.csproj">
+      <Project>{b63c5f8c-61c8-4e69-93d6-f49f816d3746}</Project>
+      <Name>OxyPlot.Xamarin.Forms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ParseManager\ParseManager.csproj">
+      <Project>{adcf519d-64e1-4902-8b94-041c53dff6ad}</Project>
+      <Name>ParseManager</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UserDiagnosticsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UserDiagnosticsPageTSX.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DealerSettingsTSXPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ReadOnlyPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="WritePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ReadOnlyTSXPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="WriteTSXPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ScopePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FirmwareDownloadTSXPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <EmbeddedResource Include="Help\TAC\DirectionSwitchFault.TAChelp" />
+    <EmbeddedResource Include="Help\TSX\DirectionSwitchFault.TSXhelp" />
+    <EmbeddedResource Include="firmware\TSX\Original.TSXFirmwareScreen" />
+    <EmbeddedResource Include="firmware\TAC\Original.TACFirmwareScreen" />
+    <EmbeddedResource Include="firmware\TSX\OEM\TSX.440_CVG_EXPEDITER_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\OEM\TSX.440_CVG_STOCKCHASER_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\OEM\TSX.440_Rodeo_Zone_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\OEM\TSX.600_Beast_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\OEM\TSX.600_CVG_EXPEDITER_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\OEM\TSX.600_CVG_STOCKCHASER_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\OEM\TSX.600_HUNTVE_MASTER_48V_309_motor_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\OEM\TSX.600_HUNTVE_MASTER_48V_341_motor_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\OEM\TSX.600_HUNTVE_MASTER_72V_309_motor_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\OEM\TSX.600_HUNTVE_MASTER_72V_341_motor_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\OEM\TSX.600_HUNTVE_REMOTE_48V_309_motor_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\OEM\TSX.600_HUNTVE_REMOTE_48V_341_motor_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\OEM\TSX.600_HUNTVE_REMOTE_72V_309_motor_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\OEM\TSX.600_HUNTVE_REMOTE_72V_341_motor_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\OEM\TSX.600_TITANMOTORS_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.440_ADMIRAL_MOT-A2_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.440_ADMIRAL_MOT-A4_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.440_ADMIRAL_MOT-B2_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.440_ADMIRAL_MOT-B4_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.440_ADMIRAL_MOT-D2_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.440_ADMIRAL_MOT-D4_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.440_COPPERHEAD_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.440_DD170-500-1_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.440_DD170-505_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.440_DD170-506-2_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.440_DD_ES-63-47_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.440_DD_ES-76_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.440_DD_ES-9B-50_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.440_FSIP_SPEED_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.440_FSIP_TORQUE_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.440_GCMod_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.440_NIVEL3268_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.440_NIVEL3272_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.440_NIVEL54035_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.440_NIVEL54036_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.440_NIVEL7144_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.440_PM_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.440_PQ_BANDIT_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.440_PQ_EXECUTIONER_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.440_PQ_RHINO_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.440_PQ_SPEED_TORQUE_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.440_PQ_TORQUE_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.440_Series_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.440_Stock_Motor_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.440_STRIKER_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.440_WhiteLightning_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.600_ADMIRAL_MOT-A2_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.600_ADMIRAL_MOT-A4_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.600_ADMIRAL_MOT-B2_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.600_ADMIRAL_MOT-B4_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.600_ADMIRAL_MOT-D2_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.600_ADMIRAL_MOT-D4_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.600_Bombardier_NEV_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.600_COPPERHEAD_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.600_DD170-500-1_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.600_DD170-505_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.600_DD170-506-2_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.600_DD_ES-63-47_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.600_DD_ES-76_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.600_DD_ES-9B-50_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.600_FSIP_SPEED_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.600_FSIP_TORQUE_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.600_GCMod_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.600_NIVEL3268_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.600_NIVEL3272_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.600_NIVEL54035_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.600_NIVEL54036_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.600_NIVEL7144_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.600_PM_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.600_PQ_BANDIT_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.600_PQ_EXECUTIONER_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.600_PQ_RHINO_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.600_PQ_SPEED_TORQUE_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.600_PQ_TORQUE_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.600_Series_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.600_Stock_Motor_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.600_WhiteLightning_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.440_DD170-502-0001_Speed_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.440_DD170-502-0001_Torque_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.440_DD170-502-0002_Speed_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.440_DD170-502-0002_Torque_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.600_DD170-502-0001_Speed_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.600_DD170-502-0001_Torque_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.600_DD170-502-0002_Speed_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.600_DD170-502-0002_Torque_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.440_DD_ES-24-14_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="firmware\TSX\Released\TSX.600_DD_ES-24-14_Rev_9.2.213.TSXhex" />
+    <EmbeddedResource Include="DynamicScreens\DealerSettingsPage.TACscreen" />
+    <EmbeddedResource Include="DynamicScreens\DealerSettingsPage.TSXscreen" />
+    <EmbeddedResource Include="DynamicScreens\UserDiagnosticsPage.TACscreen" />
+    <EmbeddedResource Include="DynamicScreens\UserDiagnosticsPage.TSXscreen" />
+    <EmbeddedResource Include="DynamicScreens\ReadOnlyPage.TACscreen" />
+    <EmbeddedResource Include="DynamicScreens\ReadOnlyPage.TSXscreen" />
+    <EmbeddedResource Include="DynamicScreens\WritePage.TACscreen" />
+    <EmbeddedResource Include="DynamicScreens\WritePage.TSXscreen" />
+    <EmbeddedResource Include="DynamicScreens\Parameter_Files.TACNavigatescreen" />
+    <EmbeddedResource Include="DynamicScreens\Parameter_Files.TSXNavigatescreen" />
+    <EmbeddedResource Include="firmware\TAC\Released\ALWAYZ_600A_5kW_v11.979.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\BEAST_5kW_CONVERSION_v11.915.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\BINTELLI_440A_v11.960.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\BINTELLI_600A_v11.961.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\CAN_Networked_4WD_Speed_Matched_Follower_600A_5kW_HuaSheng_v11.933.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\CAN_Networked_4WD_Speed_Matched_Leader_600A_5kW_HuaSheng_v11.931.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\CLUB_CAR_400A_4kW_HuaSheng_v11.900.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\CLUB_CAR_600A_4KW_HuaSheng_v11.917.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\CLUB_CAR_600A_5kW_HuaSheng_v11.901.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\Columbia_440A_Gen4_3kW_v11.950.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\Columbia_600A_Gen4_3kW_v11.951.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\Columbia_600A_Gen4_5kW_v11.949.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\Columbia_600A_Gen4_8kW_v11.927.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\CSHELL_600A_4kW_v11.976.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\CSHELL_600A_5kW_v11.977.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\CVG_Emerge_440A_5kW_v11.956.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\CVG_Journeyman_440A_5kW_v11.954.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\CVG_Utilitruck_Payloader_440A_8kW_v11.952.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\EZGO_RXV2016_440A_v11.906.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\EZGO_RXV2016_600A_v11.907.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\EZGO_RXV_440A_v11.902.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\EZGO_RXV_600A_v11.903.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\EZGO_TXT_440A_4kW_HuaSheng_v11.910.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\EZGO_TXT_600A_5kW_HuaSheng_v11.911.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\ICON_440A_v11.934.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\ICON_600A_v11.935.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\KODIAK_440A_v11.972.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\KODIAK_600A_v11.973.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\Navitas_Chassis_600A_5kW_v11.947.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\NAVITAS_OE_440A_v11.970.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\NAVITAS_OE_600A_v11.971.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\ROYAL_EV_440A_72V_v11.962.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\ROYAL_EV_440A_v11.958.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\ROYAL_EV_600A_72V_6_2kW_NEWAXLE_v11.967.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\ROYAL_EV_600A_72V_6_2kW_v11.965.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\ROYAL_EV_600A_72V_v11.963.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\TAC2_440A_EZGO_L6_72V_5kW_HuaSheng_v11.904.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\TAC2_600A_EZGO_L6_72V_5kW_HuaSheng_v11.905.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\TAC2_600A_Yamaha_G29_5kW_HuaSheng_v11.919.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\VIKING_600A_4kW_v11.974.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\VIKING_600A_5kW_v11.975.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\Yamaha_G29_440A_4kW_HuaSheng_v11.920.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\Yamaha_G29_600A_4kW_HuaSheng_v11.921.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\YDR2_440A_v11.908.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\YDR2_600A_v11.909.hex" />
+    <EmbeddedResource Include="firmware\TAC\Released\LandMaster_600A_5kw_HuaSheng_v8.329.hex" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="OxyPlot.Core">
+      <Version>2.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.Core">
+      <Version>17.3.0.34</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfGauge">
+      <Version>17.3.0.34</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Essentials">
+      <Version>1.7.0</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms">
+      <Version>5.0.0.2083</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms.Maps">
+      <Version>5.0.0.2622</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms.Visual.Material">
+      <Version>5.0.0.2622</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MasterPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Dictionaries\TACDictionary.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Dictionaries\TSXDictionary.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SupplierChain\SupplierChain.xml" />
+    <EmbeddedResource Include="SupplierChain\TSXSupplierChain.xml" />
+    <EmbeddedResource Include="firmware\TAC\f2803x_flash_kernel.txt" />
+    <EmbeddedResource Include="GroupedParameterFiles\VehicleHealth.xml" />
+    <EmbeddedResource Include="GroupedParameterFiles\TSXVehicleHealth.xml" />
+    <EmbeddedResource Include="GroupedParameterFiles\ParameterTSXVehicleSettings.xml" />
+    <EmbeddedResource Include="GroupedParameterFiles\HiddenTSXParameter.xml" />
+    <EmbeddedResource Include="GroupedParameterFiles\HiddenParameter.xml" />
+    <EmbeddedResource Include="GroupedParameterFiles\ParameterVehicleSettings.xml" />
+    <EmbeddedResource Include="Dictionaries\CountriesStates.xml" />
+    <EmbeddedResource Include="GroupedParameterFiles\ThermistorGroupedParameterFile.xml" />
+    <EmbeddedResource Include="CommonWebViews\CalibrateThrottle.html" />
+    <Content Include="CommonWebViews\DashboardScripting.html" />
+    <EmbeddedResource Include="CommonWebViews\frameworks\jquery-1.10.2.min.js" />
+    <EmbeddedResource Include="CommonWebViews\frameworks\jquery-3.4.1.min.js" />
+    <EmbeddedResource Include="CommonWebViews\frameworks\jquery.xml2json.js" />
+    <EmbeddedResource Include="CommonWebViews\frameworks\min.js" />
+    <EmbeddedResource Include="CommonWebViews\frameworks\NavitasGeneralPageView.js" />
+    <EmbeddedResource Include="CommonWebViews\frameworks\NavitasMotorControllerModel.js" />
+    <EmbeddedResource Include="CommonWebViews\frameworks\polyfill.min.js" />
+    <EmbeddedResource Include="CommonWebViews\frameworks\ResizeObserver.global.js" />
+    <EmbeddedResource Include="CommonWebViews\frameworks\SimulatedCommandInterface.js" />
+    <EmbeddedResource Include="CommonWebViews\frameworks\TACDictionary.js" />
+    <EmbeddedResource Include="CommonWebViews\frameworks\TSXDictionary.js" />
+    <EmbeddedResource Include="CommonWebViews\frameworks\ViewModelHook.js" />
+    <EmbeddedResource Include="CommonWebViews\frameworks\CommunicationsInterface.js" />
+    <EmbeddedResource Include="CommonWebViews\frameworks\leaflet.js" />
+    <EmbeddedResource Include="CommonWebViews\ExternalLoader.html" />
+    <Content Include="CommonWebViews\frameworks\kalman-filter.min.js" />
+    <Content Include="CommonWebViews\images\acceleration.svg" />
+    <Content Include="CommonWebViews\images\analytic.svg" />
+    <Content Include="CommonWebViews\images\battery.svg" />
+    <Content Include="CommonWebViews\images\BRAKERELAYOUTPUT_OFF.svg" />
+    <Content Include="CommonWebViews\images\BRAKERELAYOUTPUT_ON.svg" />
+    <Content Include="CommonWebViews\images\CHARGERINTERLOCKIN.svg" />
+    <Content Include="CommonWebViews\images\collapseIcon.png" />
+    <Content Include="CommonWebViews\images\DemoWM.png" />
+    <Content Include="CommonWebViews\images\EditIcon.png" />
+    <Content Include="CommonWebViews\images\Fail.gif" />
+    <Content Include="CommonWebViews\images\fail-icon.svg" />
+    <Content Include="CommonWebViews\images\FootSwitchAndThrottle.gif" />
+    <Content Include="CommonWebViews\images\FORWARDSW.svg" />
+    <Content Include="CommonWebViews\images\golfcart.jpg" />
+    <Content Include="CommonWebViews\images\help\TAC\board-electronics-computer-data-processing-50711.jpg" />
+    <Content Include="CommonWebViews\images\help\TAC\TAC2_ClubCar_Precedent_EZGO_TXT.png" />
+    <Content Include="CommonWebViews\images\help\TAC\TAC2_ClubCar_Precedent_EZGO_TXT_forward_reverse.png" />
+    <Content Include="CommonWebViews\images\help\TAC\TAC2_ClubCar_Precedent_EZGO_TXT_key_run_charge.png" />
+    <Content Include="CommonWebViews\images\help\TAC\TAC2_ClubCar_Precedent_EZGO_TXT_throttle_footsw.png" />
+    <Content Include="CommonWebViews\images\help\TAC\TAC2_EZGO_1268_Resistive_ITS.png" />
+    <Content Include="CommonWebViews\images\help\TAC\TAC2_EZGO_1268_Resistive_ITS_forward_reverse.png" />
+    <Content Include="CommonWebViews\images\help\TAC\TAC2_EZGO_1268_Resistive_ITS_key_run_charge.png" />
+    <Content Include="CommonWebViews\images\help\TAC\TAC2_EZGO_1268_Resistive_ITS_throttle_footsw.png" />
+    <Content Include="CommonWebViews\images\help\TAC\TAC2_EZGO_RXV23.png" />
+    <Content Include="CommonWebViews\images\help\TAC\TAC2_EZGO_RXV23_brake_brakesw.png" />
+    <Content Include="CommonWebViews\images\help\TAC\TAC2_EZGO_RXV23_forward_reverse.png" />
+    <Content Include="CommonWebViews\images\help\TAC\TAC2_EZGO_RXV23_key_run_charge.png" />
+    <Content Include="CommonWebViews\images\help\TAC\TAC2_EZGO_RXV23_throttle_footsw.png" />
+    <Content Include="CommonWebViews\images\help\TAC\TAC2_EZGO_RXV35.png" />
+    <Content Include="CommonWebViews\images\help\TAC\TAC2_EZGO_RXV35_brake_brakesw.png" />
+    <Content Include="CommonWebViews\images\help\TAC\TAC2_EZGO_RXV35_forward_reverse.png" />
+    <Content Include="CommonWebViews\images\help\TAC\TAC2_EZGO_RXV35_key_run_charge.png" />
+    <Content Include="CommonWebViews\images\help\TAC\TAC2_EZGO_RXV35_throttle_footsw.png" />
+    <Content Include="CommonWebViews\images\help\TAC\TAC2_TSX.png" />
+    <Content Include="CommonWebViews\images\help\TAC\TAC2_TSX_forward_reverse.png" />
+    <Content Include="CommonWebViews\images\help\TAC\TAC2_TSX_key_run_charge.png" />
+    <Content Include="CommonWebViews\images\help\TAC\TAC2_TSX_throttle_footsw.png" />
+    <Content Include="CommonWebViews\images\help\TAC\TAC2_Yamaha_G29.png" />
+    <Content Include="CommonWebViews\images\help\TAC\TAC2_Yamaha_G29_forward_reverse.png" />
+    <Content Include="CommonWebViews\images\help\TAC\TAC2_Yamaha_G29_key_run_charge.png" />
+    <Content Include="CommonWebViews\images\help\TAC\TAC2_Yamaha_G29_throttle_footsw.png" />
+    <Content Include="CommonWebViews\images\help\TAC\TAC2_Yamaha_YDRE2.png" />
+    <Content Include="CommonWebViews\images\help\TAC\TAC2_Yamaha_YDRE2_forward_reverse.png" />
+    <Content Include="CommonWebViews\images\help\TAC\TAC2_Yamaha_YDRE2_key_run_charge.png" />
+    <Content Include="CommonWebViews\images\help\TAC\TAC2_Yamaha_YDRE2_throttle_footsw.png" />
+    <Content Include="CommonWebViews\images\hide.png" />
+    <Content Include="CommonWebViews\images\Information_icon.png" />
+    <Content Include="CommonWebViews\images\ionlocked.png" />
+    <Content Include="CommonWebViews\images\ionunlocked.png" />
+    <Content Include="CommonWebViews\images\KEYIN.svg" />
+    <Content Include="CommonWebViews\images\openIcon.png" />
+    <Content Include="CommonWebViews\images\pass-icon.svg" />
+    <Content Include="CommonWebViews\images\redPointer.gif" />
+    <Content Include="CommonWebViews\images\REVBUZZEROUTPUT.svg" />
+    <Content Include="CommonWebViews\images\REVBUZZEROUTPUT_OFF.svg" />
+    <Content Include="CommonWebViews\images\REVBUZZEROUTPUT_ON.svg" />
+    <Content Include="CommonWebViews\images\REVERSESW.svg" />
+    <Content Include="CommonWebViews\images\show.png" />
+    <EmbeddedResource Include="CommonWebViews\PnrdVerification.html" />
+    <EmbeddedResource Include="CommonWebViews\images\TireSize.png" />
+    <Content Include="CommonWebViews\images\stop.svg" />
+    <EmbeddedResource Include="CommonWebViews\images\SwipeDownFinger.png" />
+    <Content Include="CommonWebViews\images\tire-size.svg" />
+    <Content Include="CommonWebViews\images\whiteBackIcon.png" />
+    <EmbeddedResource Include="CommonWebViews\StartDiagnose.html" />
+    <EmbeddedResource Include="CommonWebViews\js\StartDiagnose.js" />
+    <EmbeddedResource Include="CommonWebViews\js\TestSequenceDictionary.js" />
+    <EmbeddedResource Include="CommonWebViews\js\UserOnboarding.js" />
+    <EmbeddedResource Include="CommonWebViews\js\VehicleDiagnostics.js" />
+    <EmbeddedResource Include="CommonWebViews\MainSolenoidTest.html" />
+    <EmbeddedResource Include="CommonWebViews\ReverseBuzzerTest.html" />
+    <Content Include="CommonWebViews\themes\leaflet.css" />
+    <Content Include="CommonWebViews\themes\odometer-theme-car.css" />
+    <Content Include="CommonWebViews\themes\odometer-theme-default.css" />
+    <Content Include="CommonWebViews\themes\UserOnboarding.css" />
+    <Content Include="CommonWebViews\themes\VehicleDiagnostics.css" />
+    <EmbeddedResource Include="CommonWebViews\UserOnboarding.html" />
+    <Content Include="CommonWebViews\widgets\gauge.min.js" />
+    <Content Include="CommonWebViews\widgets\odometer.js" />
+    <Content Include="CommonWebViews\widgets\radarScan.js" />
+    <Content Include="CommonWebViews\widgets\speedometer.js" />
+    <EmbeddedResource Include="GroupedParameterFiles\BatteryGroupedParameterFile.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ExpireNotificationPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AdvancedRequestAccessPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MyAccountPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CustomModal.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CustomOverlay.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+</Project>

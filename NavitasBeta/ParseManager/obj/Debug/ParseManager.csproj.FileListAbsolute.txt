@@ -1,0 +1,6 @@
+C:\TestRepoMark\NavitasBeta\NavitasBeta\ParseManager\bin\Debug\ParseManager.dll
+C:\TestRepoMark\NavitasBeta\NavitasBeta\ParseManager\bin\Debug\ParseManager.pdb
+C:\TestRepoMark\NavitasBeta\NavitasBeta\ParseManager\obj\Debug\ParseManager.csproj.AssemblyReference.cache
+C:\TestRepoMark\NavitasBeta\NavitasBeta\ParseManager\obj\Debug\ParseManager.csproj.CoreCompileInputs.cache
+C:\TestRepoMark\NavitasBeta\NavitasBeta\ParseManager\obj\Debug\ParseManager.dll
+C:\TestRepoMark\NavitasBeta\NavitasBeta\ParseManager\obj\Debug\ParseManager.pdb

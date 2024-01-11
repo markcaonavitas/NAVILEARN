@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:NavitasGeneralPage xmlns="http://xamarin.com/schemas/2014/forms"
+                          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                          x:Class="NavitasBeta.FirmwareDownloadTSXPage"
+                          xmlns:local="clr-namespace:NavitasBeta;assembly=NavitasBeta"
+                          Title="Download"
+                          NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <!--won't scroll if full length, hence .98-->
+            <!--<StackLayout Orientation="Horizontal" VerticalOptions="Start" BackgroundColor="#68B04D" Padding="1" HorizontalOptions="FillAndExpand"
+               AbsoluteLayout.LayoutBounds="0, 0, 1, 0.12"
+               AbsoluteLayout.LayoutFlags="All">
+                <StackLayout Orientation="Horizontal" >
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ShowMasterMenu" NumberOfTapsRequired="1" />
+                    </StackLayout.GestureRecognizers>
+                    <Image Source="hamburger.png" Margin="10,0,0,0" Scale="1.5" HorizontalOptions="Start"/>
+                    <Image Source="icon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+                </StackLayout>
+                <Label Text="" FontSize="Default" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+            </StackLayout>-->
+            <StackLayout Style="{StaticResource toolbarStyle}">
+                <StackLayout Style="{StaticResource toolbarElementsContainerStyle}">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="BackbuttonClicked" NumberOfTapsRequired="1" />
+                    </StackLayout.GestureRecognizers>
+                    <Image Source="backArrow.png"
+                           Scale=".8"
+                           Style="{StaticResource toolbarImageStyle}"/>
+                    <Image Source="icon.png"
+                           Style="{StaticResource toolbarImageStyle}"/>
+                    <Label Text="Download"
+                           Style="{StaticResource titleStyle}"/>
+                </StackLayout>
+                <Label Text="" FontSize="Default" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+            </StackLayout>
+            <ScrollView Style="{StaticResource scrollViewProportion}">
+                <StackLayout Orientation="Vertical">
+                    <StackLayout.Padding>
+                        <OnIdiom x:TypeArguments="Thickness" Tablet="0,30" Phone="0,15"/>
+                    </StackLayout.Padding>
+                    <Frame OutlineColor="Black" Padding="5,1" Margin="5,1">
+                        <StackLayout x:Name="PARCONTROLLERMODELNUMBER"  Orientation="Horizontal" >
+                            <Switch HorizontalOptions="Start" IsVisible="False"/>
+                            <Label Text="Controller Model" TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"/>
+                            <Label Text="{Binding Path=parameterEnumString,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame OutlineColor="Black" Padding="5,1" Margin="5,1">
+                        <StackLayout x:Name="PARPROFILENUMBER"  Orientation="Horizontal" >
+                            <Switch HorizontalOptions="Start" IsVisible="False"/>
+                            <Label Text="Present Motor Profile" TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"/>
+                            <Label Text="{Binding Path=parameterEnumString,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame OutlineColor="Black" Padding="5,1" Margin="5,1">
+                        <StackLayout x:Name="PAREMBEDDEDSOFTWAREVER"  Orientation="Horizontal" >
+                            <Switch HorizontalOptions="Start" IsVisible="False"/>
+                            <Label Text="Present Firmware Version" TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"/>
+                            <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame OutlineColor="Black" Padding="5,1" Margin="5,1">
+                        <StackLayout x:Name="PARPRESETPARAMETERSVERSION"  Orientation="Horizontal" >
+                            <Switch HorizontalOptions="Start" IsVisible="False"/>
+                            <Label Text="-- Build Number" TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"/>
+                            <Label Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"/>
+                        </StackLayout>
+                    </Frame>
+                    <StackLayout  x:Name ="FileButtonList" VerticalOptions="StartAndExpand">
+                        <Label  x:Name="titleLabel"
+                                Text="Controller Firmware Downloads"
+                                TextColor="Black"
+                                FontAttributes="Bold"
+                                FontSize="Default"
+                                VerticalOptions="CenterAndExpand"
+                                HorizontalOptions="Center" />
+                    </StackLayout>
+                    <Label x:Name="PARPARAMETERMAPVERSION" Text="This page needs these values to restor" IsVisible="False"/>
+                    <Label x:Name="PARARMATURECURRENTSCALEFACTOR" Text="This page needs these values to restor" IsVisible="False"/>
+                    <Label x:Name="PARFIELDCURRENTSCALEFACTOR" Text="This page needs these values to restor" IsVisible="False"/>
+                    <Label x:Name="PARCALIBRATIONDATEYEAR" Text="This page needs these values to restor" IsVisible="False"/>
+                    <Label x:Name="PARCALIBRATIONDATEDAYMONTH" Text="This page needs these values to restor" IsVisible="False"/>
+                    <Label x:Name="SERIALNUMBERLOW" Text="This page needs these values to restor" IsVisible="False"/>
+                    <Label x:Name="PARSERIALNUMBERDATE" Text="This page needs these values to restor" IsVisible="False"/>
+                    <Label x:Name="PARABSOLUTEARMATURECURRENT" Text="This page needs these values to restor" IsVisible="False"/>
+                    <Label x:Name="PARSVARMACHINESTATE2" Text="This page needs these values to restor" IsVisible="False"/>
+                    <Label x:Name="PARMAXSPEEDFORWARD" Text="This page needs these values to restor" IsVisible="False"/>
+                    <Label x:Name="PARMAXSPEEDREVERSE" Text="This page needs these values to restor" IsVisible="False"/>
+
+                    <!--<Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1" VerticalOptions="EndAndExpand">
+						<StackLayout Orientation="Horizontal" >
+							<Switch HorizontalOptions="Start" IsVisible="False"/>
+							<Label x:Name="SOFTWAREREVISION" Text="Present Software Version" TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"/>
+							-->
+                    <!--<Label Text="{Binding Path=SOFTWAREREVISION}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"/>-->
+                    <!--
+						</StackLayout>
+					</Frame>-->
+                </StackLayout>
+            </ScrollView>
+            <!-- Popups -->
+            <ContentView x:Name="popupBootLoader"
+                         AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                         AbsoluteLayout.LayoutFlags="All"
+                         IsVisible="False"
+                         BackgroundColor="#C0202020"
+                         Padding="10, 0">
+
+                <StackLayout Orientation="Vertical"
+                             AbsoluteLayout.LayoutBounds=".25, .12, .5, .76"
+                             AbsoluteLayout.LayoutFlags="All"
+                             BackgroundColor = "#C2C3C6"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Center"
+                             Padding="10">
+
+                    <BoxView Color="#C2C3C6"
+                             HorizontalOptions="FillAndExpand"
+                             HeightRequest="1.5">
+                    </BoxView>
+                    <Label FontSize="Default"
+                           TextColor="Black"
+                           HorizontalOptions="Center"
+                           FontAttributes="Bold"
+                           Text="Firmware Loading"/>
+                    <ProgressBar x:Name="progressBar"
+                                 WidthRequest="500"
+                                 VerticalOptions="CenterAndExpand" />
+                    <Label  x:Name="progressLabel"
+                            Text="Select a version above"
+                            FontSize="Default"
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="Center" />
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    </StackLayout>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</local:NavitasGeneralPage>

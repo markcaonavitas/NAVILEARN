@@ -1,0 +1,941 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C62BE65C-C6CB-4FAF-A24C-145E7B5C858E}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NavitasBeta.Droid</RootNamespace>
+    <AssemblyName>NavitasBeta.Android</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <AndroidApplication>true</AndroidApplication>
+    <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+    <TargetFrameworkVersion>v13.0</TargetFrameworkVersion>
+    <AndroidStoreUncompressedFileExtensions />
+    <MandroidI18n />
+    <JavaMaximumHeapSize />
+    <JavaOptions />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+    <AndroidLinkMode>None</AndroidLinkMode>
+    <AndroidSupportedAbis>armeabi-v7a;x86_64;arm64-v8a</AndroidSupportedAbis>
+    <AotAssemblies>false</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
+    <BundleAssemblies>false</BundleAssemblies>
+    <EmbedAssembliesIntoApk>false</EmbedAssembliesIntoApk>
+    <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
+    <MandroidI18n />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+    <AotAssemblies>false</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
+    <BundleAssemblies>false</BundleAssemblies>
+    <AndroidSupportedAbis>armeabi-v7a;x86_64;arm64-v8a</AndroidSupportedAbis>
+    <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+    <DebugSymbols>false</DebugSymbols>
+    <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
+    <MandroidI18n />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Mono.Android" />
+    <Reference Include="Mono.Android.Export" />
+    <Reference Include="mscorlib" />
+    <Reference Include="OxyPlot.Xamarin.Forms.Platform.Android">
+      <HintPath>..\..\Output\Xamarin.Forms.Platform.Android\OxyPlot.Xamarin.Forms.Platform.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Adapter.cs" />
+    <Compile Include="AndroidDownloader.cs" />
+    <Compile Include="AppLocator.cs" />
+    <Compile Include="CharacteristicReadEventArgs.cs" />
+    <Compile Include="Device.cs" />
+    <Compile Include="GattCallback.cs" />
+    <Compile Include="HybridWebViewRenderer.cs" />
+    <Compile Include="InfoService.cs" />
+    <Compile Include="JavascriptWebViewClient.cs" />
+    <Compile Include="JSBridge.cs" />
+    <Compile Include="MainActivity.cs" />
+    <Compile Include="Resources\Resource.Designer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SplashActivity.cs" />
+    <Compile Include="CustomTabbedPageRenderer.cs" />
+    <Compile Include="YesNoPopupLoader.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AboutResources.txt" />
+    <None Include="Assets\AboutAssets.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\AndroidManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Tabbar.axml" />
+    <AndroidResource Include="Resources\layout\Toolbar.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\values\styles.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\BatteryEmpty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\BatteryFull.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\batterypart30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\iconbatterycharge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\IconCommunication.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\IconError.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\IconGearF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\IconGearN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\IconGearR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\IconKey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ionandroidcar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ionandroidoptions.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\iongearb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ionhelp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ioniosspeedometer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ionlogout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\speedometer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Splash.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\drawableportxxhdpiscreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ionplay.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ionstop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ioncloud.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\drawableportxxhdpiscreenlogin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ioncodedownload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NavitasBeta\NavitasBeta.csproj">
+      <Project>{7a24e02a-2c57-4ed5-815e-70bfed6570ca}</Project>
+      <Name>NavitasBeta</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ParseManager.Droid\ParseManager.Droid.csproj">
+      <Project>{c3507dfc-5750-4f23-adc9-c9f3eb08046b}</Project>
+      <Name>ParseManager.Droid</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ParseManager\ParseManager.csproj">
+      <Project>{adcf519d-64e1-4902-8b94-041c53dff6ad}</Project>
+      <Name>ParseManager</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ionlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\spashscreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\splashscreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\spashscreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\spashscreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\spashscreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ionlocked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\ionunlocked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\popupSpeedWarningImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="OxyPlot.Core">
+      <Version>2.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="OxyPlot.Xamarin.Android">
+      <Version>1.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="OxyPlot.Xamarin.Forms">
+      <Version>2.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.Core">
+      <Version>17.3.0.34</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfGauge">
+      <Version>17.3.0.34</Version>
+    </PackageReference>
+    <PackageReference Include="System.Numerics.Vectors">
+      <Version>4.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Arch.Core.Common">
+      <Version>1.1.1.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Arch.Core.Runtime">
+      <Version>1.1.1.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Arch.Lifecycle.Common">
+      <Version>1.1.1.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Arch.Lifecycle.LiveData">
+      <Version>1.1.1.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Arch.Lifecycle.LiveData.Core">
+      <Version>1.1.1.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Arch.Lifecycle.Runtime">
+      <Version>1.1.1.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Arch.Lifecycle.ViewModel">
+      <Version>1.1.1.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.Animated.Vector.Drawable">
+      <Version>28.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.Annotations">
+      <Version>28.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.AsyncLayoutInflater">
+      <Version>28.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.Collections">
+      <Version>28.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.Compat">
+      <Version>28.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.CoordinaterLayout">
+      <Version>28.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.Core.UI">
+      <Version>28.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.Core.Utils">
+      <Version>28.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.CursorAdapter">
+      <Version>28.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.CustomTabs">
+      <Version>28.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.CustomView">
+      <Version>28.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.Design">
+      <Version>28.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.DocumentFile">
+      <Version>28.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.DrawerLayout">
+      <Version>28.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.Fragment">
+      <Version>28.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.Interpolator">
+      <Version>28.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.Loader">
+      <Version>28.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.LocalBroadcastManager">
+      <Version>28.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.Media.Compat">
+      <Version>28.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.Print">
+      <Version>28.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.SlidingPaneLayout">
+      <Version>28.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.SwipeRefreshLayout">
+      <Version>28.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.Transition">
+      <Version>28.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.v4">
+      <Version>28.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.v7.AppCompat">
+      <Version>28.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.v7.CardView">
+      <Version>28.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.v7.MediaRouter">
+      <Version>28.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.v7.Palette">
+      <Version>28.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.v7.RecyclerView">
+      <Version>28.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.Vector.Drawable">
+      <Version>28.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.VersionedParcelable">
+      <Version>28.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.ViewPager">
+      <Version>28.0.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.AndroidX.MediaRouter">
+      <Version>1.2.4</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.AndroidX.Palette">
+      <Version>1.0.0.7</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms">
+      <Version>5.0.0.2622</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Kotlin.StdLib">
+      <Version>1.6.21</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\frameworks\jquery.xml2json.js">
+      <Link>Assets\Content\frameworks\jquery.xml2json.js</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\frameworks\jquery-1.10.2.min.js">
+      <Link>Assets\Content\frameworks\jquery-1.10.2.min.js</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\frameworks\jquery-3.4.1.min.js">
+      <Link>Assets\Content\frameworks\jquery-3.4.1.min.js</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\frameworks\min.js">
+      <Link>Assets\Content\frameworks\min.js</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\frameworks\polyfill.min.js">
+      <Link>Assets\Content\frameworks\polyfill.min.js</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\frameworks\ResizeObserver.global.js">
+      <Link>Assets\Content\frameworks\ResizeObserver.global.js</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\images\golfcart.jpg">
+      <Link>Assets\Content\images\golfcart.jpg</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\themes\odometer-theme-car.css">
+      <Link>Assets\Content\themes\odometer-theme-car.css</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\themes\odometer-theme-default.css">
+      <Link>Assets\Content\themes\odometer-theme-default.css</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\\widgets\gauge.min.js">
+      <Link>Assets\Content\widgets\gauge.min.js</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\widgets\odometer.js">
+      <Link>Assets\Content\widgets\odometer.js</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\widgets\speedometer.js">
+      <Link>Assets\Content\widgets\speedometer.js</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\frameworks\TACDictionary.js">
+      <Link>Assets\Content\frameworks\TACDictionary.js</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\CalibrateThrottle.html">
+      <Link>Assets\Content\CalibrateThrottle.html</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\themes\examples.css">
+      <Link>Assets\Content\themes\examples.css</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\images\Fail.gif">
+      <Link>Assets\Content\images\Fail.gif</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\images\Pass.gif">
+      <Link>Assets\Content\images\Pass.gif</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\widgets\jquery.flot.js">
+      <Link>Assets\Content\widgets\jquery.flot.js</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\widgets\jquery.flot.min.js">
+      <Link>Assets\Content\widgets\jquery.flot.min.js</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\widgets\ProgressBarPercentPassFail.js">
+      <Link>Assets\Content\widgets\ProgressBarPercentPassFail.js</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\images\redPointer.gif">
+      <Link>Assets\Content\images\redPointer.gif</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\hamburger.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\whitehamburger.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\hide.png">
+      <Link>Resources\drawable\hide.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\show.png">
+      <Link>Resources\drawable\show.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\BleSecured.png">
+      <Link>Resources\drawable\BleSecured.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\frameworks\TSXDictionary.js">
+      <Link>Assets\Content\frameworks\TSXDictionary.js</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\PnrdVerification.html">
+      <Link>Assets\Content\PnrdVerification.html</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\images\FootSwitchAndThrottle.gif">
+      <Link>Assets\Content\images\FootSwitchAndThrottle.gif</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\whiteBackIcon.png">
+      <Link>Resources\drawable\whiteBackIcon.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\Information_icon.png">
+      <Link>Resources\drawable\Information_icon.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\collapseIcon.png">
+      <Link>Resources\drawable\collapseIcon.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\images\battery.svg">
+      <Link>Assets\Content\images\battery.svg</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_ClubCar_Precedent_EZGO_TXT.png">
+      <Link>Resources\drawable\TAC2_ClubCar_Precedent_EZGO_TXT.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_ClubCar_Precedent_EZGO_TXT_key_run_charge.png">
+      <Link>Resources\drawable\TAC2_ClubCar_Precedent_EZGO_TXT_key_run_charge.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_1268_Resistive_ITS.png">
+      <Link>Resources\drawable\TAC2_EZGO_1268_Resistive_ITS.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_1268_Resistive_ITS_key_run_charge.png">
+      <Link>Resources\drawable\TAC2_EZGO_1268_Resistive_ITS_key_run_charge.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV23.png">
+      <Link>Resources\drawable\TAC2_EZGO_RXV23.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV23_key_run_charge.png">
+      <Link>Resources\drawable\TAC2_EZGO_RXV23_key_run_charge.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV35.png">
+      <Link>Resources\drawable\TAC2_EZGO_RXV35.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV35_key_run_charge.png">
+      <Link>Resources\drawable\TAC2_EZGO_RXV35_key_run_charge.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_TSX.png">
+      <Link>Resources\drawable\TAC2_TSX.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_TSX_key_run_charge.png">
+      <Link>Resources\drawable\TAC2_TSX_key_run_charge.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_G29.png">
+      <Link>Resources\drawable\TAC2_Yamaha_G29.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_G29_key_run_charge.png">
+      <Link>Resources\drawable\TAC2_Yamaha_G29_key_run_charge.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_YDRE2.png">
+      <Link>Resources\drawable\TAC2_Yamaha_YDRE2.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_YDRE2_key_run_charge.png">
+      <Link>Resources\drawable\TAC2_Yamaha_YDRE2_key_run_charge.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_ClubCar_Precedent_EZGO_TXT_forward_reverse.png">
+      <Link>Resources\drawable\TAC2_ClubCar_Precedent_EZGO_TXT_forward_reverse.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_1268_Resistive_ITS_forward_reverse.png">
+      <Link>Resources\drawable\TAC2_EZGO_1268_Resistive_ITS_forward_reverse.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV23_forward_reverse.png">
+      <Link>Resources\drawable\TAC2_EZGO_RXV23_forward_reverse.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV35_forward_reverse.png">
+      <Link>Resources\drawable\TAC2_EZGO_RXV35_forward_reverse.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_TSX_forward_reverse.png">
+      <Link>Resources\drawable\TAC2_TSX_forward_reverse.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_G29_forward_reverse.png">
+      <Link>Resources\drawable\TAC2_Yamaha_G29_forward_reverse.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_YDRE2_forward_reverse.png">
+      <Link>Resources\drawable\TAC2_Yamaha_YDRE2_forward_reverse.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_ClubCar_Precedent_EZGO_TXT_throttle_footsw.png">
+      <Link>Resources\drawable\TAC2_ClubCar_Precedent_EZGO_TXT_throttle_footsw.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_1268_Resistive_ITS_throttle_footsw.png">
+      <Link>Resources\drawable\TAC2_EZGO_1268_Resistive_ITS_throttle_footsw.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV23_brake_brakesw.png">
+      <Link>Resources\drawable\TAC2_EZGO_RXV23_brake_brakesw.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV23_throttle_footsw.png">
+      <Link>Resources\drawable\TAC2_EZGO_RXV23_throttle_footsw.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV35_brake_brakesw.png">
+      <Link>Resources\drawable\TAC2_EZGO_RXV35_brake_brakesw.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV35_throttle_footsw.png">
+      <Link>Resources\drawable\TAC2_EZGO_RXV35_throttle_footsw.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_TSX_throttle_footsw.png">
+      <Link>Resources\drawable\TAC2_TSX_throttle_footsw.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_G29_throttle_footsw.png">
+      <Link>Resources\drawable\TAC2_Yamaha_G29_throttle_footsw.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_YDRE2_throttle_footsw.png">
+      <Link>Resources\drawable\TAC2_Yamaha_YDRE2_throttle_footsw.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\DashboardScripting.html">
+      <Link>Assets\Content\DashboardScripting.html</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\DeleteIcon.png">
+      <Link>Resources\drawable\DeleteIcon.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\ProfileIcon.png">
+      <Link>Resources\drawable\ProfileIcon.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\openIcon.png">
+      <Link>Resources\drawable\openIcon.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\images\ionunlocked.png">
+      <Link>Assets\Content\images\ionunlocked.png</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\DemoWM.png">
+      <Link>Resources\drawable\DemoWM.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\backArrow.png">
+      <Link>Resources\drawable\backArrow.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\frameworks\NavitasMotorControllerModel.js">
+      <Link>Assets\Content\frameworks\NavitasMotorControllerModel.js</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\frameworks\SimulatedCommandInterface.js">
+      <Link>Assets\Content\frameworks\SimulatedCommandInterface.js</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\frameworks\ViewModelHook.js">
+      <Link>Assets\Content\frameworks\ViewModelHook.js</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\StartDiagnose.html">
+      <Link>Assets\Content\StartDiagnose.html</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\themes\VehicleDiagnostics.css">
+      <Link>Assets\Content\themes\VehicleDiagnostics.css</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\js\StartDiagnose.js">
+      <Link>Assets\Content\js\StartDiagnose.js</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\images\fail-icon.svg">
+      <Link>Assets\Content\images\fail-icon.svg</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\images\pass-icon.svg">
+      <Link>Assets\Content\images\pass-icon.svg</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\js\TestSequenceDictionary.js">
+      <Link>Assets\Content\js\TestSequenceDictionary.js</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\js\VehicleDiagnostics.js">
+      <Link>Assets\Content\js\VehicleDiagnostics.js</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\images\ionlocked.png">
+      <Link>Assets\Content\images\ionlocked.png</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\UserOnboarding.html">
+      <Link>Assets\Content\UserOnboarding.html</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\themes\UserOnboarding.css">
+      <Link>Assets\Content\themes\UserOnboarding.css</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\js\UserOnboarding.js">
+      <Link>Assets\Content\js\UserOnboarding.js</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\frameworks\CommunicationsInterface.js">
+      <Link>Assets\Content\frameworks\CommunicationsInterface.js</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\frameworks\List.js">
+      <Link>Assets\Content\frameworks\List.js</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\images\help\TAC\board-electronics-computer-data-processing-50711.jpg">
+      <Link>Assets\Content\images\help\TAC\board-electronics-computer-data-processing-50711.jpg</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\images\tire-size.svg">
+      <Link>Assets\Content\images\tire-size.svg</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\images\acceleration.svg">
+      <Link>Assets\Content\images\acceleration.svg</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\images\stop.svg">
+      <Link>Assets\Content\images\stop.svg</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\images\CHARGERINTERLOCKIN.svg">
+      <Link>Assets\Content\images\CHARGERINTERLOCKIN.svg</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\images\FORWARDSW.svg">
+      <Link>Assets\Content\images\FORWARDSW.svg</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\images\KEYIN.svg">
+      <Link>Assets\Content\images\KEYIN.svg</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\images\REVERSESW.svg">
+      <Link>Assets\Content\images\REVERSESW.svg</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\images\BRAKERELAYOUTPUT_OFF.svg">
+      <Link>Assets\Content\images\BRAKERELAYOUTPUT_OFF.svg</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\images\BRAKERELAYOUTPUT_ON.svg">
+      <Link>Assets\Content\images\BRAKERELAYOUTPUT_ON.svg</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\images\REVBUZZEROUTPUT.svg">
+      <Link>Assets\Content\images\REVBUZZEROUTPUT.svg</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\images\REVBUZZEROUTPUT_OFF.svg">
+      <Link>Assets\Content\images\REVBUZZEROUTPUT_OFF.svg</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\images\REVBUZZEROUTPUT_ON.svg">
+      <Link>Assets\Content\images\REVBUZZEROUTPUT_ON.svg</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\EditIcon.png">
+      <Link>Resources\drawable\EditIcon.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\images\analytic.svg">
+      <Link>Assets\Content\images\analytic.svg</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\frameworks\leaflet.js">
+      <Link>Assets\Content\frameworks\leaflet.js</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\themes\leaflet.css">
+      <Link>Assets\Content\themes\leaflet.css</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\frameworks\kalman-filter.min.js">
+      <Link>Assets\Content\frameworks\kalman-filter.min.js</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\TireSize.png">
+      <Link>Resources\drawable\TireSize.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\MainSolenoidTest.html">
+      <Link>Assets\Content\MainSolenoidTest.html</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\ExternalLoader.html">
+      <Link>Assets\Content\ExternalLoader.html</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\widgets\radarScan.js">
+      <Link>Assets\Content\widgets\radarScan.js</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="..\NavitasBeta\CommonWebViews\ReverseBuzzerTest.html">
+      <Link>Assets\Content\ReverseBuzzerTest.html</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="..\NavitasBeta\CommonWebViews\images\SwipeDownFinger.png">
+      <Link>Resources\drawable\SwipeDownFinger.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties TriggeredFromHotReload="False" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

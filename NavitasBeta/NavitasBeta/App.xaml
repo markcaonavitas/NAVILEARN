@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NavitasBeta.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Style TargetType="NavigationPage" ApplyToDerivedTypes="True">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+            </Style>
+            <!--<Style TargetType="ContentPage" ApplyToDerivedTypes="True">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+            </Style>-->
+            <Style TargetType="MasterDetailPage" ApplyToDerivedTypes="True">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+            </Style>
+            <DataTemplate x:Key="MyDataTemplate">
+                <Grid Height="0" Width="0">
+                </Grid>
+            </DataTemplate>
+
+            <Style x:Key="titleStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="{OnIdiom Tablet=Large, Phone=Medium, Desktop=Large}"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+
+            <Style x:Key="toolbarImageStyle" TargetType="Image">
+                <Setter Property="HeightRequest" Value="{OnIdiom Tablet='40', Phone='30', Desktop='40'}"/>
+                <Setter Property="Margin" Value="{OnIdiom Tablet='0,0,5,0', Phone='0', Desktop='0,0,5,0'}"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+
+            <Style x:Key="toolbarStyle" TargetType="StackLayout">
+                <Setter Property="AbsoluteLayout.LayoutBounds" Value="{OnIdiom Tablet='0, 0, 1, 0.06', Phone='0, 0, 1, 0.1', Desktop='0, 0, 1, 0.06'}"/>
+                <Setter Property="AbsoluteLayout.LayoutFlags" Value="All"/>
+                <Setter Property="BackgroundColor" Value="#68B04D"/>
+                <Setter Property="Orientation" Value="Horizontal"/>
+            </Style>
+
+            <Style x:Key="toolbarElementsContainerStyle" TargetType="StackLayout">
+                <Setter Property="Orientation" Value="Horizontal"/>
+                <Setter Property="HorizontalOptions" Value="Start"/>
+                <Setter Property="Margin" Value="{OnIdiom Tablet='5,0', Phone='2.5,0', Desktop='5,0'}"/>
+            </Style>
+
+            <Style x:Key="scrollViewProportion" TargetType="ScrollView">
+                <Setter Property="AbsoluteLayout.LayoutBounds" Value="{OnIdiom
+                    Tablet='0, 1, 1, 0.94',
+                    Phone='0, 1, 1, 0.9',
+                    Desktop='0, 1, 1, 0.94'}"/>
+                <Setter Property="AbsoluteLayout.LayoutFlags" Value="All"/>
+            </Style>
+     
+            <Style x:Key="warningContainerStyle" TargetType="StackLayout">
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="AbsoluteLayout.LayoutBounds" Value="{OnIdiom 
+                    Tablet={OnPlatform iOS='0, 0.04, 1, 0.05', Android='0, 0.04, 1, 0.05'},
+                    Phone={OnPlatform iOS='0, 0.1, 1, 0.05', Android='0, 0.08, 1, 0.05'},
+                    Desktop='0, 0.04, 1, 0.05'}"/>
+                <Setter Property="AbsoluteLayout.LayoutFlags" Value="All"/>
+            </Style>
+
+            <Style x:Key="warningLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="#ff6600"/>
+                <Setter Property="FontSize" Value="{OnIdiom Tablet='20', Phone='12'}"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+            </Style>
+
+            <Style x:Key="watermarkStyle" TargetType="Image">
+                <Setter Property="Opacity" Value=".75"/>
+                <Setter Property="AbsoluteLayout.LayoutBounds" Value="{OnIdiom 
+                    Tablet='0.5, 0.45, 0.5, 0.3',
+                    Phone='0.5, 0.45, 0.6, 0.35',
+                    Desktop='0.5, 0.45, 0.5, 0.3'}"/>
+                <Setter Property="AbsoluteLayout.LayoutFlags" Value="All"/>
+            </Style>
+
+            <Style x:Key="ErrorTitle" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="Margin" Value="10,25,10,10"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            </Style>
+
+            <Style x:Key="ErrorMessage" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Italic"/>
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="LineHeight" Value="1.5"/>
+            </Style>
+
+            <x:String x:Key="BluetoothNotEnabledTitle">Bluetooth Not Enabled</x:String>
+            <x:String x:Key="BluetoothNotEnabledMessage">Bluetooth must be turned on to connect</x:String>
+
+            <x:String x:Key="VehicleNotFoundTitle">Can't find your vehicle?</x:String>
+            <x:String x:Key="VehicleNotFoundMessage">
+                • Power your vehicle off and back on&#x0a;• Make sure this device is close to the vehicle
+            </x:String>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

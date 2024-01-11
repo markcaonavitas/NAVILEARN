@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FirmwaresGroups>
+  <FirmwareGroups>
+    <FirmwareGroup>
+      <Title>Latest Factory Releases</Title>
+      <StrogeType>Internal</StrogeType>
+      <SubDirectory>Released</SubDirectory>
+      <FileItems>
+        <FileItem>
+          <ModelName>Navitas 600A 5kW Club Car</ModelName>
+          <FriendlyFileName>Navitas 600A 5kW Club Car</FriendlyFileName>
+          <ActualFileName>CLUB_CAR_600A_5kW_HuaSheng_v</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>Navitas 5kW TXT</ModelName>
+          <FriendlyFileName>Navitas 5kW TXT</FriendlyFileName>
+          <ActualFileName>EZGO_TXT_600A_5kW_HuaSheng_v</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>RXV 600A Curtis/Danaher</ModelName>
+          <FriendlyFileName>RXV 600A Curtis/Danaher</FriendlyFileName>
+          <ActualFileName>EZGO_RXV_600A_v</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>RXV 600A</ModelName>
+          <FriendlyFileName>RXV 600A (2016 and later motor)</FriendlyFileName>
+          <ActualFileName>EZGO_RXV2016_600A_v</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>Yamaha DR2 600A</ModelName>
+          <FriendlyFileName>Yamaha DR2 600A</FriendlyFileName>
+          <ActualFileName>YDR2_600A_v</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>Yamaha G29 600A 4kW</ModelName>
+          <FriendlyFileName>Yamaha G29 600A 4kW</FriendlyFileName>
+          <ActualFileName>Yamaha_G29_600A_4kW_HuaSheng_v</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>Yamaha G29 600A 5kW</ModelName>
+          <FriendlyFileName>Yamaha G29 600A 5kW</FriendlyFileName>
+          <ActualFileName>TAC2_600A_Yamaha_G29_5kW_HuaSheng_v</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>EZGO L6 600A 72V 5kW</ModelName>
+          <FriendlyFileName>EZGO L6 600A 72V 5kW</FriendlyFileName>
+          <ActualFileName>TAC2_600A_EZGO_L6_72V_5kW_HuaSheng_v</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>Navitas 600A 4kW Club Car</ModelName>
+          <FriendlyFileName>Navitas 600A 4kW Club Car</FriendlyFileName>
+          <ActualFileName>CLUB_CAR_600A_4KW_HuaSheng_v</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>TAC2 440A EZGO L6 72V 5kW</ModelName>
+          <FriendlyFileName>TAC2 440A EZGO L6 72V 5kW</FriendlyFileName>
+          <ActualFileName>TAC2_440A_EZGO_L6_72V_5kW_HuaSheng_v</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>ICON 440A</ModelName>
+          <FriendlyFileName>ICON 440A</FriendlyFileName>
+          <ActualFileName>ICON_440A_v</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>ICON 600A</ModelName>
+          <FriendlyFileName>ICON 600A</FriendlyFileName>
+          <ActualFileName>ICON_600A_v</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>Navitas Chassis 600A 5kW</ModelName>
+          <FriendlyFileName>Navitas Chassis 600A 5kW</FriendlyFileName>
+          <ActualFileName>Navitas_Chassis_600A_5kW_v</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>Navitas 440A 4kW Club Car</ModelName>
+          <FriendlyFileName>Navitas 440A 4kW Club Car</FriendlyFileName>
+          <ActualFileName>CLUB_CAR_400A_4kW_HuaSheng_v</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>Navitas 440A 4kW TXT</ModelName>
+          <FriendlyFileName>Navitas 440A 4kW TXT</FriendlyFileName>
+          <ActualFileName>EZGO_TXT_440A_4kW_HuaSheng_v</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>RXV 440A Curtis/Danaher</ModelName>
+          <FriendlyFileName>RXV 440A Curtis/Danaher</FriendlyFileName>
+          <ActualFileName>EZGO_RXV_440A_v</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>RXV 440A</ModelName>
+          <FriendlyFileName>RXV 440A (2016 and later motor)</FriendlyFileName>
+          <ActualFileName>EZGO_RXV2016_440A_v</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>Yamaha DR2 440A</ModelName>
+          <FriendlyFileName>Yamaha DR2 440A</FriendlyFileName>
+          <ActualFileName>YDR2_440A_v</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>Yamaha G29 440A 4kW</ModelName>
+          <FriendlyFileName>Yamaha G29 440A 4kW</FriendlyFileName>
+          <ActualFileName>Yamaha_G29_440A_4kW_HuaSheng_v</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>CVG Utilitruck Payloader 440A 8kW</ModelName>
+          <FriendlyFileName>CVG Utilitruck Payloader 440A 8kW</FriendlyFileName>
+          <ActualFileName>CVG_Utilitruck_Payloader_440A_8kW_v</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>CVG Journeyman 440A 5kW</ModelName>
+          <FriendlyFileName>CVG Journeyman 440A 5kW</FriendlyFileName>
+          <ActualFileName>CVG_Journeyman_440A_5kW_v</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>CVG Emerge 440A 5kW</ModelName>
+          <FriendlyFileName>CVG Emerge 440A 5kW</FriendlyFileName>
+          <ActualFileName>CVG_Emerge_440A_5kW_v</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>Bintelli 440A</ModelName>
+          <FriendlyFileName>Bintelli 440A</FriendlyFileName>
+          <ActualFileName>BINTELLI_440A_v</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>Bintelli 600A</ModelName>
+          <FriendlyFileName>Bintelli 600A</FriendlyFileName>
+          <ActualFileName>BINTELLI_600A_v</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>ROYAL EV 440A</ModelName>
+          <FriendlyFileName>ROYAL EV 440A</FriendlyFileName>
+          <ActualFileName>ROYAL_EV_440A_v</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>ROYAL EV 600A 72V</ModelName>
+          <FriendlyFileName>ROYAL EV 600A 72V</FriendlyFileName>
+          <ActualFileName>ROYAL_EV_600A_72V_v</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>Columbia 440A Gen4 3kW</ModelName>
+          <FriendlyFileName>Columbia 440A Gen4 3kW</FriendlyFileName>
+          <ActualFileName>Columbia_440A_Gen4_3kW_v</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>Columbia 600A Gen4 3kW</ModelName>
+          <FriendlyFileName>Columbia 600A Gen4 3kW</FriendlyFileName>
+          <ActualFileName>Columbia_600A_Gen4_3kW_v</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>LandMaster 600A 5kW</ModelName>
+          <FriendlyFileName>LandMaster 600A 5kW</FriendlyFileName>
+          <ActualFileName>LandMaster_600A_5kw_HuaSheng_v</ActualFileName>
+        </FileItem>
+       <FileItem>
+          <ModelName>ROYAL EV 600A 72V 6 2kW</ModelName>
+          <FriendlyFileName>ROYAL EV 600A 72V 6 2kW</FriendlyFileName>
+          <ActualFileName>ROYAL_EV_600A_72V_6_2kW_v</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>ROYAL EV 600A 72V 6 2kW NEWAXLE</ModelName>
+          <FriendlyFileName>ROYAL EV 600A 72V 6 2kW NEWAXLE</FriendlyFileName>
+          <ActualFileName>ROYAL_EV_600A_72V_6_2kW_NEWAXLE_v</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>NAVITAS OE 440A</ModelName>
+          <FriendlyFileName>NAVITAS OE 440A</FriendlyFileName>
+          <ActualFileName>NAVITAS_OE_440A_v</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>NAVITAS OE 600A</ModelName>
+          <FriendlyFileName>NAVITAS OE 600A</FriendlyFileName>
+          <ActualFileName>NAVITAS_OE_600A_v</ActualFileName>
+        </FileItem>
+       </FileItems>
+    </FirmwareGroup>
+  </FirmwareGroups>
+</FirmwaresGroups>

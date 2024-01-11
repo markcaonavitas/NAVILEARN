@@ -1,0 +1,729 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{E546FD83-2A03-425E-8144-1C1C86DD3BFF}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NavitasBeta.UWP</RootNamespace>
+    <AssemblyName>NavitasBeta.UWP</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion>10.0.19041.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PackageCertificateKeyFile>NavitasBeta.UWP_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <RuntimeIdentifiers>win10-arm;win10-arm-aot;win10-x86;win10-x86-aot;win10-x64;win10-x64-aot</RuntimeIdentifiers>
+    <GenerateAppInstallerFile>True</GenerateAppInstallerFile>
+    <AppxPackageSigningEnabled>False</AppxPackageSigningEnabled>
+    <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <GenerateTestArtifacts>True</GenerateTestArtifacts>
+    <AppxBundle>Always</AppxBundle>
+    <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
+    <AppInstallerUri>\\Dashboard</AppInstallerUri>
+    <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>portable</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>false</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>false</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Adapter.cs" />
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomTabbedPageRenderer.cs" />
+    <Compile Include="Device.cs" />
+    <Compile Include="HybridWebViewRenderer.cs" />
+    <Compile Include="InfoService.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UWPDownloader.cs" />
+    <Compile Include="YesNoPopupLoader.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <None Include="NavitasBeta.UWP_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\NavitasBeta\CommonWebViews\DashboardScripting.html">
+      <Link>Content\DashboardScripting.html</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\CalibrateThrottle.html">
+      <Link>Content\CalibrateThrottle.html</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\ExternalLoader.html">
+      <Link>Content\ExternalLoader.html</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\frameworks\CommunicationsInterface.js">
+      <Link>Content\frameworks\CommunicationsInterface.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\frameworks\jquery-1.10.2.min.js">
+      <Link>Content\frameworks\jquery-1.10.2.min.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\frameworks\jquery-3.4.1.min.js">
+      <Link>Content\frameworks\jquery-3.4.1.min.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\frameworks\jquery.xml2json.js">
+      <Link>Content\frameworks\jquery.xml2json.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\frameworks\kalman-filter.min.js">
+      <Link>Content\frameworks\kalman-filter.min.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\frameworks\leaflet.js">
+      <Link>Content\frameworks\leaflet.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\frameworks\List.js">
+      <Link>Content\frameworks\List.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\frameworks\min.js">
+      <Link>Content\frameworks\min.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\frameworks\NavitasMotorControllerModel.js">
+      <Link>Content\frameworks\NavitasMotorControllerModel.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\frameworks\polyfill.min.js">
+      <Link>Content\frameworks\polyfill.min.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\frameworks\ResizeObserver.global.js">
+      <Link>Content\frameworks\ResizeObserver.global.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\frameworks\SimulatedCommandInterface.js">
+      <Link>Content\frameworks\SimulatedCommandInterface.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\frameworks\TACDictionary.js">
+      <Link>Content\frameworks\TACDictionary.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\frameworks\TSXDictionary.js">
+      <Link>Content\frameworks\TSXDictionary.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\acceleration.svg">
+      <Link>Content\images\acceleration.svg</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\analytic.svg">
+      <Link>Content\images\analytic.svg</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\backArrow.png">
+      <Link>Resources\backArrow.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\frameworks\ViewModelHook.js">
+      <Link>Content\frameworks\ViewModelHook.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\battery.svg">
+      <Link>Content\images\battery.svg</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\BleSecured.png">
+      <Link>Resources\BleSecured.png</Link>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\BRAKERELAYOUTPUT_OFF.svg">
+      <Link>Content\images\BRAKERELAYOUTPUT_OFF.svg</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\BRAKERELAYOUTPUT_ON.svg">
+      <Link>Content\images\BRAKERELAYOUTPUT_ON.svg</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\CHARGERINTERLOCKIN.svg">
+      <Link>Content\images\CHARGERINTERLOCKIN.svg</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\collapseIcon.png">
+      <Link>Content\images\collapseIcon.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\DeleteIcon.png">
+      <Link>DeleteIcon.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\DemoWM.png">
+      <Link>Resources\DemoWM.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\EditIcon.png">
+      <Link>EditIcon.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\fail-icon.svg">
+      <Link>Content\images\fail-icon.svg</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\FootSwitchAndThrottle.gif">
+      <Link>Content\images\FootSwitchAndThrottle.gif</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\FORWARDSW.svg">
+      <Link>Content\images\FORWARDSW.svg</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\golfcart.jpg">
+      <Link>Content\images\golfcart.jpg</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\help\TAC\board-electronics-computer-data-processing-50711.jpg">
+      <Link>Content\images\help\TAC\board-electronics-computer-data-processing-50711.jpg</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_ClubCar_Precedent_EZGO_TXT.png">
+      <Link>TAC2_ClubCar_Precedent_EZGO_TXT.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_ClubCar_Precedent_EZGO_TXT_forward_reverse.png">
+      <Link>TAC2_ClubCar_Precedent_EZGO_TXT_forward_reverse.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_ClubCar_Precedent_EZGO_TXT_key_run_charge.png">
+      <Link>TAC2_ClubCar_Precedent_EZGO_TXT_key_run_charge.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_ClubCar_Precedent_EZGO_TXT_throttle_footsw.png">
+      <Link>TAC2_ClubCar_Precedent_EZGO_TXT_throttle_footsw.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_1268_Resistive_ITS.png">
+      <Link>TAC2_EZGO_1268_Resistive_ITS.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_1268_Resistive_ITS_forward_reverse.png">
+      <Link>TAC2_EZGO_1268_Resistive_ITS_forward_reverse.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_1268_Resistive_ITS_key_run_charge.png">
+      <Link>TAC2_EZGO_1268_Resistive_ITS_key_run_charge.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_1268_Resistive_ITS_throttle_footsw.png">
+      <Link>TAC2_EZGO_1268_Resistive_ITS_throttle_footsw.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV23.png">
+      <Link>TAC2_EZGO_RXV23.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV23_brake_brakesw.png">
+      <Link>TAC2_EZGO_RXV23_brake_brakesw.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV23_forward_reverse.png">
+      <Link>TAC2_EZGO_RXV23_forward_reverse.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV23_key_run_charge.png">
+      <Link>TAC2_EZGO_RXV23_key_run_charge.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV23_throttle_footsw.png">
+      <Link>TAC2_EZGO_RXV23_throttle_footsw.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV35.png">
+      <Link>TAC2_EZGO_RXV35.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV35_brake_brakesw.png">
+      <Link>TAC2_EZGO_RXV35_brake_brakesw.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV35_forward_reverse.png">
+      <Link>TAC2_EZGO_RXV35_forward_reverse.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV35_key_run_charge.png">
+      <Link>TAC2_EZGO_RXV35_key_run_charge.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV35_throttle_footsw.png">
+      <Link>TAC2_EZGO_RXV35_throttle_footsw.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_TSX.png">
+      <Link>TAC2_TSX.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_TSX_forward_reverse.png">
+      <Link>TAC2_TSX_forward_reverse.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_TSX_key_run_charge.png">
+      <Link>TAC2_TSX_key_run_charge.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_TSX_throttle_footsw.png">
+      <Link>TAC2_TSX_throttle_footsw.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_G29.png">
+      <Link>TAC2_Yamaha_G29.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_G29_forward_reverse.png">
+      <Link>TAC2_Yamaha_G29_forward_reverse.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_G29_key_run_charge.png">
+      <Link>TAC2_Yamaha_G29_key_run_charge.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_G29_throttle_footsw.png">
+      <Link>TAC2_Yamaha_G29_throttle_footsw.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_YDRE2.png">
+      <Link>TAC2_Yamaha_YDRE2.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_YDRE2_forward_reverse.png">
+      <Link>TAC2_Yamaha_YDRE2_forward_reverse.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_YDRE2_key_run_charge.png">
+      <Link>TAC2_Yamaha_YDRE2_key_run_charge.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_YDRE2_throttle_footsw.png">
+      <Link>TAC2_Yamaha_YDRE2_throttle_footsw.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\hide.png">
+      <Link>Resources\hide.png</Link>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\Information_icon.png">
+      <Link>Resources\Information_icon.png</Link>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\ionlocked.png">
+      <Link>Content\images\ionlocked.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\ionunlocked.png">
+      <Link>Content\images\ionunlocked.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\KEYIN.svg">
+      <Link>Content\images\KEYIN.svg</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\openIcon.png">
+      <Link>Content\images\openIcon.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\pass-icon.svg">
+      <Link>Content\images\pass-icon.svg</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\ProfileIcon.png">
+      <Link>Resources\ProfileIcon.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\redPointer.gif">
+      <Link>Content\images\redPointer.gif</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\REVBUZZEROUTPUT.svg">
+      <Link>Content\images\REVBUZZEROUTPUT.svg</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\REVBUZZEROUTPUT_OFF.svg">
+      <Link>Content\images\REVBUZZEROUTPUT_OFF.svg</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\REVBUZZEROUTPUT_ON.svg">
+      <Link>Content\images\REVBUZZEROUTPUT_ON.svg</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\REVERSESW.svg">
+      <Link>Content\images\REVERSESW.svg</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\show.png">
+      <Link>Resources\show.png</Link>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\SwipeDownFinger.png">
+      <Link>SwipeDownFinger.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\TireSize.png">
+      <Link>TireSize.png</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\stop.svg">
+      <Link>Content\images\stop.svg</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\tire-size.svg">
+      <Link>Content\images\tire-size.svg</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\whiteBackIcon.png">
+      <Link>Resources\whiteBackIcon.png</Link>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\js\StartDiagnose.js">
+      <Link>Content\js\StartDiagnose.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\js\TestSequenceDictionary.js">
+      <Link>Content\js\TestSequenceDictionary.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\js\UserOnboarding.js">
+      <Link>Content\js\UserOnboarding.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\js\VehicleDiagnostics.js">
+      <Link>Content\js\VehicleDiagnostics.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\MainSolenoidTest.html">
+      <Link>Content\MainSolenoidTest.html</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\PnrdVerification.html">
+      <Link>Content\PnrdVerification.html</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\ReverseBuzzerTest.html">
+      <Link>Content\ReverseBuzzerTest.html</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\StartDiagnose.html">
+      <Link>Content\StartDiagnose.html</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\themes\examples.css">
+      <Link>Content\themes\examples.css</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\themes\leaflet.css">
+      <Link>Content\themes\leaflet.css</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\themes\odometer-theme-car.css">
+      <Link>Content\themes\odometer-theme-car.css</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\themes\odometer-theme-default.css">
+      <Link>Content\themes\odometer-theme-default.css</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\themes\UserOnboarding.css">
+      <Link>Content\themes\UserOnboarding.css</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\themes\VehicleDiagnostics.css">
+      <Link>Content\themes\VehicleDiagnostics.css</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\UserOnboarding.html">
+      <Link>Content\UserOnboarding.html</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\widgets\gauge.min.js">
+      <Link>Content\widgets\gauge.min.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\widgets\jquery.flot.js">
+      <Link>Content\widgets\jquery.flot.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\widgets\jquery.flot.min.js">
+      <Link>Content\widgets\jquery.flot.min.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\widgets\odometer.js">
+      <Link>Content\widgets\odometer.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\widgets\ProgressBarPercentPassFail.js">
+      <Link>Content\widgets\ProgressBarPercentPassFail.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\widgets\radarScan.js">
+      <Link>Content\widgets\radarScan.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\widgets\speedometer.js">
+      <Link>Content\widgets\speedometer.js</Link>
+    </Content>
+    <Content Include="Assets\IconError.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Assets\IconGearF.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Assets\IconGearN.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Assets\IconGearR.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Assets\IconKey.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Assets\ionlocked.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Assets\ionunlocked.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Assets\LargeTile.scale-100.png" />
+    <Content Include="Assets\LargeTile.scale-125.png" />
+    <Content Include="Assets\LargeTile.scale-150.png" />
+    <Content Include="Assets\LargeTile.scale-200.png" />
+    <Content Include="Assets\LargeTile.scale-400.png" />
+    <Content Include="Assets\SmallTile.scale-100.png" />
+    <Content Include="Assets\SmallTile.scale-125.png" />
+    <Content Include="Assets\SmallTile.scale-150.png" />
+    <Content Include="Assets\SmallTile.scale-200.png" />
+    <Content Include="Assets\SmallTile.scale-400.png" />
+    <Content Include="Assets\SplashScreen.scale-100.png" />
+    <Content Include="Assets\SplashScreen.scale-125.png" />
+    <Content Include="Assets\SplashScreen.scale-150.png" />
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\SplashScreen.scale-400.png" />
+    <Content Include="Assets\Square150x150Logo.scale-100.png" />
+    <Content Include="Assets\Square150x150Logo.scale-125.png" />
+    <Content Include="Assets\Square150x150Logo.scale-150.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square150x150Logo.scale-400.png" />
+    <Content Include="Assets\Square44x44Logo.altform-lightunplated_targetsize-16.png" />
+    <Content Include="Assets\Square44x44Logo.altform-lightunplated_targetsize-24.png" />
+    <Content Include="Assets\Square44x44Logo.altform-lightunplated_targetsize-256.png" />
+    <Content Include="Assets\Square44x44Logo.altform-lightunplated_targetsize-32.png" />
+    <Content Include="Assets\Square44x44Logo.altform-lightunplated_targetsize-48.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-16.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-24.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-256.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-32.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-48.png" />
+    <Content Include="Assets\Square44x44Logo.scale-100.png" />
+    <Content Include="Assets\Square44x44Logo.scale-125.png" />
+    <Content Include="Assets\Square44x44Logo.scale-150.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-400.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-16.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-256.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-32.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-48.png" />
+    <Content Include="Assets\StoreLogo.scale-100.png" />
+    <Content Include="Assets\StoreLogo.scale-125.png" />
+    <Content Include="Assets\StoreLogo.scale-150.png" />
+    <Content Include="Assets\StoreLogo.scale-200.png" />
+    <Content Include="Assets\StoreLogo.scale-400.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-100.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-125.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-150.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="BleSecured.png" />
+    <Content Include="hamburger.png" />
+    <Content Include="hide.png" />
+    <Content Include="icon.png" />
+    <Content Include="IconCommunication.png" />
+    <Content Include="IconError.png" />
+    <Content Include="Information_icon.png" />
+    <Content Include="ioncloud.png" />
+    <Content Include="ionplay.png" />
+    <Content Include="ionstop.png" />
+    <Content Include="Properties\Default.rd.xml" />
+    <Content Include="Resources\BatteryEmpty.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\BatteryFull.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\batterypart30.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\drawableportxxhdpiscreen.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\drawableportxxhdpiscreenlogin.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\hamburger.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\icon.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\iconbatterycharge.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\IconCommunication.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\IconError.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\IconGearF.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\IconGearN.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\IconGearR.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\IconKey.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\ionandroidcar.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\ionandroidoptions.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\ioncloud.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\ioncodedownload.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\iongearb.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\ionhelp.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\ioniosspeedometer.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\ionlock.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\ionlocked.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\ionlogout.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\ionplay.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\ionstop.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\ionunlocked.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\popupSpeedWarningImage.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\spashscreen.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\speedometer.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\Splash.xml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\whitehamburger.png">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="show.png" />
+    <Content Include="whitehamburger.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NavitasBeta\NavitasBeta.csproj">
+      <Project>{c7bd68b1-966d-425e-8452-2faee894df45}</Project>
+      <Name>NavitasBeta</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OxyPlot.Xamarin.Forms.Platform.UWP\OxyPlot.Xamarin.Forms.Platform.UWP.csproj">
+      <Project>{df37bc48-3a9f-4d90-ba38-70f8c22bca7b}</Project>
+      <Name>OxyPlot.Xamarin.Forms.Platform.UWP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ParseManager.UWP\ParseManager.UWP.csproj">
+      <Project>{6b78cbe9-a830-409f-a236-3a1ccdbe2680}</Project>
+      <Name>ParseManager.UWP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ParseManager\ParseManager.csproj">
+      <Project>{adcf519d-64e1-4902-8b94-041c53dff6ad}</Project>
+      <Name>ParseManager</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.2.12</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="OxyPlot.Core">
+      <Version>2.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.Core">
+      <Version>17.3.0.34</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfGauge">
+      <Version>17.3.0.34</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms">
+      <Version>5.0.0.2083</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+</Project>

@@ -1,0 +1,160 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\TestRepoMark\\NavitasBeta\\NavitasBeta\\ParseManager.UWP\\ParseManager.UWP.csproj": {}
+  },
+  "projects": {
+    "C:\\TestRepoMark\\NavitasBeta\\NavitasBeta\\ParseManager.UWP\\ParseManager.UWP.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\TestRepoMark\\NavitasBeta\\NavitasBeta\\ParseManager.UWP\\ParseManager.UWP.csproj",
+        "projectName": "ParseManager.UWP",
+        "projectPath": "C:\\TestRepoMark\\NavitasBeta\\NavitasBeta\\ParseManager.UWP\\ParseManager.UWP.csproj",
+        "packagesPath": "C:\\Users\\jcao\\.nuget\\packages\\",
+        "outputPath": "C:\\TestRepoMark\\NavitasBeta\\NavitasBeta\\ParseManager.UWP\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\jcao\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "uap10.0.17763"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "uap10.0.17763": {
+            "projectReferences": {
+              "C:\\TestRepoMark\\NavitasBeta\\NavitasBeta\\ParseManager\\ParseManager.csproj": {
+                "projectPath": "C:\\TestRepoMark\\NavitasBeta\\NavitasBeta\\ParseManager\\ParseManager.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "uap10.0.17763": {
+          "dependencies": {
+            "Microsoft.NETCore.UniversalWindowsPlatform": {
+              "target": "Package",
+              "version": "[6.2.12, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "Xamarin.Forms": {
+              "target": "Package",
+              "version": "[5.0.0.2083, )"
+            },
+            "parse": {
+              "target": "Package",
+              "version": "[1.7.0, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      },
+      "runtimes": {
+        "win10-arm": {
+          "#import": []
+        },
+        "win10-arm-aot": {
+          "#import": []
+        },
+        "win10-arm64-aot": {
+          "#import": []
+        },
+        "win10-x64": {
+          "#import": []
+        },
+        "win10-x64-aot": {
+          "#import": []
+        },
+        "win10-x86": {
+          "#import": []
+        },
+        "win10-x86-aot": {
+          "#import": []
+        }
+      }
+    },
+    "C:\\TestRepoMark\\NavitasBeta\\NavitasBeta\\ParseManager\\ParseManager.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\TestRepoMark\\NavitasBeta\\NavitasBeta\\ParseManager\\ParseManager.csproj",
+        "projectName": "ParseManager",
+        "projectPath": "C:\\TestRepoMark\\NavitasBeta\\NavitasBeta\\ParseManager\\ParseManager.csproj",
+        "packagesPath": "C:\\Users\\jcao\\.nuget\\packages\\",
+        "outputPath": "C:\\TestRepoMark\\NavitasBeta\\NavitasBeta\\ParseManager\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\jcao\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "portable45-net45+win8+wp8+wpa81"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "portable45-net45+win8+wp8+wpa81": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "portable45-net45+win8+wp8+wpa81": {
+          "dependencies": {
+            "Xamarin.Forms": {
+              "target": "Package",
+              "version": "[5.0.0.2083, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win10-arm": {
+          "#import": []
+        },
+        "win10-arm-aot": {
+          "#import": []
+        },
+        "win10-arm64-aot": {
+          "#import": []
+        },
+        "win10-x64": {
+          "#import": []
+        },
+        "win10-x64-aot": {
+          "#import": []
+        },
+        "win10-x86": {
+          "#import": []
+        },
+        "win10-x86-aot": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

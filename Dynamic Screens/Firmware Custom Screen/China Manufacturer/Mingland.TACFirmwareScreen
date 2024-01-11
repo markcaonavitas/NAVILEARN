@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<FirmwaresGroups>
+  <FirmwareGroups>
+    <FirmwareGroup>
+      <Title>Mingland Manufacturer</Title>
+      <StrogeType>External</StrogeType>
+      <SubDirectory>Released</SubDirectory>
+      <FileItems>
+        <FileItem>
+          <FriendlyFileName>TAC Test Program</FriendlyFileName>
+          <ActualFileName>EZGO_RXV_600A</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <FriendlyFileName>Navitas Chassis 600A 5kw</FriendlyFileName>
+          <ActualFileName>Navitas_Chassis_600A_5kW</ActualFileName>
+        </FileItem>
+      </FileItems>
+    </FirmwareGroup>
+ </FirmwareGroups>
+</FirmwaresGroups>

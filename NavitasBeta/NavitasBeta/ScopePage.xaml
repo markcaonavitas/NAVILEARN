@@ -1,0 +1,311 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:NavitasGeneralPage xmlns="http://xamarin.com/schemas/2014/forms"
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+xmlns:local="clr-namespace:NavitasBeta;assembly=NavitasBeta"
+x:Class="NavitasBeta.ScopePage"
+Title="Scope" >
+    <ContentPage.Content>
+        <AbsoluteLayout x:Name="absoluteLayout_oxyplot">
+            <!--won't scroll if full length, hence .98-->
+            <StackLayout Style="{StaticResource toolbarStyle}">
+                <StackLayout Orientation="Horizontal" >
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ShowMasterMenu" NumberOfTapsRequired="1" />
+                    </StackLayout.GestureRecognizers>
+                    <Image Source="hamburger.png" Margin="10,0,0,0" Scale="1.5" HorizontalOptions="Start"/>
+                    <Image Source="icon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+                </StackLayout>
+                <Label Text="" FontSize="Default" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+            </StackLayout>
+            <ScrollView Style="{StaticResource scrollViewProportion}">
+                <StackLayout  x:Name="stacklayout_oxyplot" Orientation="Vertical">
+                    <!--<Grid x:Name="grid_oxyplot" >
+                </Grid>-->
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <StackLayout x:Name="DATASCOPECH1SELECT" Orientation="Vertical" >
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Data Scope Ch1 Select" TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"/>
+                                    <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric"  TextColor="Black"  FontSize="Default"  VerticalOptions="Center" IsPassword="False"  IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" WidthRequest="100">
+                                        <local:DoneEntry.HorizontalOptions>
+                                            <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                                        </local:DoneEntry.HorizontalOptions>
+                                    </local:DoneEntry>
+                                </StackLayout>
+                                <StackLayout x:Name="DATASCOPECH1SELECT_PARAMETER_POINTER" Orientation="Vertical">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                    </StackLayout.GestureRecognizers>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                        </Label>
+                                    <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0:F2}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"   WidthRequest="100"  >
+                                            <local:DoneEntry.HorizontalOptions>
+                                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                                            </local:DoneEntry.HorizontalOptions>
+                                        </local:DoneEntry>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                    </Frame>
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <StackLayout x:Name="DATASCOPECH2SELECT" Orientation="Vertical" >
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Data Scope Ch2 Select" TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"/>
+                                <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric"  TextColor="Black"  FontSize="Default"  VerticalOptions="Center" IsPassword="False"  IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" WidthRequest="100">
+                                    <local:DoneEntry.HorizontalOptions>
+                                        <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                                    </local:DoneEntry.HorizontalOptions>
+                                </local:DoneEntry>
+                            </StackLayout>
+                            <StackLayout x:Name="DATASCOPECH2SELECT_PARAMETER_POINTER" Orientation="Vertical">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0:F2}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"   WidthRequest="100"  >
+                                        <local:DoneEntry.HorizontalOptions>
+                                            <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                                        </local:DoneEntry.HorizontalOptions>
+                                    </local:DoneEntry>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <StackLayout x:Name="DATASCOPECH3SELECT" Orientation="Vertical" >
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Data Scope Ch3 Select" TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"/>
+                                <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric"  TextColor="Black"  FontSize="Default"  VerticalOptions="Center" IsPassword="False"  IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" WidthRequest="100">
+                                    <local:DoneEntry.HorizontalOptions>
+                                        <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                                    </local:DoneEntry.HorizontalOptions>
+                                </local:DoneEntry>
+                            </StackLayout>
+                            <StackLayout x:Name="DATASCOPECH3SELECT_PARAMETER_POINTER" Orientation="Vertical">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0:F2}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"   WidthRequest="100"  >
+                                        <local:DoneEntry.HorizontalOptions>
+                                            <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                                        </local:DoneEntry.HorizontalOptions>
+                                    </local:DoneEntry>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <StackLayout x:Name="DATASCOPECH4SELECT" Orientation="Vertical" >
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Data Scope Ch4 Select" TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"/>
+                                <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric"  TextColor="Black"  FontSize="Default"  VerticalOptions="Center" IsPassword="False"  IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" WidthRequest="100">
+                                    <local:DoneEntry.HorizontalOptions>
+                                        <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                                    </local:DoneEntry.HorizontalOptions>
+                                </local:DoneEntry>
+                            </StackLayout>
+                            <StackLayout x:Name="DATASCOPECH4SELECT_PARAMETER_POINTER" Orientation="Vertical">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0:F2}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"   WidthRequest="100"  >
+                                        <local:DoneEntry.HorizontalOptions>
+                                            <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                                        </local:DoneEntry.HorizontalOptions>
+                                    </local:DoneEntry>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <StackLayout x:Name="DATASCOPETRIGGERADDRESS" Orientation="Vertical" >
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Trigger Select" TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"/>
+                                <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric"  TextColor="Black"  FontSize="Default"  VerticalOptions="Center" IsPassword="False"  IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" WidthRequest="100">
+                                    <local:DoneEntry.HorizontalOptions>
+                                        <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                                    </local:DoneEntry.HorizontalOptions>
+                                </local:DoneEntry>
+                            </StackLayout>
+                            <StackLayout x:Name="DATASCOPETRIGGERADDRESS_PARAMETER_POINTER" Orientation="Vertical">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0:F2}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"   WidthRequest="100"  >
+                                        <local:DoneEntry.HorizontalOptions>
+                                            <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                                        </local:DoneEntry.HorizontalOptions>
+                                    </local:DoneEntry>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="DATASCOPETRIGGERLEVEL">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="7*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label Text="Data Scope Trigger Level" TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                            <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric"  TextColor="Black"  FontSize="Default"  VerticalOptions="Center" IsPassword="False"  IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100">
+                                <local:DoneEntry.HorizontalOptions>
+                                    <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                                </local:DoneEntry.HorizontalOptions>
+                            </local:DoneEntry>
+                        </Grid>
+                    </Frame>
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="DATASCOPETRIGGERMASK">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="7*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label Text="Data Scope Trigger Mask" TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                            <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric"  TextColor="Black"  FontSize="Default"  VerticalOptions="Center" IsPassword="False"  IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100">
+                                <local:DoneEntry.HorizontalOptions>
+                                    <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                                </local:DoneEntry.HorizontalOptions>
+                            </local:DoneEntry>
+                        </Grid>
+                    </Frame>
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="DATASCOPEPRECOUNT">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="7*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label Text="Data Scope Pre Count" TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                            <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric"  TextColor="Black"  FontSize="Default"  VerticalOptions="Center" IsPassword="False"  IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100">
+                                <local:DoneEntry.HorizontalOptions>
+                                    <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                                </local:DoneEntry.HorizontalOptions>
+                            </local:DoneEntry>
+                        </Grid>
+                    </Frame>
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="DATASCOPETIMEBASE">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="7*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label Text="Data Scope Time Base" TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                            <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric"  TextColor="Black"  FontSize="Default"  VerticalOptions="Center" IsPassword="False"  IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100">
+                                <local:DoneEntry.HorizontalOptions>
+                                    <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                                </local:DoneEntry.HorizontalOptions>
+                            </local:DoneEntry>
+                        </Grid>
+                    </Frame>
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="DATASCOPETRIGGERMODE">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="7*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label Text="Trigger Type 0=GT, 1=LT, 2=EQ, 3=NE" TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                            <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric"  TextColor="Black"  FontSize="Default"  VerticalOptions="Center" IsPassword="False"  IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100">
+                                <local:DoneEntry.HorizontalOptions>
+                                    <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                                </local:DoneEntry.HorizontalOptions>
+                            </local:DoneEntry>
+                        </Grid>
+                    </Frame>
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="DATASCOPECOMMAND">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label Text="Trigger" TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" Grid.Row="0"/>
+                            <Button  x:Name="START" Text="Get Log"  Clicked="START_Clicked"  Grid.Column="0" Grid.Row="1"/>
+                            <Button  x:Name="FORCETRIGGER" Text="Force Trigger"  Clicked="FORCETRIGGER_Clicked" Grid.Column="1" Grid.Row="1"/>
+                            <Button  x:Name="RUNTRIGGER" Text="Run"  Clicked="RUNTRIGGER_Clicked" Grid.Column="2" Grid.Row="1"/>
+                            <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric"  TextColor="Black"  FontSize="Default"  VerticalOptions="Center" IsPassword="False"  IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="2" Grid.Row="0" WidthRequest="100">
+                                <local:DoneEntry.HorizontalOptions>
+                                    <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                                </local:DoneEntry.HorizontalOptions>
+                            </local:DoneEntry>
+                        </Grid>
+                    </Frame>
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                        <Grid x:Name="DATASCOPETRIGGERSTATE">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="7*" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label Text="Data Scope Trigger State" TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0"/>
+                            <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric"  TextColor="Black"  FontSize="Default"  VerticalOptions="Center" IsPassword="False"  IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100">
+                                <local:DoneEntry.HorizontalOptions>
+                                    <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                                </local:DoneEntry.HorizontalOptions>
+                            </local:DoneEntry>
+                        </Grid>
+                    </Frame>
+                    <!--<Grid x:Name="grid_channels" >
+                </Grid>-->
+                    <Frame>
+                        <Button Text="Save All to Flash"  FontSize="Default" IsEnabled="True" Clicked="SAVECHANGES_Clicked" />
+                    </Frame>
+                    <Frame>
+                        <Button Text="Save Only Scope Setup to File"  FontSize="Default" IsEnabled="True" Clicked="SaveScopeSettingsToFile_Clicked" />
+                    </Frame>
+                    <Frame>
+                        <Button Text="Load Scope Setup from File"  FontSize="Default" IsEnabled="True" Clicked="LoadScopeSettingsFromFile_Clicked" />
+                    </Frame>
+                    <Frame>
+                        <Button Text="Share Data"  FontSize="Default" IsEnabled="True" Clicked="UploadToCloud_Clicked" />
+                    </Frame>
+                </StackLayout>
+            </ScrollView>
+            <ContentView x:Name="fileListPopUp"
+                 AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                 AbsoluteLayout.LayoutFlags="All"
+                 IsVisible="False"
+                 BackgroundColor="#C0202020"
+                 Padding="10, 0">
+
+                <ScrollView Orientation="Vertical"
+                 AbsoluteLayout.LayoutBounds=".25, .12, .5, .76"
+                 AbsoluteLayout.LayoutFlags="All">
+                    <StackLayout  x:Name ="FileButtonList" VerticalOptions="StartAndExpand">
+                        <Label  x:Name="titleLabel" Text="Saved Scope Setting"  TextColor="Black"  FontAttributes="Bold" FontSize="Default" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" />
+                    </StackLayout>
+                </ScrollView>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</local:NavitasGeneralPage>

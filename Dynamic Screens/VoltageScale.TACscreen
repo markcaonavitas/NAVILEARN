@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PageViewModel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<PageTitle>Voltage Calibration Scale</PageTitle>
+<PageType>TAC</PageType>
+  <PageGroups>
+   <PageGroup>
+      <GroupViewType>Label</GroupViewType>
+      <GroupTitle>Voltage Calibration</GroupTitle>
+      <GroupDescription>Mesaure the voltage between B- and B+ and input it and the calibration scale will be recalculated.</GroupDescription>
+     <PageItems>
+        <PageItem>
+          <ViewType>FloatTwoDecimalPlaces</ViewType>
+          <PropertyName>INPUT_VOLTAGE</PropertyName>
+        </PageItem>
+        <PageItem>
+            <ViewType>ReadOnly</ViewType>
+            <PropertyName>VBATVDC</PropertyName>
+        </PageItem>
+        <PageItem>
+            <ViewType>ReadOnly</ViewType>
+            <PropertyName>LOGICSIDEBATTERYVOLTAGEV</PropertyName>
+        </PageItem>
+        <PageItem>
+            <ViewType>ReadOnly</ViewType>
+            <PropertyName>Otp_dcbusScale</PropertyName>
+        </PageItem>
+        <PageItem>
+            <ViewType>ReadOnly</ViewType>
+            <PropertyName>Otp_logicPowerScale</PropertyName>
+        </PageItem>
+      </PageItems>
+    </PageGroup>
+    <PageGroup>
+     <PageButtons>
+        <PageButton>
+          <Text>Reset Calibration Scale</Text>
+        </PageButton>
+      </PageButtons>
+    </PageGroup>
+  </PageGroups>
+</PageViewModel>

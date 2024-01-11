@@ -1,0 +1,1155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>DESKTOP-2312MC</Machine>
+    <WindowsUser>jcao</WindowsUser>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetOsVersion>10.0</TargetOsVersion>
+    <TargetOsDescription>Windows 10.0</TargetOsDescription>
+    <SolutionConfiguration>Release|x86</SolutionConfiguration>
+    <PackageArchitecture>x86</PackageArchitecture>
+    <PackageIdentityName>5f82c415-f5ba-4b36-b814-761e9d451aaf</PackageIdentityName>
+    <PackageIdentityPublisher>CN=Eng4</PackageIdentityPublisher>
+    <IntermediateOutputPath>C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\obj\x86\Release\</IntermediateOutputPath>
+    <RemoteDeploymentType></RemoteDeploymentType>
+    <PackageRegistrationPath></PackageRegistrationPath>
+    <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
+    <DeployOptionalPackages>false</DeployOptionalPackages>
+    <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
+    <LayoutDir>C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\bin\x86\Release\AppX</LayoutDir>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\bin\x86\Release\Core\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\bin\x86\Release\NavitasBeta.UWP.exe">
+      <PackagePath>entrypoint\NavitasBeta.UWP.exe</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jcao\.nuget\packages\newtonsoft.json\13.0.1\lib\netstandard2.0\Newtonsoft.Json.dll">
+      <PackagePath>Newtonsoft.Json.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jcao\.nuget\packages\oxyplot.core\2.0.0\lib\netstandard1.0\OxyPlot.dll">
+      <PackagePath>OxyPlot.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jcao\.nuget\packages\oxyplot.windows\2.0.0-unstable1035\lib\uap10.0\OxyPlot.Windows.dll">
+      <PackagePath>OxyPlot.Windows.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jcao\.nuget\packages\parse\1.7.0\lib\netcore45\Parse.WinRT.dll">
+      <PackagePath>Parse.WinRT.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jcao\.nuget\packages\parse\1.7.0\lib\netcore45\Parse.dll">
+      <PackagePath>Parse.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jcao\.nuget\packages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.12\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
+      <PackagePath>System.Runtime.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jcao\.nuget\packages\syncfusion.licensing\17.3.0.34\lib\uap10.0\Syncfusion.Licensing.dll">
+      <PackagePath>Syncfusion.Licensing.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jcao\.nuget\packages\syncfusion.sfgauge.uwp\17.3.0.34\lib\uap10.0\Syncfusion.SfGauge.UWP.dll">
+      <PackagePath>Syncfusion.SfGauge.UWP.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jcao\.nuget\packages\syncfusion.xamarin.core\17.3.0.34\lib\uap10.0\Syncfusion.Core.XForms.UWP.dll">
+      <PackagePath>Syncfusion.Core.XForms.UWP.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jcao\.nuget\packages\syncfusion.xamarin.core\17.3.0.34\lib\uap10.0\Syncfusion.Core.XForms.dll">
+      <PackagePath>Syncfusion.Core.XForms.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jcao\.nuget\packages\syncfusion.xamarin.sfgauge\17.3.0.34\lib\uap10.0\Syncfusion.SfGauge.XForms.UWP.dll">
+      <PackagePath>Syncfusion.SfGauge.XForms.UWP.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jcao\.nuget\packages\syncfusion.xamarin.sfgauge\17.3.0.34\lib\uap10.0\Syncfusion.SfGauge.XForms.dll">
+      <PackagePath>Syncfusion.SfGauge.XForms.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jcao\.nuget\packages\win2d.uwp\1.20.0\runtimes\win10-x86\native\Microsoft.Graphics.Canvas.dll">
+      <PackagePath>Microsoft.Graphics.Canvas.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jcao\.nuget\packages\xamarin.essentials\1.7.0\lib\uap10.0.16299\Xamarin.Essentials.dll">
+      <PackagePath>Xamarin.Essentials.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jcao\.nuget\packages\xamarin.forms\5.0.0.2083\lib\uap10.0.16299\Xamarin.Forms.Core.dll">
+      <PackagePath>Xamarin.Forms.Core.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jcao\.nuget\packages\xamarin.forms\5.0.0.2083\lib\uap10.0.16299\Xamarin.Forms.Platform.UAP.dll">
+      <PackagePath>Xamarin.Forms.Platform.UAP.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jcao\.nuget\packages\xamarin.forms\5.0.0.2083\lib\uap10.0.16299\Xamarin.Forms.Platform.dll">
+      <PackagePath>Xamarin.Forms.Platform.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jcao\.nuget\packages\xamarin.forms\5.0.0.2083\lib\uap10.0.16299\Xamarin.Forms.Xaml.dll">
+      <PackagePath>Xamarin.Forms.Xaml.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jcao\.nuget\packages\xamarin.forms.maps\5.0.0.2622\lib\uap10.0.16299\Xamarin.Forms.Maps.UWP.dll">
+      <PackagePath>Xamarin.Forms.Maps.UWP.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jcao\.nuget\packages\xamarin.forms.maps\5.0.0.2622\lib\uap10.0.16299\Xamarin.Forms.Maps.dll">
+      <PackagePath>Xamarin.Forms.Maps.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\bin\Release\NavitasBeta.dll">
+      <PackagePath>NavitasBeta.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\Output\Xamarin.Forms.Platform.UWP\OxyPlot.Xamarin.Forms.Platform.UWP.dll">
+      <PackagePath>OxyPlot.Xamarin.Forms.Platform.UWP.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\ParseManager\bin\Release\ParseManager.dll">
+      <PackagePath>ParseManager.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\ParseManager.UWP\bin\Release\ParseManager.UWP.dll">
+      <PackagePath>ParseManager.UWP.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\bin\Release\OxyPlot.Xamarin.Forms.dll">
+      <PackagePath>OxyPlot.Xamarin.Forms.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jcao\.nuget\packages\win2d.uwp\1.20.0\lib\uap10.0\Microsoft.Graphics.Canvas.winmd">
+      <PackagePath>Microsoft.Graphics.Canvas.winmd</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\bin\Release\NavitasBeta.dll.config">
+      <PackagePath>NavitasBeta.dll.config</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jcao\.nuget\packages\oxyplot.windows\2.0.0-unstable1035\lib\uap10.0\OxyPlot.Windows\OxyPlot.Windows.xr.xml">
+      <PackagePath>OxyPlot.Windows\OxyPlot.Windows.xr.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jcao\.nuget\packages\syncfusion.sfgauge.uwp\17.3.0.34\lib\uap10.0\Syncfusion.SfGauge.UWP\Syncfusion.SfGauge.UWP.xr.xml">
+      <PackagePath>Syncfusion.SfGauge.UWP\Syncfusion.SfGauge.UWP.xr.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jcao\.nuget\packages\syncfusion.sfgauge.uwp\17.3.0.34\lib\uap10.0\Syncfusion.SfGauge.UWP\Properties\Syncfusion.SfGauge.UWP.rd.xml">
+      <PackagePath>Syncfusion.SfGauge.UWP\Properties\Syncfusion.SfGauge.UWP.rd.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jcao\.nuget\packages\syncfusion.xamarin.core\17.3.0.34\lib\uap10.0\Syncfusion.Core.XForms.UWP\Syncfusion.Core.XForms.UWP.xr.xml">
+      <PackagePath>Syncfusion.Core.XForms.UWP\Syncfusion.Core.XForms.UWP.xr.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jcao\.nuget\packages\xamarin.forms\5.0.0.2083\lib\uap10.0.16299\Xamarin.Forms.Platform.UAP\Xamarin.Forms.Platform.UAP.xr.xml">
+      <PackagePath>Xamarin.Forms.Platform.UAP\Xamarin.Forms.Platform.UAP.xr.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\DashboardScripting.html">
+      <PackagePath>Content\DashboardScripting.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\DashboardScripting.html">
+      <PackagePath>NavitasBeta\CommonWebViews\DashboardScripting.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\CalibrateThrottle.html">
+      <PackagePath>Content\CalibrateThrottle.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\ExternalLoader.html">
+      <PackagePath>Content\ExternalLoader.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\MainSolenoidTest.html">
+      <PackagePath>Content\MainSolenoidTest.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\PnrdVerification.html">
+      <PackagePath>Content\PnrdVerification.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\ReverseBuzzerTest.html">
+      <PackagePath>Content\ReverseBuzzerTest.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\StartDiagnose.html">
+      <PackagePath>Content\StartDiagnose.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\UserOnboarding.html">
+      <PackagePath>Content\UserOnboarding.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\frameworks\CommunicationsInterface.js">
+      <PackagePath>Content\frameworks\CommunicationsInterface.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\frameworks\jquery-1.10.2.min.js">
+      <PackagePath>Content\frameworks\jquery-1.10.2.min.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\frameworks\jquery-3.4.1.min.js">
+      <PackagePath>Content\frameworks\jquery-3.4.1.min.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\frameworks\jquery.xml2json.js">
+      <PackagePath>Content\frameworks\jquery.xml2json.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\frameworks\kalman-filter.min.js">
+      <PackagePath>Content\frameworks\kalman-filter.min.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\frameworks\kalman-filter.min.js">
+      <PackagePath>NavitasBeta\CommonWebViews\frameworks\kalman-filter.min.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\frameworks\leaflet.js">
+      <PackagePath>Content\frameworks\leaflet.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\frameworks\List.js">
+      <PackagePath>Content\frameworks\List.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\frameworks\min.js">
+      <PackagePath>Content\frameworks\min.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\frameworks\NavitasMotorControllerModel.js">
+      <PackagePath>Content\frameworks\NavitasMotorControllerModel.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\frameworks\polyfill.min.js">
+      <PackagePath>Content\frameworks\polyfill.min.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\frameworks\ResizeObserver.global.js">
+      <PackagePath>Content\frameworks\ResizeObserver.global.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\frameworks\SimulatedCommandInterface.js">
+      <PackagePath>Content\frameworks\SimulatedCommandInterface.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\frameworks\TACDictionary.js">
+      <PackagePath>Content\frameworks\TACDictionary.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\frameworks\TSXDictionary.js">
+      <PackagePath>Content\frameworks\TSXDictionary.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\frameworks\ViewModelHook.js">
+      <PackagePath>Content\frameworks\ViewModelHook.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\js\StartDiagnose.js">
+      <PackagePath>Content\js\StartDiagnose.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\js\TestSequenceDictionary.js">
+      <PackagePath>Content\js\TestSequenceDictionary.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\js\UserOnboarding.js">
+      <PackagePath>Content\js\UserOnboarding.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\js\VehicleDiagnostics.js">
+      <PackagePath>Content\js\VehicleDiagnostics.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\widgets\gauge.min.js">
+      <PackagePath>Content\widgets\gauge.min.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\widgets\gauge.min.js">
+      <PackagePath>NavitasBeta\CommonWebViews\widgets\gauge.min.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\widgets\jquery.flot.js">
+      <PackagePath>Content\widgets\jquery.flot.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\widgets\jquery.flot.min.js">
+      <PackagePath>Content\widgets\jquery.flot.min.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\widgets\odometer.js">
+      <PackagePath>Content\widgets\odometer.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\widgets\odometer.js">
+      <PackagePath>NavitasBeta\CommonWebViews\widgets\odometer.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\widgets\ProgressBarPercentPassFail.js">
+      <PackagePath>Content\widgets\ProgressBarPercentPassFail.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\widgets\radarScan.js">
+      <PackagePath>Content\widgets\radarScan.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\widgets\radarScan.js">
+      <PackagePath>NavitasBeta\CommonWebViews\widgets\radarScan.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\widgets\speedometer.js">
+      <PackagePath>Content\widgets\speedometer.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\widgets\speedometer.js">
+      <PackagePath>NavitasBeta\CommonWebViews\widgets\speedometer.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\acceleration.svg">
+      <PackagePath>Content\images\acceleration.svg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\acceleration.svg">
+      <PackagePath>NavitasBeta\CommonWebViews\images\acceleration.svg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\analytic.svg">
+      <PackagePath>Content\images\analytic.svg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\analytic.svg">
+      <PackagePath>NavitasBeta\CommonWebViews\images\analytic.svg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\battery.svg">
+      <PackagePath>Content\images\battery.svg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\battery.svg">
+      <PackagePath>NavitasBeta\CommonWebViews\images\battery.svg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\BRAKERELAYOUTPUT_OFF.svg">
+      <PackagePath>Content\images\BRAKERELAYOUTPUT_OFF.svg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\BRAKERELAYOUTPUT_OFF.svg">
+      <PackagePath>NavitasBeta\CommonWebViews\images\BRAKERELAYOUTPUT_OFF.svg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\BRAKERELAYOUTPUT_ON.svg">
+      <PackagePath>Content\images\BRAKERELAYOUTPUT_ON.svg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\BRAKERELAYOUTPUT_ON.svg">
+      <PackagePath>NavitasBeta\CommonWebViews\images\BRAKERELAYOUTPUT_ON.svg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\CHARGERINTERLOCKIN.svg">
+      <PackagePath>Content\images\CHARGERINTERLOCKIN.svg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\CHARGERINTERLOCKIN.svg">
+      <PackagePath>NavitasBeta\CommonWebViews\images\CHARGERINTERLOCKIN.svg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\fail-icon.svg">
+      <PackagePath>Content\images\fail-icon.svg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\fail-icon.svg">
+      <PackagePath>NavitasBeta\CommonWebViews\images\fail-icon.svg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\FORWARDSW.svg">
+      <PackagePath>Content\images\FORWARDSW.svg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\FORWARDSW.svg">
+      <PackagePath>NavitasBeta\CommonWebViews\images\FORWARDSW.svg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\KEYIN.svg">
+      <PackagePath>Content\images\KEYIN.svg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\KEYIN.svg">
+      <PackagePath>NavitasBeta\CommonWebViews\images\KEYIN.svg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\pass-icon.svg">
+      <PackagePath>Content\images\pass-icon.svg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\pass-icon.svg">
+      <PackagePath>NavitasBeta\CommonWebViews\images\pass-icon.svg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\REVBUZZEROUTPUT.svg">
+      <PackagePath>Content\images\REVBUZZEROUTPUT.svg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\REVBUZZEROUTPUT.svg">
+      <PackagePath>NavitasBeta\CommonWebViews\images\REVBUZZEROUTPUT.svg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\REVBUZZEROUTPUT_OFF.svg">
+      <PackagePath>Content\images\REVBUZZEROUTPUT_OFF.svg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\REVBUZZEROUTPUT_OFF.svg">
+      <PackagePath>NavitasBeta\CommonWebViews\images\REVBUZZEROUTPUT_OFF.svg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\REVBUZZEROUTPUT_ON.svg">
+      <PackagePath>Content\images\REVBUZZEROUTPUT_ON.svg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\REVBUZZEROUTPUT_ON.svg">
+      <PackagePath>NavitasBeta\CommonWebViews\images\REVBUZZEROUTPUT_ON.svg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\REVERSESW.svg">
+      <PackagePath>Content\images\REVERSESW.svg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\REVERSESW.svg">
+      <PackagePath>NavitasBeta\CommonWebViews\images\REVERSESW.svg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\stop.svg">
+      <PackagePath>Content\images\stop.svg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\stop.svg">
+      <PackagePath>NavitasBeta\CommonWebViews\images\stop.svg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\tire-size.svg">
+      <PackagePath>Content\images\tire-size.svg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\tire-size.svg">
+      <PackagePath>NavitasBeta\CommonWebViews\images\tire-size.svg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\backArrow.png">
+      <PackagePath>Resources\backArrow.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\BleSecured.png">
+      <PackagePath>Resources\BleSecured.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\collapseIcon.png">
+      <PackagePath>Content\images\collapseIcon.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\collapseIcon.png">
+      <PackagePath>NavitasBeta\CommonWebViews\images\collapseIcon.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\DeleteIcon.png">
+      <PackagePath>DeleteIcon.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\DemoWM.png">
+      <PackagePath>Resources\DemoWM.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\DemoWM.png">
+      <PackagePath>NavitasBeta\CommonWebViews\images\DemoWM.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\EditIcon.png">
+      <PackagePath>EditIcon.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\EditIcon.png">
+      <PackagePath>NavitasBeta\CommonWebViews\images\EditIcon.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_ClubCar_Precedent_EZGO_TXT.png">
+      <PackagePath>TAC2_ClubCar_Precedent_EZGO_TXT.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_ClubCar_Precedent_EZGO_TXT.png">
+      <PackagePath>NavitasBeta\CommonWebViews\images\help\TAC\TAC2_ClubCar_Precedent_EZGO_TXT.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_ClubCar_Precedent_EZGO_TXT_forward_reverse.png">
+      <PackagePath>TAC2_ClubCar_Precedent_EZGO_TXT_forward_reverse.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_ClubCar_Precedent_EZGO_TXT_forward_reverse.png">
+      <PackagePath>NavitasBeta\CommonWebViews\images\help\TAC\TAC2_ClubCar_Precedent_EZGO_TXT_forward_reverse.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_ClubCar_Precedent_EZGO_TXT_key_run_charge.png">
+      <PackagePath>TAC2_ClubCar_Precedent_EZGO_TXT_key_run_charge.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_ClubCar_Precedent_EZGO_TXT_key_run_charge.png">
+      <PackagePath>NavitasBeta\CommonWebViews\images\help\TAC\TAC2_ClubCar_Precedent_EZGO_TXT_key_run_charge.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_ClubCar_Precedent_EZGO_TXT_throttle_footsw.png">
+      <PackagePath>TAC2_ClubCar_Precedent_EZGO_TXT_throttle_footsw.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_ClubCar_Precedent_EZGO_TXT_throttle_footsw.png">
+      <PackagePath>NavitasBeta\CommonWebViews\images\help\TAC\TAC2_ClubCar_Precedent_EZGO_TXT_throttle_footsw.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_1268_Resistive_ITS.png">
+      <PackagePath>TAC2_EZGO_1268_Resistive_ITS.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_1268_Resistive_ITS.png">
+      <PackagePath>NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_1268_Resistive_ITS.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_1268_Resistive_ITS_forward_reverse.png">
+      <PackagePath>TAC2_EZGO_1268_Resistive_ITS_forward_reverse.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_1268_Resistive_ITS_forward_reverse.png">
+      <PackagePath>NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_1268_Resistive_ITS_forward_reverse.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_1268_Resistive_ITS_key_run_charge.png">
+      <PackagePath>TAC2_EZGO_1268_Resistive_ITS_key_run_charge.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_1268_Resistive_ITS_key_run_charge.png">
+      <PackagePath>NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_1268_Resistive_ITS_key_run_charge.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_1268_Resistive_ITS_throttle_footsw.png">
+      <PackagePath>TAC2_EZGO_1268_Resistive_ITS_throttle_footsw.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_1268_Resistive_ITS_throttle_footsw.png">
+      <PackagePath>NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_1268_Resistive_ITS_throttle_footsw.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV23.png">
+      <PackagePath>TAC2_EZGO_RXV23.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV23.png">
+      <PackagePath>NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV23.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV23_brake_brakesw.png">
+      <PackagePath>TAC2_EZGO_RXV23_brake_brakesw.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV23_brake_brakesw.png">
+      <PackagePath>NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV23_brake_brakesw.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV23_forward_reverse.png">
+      <PackagePath>TAC2_EZGO_RXV23_forward_reverse.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV23_forward_reverse.png">
+      <PackagePath>NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV23_forward_reverse.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV23_key_run_charge.png">
+      <PackagePath>TAC2_EZGO_RXV23_key_run_charge.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV23_key_run_charge.png">
+      <PackagePath>NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV23_key_run_charge.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV23_throttle_footsw.png">
+      <PackagePath>TAC2_EZGO_RXV23_throttle_footsw.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV23_throttle_footsw.png">
+      <PackagePath>NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV23_throttle_footsw.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV35.png">
+      <PackagePath>TAC2_EZGO_RXV35.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV35.png">
+      <PackagePath>NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV35.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV35_brake_brakesw.png">
+      <PackagePath>TAC2_EZGO_RXV35_brake_brakesw.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV35_brake_brakesw.png">
+      <PackagePath>NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV35_brake_brakesw.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV35_forward_reverse.png">
+      <PackagePath>TAC2_EZGO_RXV35_forward_reverse.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV35_forward_reverse.png">
+      <PackagePath>NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV35_forward_reverse.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV35_key_run_charge.png">
+      <PackagePath>TAC2_EZGO_RXV35_key_run_charge.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV35_key_run_charge.png">
+      <PackagePath>NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV35_key_run_charge.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV35_throttle_footsw.png">
+      <PackagePath>TAC2_EZGO_RXV35_throttle_footsw.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV35_throttle_footsw.png">
+      <PackagePath>NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV35_throttle_footsw.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_TSX.png">
+      <PackagePath>TAC2_TSX.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_TSX.png">
+      <PackagePath>NavitasBeta\CommonWebViews\images\help\TAC\TAC2_TSX.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_TSX_forward_reverse.png">
+      <PackagePath>TAC2_TSX_forward_reverse.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_TSX_forward_reverse.png">
+      <PackagePath>NavitasBeta\CommonWebViews\images\help\TAC\TAC2_TSX_forward_reverse.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_TSX_key_run_charge.png">
+      <PackagePath>TAC2_TSX_key_run_charge.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_TSX_key_run_charge.png">
+      <PackagePath>NavitasBeta\CommonWebViews\images\help\TAC\TAC2_TSX_key_run_charge.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_TSX_throttle_footsw.png">
+      <PackagePath>TAC2_TSX_throttle_footsw.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_TSX_throttle_footsw.png">
+      <PackagePath>NavitasBeta\CommonWebViews\images\help\TAC\TAC2_TSX_throttle_footsw.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_G29.png">
+      <PackagePath>TAC2_Yamaha_G29.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_G29.png">
+      <PackagePath>NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_G29.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_G29_forward_reverse.png">
+      <PackagePath>TAC2_Yamaha_G29_forward_reverse.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_G29_forward_reverse.png">
+      <PackagePath>NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_G29_forward_reverse.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_G29_key_run_charge.png">
+      <PackagePath>TAC2_Yamaha_G29_key_run_charge.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_G29_key_run_charge.png">
+      <PackagePath>NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_G29_key_run_charge.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_G29_throttle_footsw.png">
+      <PackagePath>TAC2_Yamaha_G29_throttle_footsw.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_G29_throttle_footsw.png">
+      <PackagePath>NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_G29_throttle_footsw.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_YDRE2.png">
+      <PackagePath>TAC2_Yamaha_YDRE2.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_YDRE2.png">
+      <PackagePath>NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_YDRE2.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_YDRE2_forward_reverse.png">
+      <PackagePath>TAC2_Yamaha_YDRE2_forward_reverse.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_YDRE2_forward_reverse.png">
+      <PackagePath>NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_YDRE2_forward_reverse.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_YDRE2_key_run_charge.png">
+      <PackagePath>TAC2_Yamaha_YDRE2_key_run_charge.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_YDRE2_key_run_charge.png">
+      <PackagePath>NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_YDRE2_key_run_charge.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_YDRE2_throttle_footsw.png">
+      <PackagePath>TAC2_Yamaha_YDRE2_throttle_footsw.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_YDRE2_throttle_footsw.png">
+      <PackagePath>NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_YDRE2_throttle_footsw.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\hide.png">
+      <PackagePath>Resources\hide.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\hide.png">
+      <PackagePath>NavitasBeta\CommonWebViews\images\hide.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\Information_icon.png">
+      <PackagePath>Resources\Information_icon.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\Information_icon.png">
+      <PackagePath>NavitasBeta\CommonWebViews\images\Information_icon.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\ionlocked.png">
+      <PackagePath>Content\images\ionlocked.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\ionlocked.png">
+      <PackagePath>NavitasBeta\CommonWebViews\images\ionlocked.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\ionunlocked.png">
+      <PackagePath>Content\images\ionunlocked.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\ionunlocked.png">
+      <PackagePath>NavitasBeta\CommonWebViews\images\ionunlocked.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\openIcon.png">
+      <PackagePath>Content\images\openIcon.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\openIcon.png">
+      <PackagePath>NavitasBeta\CommonWebViews\images\openIcon.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\ProfileIcon.png">
+      <PackagePath>Resources\ProfileIcon.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\show.png">
+      <PackagePath>Resources\show.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\show.png">
+      <PackagePath>NavitasBeta\CommonWebViews\images\show.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\SwipeDownFinger.png">
+      <PackagePath>SwipeDownFinger.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\TireSize.png">
+      <PackagePath>TireSize.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\whiteBackIcon.png">
+      <PackagePath>Resources\whiteBackIcon.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\whiteBackIcon.png">
+      <PackagePath>NavitasBeta\CommonWebViews\images\whiteBackIcon.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\IconError.png">
+      <PackagePath>Assets\IconError.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\IconGearF.png">
+      <PackagePath>Assets\IconGearF.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\IconGearN.png">
+      <PackagePath>Assets\IconGearN.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\IconGearR.png">
+      <PackagePath>Assets\IconGearR.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\IconKey.png">
+      <PackagePath>Assets\IconKey.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\ionlocked.png">
+      <PackagePath>Assets\ionlocked.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\ionunlocked.png">
+      <PackagePath>Assets\ionunlocked.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\LargeTile.scale-100.png">
+      <PackagePath>Assets\LargeTile.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\LargeTile.scale-125.png">
+      <PackagePath>Assets\LargeTile.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\LargeTile.scale-150.png">
+      <PackagePath>Assets\LargeTile.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\LargeTile.scale-200.png">
+      <PackagePath>Assets\LargeTile.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\LargeTile.scale-400.png">
+      <PackagePath>Assets\LargeTile.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\SmallTile.scale-100.png">
+      <PackagePath>Assets\SmallTile.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\SmallTile.scale-125.png">
+      <PackagePath>Assets\SmallTile.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\SmallTile.scale-150.png">
+      <PackagePath>Assets\SmallTile.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\SmallTile.scale-200.png">
+      <PackagePath>Assets\SmallTile.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\SmallTile.scale-400.png">
+      <PackagePath>Assets\SmallTile.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\SplashScreen.scale-100.png">
+      <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\SplashScreen.scale-125.png">
+      <PackagePath>Assets\SplashScreen.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\SplashScreen.scale-150.png">
+      <PackagePath>Assets\SplashScreen.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\SplashScreen.scale-200.png">
+      <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\SplashScreen.scale-400.png">
+      <PackagePath>Assets\SplashScreen.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\Square150x150Logo.scale-100.png">
+      <PackagePath>Assets\Square150x150Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\Square150x150Logo.scale-125.png">
+      <PackagePath>Assets\Square150x150Logo.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\Square150x150Logo.scale-150.png">
+      <PackagePath>Assets\Square150x150Logo.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\Square150x150Logo.scale-200.png">
+      <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\Square150x150Logo.scale-400.png">
+      <PackagePath>Assets\Square150x150Logo.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\Square44x44Logo.altform-lightunplated_targetsize-16.png">
+      <PackagePath>Assets\Square44x44Logo.altform-lightunplated_targetsize-16.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\Square44x44Logo.altform-lightunplated_targetsize-24.png">
+      <PackagePath>Assets\Square44x44Logo.altform-lightunplated_targetsize-24.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\Square44x44Logo.altform-lightunplated_targetsize-256.png">
+      <PackagePath>Assets\Square44x44Logo.altform-lightunplated_targetsize-256.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\Square44x44Logo.altform-lightunplated_targetsize-32.png">
+      <PackagePath>Assets\Square44x44Logo.altform-lightunplated_targetsize-32.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\Square44x44Logo.altform-lightunplated_targetsize-48.png">
+      <PackagePath>Assets\Square44x44Logo.altform-lightunplated_targetsize-48.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-16.png">
+      <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-16.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-24.png">
+      <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-24.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-256.png">
+      <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-256.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-32.png">
+      <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-32.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\Square44x44Logo.altform-unplated_targetsize-48.png">
+      <PackagePath>Assets\Square44x44Logo.altform-unplated_targetsize-48.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\Square44x44Logo.scale-100.png">
+      <PackagePath>Assets\Square44x44Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\Square44x44Logo.scale-125.png">
+      <PackagePath>Assets\Square44x44Logo.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\Square44x44Logo.scale-150.png">
+      <PackagePath>Assets\Square44x44Logo.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\Square44x44Logo.scale-200.png">
+      <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\Square44x44Logo.scale-400.png">
+      <PackagePath>Assets\Square44x44Logo.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\Square44x44Logo.targetsize-16.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-16.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\Square44x44Logo.targetsize-24.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-24.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\Square44x44Logo.targetsize-256.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-256.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\Square44x44Logo.targetsize-32.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-32.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\Square44x44Logo.targetsize-48.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-48.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\StoreLogo.scale-100.png">
+      <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\StoreLogo.scale-125.png">
+      <PackagePath>Assets\StoreLogo.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\StoreLogo.scale-150.png">
+      <PackagePath>Assets\StoreLogo.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\StoreLogo.scale-200.png">
+      <PackagePath>Assets\StoreLogo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\StoreLogo.scale-400.png">
+      <PackagePath>Assets\StoreLogo.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\Wide310x150Logo.scale-100.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\Wide310x150Logo.scale-125.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-125.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\Wide310x150Logo.scale-150.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-150.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\Wide310x150Logo.scale-200.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Assets\Wide310x150Logo.scale-400.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-400.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\BleSecured.png">
+      <PackagePath>BleSecured.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\hamburger.png">
+      <PackagePath>hamburger.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\hide.png">
+      <PackagePath>hide.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\icon.png">
+      <PackagePath>icon.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\IconCommunication.png">
+      <PackagePath>IconCommunication.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\IconError.png">
+      <PackagePath>IconError.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Information_icon.png">
+      <PackagePath>Information_icon.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\ioncloud.png">
+      <PackagePath>ioncloud.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\ionplay.png">
+      <PackagePath>ionplay.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\ionstop.png">
+      <PackagePath>ionstop.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Resources\BatteryEmpty.png">
+      <PackagePath>Resources\BatteryEmpty.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Resources\BatteryFull.png">
+      <PackagePath>Resources\BatteryFull.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Resources\batterypart30.png">
+      <PackagePath>Resources\batterypart30.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Resources\drawableportxxhdpiscreen.png">
+      <PackagePath>Resources\drawableportxxhdpiscreen.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Resources\drawableportxxhdpiscreenlogin.png">
+      <PackagePath>Resources\drawableportxxhdpiscreenlogin.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Resources\hamburger.png">
+      <PackagePath>Resources\hamburger.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Resources\icon.png">
+      <PackagePath>Resources\icon.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Resources\iconbatterycharge.png">
+      <PackagePath>Resources\iconbatterycharge.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Resources\IconCommunication.png">
+      <PackagePath>Resources\IconCommunication.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Resources\IconError.png">
+      <PackagePath>Resources\IconError.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Resources\IconGearF.png">
+      <PackagePath>Resources\IconGearF.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Resources\IconGearN.png">
+      <PackagePath>Resources\IconGearN.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Resources\IconGearR.png">
+      <PackagePath>Resources\IconGearR.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Resources\IconKey.png">
+      <PackagePath>Resources\IconKey.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Resources\ionandroidcar.png">
+      <PackagePath>Resources\ionandroidcar.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Resources\ionandroidoptions.png">
+      <PackagePath>Resources\ionandroidoptions.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Resources\ioncloud.png">
+      <PackagePath>Resources\ioncloud.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Resources\ioncodedownload.png">
+      <PackagePath>Resources\ioncodedownload.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Resources\iongearb.png">
+      <PackagePath>Resources\iongearb.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Resources\ionhelp.png">
+      <PackagePath>Resources\ionhelp.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Resources\ioniosspeedometer.png">
+      <PackagePath>Resources\ioniosspeedometer.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Resources\ionlock.png">
+      <PackagePath>Resources\ionlock.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Resources\ionlocked.png">
+      <PackagePath>Resources\ionlocked.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Resources\ionlogout.png">
+      <PackagePath>Resources\ionlogout.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Resources\ionplay.png">
+      <PackagePath>Resources\ionplay.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Resources\ionstop.png">
+      <PackagePath>Resources\ionstop.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Resources\ionunlocked.png">
+      <PackagePath>Resources\ionunlocked.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Resources\popupSpeedWarningImage.png">
+      <PackagePath>Resources\popupSpeedWarningImage.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Resources\spashscreen.png">
+      <PackagePath>Resources\spashscreen.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Resources\speedometer.png">
+      <PackagePath>Resources\speedometer.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Resources\whitehamburger.png">
+      <PackagePath>Resources\whitehamburger.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\show.png">
+      <PackagePath>show.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\whitehamburger.png">
+      <PackagePath>whitehamburger.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\FootSwitchAndThrottle.gif">
+      <PackagePath>Content\images\FootSwitchAndThrottle.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\FootSwitchAndThrottle.gif">
+      <PackagePath>NavitasBeta\CommonWebViews\images\FootSwitchAndThrottle.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\redPointer.gif">
+      <PackagePath>Content\images\redPointer.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\redPointer.gif">
+      <PackagePath>NavitasBeta\CommonWebViews\images\redPointer.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\Fail.gif">
+      <PackagePath>NavitasBeta\CommonWebViews\images\Fail.gif</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\golfcart.jpg">
+      <PackagePath>Content\images\golfcart.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\golfcart.jpg">
+      <PackagePath>NavitasBeta\CommonWebViews\images\golfcart.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\board-electronics-computer-data-processing-50711.jpg">
+      <PackagePath>Content\images\help\TAC\board-electronics-computer-data-processing-50711.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\images\help\TAC\board-electronics-computer-data-processing-50711.jpg">
+      <PackagePath>NavitasBeta\CommonWebViews\images\help\TAC\board-electronics-computer-data-processing-50711.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\themes\examples.css">
+      <PackagePath>Content\themes\examples.css</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\themes\leaflet.css">
+      <PackagePath>Content\themes\leaflet.css</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\themes\leaflet.css">
+      <PackagePath>NavitasBeta\CommonWebViews\themes\leaflet.css</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\themes\odometer-theme-car.css">
+      <PackagePath>Content\themes\odometer-theme-car.css</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\themes\odometer-theme-car.css">
+      <PackagePath>NavitasBeta\CommonWebViews\themes\odometer-theme-car.css</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\themes\odometer-theme-default.css">
+      <PackagePath>Content\themes\odometer-theme-default.css</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\themes\odometer-theme-default.css">
+      <PackagePath>NavitasBeta\CommonWebViews\themes\odometer-theme-default.css</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\themes\UserOnboarding.css">
+      <PackagePath>Content\themes\UserOnboarding.css</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\themes\UserOnboarding.css">
+      <PackagePath>NavitasBeta\CommonWebViews\themes\UserOnboarding.css</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\themes\VehicleDiagnostics.css">
+      <PackagePath>Content\themes\VehicleDiagnostics.css</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta\CommonWebViews\themes\VehicleDiagnostics.css">
+      <PackagePath>NavitasBeta\CommonWebViews\themes\VehicleDiagnostics.css</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Properties\Default.rd.xml">
+      <PackagePath>Properties\Default.rd.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\Resources\Splash.xml">
+      <PackagePath>Resources\Splash.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\bin\x86\Release\NavitasBeta.UWP.xr.xml">
+      <PackagePath>NavitasBeta.UWP.xr.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.19041.0\Windows.winmd">
+      <PackagePath>WinMetadata\Windows.winmd</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\jcao\.nuget\packages\microsoft.ui.xaml\2.4.3\buildTransitive\..\lib\uap10.0\Microsoft.UI.Xaml.winmd">
+      <PackagePath>WinMetadata\Microsoft.UI.Xaml.winmd</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\bin\x86\Release\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TestRepoMark\NavitasBeta\NavitasBeta\NavitasBeta.UWP\bin\x86\Release\Core\NavitasBeta.UWP.exe">
+      <PackagePath>NavitasBeta.UWP.exe</PackagePath>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResolvedSDKReference Include="C:\Users\jcao\.nuget\packages\microsoft.ui.xaml\2.4.3\buildTransitive\..\tools\AppX\x86\Release\Microsoft.UI.Xaml.2.4.appx">
+      <Name>Microsoft.UI.Xaml.2.4</Name>
+      <Version>2.42007.9001.0</Version>
+      <Architecture>x86</Architecture>
+      <FrameworkIdentity>Name = Microsoft.UI.Xaml.2.4, MinVersion = 2.42007.9001.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Users\jcao\.nuget\packages\microsoft.ui.xaml\2.4.3\buildTransitive\..\tools\AppX\x86\Release\Microsoft.UI.Xaml.2.4.appx</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Users\jcao\.nuget\packages\microsoft.ui.xaml\2.4.3\buildTransitive\..\tools\AppX\x86\Release\Microsoft.UI.Xaml.2.4.appx">
+      <Name>Microsoft.UI.Xaml.2.4</Name>
+      <Version>2.42007.9001.0</Version>
+      <Architecture>Win32</Architecture>
+      <FrameworkIdentity>Name = Microsoft.UI.Xaml.2.4, MinVersion = 2.42007.9001.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Users\jcao\.nuget\packages\microsoft.ui.xaml\2.4.3\buildTransitive\..\tools\AppX\x86\Release\Microsoft.UI.Xaml.2.4.appx</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Users\jcao\.nuget\packages\microsoft.ui.xaml\2.4.3\buildTransitive\..\tools\AppX\x64\Release\Microsoft.UI.Xaml.2.4.appx">
+      <Name>Microsoft.UI.Xaml.2.4</Name>
+      <Version>2.42007.9001.0</Version>
+      <Architecture>x64</Architecture>
+      <FrameworkIdentity>Name = Microsoft.UI.Xaml.2.4, MinVersion = 2.42007.9001.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Users\jcao\.nuget\packages\microsoft.ui.xaml\2.4.3\buildTransitive\..\tools\AppX\x64\Release\Microsoft.UI.Xaml.2.4.appx</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Users\jcao\.nuget\packages\microsoft.ui.xaml\2.4.3\buildTransitive\..\tools\AppX\arm\Release\Microsoft.UI.Xaml.2.4.appx">
+      <Name>Microsoft.UI.Xaml.2.4</Name>
+      <Version>2.42007.9001.0</Version>
+      <Architecture>arm</Architecture>
+      <FrameworkIdentity>Name = Microsoft.UI.Xaml.2.4, MinVersion = 2.42007.9001.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Users\jcao\.nuget\packages\microsoft.ui.xaml\2.4.3\buildTransitive\..\tools\AppX\arm\Release\Microsoft.UI.Xaml.2.4.appx</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Users\jcao\.nuget\packages\microsoft.ui.xaml\2.4.3\buildTransitive\..\tools\AppX\arm64\Release\Microsoft.UI.Xaml.2.4.appx">
+      <Name>Microsoft.UI.Xaml.2.4</Name>
+      <Version>2.42007.9001.0</Version>
+      <Architecture>arm64</Architecture>
+      <FrameworkIdentity>Name = Microsoft.UI.Xaml.2.4, MinVersion = 2.42007.9001.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Users\jcao\.nuget\packages\microsoft.ui.xaml\2.4.3\buildTransitive\..\tools\AppX\arm64\Release\Microsoft.UI.Xaml.2.4.appx</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Users\jcao\.nuget\packages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
+      <Name>Microsoft.NET.CoreRuntime.2.2</Name>
+      <Version>2.2.29713.2</Version>
+      <Architecture>x86</Architecture>
+      <FrameworkIdentity>Name = Microsoft.NET.CoreRuntime.2.2, MinVersion = 2.2.29713.2, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Users\jcao\.nuget\packages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Users\jcao\.nuget\packages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
+      <Name>Microsoft.NET.CoreRuntime.2.2</Name>
+      <Version>2.2.29713.2</Version>
+      <Architecture>x64</Architecture>
+      <FrameworkIdentity>Name = Microsoft.NET.CoreRuntime.2.2, MinVersion = 2.2.29713.2, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Users\jcao\.nuget\packages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Users\jcao\.nuget\packages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx">
+      <Name>Microsoft.NET.CoreRuntime.2.2</Name>
+      <Version>2.2.29713.2</Version>
+      <Architecture>arm</Architecture>
+      <FrameworkIdentity>Name = Microsoft.NET.CoreRuntime.2.2, MinVersion = 2.2.29713.2, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Users\jcao\.nuget\packages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreRuntime.2.2.appx</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Users\jcao\.nuget\packages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
+      <Name>Microsoft.NET.CoreFramework.Debug.2.2</Name>
+      <Version>2.2.29301.2</Version>
+      <Architecture>x86</Architecture>
+      <FrameworkIdentity>Name = Microsoft.NET.CoreFramework.Debug.2.2, MinVersion = 2.2.29301.2, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Users\jcao\.nuget\packages\runtime.win10-x86.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Users\jcao\.nuget\packages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
+      <Name>Microsoft.NET.CoreFramework.Debug.2.2</Name>
+      <Version>2.2.29301.2</Version>
+      <Architecture>x64</Architecture>
+      <FrameworkIdentity>Name = Microsoft.NET.CoreFramework.Debug.2.2, MinVersion = 2.2.29301.2, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Users\jcao\.nuget\packages\runtime.win10-x64.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Users\jcao\.nuget\packages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx">
+      <Name>Microsoft.NET.CoreFramework.Debug.2.2</Name>
+      <Version>2.2.29301.2</Version>
+      <Architecture>arm</Architecture>
+      <FrameworkIdentity>Name = Microsoft.NET.CoreFramework.Debug.2.2, MinVersion = 2.2.29301.2, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Users\jcao\.nuget\packages\runtime.win10-arm.microsoft.net.uwpcoreruntimesdk\2.2.12\build\..\tools\Appx\Microsoft.NET.CoreFramework.Debug.2.2.appx</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
+      <Name>Microsoft.VCLibs.140.00</Name>
+      <Version>14.0.30704.0</Version>
+      <Architecture>ARM</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00, MinVersion = 14.0.30704.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Retail\ARM\Microsoft.VCLibs.ARM.14.00.appx</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
+      <Name>Microsoft.VCLibs.140.00</Name>
+      <Version>14.0.30704.0</Version>
+      <Architecture>ARM64</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00, MinVersion = 14.0.30704.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Retail\ARM64\Microsoft.VCLibs.ARM64.14.00.appx</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
+      <Name>Microsoft.VCLibs.140.00</Name>
+      <Version>14.0.30704.0</Version>
+      <Architecture>x64</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00, MinVersion = 14.0.30704.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Retail\x64\Microsoft.VCLibs.x64.14.00.appx</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
+      <Name>Microsoft.VCLibs.140.00</Name>
+      <Version>14.0.30704.0</Version>
+      <Architecture>x86</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00, MinVersion = 14.0.30704.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Retail\x86\Microsoft.VCLibs.x86.14.00.appx</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+  </ItemGroup>
+</Project>

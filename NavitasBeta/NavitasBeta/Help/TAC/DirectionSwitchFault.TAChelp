@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PageViewModel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <PageTitle>DirectionSwitchFault</PageTitle>
+    <PageType>TAC</PageType>
+    <PageControl>Show Only This Page</PageControl>
+    <PageGroups>
+        <PageGroup>
+            <GroupViewType>Label</GroupViewType>
+            <GroupTitle>Vehicle Direction Switches</GroupTitle>
+            <GroupDescription>This vehicle has two inputs to select a direction. Only one switch can be on at a time otherwise an error will disable the vehicle from moving</GroupDescription>
+            <PageItems>
+                <PageItem>
+                  <PageSubItems>
+                    <PageItem>
+                      <ViewType>Enum</ViewType>
+                      <PropertyName>FORWARDSW</PropertyName>
+                      <!-- <Bit>1</Bit> -->
+                    </PageItem>
+                    <PageItem>
+                      <ViewType>Enum</ViewType>
+                      <PropertyName>REVERSESW</PropertyName>
+                      <!-- <Bit>1</Bit> -->
+                    </PageItem>
+                  </PageSubItems>
+                </PageItem>
+            </PageItems>
+        </PageGroup>
+    </PageGroups>
+</PageViewModel>

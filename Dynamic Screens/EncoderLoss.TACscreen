@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PageViewModel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <PageTitle>FOC and Motor Testin</PageTitle>
+    <PageType>TAC</PageType>
+    <PageControl>Show Only This Page</PageControl>
+    <PageItems>
+        <PageItem>
+            <ViewType>Float</ViewType>
+            <Address>37</Address>
+        </PageItem>
+        <PageItem>
+            <ViewType>Float</ViewType>
+            <!-- <Address>153</Address> -->
+            <PropertyName>Options</PropertyName>
+            <!-- <Bit>1</Bit> -->
+        </PageItem>
+        <PageItem>
+            <ViewType>Float</ViewType>
+            <PropertyName>InvertDigitalInput</PropertyName>
+            <!-- <Bit>1</Bit> -->
+        </PageItem>
+        <PageItem>
+            <ViewType>Switch</ViewType>
+            <PropertyName>TOGGLEFORWARDSWITCH</PropertyName>
+            <!-- <Bit>1</Bit> -->
+        </PageItem>
+        <PageItem>
+            <ViewType>Switch</ViewType>
+            <PropertyName>TOGGLEFOOTSWITCH</PropertyName>
+            <!-- <Bit>1</Bit> -->
+        </PageItem>
+        <PageItem>
+            <ViewType>Switch</ViewType>
+            <PropertyName>MFG_TESTING_ANALOG_BRAKE_AND_THROTTLE_OPTION</PropertyName>
+            <!-- <Bit>1</Bit> -->
+        </PageItem> 
+        <PageItem>
+            <ViewType>Float</ViewType>
+            <PropertyName>TESTERTHROTTLEANALOGVALUE</PropertyName>
+        </PageItem>
+        <PageItem>
+            <ViewType>Float</ViewType>
+            <PropertyName>TESTERBRAKEANALOGVALUE</PropertyName>
+        </PageItem>
+        <PageItem>
+            <ViewType>Float</ViewType>
+            <PropertyName>GROUPFOURFAULTS</PropertyName>
+        </PageItem>
+        <PageItem>
+            <ViewType>Float</ViewType>
+            <PropertyName>PreviousGroupFourFaults</PropertyName>
+        </PageItem>
+        <PageItem>
+            <ViewType>Float</ViewType>
+            <PropertyName>PreviousGroupThreeFaults</PropertyName>
+        </PageItem>
+        <PageItem>
+            <ViewType>Float</ViewType>
+            <PropertyName>PreviousGroupTwoFaults</PropertyName>
+        </PageItem>
+        <PageItem>
+            <ViewType>Float</ViewType>
+            <PropertyName>PreviousGroupOneFaults</PropertyName>
+        </PageItem>
+        <PageItem>
+            <ViewType>Float</ViewType>
+            <PropertyName>SPEED</PropertyName>
+        </PageItem>
+        <PageItem>
+            <ViewType>ReadOnly</ViewType>
+            <PropertyName>ROTORRPM</PropertyName>
+        </PageItem>
+        <PageItem>
+            <ViewType>Float</ViewType>
+            <PropertyName>DEBUGVAR1</PropertyName>
+        </PageItem>
+        <PageItem>
+            <ViewType>Float</ViewType>
+            <PropertyName>DEBUGVAR2</PropertyName>
+        </PageItem>
+        <PageItem>
+            <ViewType>Float</ViewType>
+            <PropertyName>DEBUGVAR3</PropertyName>
+        </PageItem>
+        <PageItem>
+            <ViewType>Float</ViewType>
+            <PropertyName>DEBUGVAR4</PropertyName>
+        </PageItem>
+        <PageItem>
+            <ViewType>Float</ViewType>
+            <PropertyName>Development_1</PropertyName>
+        </PageItem>
+        <PageItem>
+            <ViewType>Float</ViewType>
+            <PropertyName>Development_2</PropertyName>
+        </PageItem>
+        <PageItem>
+            <ViewType>Float</ViewType>
+            <PropertyName>Development_3</PropertyName>
+        </PageItem>
+        <PageItem>
+            <ViewType>Float</ViewType>
+            <PropertyName>Development_4</PropertyName>
+        </PageItem>
+
+        <PageItem>
+            <ViewType>Float</ViewType>
+            <PropertyName>TESTMODE</PropertyName>
+        </PageItem>
+        <PageItem>
+            <ViewType>Switch</ViewType>
+            <PropertyName>FLAGGATEENABLE</PropertyName>
+        </PageItem>
+        <PageItem>
+            <ViewType>Float</ViewType>
+            <PropertyName>FREQ</PropertyName>
+        </PageItem>
+        <PageItem>
+            <ViewType>Float</ViewType>
+            <PropertyName>MOTORELECTRICALANGLEPU</PropertyName>
+        </PageItem>
+        <PageItem>
+            <ViewType>Float</ViewType>
+            <PropertyName>MODINDEX</PropertyName>
+        </PageItem>
+        <PageItem>
+            <ViewType>Float</ViewType>
+            <PropertyName>Id_mod_index_q12</PropertyName>
+        </PageItem>
+        <PageItem>
+            <ViewType>Float</ViewType>
+            <PropertyName>test5Torque_q12</PropertyName>
+        </PageItem>
+    </PageItems>
+</PageViewModel>

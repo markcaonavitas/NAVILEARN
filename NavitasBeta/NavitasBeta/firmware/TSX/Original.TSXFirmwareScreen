@@ -1,0 +1,581 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<FirmwaresGroups>
+  <FirmwareGroups>
+    <FirmwareGroup>
+      <Title>Latest Factory Releases</Title>
+      <StrogeType>Internal</StrogeType>
+      <SubDirectory>Released</SubDirectory>
+      <FileItems>
+        <FileItem>
+          <ModelName>440A Stock Motor</ModelName>
+          <FriendlyFileName>440A Stock Motor</FriendlyFileName>
+          <ActualFileName>TSX.440_Stock_Motor</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>440A Series Motor</ModelName>
+          <FriendlyFileName>440A Series Motor</FriendlyFileName>
+          <ActualFileName>TSX.440_Series</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A Stock Motor</ModelName>
+          <FriendlyFileName>600A Stock Motor</FriendlyFileName>
+          <ActualFileName>TSX.600_Stock_Motor</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A Series Motor</ModelName>
+          <FriendlyFileName>600A Series Motor</FriendlyFileName>
+          <ActualFileName>TSX.600_Series</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>440A PM Motor</ModelName>
+          <FriendlyFileName>440A PM Motor</FriendlyFileName>
+          <ActualFileName>TSX.440_PM</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A PM Motor</ModelName>
+          <FriendlyFileName>600A PM Motor</FriendlyFileName>
+          <ActualFileName>TSX.600_PM</ActualFileName>
+        </FileItem>
+      </FileItems>
+    </FirmwareGroup>
+    <FirmwareGroup>
+      <Title>Admiral Motors</Title>
+      <StrogeType>Internal</StrogeType>
+      <SubDirectory>Released</SubDirectory>
+      <FileItems>
+        <FileItem>
+          <ModelName>600A Admiral RHMOT-A2</ModelName>
+          <FriendlyFileName>600A Admiral RHMOT-A2</FriendlyFileName>
+          <ActualFileName>TSX.600_ADMIRAL_MOT-A2</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A Admiral RHMOT-A4</ModelName>
+          <FriendlyFileName>600A Admiral RHMOT-A4</FriendlyFileName>
+          <ActualFileName>TSX.600_ADMIRAL_MOT-A4</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A Admiral RHMOT-B2</ModelName>
+          <FriendlyFileName>600A Admiral RHMOT-B2</FriendlyFileName>
+          <ActualFileName>TSX.600_ADMIRAL_MOT-B2</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A Admiral RHMOT-D2</ModelName>
+          <FriendlyFileName>600A Admiral RHMOT-D2</FriendlyFileName>
+          <ActualFileName>TSX.600_ADMIRAL_MOT-D2</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A Admiral RHMOT-D4</ModelName>
+          <FriendlyFileName>600A Admiral RHMOT-D4</FriendlyFileName>
+          <ActualFileName>TSX.600_ADMIRAL_MOT-D4</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>440A Admiral RHMOT-A2</ModelName>
+          <FriendlyFileName>440A Admiral RHMOT-A2</FriendlyFileName>
+          <ActualFileName>TSX.440_ADMIRAL_MOT-A2</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>440A Admiral RHMOT-A4</ModelName>
+          <FriendlyFileName>440A Admiral RHMOT-A4</FriendlyFileName>
+          <ActualFileName>TSX.440_ADMIRAL_MOT-A4</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>440A Admiral RHMOT-B2</ModelName>
+          <FriendlyFileName>440A Admiral RHMOT-B2</FriendlyFileName>
+          <ActualFileName>TSX.440_ADMIRAL_MOT-B2</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>440A Admiral RHMOT-D2</ModelName>
+          <FriendlyFileName>440A Admiral RHMOT-D2</FriendlyFileName>
+          <ActualFileName>TSX.440_ADMIRAL_MOT-D2</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>440A Admiral RHMOT-D4</ModelName>
+          <FriendlyFileName>440A Admiral RHMOT-D4</FriendlyFileName>
+          <ActualFileName>TSX.440_ADMIRAL_MOT-D4</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A Admiral RHMOT-B4</ModelName>
+          <FriendlyFileName>600A Admiral RHMOT-B4</FriendlyFileName>
+          <ActualFileName>TSX.440_ADMIRAL_MOT-B4</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>440A Admiral RHMOT-B4</ModelName>
+          <FriendlyFileName>440A Admiral RHMOT-B4</FriendlyFileName>
+          <ActualFileName>TSX.440_ADMIRAL_MOT-B4</ActualFileName>
+        </FileItem>
+      </FileItems>
+    </FirmwareGroup>
+    <FirmwareGroup>
+      <Title>FSIP Motors</Title>
+      <StrogeType>Internal</StrogeType>
+      <SubDirectory>Released</SubDirectory>
+      <FileItems>
+        <FileItem>
+          <ModelName>440A FSIP Torque</ModelName>
+          <FriendlyFileName>440A FSIP Torque</FriendlyFileName>
+          <ActualFileName>TSX.440_FSIP_TORQUE</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A FSIP Torque</ModelName>
+          <FriendlyFileName>600A FSIP Torque</FriendlyFileName>
+          <ActualFileName>TSX.600_FSIP_TORQUE</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>440A FSIP Speed</ModelName>
+          <FriendlyFileName>440A FSIP Speed</FriendlyFileName>
+          <ActualFileName>TSX.440_FSIP_SPEED</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A FSIP Speed</ModelName>
+          <FriendlyFileName>600A FSIP Speed</FriendlyFileName>
+          <ActualFileName>TSX.600_FSIP_SPEED</ActualFileName>
+        </FileItem>
+      </FileItems>
+    </FirmwareGroup>
+    <FirmwareGroup>
+      <Title>Nivel Motors</Title>
+      <StrogeType>Internal</StrogeType>
+      <SubDirectory>Released</SubDirectory>
+      <FileItems>
+        <FileItem>
+          <ModelName>600A NIVEL 3268</ModelName>
+          <FriendlyFileName>600A NIVEL 3268</FriendlyFileName>
+          <ActualFileName>TSX.600_NIVEL3268</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A NIVEL 3272</ModelName>
+          <FriendlyFileName>600A NIVEL 3272</FriendlyFileName>
+          <ActualFileName>TSX.600_NIVEL3272</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A NIVEL 54036</ModelName>
+          <FriendlyFileName>600A NIVEL 54036</FriendlyFileName>
+          <ActualFileName>TSX.600_NIVEL54036</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A NIVEL 7144</ModelName>
+          <FriendlyFileName>600A NIVEL 7115/7144</FriendlyFileName>
+          <ActualFileName>TSX.600_NIVEL7144</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>440A NIVEL 3268</ModelName>
+          <FriendlyFileName>440A NIVEL 3268</FriendlyFileName>
+          <ActualFileName>TSX.440_NIVEL3268</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>440A NIVEL 3272</ModelName>
+          <FriendlyFileName>440A NIVEL 3272</FriendlyFileName>
+          <ActualFileName>TSX.440_NIVEL3272</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>440A NIVEL 54036</ModelName>
+          <FriendlyFileName>440A NIVEL 54036</FriendlyFileName>
+          <ActualFileName>TSX.440_NIVEL54036</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>440A NIVEL 7144</ModelName>
+          <FriendlyFileName>440A NIVEL 7115/7144</FriendlyFileName>
+          <ActualFileName>TSX.440_NIVEL7144</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>440A NIVEL 54035</ModelName>
+          <FriendlyFileName>440A NIVEL 54035</FriendlyFileName>
+          <ActualFileName>TSX.440_NIVEL54035</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A NIVEL 54035</ModelName>
+          <FriendlyFileName>600A NIVEL 54035</FriendlyFileName>
+          <ActualFileName>TSX.600_NIVEL54035</ActualFileName>
+        </FileItem>
+      </FileItems>
+    </FirmwareGroup>
+    <FirmwareGroup>
+      <Title>D&#38;D Motors</Title>
+      <StrogeType>Internal</StrogeType>
+      <SubDirectory>Released</SubDirectory>
+      <FileItems>
+        <FileItem>
+          <ModelName>600A D&#38;D 170-506-2</ModelName>
+          <FriendlyFileName>600A D&#38;D 170-506-2</FriendlyFileName>
+          <ActualFileName>TSX.600_DD170-506-2</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>440A D&#38;D 170-506-2</ModelName>
+          <FriendlyFileName>440A D&#38;D 170-506-2</FriendlyFileName>
+          <ActualFileName>TSX.440_DD170-506-2</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>440A D&#38;D 170-502-2</ModelName>
+          <FriendlyFileName>440A D&#38;D 170-502-0002 Speed</FriendlyFileName>
+          <ActualFileName>TSX.440_DD170-502-0002_Speed</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A D&#38;D 170-502-2</ModelName>
+          <FriendlyFileName>600A D&#38;D 170-502-0002 Speed</FriendlyFileName>
+          <ActualFileName>TSX.600_DD170-502-0002_Speed</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>440A D&#38;D 170-502-2</ModelName>
+          <FriendlyFileName>440A D&#38;D 170-502-0002 Torque</FriendlyFileName>
+          <ActualFileName>TSX.440_DD170-502-0002_Torque</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>TSX600A D&#38;D 170-502-2</ModelName>
+          <FriendlyFileName>TSX600A D&#38;D 170-502-0002 Torque</FriendlyFileName>
+          <ActualFileName>TSX.600_DD170-502-0002_Torque</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>440A D&#38;D 170-502-001</ModelName>
+          <FriendlyFileName>440A D&#38;D 170-502-0001 Torque</FriendlyFileName>
+          <ActualFileName>TSX.440_DD170-502-0001_Torque</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A D&#38;D 170-502-001</ModelName>
+          <FriendlyFileName>600A D&#38;D 170-502-0001 Torque</FriendlyFileName>
+          <ActualFileName>TSX.600_DD170-502-0001_Torque</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>440A D&#38;D 170-502-001</ModelName>
+          <FriendlyFileName>440A D&#38;D 170-502-0001 Speed</FriendlyFileName>
+          <ActualFileName>TSX.440_DD170-502-0001_Speed</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A D&#38;D 170-502-001</ModelName>
+          <FriendlyFileName>600A D&#38;D 170-502-0001 Speed</FriendlyFileName>
+          <ActualFileName>TSX.600_DD170-502-0001_Speed</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>440A D&#38;D 170-500-0001</ModelName>
+          <FriendlyFileName>440A D&#38;D 170-500-1</FriendlyFileName>
+          <ActualFileName>TSX.440_DD170-500-1</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A D&#38;D 170-500-0001</ModelName>
+          <FriendlyFileName>600A D&#38;D170-500-1</FriendlyFileName>
+          <ActualFileName>TSX.600_DD170-500-1</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>440A D&#38;D 170-505</ModelName>
+          <FriendlyFileName>440A D&#38;D 170-505</FriendlyFileName>
+          <ActualFileName>TSX.440_DD170-505</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A D&#38;D 170-505</ModelName>
+          <FriendlyFileName>600A D&#38;D 170-505</FriendlyFileName>
+          <ActualFileName>TSX.600_DD170-505</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A D&#38;D ES-63-47</ModelName>
+          <FriendlyFileName>600A D&#38;D ES-63-47</FriendlyFileName>
+          <ActualFileName>TSX.600_DD_ES-63-47</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>440A D&#38;D ES-63-47</ModelName>
+          <FriendlyFileName>440A D&#38;D ES-63-47</FriendlyFileName>
+          <ActualFileName>TSX.440_DD_ES-63-47</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A D&#38;D ES-9B-50</ModelName>
+          <FriendlyFileName>600A D&#38;D ES-9B-50</FriendlyFileName>
+          <ActualFileName>TSX.600_DD_ES-9B-50</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>440A D&#38;D ES-9B-50</ModelName>
+          <FriendlyFileName>440A D&#38;D ES-9B-50</FriendlyFileName>
+          <ActualFileName>TSX.440_DD_ES-9B-50</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A D&#38;D ES-76</ModelName>
+          <FriendlyFileName>600A D&#38;D ES-76</FriendlyFileName>
+          <ActualFileName>TSX.600_DD_ES-76</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>440A D&#38;D ES-76</ModelName>
+          <FriendlyFileName>440A D&#38;D ES-76</FriendlyFileName>
+          <ActualFileName>TSX.440_DD_ES-76</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A D&#38;D ES-24-14</ModelName>
+          <FriendlyFileName>600A D&#38;D ES-24-14</FriendlyFileName>
+          <ActualFileName>TSX.600_DD_ES-24-14</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>440A D&#38;D ES-24-14</ModelName>
+          <FriendlyFileName>440A D&#38;D ES-24-14</FriendlyFileName>
+          <ActualFileName>TSX.440_DD_ES-24-14</ActualFileName>
+        </FileItem>
+      </FileItems>
+    </FirmwareGroup>
+    <FirmwareGroup>
+      <Title>Plum Quick Motors</Title>
+      <StrogeType>Internal</StrogeType>
+      <SubDirectory>Released</SubDirectory>
+      <FileItems>
+        <FileItem>
+          <ModelName>600A PQ Bandit</ModelName>
+          <FriendlyFileName>600A PQ Bandit</FriendlyFileName>
+          <ActualFileName>TSX.600_PQ_BANDIT</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>440A PQ Bandit</ModelName>
+          <FriendlyFileName>440A PQ Bandit</FriendlyFileName>
+          <ActualFileName>TSX.440_PQ_BANDIT</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A PQ Executioner</ModelName>
+          <FriendlyFileName>600A PQ Executioner</FriendlyFileName>
+          <ActualFileName>TSX.600_PQ_EXECUTIONER</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>440A PQ Executioner</ModelName>
+          <FriendlyFileName>440A PQ Executioner</FriendlyFileName>
+          <ActualFileName>TSX.440_PQ_EXECUTIONER</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A PQ TORQUE</ModelName>
+          <FriendlyFileName>600A PQ Barracuda</FriendlyFileName>
+          <ActualFileName>TSX.600_PQ_TORQUE</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A PQ TORQUE</ModelName>
+          <FriendlyFileName>600A PQ Street Riot</FriendlyFileName>
+          <ActualFileName>TSX.600_PQ_TORQUE</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A PQ TORQUE</ModelName>
+          <FriendlyFileName>600A PQ Yellow Jacket</FriendlyFileName>
+          <ActualFileName>TSX.600_PQ_TORQUE</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>440A PQ TORQUE</ModelName>
+          <FriendlyFileName>440A PQ Barracuda</FriendlyFileName>
+          <ActualFileName>TSX.440_PQ_TORQUE</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>440A PQ TORQUE</ModelName>
+          <FriendlyFileName>440A PQ Street Riot</FriendlyFileName>
+          <ActualFileName>TSX.440_PQ_TORQUE</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>440A PQ TORQUE</ModelName>
+          <FriendlyFileName>440A PQ Yellow Jacket</FriendlyFileName>
+          <ActualFileName>TSX.440_PQ_TORQUE</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A PQ Rhino</ModelName>
+          <FriendlyFileName>600A PQ Rhino</FriendlyFileName>
+          <ActualFileName>TSX.600_PQ_RHINO</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>440A PQ Rhino</ModelName>
+          <FriendlyFileName>440A PQ Rhino</FriendlyFileName>
+          <ActualFileName>TSX.440_PQ_RHINO</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A PQ SPEED TORQUE</ModelName>
+          <FriendlyFileName>600A PQ Crocodile</FriendlyFileName>
+          <ActualFileName>TSX.600_PQ_SPEED_TORQUE</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A PQ SPEED TORQUE</ModelName>
+          <FriendlyFileName>600A PQ El Diablo</FriendlyFileName>
+          <ActualFileName>TSX.600_PQ_SPEED_TORQUE</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A PQ SPEED TORQUE</ModelName>
+          <FriendlyFileName>600A PQ T-Rex</FriendlyFileName>
+          <ActualFileName>TSX.600_PQ_SPEED_TORQUE</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A PQ SPEED TORQUE</ModelName>
+          <FriendlyFileName>600A PQ Zombie</FriendlyFileName>
+          <ActualFileName>TSX.600_PQ_SPEED_TORQUE</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A PQ SPEED TORQUE</ModelName>
+          <FriendlyFileName>600A PQ Gorilla</FriendlyFileName>
+          <ActualFileName>TSX.600_PQ_SPEED_TORQUE</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>440A PQ SPEED TORQUE</ModelName>
+          <FriendlyFileName>440A PQ Crocodile</FriendlyFileName>
+          <ActualFileName>TSX.440_PQ_SPEED_TORQUE</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>440A PQ SPEED TORQUE</ModelName>
+          <FriendlyFileName>440A PQ El Diablo</FriendlyFileName>
+          <ActualFileName>TSX.440_PQ_SPEED_TORQUE</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>440A PQ SPEED TORQUE</ModelName>
+          <FriendlyFileName>440A PQ T-Rex</FriendlyFileName>
+          <ActualFileName>TSX.440_PQ_SPEED_TORQUE</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>440A PQ SPEED TORQUE</ModelName>
+          <FriendlyFileName>440A PQ Zombie</FriendlyFileName>
+          <ActualFileName>TSX.440_PQ_SPEED_TORQUE</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>440A PQ SPEED TORQUE</ModelName>
+          <FriendlyFileName>440A PQ Gorilla</FriendlyFileName>
+          <ActualFileName>TSX.440_PQ_SPEED_TORQUE</ActualFileName>
+        </FileItem>
+      </FileItems>
+    </FirmwareGroup>
+    <FirmwareGroup>
+      <Title>Advanced Lift Motors</Title>
+      <StrogeType>Internal</StrogeType>
+      <SubDirectory>Released</SubDirectory>
+      <FileItems>
+        <FileItem>
+          <ModelName>600A Copperhead</ModelName>
+          <FriendlyFileName>600A Copperhead</FriendlyFileName>
+          <ActualFileName>TSX.600_COPPERHEAD</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>440A Copperhead</ModelName>
+          <FriendlyFileName>440A Copperhead</FriendlyFileName>
+          <ActualFileName>TSX.440_COPPERHEAD</ActualFileName>
+        </FileItem>
+      </FileItems>
+    </FirmwareGroup>
+    <FirmwareGroup>
+      <Title>Custom Motors</Title>
+      <StrogeType>Internal</StrogeType>
+      <SubDirectory>Released</SubDirectory>
+      <FileItems>
+        <FileItem>
+          <ModelName>440A GCMod</ModelName>
+          <FriendlyFileName>440A GCMod</FriendlyFileName>
+          <ActualFileName>TSX.440_GCMod</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A GCMod</ModelName>
+          <FriendlyFileName>600A GCMod</FriendlyFileName>
+          <ActualFileName>TSX.600_GCMod</ActualFileName>
+        </FileItem>
+      </FileItems>
+    </FirmwareGroup>
+    <FirmwareGroup>
+      <Title>OEM Configurations</Title>
+    </FirmwareGroup>
+    <FirmwareGroup>
+      <Title>HuntVe 72V</Title>
+      <StrogeType>Internal</StrogeType>
+      <SubDirectory>OEM</SubDirectory>
+      <FileItems>
+        <FileItem>
+          <ModelName>600A HuntVe Master 72V w/309 Motor</ModelName>
+          <FriendlyFileName>HuntVe Master w/309 Motor</FriendlyFileName>
+          <ActualFileName>TSX.600_HUNTVE_MASTER_72V_309_motor</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A HuntVe Remote 72V w/309 Motor</ModelName>
+          <FriendlyFileName>HuntVe Remote w/309 Motor</FriendlyFileName>
+          <ActualFileName>TSX.600_HUNTVE_REMOTE_72V_309_motor</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A HuntVe Master 72V w/341 Motor</ModelName>
+          <FriendlyFileName>HuntVe Master w/341 Motor</FriendlyFileName>
+          <ActualFileName>TSX.600_HUNTVE_MASTER_72V_341_motor</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A HuntVe Remote 72V w/341 Motor</ModelName>
+          <FriendlyFileName>HuntVe Remote w/341 Motor</FriendlyFileName>
+          <ActualFileName>TSX.600_HUNTVE_REMOTE_72V_341_motor</ActualFileName>
+        </FileItem>
+      </FileItems>
+    </FirmwareGroup>
+    <FirmwareGroup>
+      <Title>HuntVe 48V</Title>
+      <StrogeType>Internal</StrogeType>
+      <SubDirectory>OEM</SubDirectory>
+      <FileItems>
+        <FileItem>
+          <ModelName>600A HuntVe Master 48V w/309 Motor</ModelName>
+          <FriendlyFileName>HuntVe Master w/309 Motor</FriendlyFileName>
+          <ActualFileName>TSX.600_HUNTVE_MASTER_48V_309_motor</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A HuntVe Remote 48V w/309 Motor</ModelName>
+          <FriendlyFileName>HuntVe Remote w/309 Motor</FriendlyFileName>
+          <ActualFileName>TSX.600_HUNTVE_REMOTE_48V_309_motor</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A HuntVe Master 48V w/341 Motor</ModelName>
+          <FriendlyFileName>HuntVe Master w/341 Motor</FriendlyFileName>
+          <ActualFileName>TSX.600_HUNTVE_MASTER_48V_341_motor</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A HuntVe Remote 48V w/341 Motor</ModelName>
+          <FriendlyFileName>HuntVe Remote w/341 Motor</FriendlyFileName>
+          <ActualFileName>TSX.600_HUNTVE_REMOTE_48V_341_motor</ActualFileName>
+      </FileItem>
+      </FileItems>
+    </FirmwareGroup>
+    <FirmwareGroup>
+      <Title>CVG</Title>
+      <StrogeType>Internal</StrogeType>
+      <SubDirectory>OEM</SubDirectory>
+      <FileItems>
+        <FileItem>
+          <ModelName>440A CVG STOCKCHASER</ModelName>
+          <FriendlyFileName>440A STOCKCHASER</FriendlyFileName>
+          <ActualFileName>TSX.440_CVG_STOCKCHASER</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A CVG STOCKCHASER</ModelName>
+          <FriendlyFileName>600A STOCKCHASER</FriendlyFileName>
+          <ActualFileName>TSX.600_CVG_STOCKCHASER</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>440A CVG EXPEDITER</ModelName>
+          <FriendlyFileName>440A EXPEDITER</FriendlyFileName>
+          <ActualFileName>TSX.440_CVG_EXPEDITER</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>600A CVG EXPEDITER</ModelName>
+          <FriendlyFileName>600A EXPEDITER</FriendlyFileName>
+          <ActualFileName>TSX.600_CVG_EXPEDITER</ActualFileName>
+        </FileItem>
+      </FileItems>
+    </FirmwareGroup>
+    <FirmwareGroup>
+      <Title>TITAN MOTORS</Title>
+      <StrogeType>Internal</StrogeType>
+      <SubDirectory>OEM</SubDirectory>
+      <FileItems>
+        <FileItem>
+          <ModelName>600A TITAN MOTORS</ModelName>
+          <FriendlyFileName>TITAN MOTORS</FriendlyFileName>
+          <ActualFileName>TSX.600_TITANMOTORS</ActualFileName>
+        </FileItem>
+      </FileItems>
+    </FirmwareGroup>
+    <FirmwareGroup>
+      <Title>The Beast48</Title>
+      <StrogeType>Internal</StrogeType>
+      <SubDirectory>OEM</SubDirectory>
+      <FileItems>
+        <FileItem>
+          <ModelName>600A Beast</ModelName>
+          <FriendlyFileName>Beast</FriendlyFileName>
+          <ActualFileName>TSX.600_Beast</ActualFileName>
+        </FileItem>
+      </FileItems>
+    </FirmwareGroup>
+    <FirmwareGroup>
+      <Title>Bombardier NEV</Title>
+      <StrogeType>Internal</StrogeType>
+      <SubDirectory>Released</SubDirectory>
+      <FileItems>
+        <FileItem>
+          <ModelName>600A Bombardier NEV</ModelName>
+          <FriendlyFileName>Bombardier NEV</FriendlyFileName>
+          <ActualFileName>TSX.600_Bombardier_NEV</ActualFileName>
+        </FileItem>
+      </FileItems>
+    </FirmwareGroup>
+  </FirmwareGroups>
+</FirmwaresGroups>

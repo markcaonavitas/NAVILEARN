@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfParameterFile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <!--Your have to align your text to the right like this and don't make it longer than this example
+    template <FriendlyFileName>"Don't make you names any bigger than this"</FriendlyFileName>
+    change to<FriendlyFileName>"                           Battery Type 1"</FriendlyFileName>-->
+    <ParameterFile>
+        <FileName>KTY84</FileName>
+        <!--<FriendlyFileName>                                 Lead Acid</FriendlyFileName>-->
+        <FriendlyFileName>KTY84</FriendlyFileName>
+        <ParameterFileItemList>
+            <ParameterFileItem>
+                <ViewType>ReadOnly</ViewType>
+                <Address>329</Address>
+                <PropertyName>MotorThermistorNegative25CResistance</PropertyName>
+                <ParameterValue>407</ParameterValue>
+            </ParameterFileItem>
+            <ParameterFileItem>
+                <ViewType>ReadOnly</ViewType>
+                <Address>330</Address>
+                <PropertyName>MotorThermistor25CResistance</PropertyName>
+                <ParameterValue>603</ParameterValue>
+            </ParameterFileItem>
+            <ParameterFileItem>
+                <ViewType>ReadOnly</ViewType>
+                <Address>331</Address>
+                <PropertyName>MotorThermistor75CResistance</PropertyName>
+                <ParameterValue>854</ParameterValue>
+            </ParameterFileItem>
+            <ParameterFileItem>
+                <ViewType>ReadOnly</ViewType>
+                <Address>332</Address>
+                <PropertyName>MotorThermistor125CResistance</PropertyName>
+                <ParameterValue>1160</ParameterValue>
+            </ParameterFileItem>
+            <ParameterFileItem>
+                <ViewType>ReadOnly</ViewType>
+                <Address>333</Address>
+                <PropertyName>MotorThermistor175CResistance</PropertyName>
+                <ParameterValue>1521</ParameterValue>
+            </ParameterFileItem>
+        </ParameterFileItemList>
+    </ParameterFile>
+    <ParameterFile>
+        <FileName>PT1000</FileName>
+        <!--<FriendlyFileName>                                 Lead Acid</FriendlyFileName>-->
+        <FriendlyFileName>PT1000</FriendlyFileName>
+        <ParameterFileItemList>
+            <ParameterFileItem>
+                <ViewType>ReadOnly</ViewType>
+                <Address>329</Address>
+                <PropertyName>MotorThermistorNegative25CResistance</PropertyName>
+                <ParameterValue>903</ParameterValue>
+            </ParameterFileItem>
+            <ParameterFileItem>
+                <ViewType>ReadOnly</ViewType>
+                <Address>330</Address>
+                <PropertyName>MotorThermistor25CResistance</PropertyName>
+                <ParameterValue>1096</ParameterValue>
+            </ParameterFileItem>
+            <ParameterFileItem>
+                <ViewType>ReadOnly</ViewType>
+                <Address>331</Address>
+                <PropertyName>MotorThermistor75CResistance</PropertyName>
+                <ParameterValue>1288</ParameterValue>
+            </ParameterFileItem>
+            <ParameterFileItem>
+                <ViewType>ReadOnly</ViewType>
+                <Address>332</Address>
+                <PropertyName>MotorThermistor125CResistance</PropertyName>
+                <ParameterValue>1481</ParameterValue>
+            </ParameterFileItem>
+            <ParameterFileItem>
+                <ViewType>ReadOnly</ViewType>
+                <Address>333</Address>
+                <PropertyName>MotorThermistor175CResistance</PropertyName>
+                <ParameterValue>1673</ParameterValue>
+            </ParameterFileItem>
+        </ParameterFileItemList>
+    </ParameterFile>
+
+    <ParameterFile>
+        <FileName>customThermistor</FileName>
+        <!--<FriendlyFileName>                                    Custom</FriendlyFileName>-->
+        <FriendlyFileName>---------------</FriendlyFileName>
+        <!--empty last item is used to indicate custom-->
+        <ParameterFileItemList>
+        </ParameterFileItemList>
+    </ParameterFile>
+
+
+</ArrayOfParameterFile>

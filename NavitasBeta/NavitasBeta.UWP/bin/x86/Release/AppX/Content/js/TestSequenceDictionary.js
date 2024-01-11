@@ -1,0 +1,4 @@
+let StationaryTestSequenceDictionary = {
+        "outputs": {},
+        "inputs": {}
+};

@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfSupplierChain xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SupplierChain>
+    <ProfileNumber>1</ProfileNumber>
+    <ModelName>Navitas 600A 5kW Club Car</ModelName>
+    <CurrentRating>TAC600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>11</ProfileNumber>
+    <ModelName>Navitas 5kW TXT</ModelName>
+    <CurrentRating>TAC600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>7</ProfileNumber>
+    <ModelName>RXV 600A</ModelName>
+    <CurrentRating>TAC600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>9</ProfileNumber>
+    <ModelName>Yamaha DR2 600A</ModelName>
+    <CurrentRating>TAC600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>21</ProfileNumber>
+    <ModelName>Yamaha G29 600A 4kW</ModelName>
+    <CurrentRating>TAC600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>19</ProfileNumber>
+    <ModelName>Yamaha G29 600A 5kW</ModelName>
+    <CurrentRating>TAC600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>17</ProfileNumber>
+    <ModelName>Navitas 600A 4kW Club Car</ModelName>
+    <CurrentRating>TAC600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>4</ProfileNumber>
+    <ModelName>TAC2 440A EZGO L6 72V 5kW</ModelName>
+    <CurrentRating>TAC440A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>34</ProfileNumber>
+    <ModelName>ICON 440A</ModelName>
+    <CurrentRating>TAC440A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>35</ProfileNumber>
+    <ModelName>ICON 600A</ModelName>
+    <CurrentRating>TAC600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>47</ProfileNumber>
+    <ModelName>Navitas Chassis 600A 5kW</ModelName>
+    <CurrentRating>TAC600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>0</ProfileNumber>
+    <ModelName>Navitas 440A 4kW Club Car</ModelName>
+    <CurrentRating>TAC440A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>10</ProfileNumber>
+    <ModelName>Navitas 440A 4kW TXT</ModelName>
+    <CurrentRating>TAC440A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>2</ProfileNumber>
+    <ModelName>RXV 440A Curtis/Danaher</ModelName>
+    <CurrentRating>TAC440A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>6</ProfileNumber>
+    <ModelName>RXV 440A</ModelName>
+    <CurrentRating>TAC440A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>8</ProfileNumber>
+    <ModelName>Yamaha DR2 440A</ModelName>
+    <CurrentRating>TAC440A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>3</ProfileNumber>
+    <ModelName>RXV 600A Curtis/Danaher</ModelName>
+    <CurrentRating>TAC600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>20</ProfileNumber>
+    <ModelName>Yamaha G29 440A 4kW</ModelName>
+    <CurrentRating>TAC440A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>52</ProfileNumber>
+    <ModelName>CVG Utilitruck Payloader 440A 8kW</ModelName>
+    <CurrentRating>TAC440A</CurrentRating>
+    <Category>OEMs</Category>
+    <CompanyName>CVG</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>54</ProfileNumber>
+    <ModelName>CVG Journeyman 440A 5kW</ModelName>
+    <CurrentRating>TAC440A</CurrentRating>
+    <Category>OEMs</Category>
+    <CompanyName>CVG</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>56</ProfileNumber>
+    <ModelName>CVG Emerge 440A 5kW</ModelName>
+    <CurrentRating>TAC440A</CurrentRating>
+    <Category>OEMs</Category>
+    <CompanyName>CVG</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>60</ProfileNumber>
+    <ModelName>Bintelli 440A</ModelName>
+    <CurrentRating>TAC440A</CurrentRating>
+    <Category>OEMs</Category>
+    <CompanyName>Bintelli</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>61</ProfileNumber>
+    <ModelName>Bintelli 600A</ModelName>
+    <CurrentRating>TAC600A</CurrentRating>
+    <Category>OEMs</Category>
+    <CompanyName>Bintelli</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>58</ProfileNumber>
+    <ModelName>ROYAL EV 440A</ModelName>
+    <CurrentRating>TAC440A</CurrentRating>
+    <Category>OEMs</Category>
+    <CompanyName>RoyalEV</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>63</ProfileNumber>
+    <ModelName>ROYAL EV 600A 72V</ModelName>
+    <CurrentRating>TAC600A</CurrentRating>
+    <Category>OEMs</Category>
+    <CompanyName>RoyalEV</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>50</ProfileNumber>
+    <ModelName>Columbia 440A Gen4 3kW</ModelName>
+    <CurrentRating>TAC440A</CurrentRating>
+    <Category>OEMs</Category>
+    <CompanyName>CVG</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>51</ProfileNumber>
+    <ModelName>Columbia 600A Gen4 3kW</ModelName>
+    <CurrentRating>TAC600A</CurrentRating>
+    <Category>OEMs</Category>
+    <CompanyName>CVG</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>29</ProfileNumber>
+    <ModelName>LandMaster 600A 5kW</ModelName>
+    <CurrentRating>TAC600A</CurrentRating>
+    <Category>OEMs</Category>
+    <CompanyName>LandMaster</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>69</ProfileNumber>
+    <ModelName>LandMaster 600A 5kW</ModelName>
+    <CurrentRating>TAC600A</CurrentRating>
+    <Category>OEMs</Category>
+    <CompanyName>LandMaster</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>15</ProfileNumber>
+    <ModelName>The Beast</ModelName>
+    <CurrentRating>TAC600A</CurrentRating>
+    <Category>OEMs</Category>
+    <CompanyName>TheBeast</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>23</ProfileNumber>
+    <ModelName>Navitas Chassis 600A 5kW</ModelName>
+    <CurrentRating>TAC600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Doubletake</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>36</ProfileNumber>
+    <ModelName>AW2044</ModelName>
+    <CurrentRating>TAC440A</CurrentRating>
+    <Category>OEMs</Category>
+    <CompanyName>Alwayz</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>38</ProfileNumber>
+    <ModelName>AW6042</ModelName>
+    <CurrentRating>TAC440A</CurrentRating>
+    <Category>OEMs</Category>
+    <CompanyName>Alwayz</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>40</ProfileNumber>
+    <ModelName>AW9021</ModelName>
+    <CurrentRating>TAC440A</CurrentRating>
+    <Category>OEMs</Category>
+    <CompanyName>Alwayz</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>42</ProfileNumber>
+    <ModelName>Alwayz 7.5kW</ModelName>
+    <CurrentRating>TAC440A</CurrentRating>
+    <Category>OEMs</Category>
+    <CompanyName>Alwayz</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>25</ProfileNumber>
+    <ModelName>Marshell 5kW Navitas</ModelName>
+    <CurrentRating>TAC600A</CurrentRating>
+    <Category>OEMs</Category>
+    <CompanyName>Marshell</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>24</ProfileNumber>
+    <ModelName>Marshell 4kW Navitas</ModelName>
+    <CurrentRating>TAC600A</CurrentRating>
+    <Category>OEMs</Category>
+    <CompanyName>Marshell</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>44</ProfileNumber>
+    <ModelName>TZ2044</ModelName>
+    <CurrentRating>TAC440A</CurrentRating>
+    <Category>OEMs</Category>
+    <CompanyName>TZChina</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>46</ProfileNumber>
+    <ModelName>TZ 7.5kW</ModelName>
+    <CurrentRating>TAC440A</CurrentRating>
+    <Category>OEMs</Category>
+    <CompanyName>TZChina</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>5</ProfileNumber>
+    <ModelName>EZGO L6 600A 72V 5kW</ModelName>
+    <CurrentRating>TAC600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>65</ProfileNumber>
+    <ModelName>ROYAL EV 600A 72V 6 2kW</ModelName>
+    <CurrentRating>TAC600A</CurrentRating>
+    <Category>OEMs</Category>
+    <CompanyName>RoyalEV</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>67</ProfileNumber>
+    <ModelName>ROYAL EV 600A 72V 6 2kW NEWAXLE</ModelName>
+    <CurrentRating>TAC600A</CurrentRating>
+    <Category>OEMs</Category>
+    <CompanyName>RoyalEV</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>70</ProfileNumber>
+    <ModelName>NAVITAS OE 440A</ModelName>
+    <CurrentRating>TAC440A</CurrentRating>
+    <Category>OEMs</Category>
+    <CompanyName>NavitasOE</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>71</ProfileNumber>
+    <ModelName>NAVITAS OE 600A</ModelName>
+    <CurrentRating>TAC600A</CurrentRating>
+    <Category>OEMs</Category>
+    <CompanyName>NavitasOE</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>73</ProfileNumber>
+    <ModelName>KODIAK 600A</ModelName>
+    <CurrentRating>TAC600A</CurrentRating>
+    <Category>OEMs</Category>
+    <CompanyName>Kodiak</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>75</ProfileNumber>
+    <ModelName>VIKING 600A 5kW</ModelName>
+    <CurrentRating>TAC600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>VIKING</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>74</ProfileNumber>
+    <ModelName>VIKING 600A 4kw</ModelName>
+    <CurrentRating>TAC600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>VIKING</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>76</ProfileNumber>
+    <ModelName>CSHELL</ModelName>
+    <CurrentRating>TAC600A</CurrentRating>
+    <Category>Manufacturers</Category>
+    <CompanyName>CSHELL</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>99</ProfileNumber>
+    <ModelName>Navitas Dev</ModelName>
+    <CurrentRating>TAC600A</CurrentRating>
+    <Category>OEMs</Category>
+    <CompanyName>Navitas</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+  <SupplierChain>
+    <ProfileNumber>62</ProfileNumber>
+    <ModelName>ROYAL EV 440A 72V</ModelName>
+    <CurrentRating>TAC440A</CurrentRating>
+    <Category>OEMs</Category>
+    <CompanyName>RoyalEV</CompanyName>
+    <IsMemberApprovalRequired>false</IsMemberApprovalRequired>
+  </SupplierChain>
+</ArrayOfSupplierChain>

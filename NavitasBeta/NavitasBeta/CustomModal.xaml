@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:NavitasBeta;assembly=NavitasBeta"
+             x:Class="NavitasBeta.CustomModal"
+             BackgroundColor="#C0202020">
+    <ContentView.BindingContext>
+        <local:CustomModalViewModel />
+    </ContentView.BindingContext>
+    <ContentView.Content>
+        <Grid Margin="10, 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".65*" />
+                <RowDefinition Height=".85*" />
+                <RowDefinition Height=".65*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Frame Grid.Row="1" 
+                   HasShadow="True"
+                   CornerRadius="10"
+                   BackgroundColor="White">
+                <StackLayout >
+                    <Label Text="Select a controller type"
+                           FontAttributes="Bold"
+                           FontSize="16"
+                           HorizontalTextAlignment="Center"
+                           Margin="0,10"/>
+                    <ListView ItemsSource="{Binding AppDemos}"
+                              SelectionMode="Single"
+                              ItemTapped="DeviceTapped">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Label Text="{Binding Name}" />
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <Button Text="Cancel"
+                            HorizontalOptions="End"
+                            Clicked="btnCancelClicked"/>
+                </StackLayout>
+            </Frame>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

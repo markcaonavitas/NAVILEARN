@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PageViewModel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<PageTitle>TestUpload</PageTitle>
+<PageType>TAC</PageType>
+  <PageGroups>
+    <PageGroup>
+     <PageButtons>
+        <PageButton>
+          <Text>Test Upload</Text>
+        </PageButton>
+      </PageButtons>
+    </PageGroup>
+  </PageGroups>
+</PageViewModel>

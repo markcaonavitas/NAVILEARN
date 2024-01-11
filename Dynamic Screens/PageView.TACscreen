@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PageViewModel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <PageTitle>Test 3</PageTitle>
+    <PageType>TAC</PageType>
+    <PageItems>
+        <PageItem>
+            <ViewType>Hidden</ViewType>
+            <PropertyName>COMMERROR</PropertyName>
+        </PageItem>
+        <PageItem>
+            <ViewType>Hidden</ViewType>
+            <PropertyName>GROUPONEFAULTS</PropertyName>
+        </PageItem>
+        <PageItem>
+            <ViewType>Hidden</ViewType>
+            <PropertyName>GROUPTWOFAULTS</PropertyName>
+        </PageItem>
+        <PageItem>
+            <ViewType>Hidden</ViewType>
+            <PropertyName>GROUPTHREEFAULTS</PropertyName>
+        </PageItem>
+        <PageItem>
+            <ViewType>Hidden</ViewType>
+            <PropertyName>GROUPFOURFAULTS</PropertyName>
+        </PageItem>
+        <PageItem>
+            <ViewType>Hidden</ViewType>
+            <PropertyName>CONTROLLERERROR</PropertyName>
+        </PageItem>
+        <PageItem>
+            <ViewType>Float</ViewType>
+            <Address>0</Address>
+        </PageItem>
+        <PageItem>
+            <ViewType>Float</ViewType>
+            <!-- <Address>153</Address> -->
+            <PropertyName>Options</PropertyName>
+            <!-- <Bit>1</Bit> -->
+        </PageItem>
+        <PageItem>
+            <ViewType>Switch</ViewType>
+            <PropertyName>REVERSEENCODER</PropertyName>
+            <!-- <Bit>1</Bit> -->
+        </PageItem>
+        <PageItem>
+            <ViewType>Float</ViewType>
+            <PropertyName>SPEED</PropertyName>
+        </PageItem>
+        <PageItem>
+            <ViewType>ReadOnly</ViewType>
+            <PropertyName>ROTORRPM</PropertyName>
+        </PageItem>
+        <PageItem>
+            <ViewType>Float</ViewType>
+            <PropertyName>DEBUGVAR1</PropertyName>
+        </PageItem>
+        <PageItem>
+            <ViewType>Float</ViewType>
+            <PropertyName>DEBUGVAR2</PropertyName>
+        </PageItem>
+        <PageItem>
+            <ViewType>Float</ViewType>
+            <PropertyName>DEBUGVAR4</PropertyName>
+        </PageItem>
+    </PageItems>
+</PageViewModel>

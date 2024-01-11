@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PageViewModel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<PageTitle>FOC</PageTitle>
+	<PageType>TAC</PageType>
+	<PageControl>Show Only This Page</PageControl>
+	<PageGroups>
+		<PageGroup>
+			<GroupViewType>Label</GroupViewType>
+			<GroupTitle>FOC variables</GroupTitle>
+			<PageItems>
+				<PageItem>
+					<ViewType>ReadOnlyTwoDecimalPlaces</ViewType>
+					<PropertyName>IDA</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+				<PageItem>
+					<ViewType>ReadOnlyTwoDecimalPlaces</ViewType>
+					<PropertyName>IQA</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+				<PageItem>
+					<ViewType>ReadOnlyTwoDecimalPlaces</ViewType>
+					<PropertyName>VDV</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+				<PageItem>
+					<ViewType>ReadOnlyTwoDecimalPlaces</ViewType>
+					<PropertyName>VQV</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+				<PageItem>
+					<ViewType>ReadOnlyTwoDecimalPlaces</ViewType>
+					<PropertyName>SLIPREFSNAP2</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+        <PageItem>
+          <ViewType>Float</ViewType>
+          <!-- <Address>153</Address> -->
+          <PropertyName>Development_5</PropertyName>
+          <!-- <Bit>1</Bit> -->
+          <IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+        </PageItem>
+        <PageItem>
+          <ViewType>Float</ViewType>
+          <!-- <Address>153</Address> -->
+          <PropertyName>Development_6</PropertyName>
+          <!-- <Bit>1</Bit> -->
+          <IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+        </PageItem>
+        <PageItem>
+          <ViewType>Float</ViewType>
+          <!-- <Address>153</Address> -->
+          <PropertyName>Development_7</PropertyName>
+          <!-- <Bit>1</Bit> -->
+          <IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+        </PageItem>
+        <PageItem>
+          <ViewType>Float</ViewType>
+          <!-- <Address>153</Address> -->
+          <PropertyName>Development_9</PropertyName>
+          <!-- <Bit>1</Bit> -->
+          <IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+        </PageItem>
+        <PageItem>
+          <ViewType>Float</ViewType>
+          <!-- <Address>153</Address> -->
+          <PropertyName>Development_10</PropertyName>
+          <!-- <Bit>1</Bit> -->
+          <IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+        </PageItem>
+        <PageItem>
+          <ViewType>Float</ViewType>
+          <PropertyName>FAULTCODE</PropertyName>
+          <IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+        </PageItem>
+      </PageItems>
+      <PageButtons>
+          <PageButton>
+            <Text>Start Datalog</Text>
+          </PageButton>
+        </PageButtons>
+      </PageGroup>
+      <PageGroup>
+          <GroupViewType>Label</GroupViewType>
+          <GroupTitle>FOC Settings</GroupTitle>
+         <PageItems>
+				<PageItem>
+					<ViewType>FloatTwoDecimalPlaces</ViewType>
+					<PropertyName>MSLIPVRMS</PropertyName>
+					<TapGesutreRecognizer>AddStepper</TapGesutreRecognizer>
+				</PageItem>
+				<PageItem>
+					<ViewType>FloatTwoDecimalPlaces</ViewType>
+					<PropertyName>RSLIPVRMS</PropertyName>
+					<TapGesutreRecognizer>AddStepper</TapGesutreRecognizer>
+				</PageItem>
+				<PageItem>
+					<ViewType>FloatTwoDecimalPlaces</ViewType>
+					<PropertyName>MSLIPFREQHZ</PropertyName>
+					<TapGesutreRecognizer>AddStepper</TapGesutreRecognizer>
+				</PageItem>
+				<PageItem>
+					<ViewType>FloatTwoDecimalPlaces</ViewType>
+					<PropertyName>BOOTSLIPHZ</PropertyName>
+					<TapGesutreRecognizer>AddStepper</TapGesutreRecognizer>
+				</PageItem>
+				<PageItem>
+					<ViewType>FloatTwoDecimalPlaces</ViewType>
+					<PropertyName>MSLIPGAIN</PropertyName>
+					<TapGesutreRecognizer>AddStepper</TapGesutreRecognizer>
+				</PageItem>
+				<PageItem>
+					<ViewType>FloatTwoDecimalPlaces</ViewType>
+					<PropertyName>RegenSlipFreqBoostStartFreq_pu_q12</PropertyName>
+					<TapGesutreRecognizer>AddStepper</TapGesutreRecognizer>
+				</PageItem>
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>ID_WEAKENING_GAIN</PropertyName>
+					<TapGesutreRecognizer>AddStepper</TapGesutreRecognizer>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<!-- <Address>153</Address> -->
+					<PropertyName>Development_12</PropertyName>
+					<!-- <Bit>1</Bit> -->
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+			</PageItems>
+		</PageGroup>
+		<PageGroup>
+			<GroupViewType>Label</GroupViewType>
+			<GroupTitle>Outputs</GroupTitle>
+			<PageItems>
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<!-- <Address>153</Address> -->
+					<PropertyName>Options</PropertyName>
+					<!-- <Bit>1</Bit> -->
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<!-- <Address>153</Address> -->
+					<PropertyName>SetOutputState</PropertyName>
+					<!-- <Bit>1</Bit> -->
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<!-- <Address>153</Address> -->
+					<PropertyName>DEBUGVAR1_TEST_NEW_PARAM_PAGE</PropertyName>
+					<!-- <Bit>1</Bit> -->
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<!-- <Address>153</Address> -->
+					<PropertyName>MAXMFGFWDSPEED</PropertyName>
+					<!-- <Bit>1</Bit> -->
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<!-- <Address>153</Address> -->
+					<PropertyName>MAXMFGREVSPEED</PropertyName>
+					<!-- <Bit>1</Bit> -->
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<!-- <Address>153</Address> -->
+					<PropertyName>MINOFFTHROTTLEREGEN</PropertyName>
+					<!-- <Bit>1</Bit> -->
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>FloatTwoDecimalPlaces</ViewType>
+					<PropertyName>DEBUGVAR1</PropertyName>
+					<TapGesutreRecognizer>AddStepper</TapGesutreRecognizer>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+				<PageItem>
+					<ViewType>FloatTwoDecimalPlaces</ViewType>
+					<PropertyName>DEBUGVAR2</PropertyName>
+					<TapGesutreRecognizer>AddStepper</TapGesutreRecognizer>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+				<PageItem>
+					<ViewType>FloatTwoDecimalPlaces</ViewType>
+					<PropertyName>DEBUGVAR3</PropertyName>
+					<TapGesutreRecognizer>AddStepper</TapGesutreRecognizer>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+				<PageItem>
+					<ViewType>FloatTwoDecimalPlaces</ViewType>
+					<PropertyName>DEBUGVAR4</PropertyName>
+					<TapGesutreRecognizer>AddStepper</TapGesutreRecognizer>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<!-- <Address>153</Address> -->
+					<PropertyName>Development_1</PropertyName>
+					<!-- <Bit>1</Bit> -->
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<!-- <Address>153</Address> -->
+					<PropertyName>Development_2</PropertyName>
+					<!-- <Bit>1</Bit> -->
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<!-- <Address>153</Address> -->
+					<PropertyName>Development_3</PropertyName>
+					<!-- <Bit>1</Bit> -->
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<!-- <Address>153</Address> -->
+					<PropertyName>Development_4</PropertyName>
+					<!-- <Bit>1</Bit> -->
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<!-- <Address>153</Address> -->
+					<PropertyName>Development_8</PropertyName>
+					<!-- <Bit>1</Bit> -->
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<!-- <Address>153</Address> -->
+					<PropertyName>Development_17</PropertyName>
+					<!-- <Bit>1</Bit> -->
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<!-- <Address>153</Address> -->
+					<PropertyName>CtrlBrdHwRev</PropertyName>
+					<!-- <Bit>1</Bit> -->
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>VectorVdqMagnitudeActualFiltered_puq24hi</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>VectorVdqMagnitudeFiltered_puq24hi</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>VectorIdqMagnitudeFiltered_puq24hi</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>VectorVdqAngleFiltered_q24hi</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>VectorIdqAngleFiltered_q24hi</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>zMagnitudehi</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>zPhasehi</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>R_OHMq16</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>RLowFreq_OHMq16</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>Rstator_OHMq16</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>RstatorLowFreq_OHMq16</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>Rrotor_OHMq16</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>RrotorLowFreq_OHMq16</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>L_Hq24</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>Trotor_Sq16</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>TrotorInverseHi</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>TrotorInverseLo</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>SLIPFREQHZ</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>TESTMODE</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>test5Settings</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>RATEDFREQ</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Switch</ViewType>
+					<PropertyName>FLAGGATEENABLE</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>ROTORHZ</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>STATORHZ</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>FREQ</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>FREQLo</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>MOTORELECTRICALANGLEPU</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>Id_mod_index_q12</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>MODINDEX</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>IDA</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>IQA</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>VectorIdqMagnitude_puq24</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>VectorIdqAngle_q24</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>VectorVdqMagnitude_puq24</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>VectorVdqAngle_q24</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>VectorVdqMagnitudeActual_puq24</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>VectorVdqAngleActual_q24</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>currentC_RawValue</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>currentB_OffsetValue</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>currentC_OffsetValue</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>test5Torque_q12</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+				<PageItem>
+					<ViewType>Float</ViewType>
+					<PropertyName>TwoxPILsdq_PUq12</PropertyName>
+					<IsSelectedForDatalogging>False</IsSelectedForDatalogging>
+				</PageItem>
+
+			</PageItems>
+		</PageGroup>
+	</PageGroups>
+</PageViewModel>

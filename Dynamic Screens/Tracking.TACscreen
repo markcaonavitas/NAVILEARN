@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PageViewModel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <PageTitle>Tracking</PageTitle>
+  <PageType>TAC</PageType>
+  <PageControl>Show Only This Page</PageControl>
+  <PageGroups>
+    <PageGroup>
+      <GroupViewType>Label</GroupViewType>
+      <GroupTitle>GPS</GroupTitle>
+      <GroupDescription>Test tracking</GroupDescription>
+      <PageItems>
+        <PageItem>
+          <ViewType>FloatFourDecimalPlaces</ViewType>
+          <PropertyName>LATITUDE</PropertyName>
+          <IsSelectedForDatalogging>True</IsSelectedForDatalogging>
+        </PageItem>
+        <PageItem>
+          <ViewType>FloatFourDecimalPlaces</ViewType>
+          <PropertyName>LONGITUDE</PropertyName>
+          <IsSelectedForDatalogging>True</IsSelectedForDatalogging>
+        </PageItem>
+        <PageItem>
+          <ViewType>FloatFourDecimalPlaces</ViewType>
+          <PropertyName>ALTITUDE</PropertyName>
+          <IsSelectedForDatalogging>True</IsSelectedForDatalogging>
+        </PageItem>
+        <PageItem>
+          <ViewType>FloatFourDecimalPlaces</ViewType>
+          <PropertyName>ACCELERATION</PropertyName>
+          <IsSelectedForDatalogging>True</IsSelectedForDatalogging>
+        </PageItem>     
+        <PageItem>
+          <ViewType>FloatFourDecimalPlaces</ViewType>
+          <PropertyName>ORIENTATIONX</PropertyName>
+          <IsSelectedForDatalogging>True</IsSelectedForDatalogging>
+        </PageItem>     
+        <PageItem>
+          <ViewType>FloatFourDecimalPlaces</ViewType>
+          <PropertyName>ORIENTATIONY</PropertyName>
+          <IsSelectedForDatalogging>True</IsSelectedForDatalogging>
+        </PageItem>     
+        <PageItem>
+          <ViewType>FloatFourDecimalPlaces</ViewType>
+          <PropertyName>ORIENTATIONZ</PropertyName>
+          <IsSelectedForDatalogging>True</IsSelectedForDatalogging>
+        </PageItem>     
+        <PageItem>
+          <ViewType>FloatFourDecimalPlaces</ViewType>
+          <PropertyName>ORIENTATIONW</PropertyName>
+          <IsSelectedForDatalogging>True</IsSelectedForDatalogging>
+        </PageItem>      
+      </PageItems>
+      <PageButtons>
+        <PageButton>
+          <Text>Start Datalog</Text>
+        </PageButton>
+      </PageButtons>
+      </PageGroup>
+  </PageGroups>
+</PageViewModel>

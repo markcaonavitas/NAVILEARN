@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NavitasBeta.VehicleLockPage" Title="Vehicle Lock" BackgroundImage="drawableportxxhdpiscreenlogin.png">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center">
+            <Label Text="Vehicle Lock Password" Font="Large"/>
+            <Entry x:Name="passwordEntry" IsPassword="true" />
+            <Button Text="Login" Clicked="OnLoginButtonClicked" />
+            <StackLayout   Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+                <Label Text="Unlock   " Font="Large"/>
+                <Switch x:Name="LockSwitch" Toggled="OnSwitchToggled" HorizontalOptions="CenterAndExpand"  Scale="2.0" IsToggled="{Binding Path=ISVEHICLELOCKED}"  IsEnabled="False"/>
+                <Label Text="   Lock" Font="Large"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

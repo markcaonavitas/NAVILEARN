@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PageViewModel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <PageTitle>Set Output State</PageTitle>
+    <PageType>TAC</PageType>
+    <PageGroups>
+        <PageGroup>
+            <GroupTitle>Manufacturing Test Option&#xD;&#xD;CAUTION: Only enable MANUFACTURING TEST OPTION after setting SetOutputState to 0.&#xD;Make sure MANUFACTURING TEST OPTION is turned off after you are done&#xD;DO NOT PRESS Save button when MANUFACTURING TEST OPTION is turned on </GroupTitle>
+            <PageItems>
+                <PageItem>
+                    <ViewType>Float</ViewType>
+                    <Address>175</Address>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Hidden</ViewType>
+                    <PropertyName>SetOutputState</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>Switch</ViewType>
+                    <PropertyName>MANUFACTURINGTESTOPTION</PropertyName>
+                </PageItem>
+            </PageItems>
+
+        </PageGroup>
+        <PageGroup>
+            <GroupTitle>Main Contactor Test</GroupTitle>
+            <PageItems>
+                <PageItem>
+                    <ViewType>Switch</ViewType>
+                    <PropertyName>MAINCTROUTPUT</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>ReadOnlyTwoDecimalPlaces</ViewType>
+                    <PropertyName>VBATVDC</PropertyName>
+                </PageItem>
+                <PageItem>
+                    <ViewType>ReadOnlyTwoDecimalPlaces</ViewType>
+                    <PropertyName>LOGICSIDEBATTERYVOLTAGEV</PropertyName>
+                </PageItem>
+            </PageItems>
+        </PageGroup>
+        <PageGroup>
+            <GroupTitle>Parking Brake Output Test</GroupTitle>
+            <PageItems>
+                <PageItem>
+                    <ViewType>Switch</ViewType>
+                    <PropertyName>BRAKECNTROUTPUT</PropertyName>
+                </PageItem>
+            </PageItems>
+        </PageGroup>
+        <PageGroup>
+            <GroupTitle>Brake Light Relay Output Test</GroupTitle>
+            <PageItems>
+                <PageItem>
+                    <ViewType>Switch</ViewType>
+                    <PropertyName>BRAKERELAYOUTPUT</PropertyName>
+                </PageItem>
+            </PageItems>
+        </PageGroup>
+        <PageGroup>
+            <GroupTitle>Reverse Buzzer Output Test</GroupTitle>
+            <PageItems>
+                <PageItem>
+                    <ViewType>Switch</ViewType>
+                    <PropertyName>REVBUZZEROUTPUT</PropertyName>
+                </PageItem>
+            </PageItems>
+        </PageGroup>
+        <PageGroup>
+            <GroupTitle>Regen Resistor Output Test&#xD;CAUTION: Resistor will get RED HOT if Main Contactor is enabled</GroupTitle>
+            <PageItems>
+                <PageItem>
+                    <ViewType>Switch</ViewType>
+                    <PropertyName>BRAKERESOUTPUT</PropertyName>
+                </PageItem>
+            </PageItems>
+        </PageGroup>
+    </PageGroups>
+</PageViewModel>

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "vTKR9GNM41KEwGnCWU/l94mRK5NIEg97sNPviUQXiSTvI7Y3fObA4cER2LdfvN0wT4PQTvFUGWY2cBLrpzGzxw==",
+  "success": true,
+  "projectFilePath": "C:\\TestRepoMark\\NavitasBeta\\NavitasBeta\\ParseManager\\ParseManager.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jcao\\.nuget\\packages\\xamarin.forms\\5.0.0.2083\\xamarin.forms.5.0.0.2083.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ParameterVehicleItems>
+  <ParameterVehicleList>
+    <ParameterItem>
+      <PropertyName>PARSWITCHSTATES</PropertyName>
+    </ParameterItem>
+    <ParameterItem>
+      <PropertyName>PARI2TACCUMULATOR</PropertyName>
+    </ParameterItem>
+    <ParameterItem>
+      <PropertyName>PARAVERAGEBATTERYVOLTAGE</PropertyName>
+    </ParameterItem>
+    <ParameterItem>
+      <PropertyName>PARBDIVOLTAGELIMIT</PropertyName>
+    </ParameterItem>
+    <ParameterItem>
+      <PropertyName>PARPRIMTHROTVOLTS</PropertyName>
+    </ParameterItem>
+  </ParameterVehicleList>
+</ParameterVehicleItems>
+

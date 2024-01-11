@@ -1,0 +1,1490 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:NavitasGeneralPage xmlns="http://xamarin.com/schemas/2014/forms"
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+xmlns:local="clr-namespace:NavitasBeta;assembly=NavitasBeta"
+x:Class="NavitasBeta.WriteTSXPage"
+Title="Writable" >
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <!--won't scroll if full length, hence .98-->
+            <StackLayout Style="{StaticResource toolbarStyle}">
+                <StackLayout Orientation="Horizontal" >
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ShowMasterMenu" NumberOfTapsRequired="1" />
+                    </StackLayout.GestureRecognizers>
+                    <Image Source="hamburger.png" Margin="10,0,0,0" Scale="1.5" HorizontalOptions="Start"/>
+                    <Image Source="icon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+                </StackLayout>
+                <Label Text="" FontSize="Default" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+            </StackLayout>
+            <ScrollView Style="{StaticResource scrollViewProportion}">
+
+                <StackLayout Orientation="Vertical" >
+				<Label Text="Vehicle and Motor Settings"  TextColor="#367F56"   FontSize="Default"   VerticalOptions="Center"  HorizontalOptions="FillAndExpand"  HorizontalTextAlignment="Start" />
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="TIREDIAMETER"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="REARAXLERATIO"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARSPEEDPULSECOUNT"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARMAXMOTORFWDSPEEDLIMIT"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARMAXMOTORREVSPEEDLIMIT"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+
+				<Label Text="Motor"  TextColor="#367F56"   FontSize="Default"   VerticalOptions="Center"  HorizontalOptions="FillAndExpand"  HorizontalTextAlignment="Start" />
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARPEAKARMATUREMOTORCURRENT"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARREGENCURRENTLIMIT"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARFORWARDARMATURECURRENTMIN"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARFORWARDFIELDCURRENTMIN"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARFORWARDARMATURECURRENTMAX"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARFORWARDFIELDCURRENTMAX"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PAROVERDRIVEARMATURECURRENT"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PAROVERDRIVEFIELDCURRENT"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARREVERSEARMATURECURRENTMIN"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARREVERSEFIELDCURRENTMIN"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARREVERSEARMATURECURRENTMAX"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARREVERSEFIELDCURRENTMAX"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARARMATURERATELIMIT"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARPEAKDIRECTIONCHANGEARMATURECURRENT"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARMOTORI2TCONTINUOUSCURRENT"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARARMRESISTANCE"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+
+				<Label Text="Battery"  TextColor="#367F56"   FontSize="Default"   VerticalOptions="Center"  HorizontalOptions="FillAndExpand"  HorizontalTextAlignment="Start" />
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARSYSTEMVOLTAGE"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARPWMCURRENTCUTBACKLIMIT"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARBDIENABLE"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARBDITRIPVOLTAGE"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARBDIRESETVOLTAGE"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARBDIFORWARDCUTBACK"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARBDIREVERSECUTBACK"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Label Text="Throttle"  TextColor="#367F56"   FontSize="Default"   VerticalOptions="Center"  HorizontalOptions="FillAndExpand"  HorizontalTextAlignment="Start" />
+
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARPRIMARYTHROTTLEFORWARDMIN"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARPRIMARYTHROTTLEFORWARDACCELERATIONX"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARPRIMARYTHROTTLEFORWARDACCELERATIONY"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARPRIMARYTHROTTLEFORWARDMAX"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARPRIMARYTHROTTLEFORWARDACCELERATION"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARPRIMARYTHROTTLEFORWARDDECELERATION"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARPRIMARYTHROTTLEREVERSEACCELERATION"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARPRIMARYTHROTTLEREVERSEDECELERATION"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARPRIMARYTHROTTLETYPE"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARPRIMARYTHROTTLEERROROFFSET"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Label Text="System"  TextColor="#367F56"   FontSize="Default"   VerticalOptions="Center"  HorizontalOptions="FillAndExpand"  HorizontalTextAlignment="Start" />
+
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARPRECHARGEVOLTAGE"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARSROFORGIVETIME"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PAROUTERLOOPTIME"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARPROFILENUMBER"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARDIRCHANGEFORGIVETIME"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARNEUTRALTOSTOPTIME"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARINACTIVITYTIMEOUT"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARACCESSORYENABLE"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARLINECONTACTPULLINVOTAGE"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARLINECONTACTHOLDVOLTAGE"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARAUXILIARYCONTACT1PULLINVOLTAGE"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARAUXILIARYCONTACT1HOLDVOLTAGE"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARFIELDCURRENTKP"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARFIELDCURRENTKI"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARFOOTSWITCHFORGIVETIME"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARFACTORYACCESSORYENABLE"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARARMATURECURRENTSCALEFACTOR"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARFIELDCURRENTSCALEFACTOR"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARCALIBRATIONDATEDAYMONTH"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARCALIBRATIONDATEYEAR"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARSERIALNUMBERDATE"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="SERIALNUMBERLOW"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+
+				<Label Text="CAN"  TextColor="#367F56"   FontSize="Default"   VerticalOptions="Center"  HorizontalOptions="FillAndExpand"  HorizontalTextAlignment="Start" />
+
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARCANNODEID"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARCANCONTROLOPTIONS"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARCANCONTROLMODE"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARCANBAUDRATE"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARCANNUMBEROFSLAVES"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARCANSLAVEIDS1AND2"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARCANSLAVEIDS3AND4"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARCANSLAVEIDS5AND6"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+
+				<Frame OutlineColor="Black"  Padding="5,0,5,0"  Margin="5,0,5,0" >
+					<Grid x:Name="PARCANMASTERNODEID"  >
+						<Grid.GestureRecognizers>
+							<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+						</Grid.GestureRecognizers>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="7*" />
+							<ColumnDefinition Width="3*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+						<Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" Grid.Column="0" />
+						<local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0}'}" Keyboard="Numeric" TextColor="Black" FontSize="Default" VerticalOptions="Center" IsPassword="False" IsVisible="True" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End" Grid.Column="1" WidthRequest="100" >
+							<local:DoneEntry.HorizontalOptions>
+								<OnPlatform x:TypeArguments="LayoutOptions" iOS="FillAndExpand" Android="EndAndExpand" />
+							</local:DoneEntry.HorizontalOptions>
+						</local:DoneEntry>
+					</Grid>
+				</Frame>
+				<Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+					<Button x:Name="SAVECHANGES" Text="Save Changes" Font="Large" IsEnabled="True" Clicked="SAVECHANGES_Clicked" />
+				</Frame>
+				<Label Text=" " TextColor="#367F56" FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"/>
+			</StackLayout>
+            </ScrollView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</local:NavitasGeneralPage>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NavitasBeta.ExpireNotificationPage">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" VerticalOptions="Start" BackgroundColor="White">
+            <StackLayout Orientation="Horizontal" VerticalOptions="Start" BackgroundColor="#68B04D" Padding="1">
+                <Image Source="icon.png" Scale="0.6" />
+            </StackLayout>
+            <Label
+                TextColor="Black"
+			    HorizontalOptions="Fill"
+			    Text= "NOTICE!&#13;&#10;&#13;&#10;The beta period of this app has ended.&#13;&#10;Download the official Navitas Dashboard directly through the Apple App Store (Search for &quot;Navitas Vehicle Systems&quot;)&#13;&#10;&#13;&#10;User ID will be required for advanced options.">
+            </Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

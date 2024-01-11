@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--PageGroup
+      GroupViewType: I'm not sure why we select label all the time
+      GroupTitle
+      GroupDescription: there is a expandable help/decsription section, unless this section left empty
+      visibilityUserGreaterThanOrEqualLevelBinding (Optional): show this page group to the current user level or a greater one
+        For Clarity:  USER < ADVANCED_USER < DEALER < ENG, ENG_USER
+      visibilityBinding (Optional): bind parameter's boolean value to the page group's visualbility
+        visibilityBindingConvertor: the main reason we applied this method is when there is a negative prefix from the property name such as DISABLE_SOMENAME
+        visibilityBindingValue (required): accpeted True/False value.
+          • True: Bind the parameterBoolean's value to the parameter's visualbility
+          • False: Revert the parameterBoolean's value first, then bind it to the parameter's visualbility
+      PageItems: a collection of page item
+        PageItem: 
+          • ViewType (Required): displays value which corresponding to a certain view element
+            - Hidden: all subset parameters are required their parent to be read and also without exposing
+            - ReadOnly, ReadOnlyTwoDecimalPlaces, ReadOnlyThreeDecimalPlaces, ReadOnlyString
+            - Float, FloatTwoDecimalPlaces, FloatThreeDecimalPlaces, FloatFourDecimalPlaces
+            - Enum: the app uses the return index to find the correspoding name from a set of predfined constant then displays it
+            - Hex: indicates that the integer should be displayed in its hexadecimal form using 4 characters
+            - Switch: creates a switch that used for datalogging
+            - DropDown: generates a drop list which is populated by a set of predfined constant.
+              For example, the step coud be done by deserializing a .xml file and assigning its element to a list of ParameterFile
+          • PropertyName (Required): must be an existed property which belongs to the Dictionary.xml
+          • TapGesutreRecognizer (Optional): is used for tap detection then the app determine an action base on the keyword below
+            None: disable tapGestureRecognizer for drop down list. Otherwise, it will be selected for datalogging by default
+            AddStepper : add a stepper to increase or decrease the current value by 1% or 10%
+            web_page_name.html : open an web page by using web view
+          IsSelectedForDatalogging (Optional): accept True/False value which generates a switch's state (On/Off) respectively
+-->
+<PageViewModel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <PageTitle>Diagnostics</PageTitle>
+  <PageType>TAC</PageType>
+  <PageGroups>
+    <PageGroup>
+      <GroupViewType>Label</GroupViewType>
+      <GroupTitle>General Vehicle Switches</GroupTitle>
+      <GroupDescription>Check the vehicle switch inputs are functional by changing them and watch the results here</GroupDescription>
+      <PageItems>
+        <PageItem>
+          <ViewType>Hidden</ViewType>
+          <PropertyName>Options</PropertyName>
+        </PageItem>
+          <PageItem>
+          <ViewType>Hidden</ViewType>
+          <PropertyName>RISERPMSEC</PropertyName>
+        </PageItem>
+        <PageItem>
+          <ViewType>Hidden</ViewType>
+          <PropertyName>ScalerForMuchFasterNonVehicleAccelAndDecel_PUq0</PropertyName>
+        </PageItem>
+        <PageItem>
+          <ViewType>Hidden</ViewType>
+          <PropertyName>FORWARDSPEED</PropertyName>
+        </PageItem>
+        <PageItem>
+          <ViewType>Hidden</ViewType>
+          <PropertyName>RISEHZSEC</PropertyName>
+        </PageItem>
+        <PageItem>
+          <ViewType>Hidden</ViewType>
+          <PropertyName>FALLHZSEC</PropertyName>
+        </PageItem>
+        <PageItem>
+          <ViewType>Hidden</ViewType>
+          <PropertyName>FWDLMTRPM</PropertyName>
+        </PageItem>
+        <PageItem>
+          <ViewType>Hidden</ViewType>
+          <PropertyName>DEMOMODE</PropertyName>
+        </PageItem>
+        <PageItem>
+          <ViewType>Hidden</ViewType>
+          <PropertyName>DEBUGVAR1_TEST_NEW_PARAM_PAGE</PropertyName>
+        </PageItem>
+        <PageItem>
+          <ViewType>Hidden</ViewType>
+          <PropertyName>InputOtfKeyOptions</PropertyName>
+        </PageItem>
+          <PageItem>
+          <ViewType>Hidden</ViewType>
+          <PropertyName>InputEncoderCOptions</PropertyName>
+        </PageItem>
+        <PageItem>
+          <ViewType>Hidden</ViewType>
+          <PropertyName>MTTEMPC</PropertyName>
+        </PageItem>
+        <PageItem>
+          <ViewType>Hidden</ViewType>
+          <PropertyName>PBTEMPC</PropertyName>
+        </PageItem>
+        <PageItem>
+          <ViewType>Hidden</ViewType>
+          <PropertyName>DischargeBatteryCurrentLimit_Aq4</PropertyName>
+        </PageItem>
+        <PageItem>
+          <ViewType>Enum</ViewType>
+          <PropertyName>KEYIN</PropertyName>
+        </PageItem>
+        <PageItem>
+          <ViewType>Enum</ViewType>
+          <PropertyName>TOWIN</PropertyName>
+        </PageItem>
+        <PageItem>
+          <ViewType>Enum</ViewType>
+          <PropertyName>CHARGERINTERLOCKIN</PropertyName>
+        </PageItem>
+        <PageItem>
+          <visibilityBinding>InputOtfKeyOptions</visibilityBinding>
+          <visibilityBindingValue>True</visibilityBindingValue>
+          <ViewType>Enum</ViewType>
+          <PropertyName>PROGIN</PropertyName>
+        </PageItem>
+        <PageItem>
+          <visibilityBinding>InputEncoderCOptions</visibilityBinding>
+          <visibilityBindingValue>True</visibilityBindingValue>
+          <ViewType>Enum</ViewType>
+          <PropertyName>ENCODERC</PropertyName>
+        </PageItem>
+      </PageItems>
+    </PageGroup>
+    <PageGroup>
+      <GroupViewType>Label</GroupViewType>
+      <GroupTitle>Vehicle Direction Switches</GroupTitle>
+      <GroupDescription>Check the vehicle switch inputs are functional by changing them and watch the results here</GroupDescription>
+      <PageItems>
+        <PageItem>
+          <PageSubItems>
+            <PageItem>
+              <ViewType>Enum</ViewType>
+              <PropertyName>FORWARDSW</PropertyName>
+            </PageItem>
+            <PageItem>
+              <ViewType>Enum</ViewType>
+              <PropertyName>REVERSESW</PropertyName>
+            </PageItem>
+          </PageSubItems>
+        </PageItem>
+      </PageItems>
+    </PageGroup>
+    <PageGroup>
+      <GroupViewType>Label</GroupViewType>
+      <GroupTitle>Throttle Inputs</GroupTitle>
+      <GroupDescription>describe this section</GroupDescription>
+      <GroupDescriptionButtons>
+        <GroupDescriptionButton>
+          <Text>Calibrate Throttle.html</Text>
+        </GroupDescriptionButton>
+      </GroupDescriptionButtons>
+      <PageItems>
+        <PageItem>
+          <ViewType>ReadOnlyTwoDecimalPlaces</ViewType>
+          <PropertyName>VTHROTTLEV</PropertyName>
+          <TapGesutreRecognizer>Calibrate Throttle.html</TapGesutreRecognizer>
+        </PageItem>
+          <PageItem>
+          <ViewType>Enum</ViewType>
+          <PropertyName>FOOTSW</PropertyName>
+        </PageItem>
+      </PageItems>
+    </PageGroup>
+    <PageGroup>
+      <GroupViewType>Label</GroupViewType>
+      <GroupTitle>Analog Brake Inputs</GroupTitle>
+      <GroupDescription>describe this section</GroupDescription>
+      <visibilityUserGreaterThanOrEqualLevelBinding>USER</visibilityUserGreaterThanOrEqualLevelBinding>
+      <visibilityBinding>DISABLEANALOGBRAKE</visibilityBinding>
+      <visibilityBindingConvertor>Boolean</visibilityBindingConvertor>
+      <visibilityBindingValue>False</visibilityBindingValue>
+      <PageItems>
+        <PageItem>
+          <ViewType>ReadOnlyTwoDecimalPlaces</ViewType>
+          <PropertyName>VBRAKEV</PropertyName>
+        </PageItem>
+          <PageItem>
+          <ViewType>Enum</ViewType>
+          <PropertyName>BRAKESW</PropertyName>
+        </PageItem>
+      </PageItems>
+    </PageGroup>
+    <PageGroup>
+      <GroupViewType>Label</GroupViewType>
+      <GroupTitle>Motor Speed Sensors</GroupTitle>
+      <GroupDescription>Check the vehicle switch inputs are functional by changing them and watch the results here</GroupDescription>
+      <PageItems>
+        <PageItem>
+          <ViewType>ReadOnlyTwoDecimalPlaces</ViewType>
+          <PropertyName>ROTORRPM</PropertyName>
+        </PageItem>
+        <PageItem>
+          <PageSubItems>
+            <PageItem>
+              <ViewType>Enum</ViewType>
+              <PropertyName>ENCODERA</PropertyName>
+            </PageItem>
+            <PageItem>
+              <ViewType>Enum</ViewType>
+              <PropertyName>ENCODERB</PropertyName>
+            </PageItem>
+          </PageSubItems>
+      </PageItem>
+      </PageItems>
+    </PageGroup>
+    <PageGroup>
+      <GroupViewType>Label</GroupViewType>
+      <GroupTitle>On The Fly Programmer (OTF)</GroupTitle>
+      <GroupDescription>Navitas optionally supplies a dashboard mounted, 3 dial performance programmer. We cannot automatically detect if this device is installed or not</GroupDescription>
+      <PageItems>
+        <PageItem>
+          <visibilityBinding>InputOtfKeyOptions</visibilityBinding>
+          <visibilityBindingValue>False</visibilityBindingValue>
+          <ViewType>Enum</ViewType>
+          <PropertyName>PROGIN</PropertyName>
+        </PageItem>
+        <PageItem>
+            <PageSubItems>
+              <PageItem>
+                <ViewType>ReadOnlyTwoDecimalPlaces</ViewType>
+                <PropertyName>OTFPROG1MAX</PropertyName>
+              </PageItem>
+              <PageItem>
+                <ViewType>ReadOnlyTwoDecimalPlaces</ViewType>
+                <PropertyName>OTFPROG2MAX</PropertyName>
+              </PageItem>
+              <PageItem>
+                <ViewType>ReadOnlyTwoDecimalPlaces</ViewType>
+                <PropertyName>OTFPROG3MAX</PropertyName>
+              </PageItem>
+            </PageSubItems>
+          </PageItem>
+        </PageItems>
+    </PageGroup>
+    <PageGroup>
+      <GroupViewType>Label</GroupViewType>
+      <GroupTitle>Software Revisions</GroupTitle>
+      <GroupDescription>describe this section</GroupDescription>
+      <PageItems>
+        <PageItem>
+          <ViewType>Vertical</ViewType>
+          <PropertyName>PARPROFILENUMBER</PropertyName>
+        </PageItem>
+        <PageItem>
+          <ViewType>ReadOnlyThreeDecimalPlaces</ViewType>
+          <PropertyName>SOFTWAREREVISION</PropertyName>
+        </PageItem>
+        <PageItem>
+          <ViewType>Hidden</ViewType>
+          <PropertyName>NEWPROFILENUMBER</PropertyName>
+        </PageItem>          
+        <PageItem>
+          <ViewType>ReadOnlyString</ViewType>
+          <PropertyName>APPVERSION</PropertyName>
+        </PageItem>
+      </PageItems>
+    </PageGroup>
+  </PageGroups>
+</PageViewModel>

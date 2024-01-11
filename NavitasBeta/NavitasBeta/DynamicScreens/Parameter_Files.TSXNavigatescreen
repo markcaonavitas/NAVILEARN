@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PageViewModel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <PageTitle>Parameter Files</PageTitle>
+    <PageType>TSX</PageType>  
+    <PageGroups>
+        <PageGroup>
+            <PageButtons>
+                <PageButton>
+                    <Text>Save Controller Parameters to File</Text>
+                </PageButton>
+            </PageButtons>
+        </PageGroup>
+        <PageGroup>
+            <PageButtons>
+                <PageButton>
+                    <Text>Load Controller Parameters from File</Text>
+                </PageButton>
+            </PageButtons>
+        </PageGroup>
+        <PageGroup>
+            <PageButtons>
+                <PageButton>
+                    <Text>ReadEEPROM</Text>
+                </PageButton>
+            </PageButtons>
+        </PageGroup>
+    </PageGroups>
+</PageViewModel>

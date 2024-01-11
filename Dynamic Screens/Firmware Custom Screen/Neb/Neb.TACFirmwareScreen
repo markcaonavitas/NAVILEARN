@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<FirmwaresGroups>
+  <FirmwareGroups>
+    <FirmwareGroup>
+      <Title>10-000878</Title>
+      <StrogeType>External</StrogeType>
+      <SubDirectory>N/A</SubDirectory>
+      <FileItems>
+        <FileItem>
+          <ModelName>RXV 440A Curtis/Danaher</ModelName>
+          <FriendlyFileName>10-000878-01    </FriendlyFileName>
+          <ActualFileName>EZGO_RXV_440A</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>RXV 440A Curtis/Danaher</ModelName>
+          <FriendlyFileName>10-000878-02    </FriendlyFileName>
+          <ActualFileName>EZGO_RXV_440A</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>TAC2 440A EZGO L6 72V 5kW</ModelName>
+          <FriendlyFileName>10-000878-05    </FriendlyFileName>
+          <ActualFileName>TAC2_440A_EZGO_L6</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>Navitas Chassis 440A 4kW</ModelName>
+          <FriendlyFileName>10-000878-13    </FriendlyFileName>
+          <ActualFileName>Navitas_Chassis_440A_4kW_v</ActualFileName>
+        </FileItem>
+      </FileItems>
+    </FirmwareGroup>
+    <FirmwareGroup>
+      <Title>10-000888</Title>
+      <StrogeType>External</StrogeType>
+      <SubDirectory>N/A</SubDirectory>
+      <FileItems>
+        <FileItem>
+          <ModelName>Yamaha DR2 440A</ModelName>
+          <FriendlyFileName>10-000888-01    </FriendlyFileName>
+          <ActualFileName>YDR2_440A</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>Navitas 440A 4kW Club Car</ModelName>
+          <FriendlyFileName>10-000888-02    </FriendlyFileName>
+          <ActualFileName>CLUB_CAR_400A_4kW_HuaSheng</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>Navitas 440A 4kW TXT</ModelName>
+          <FriendlyFileName>10-000888-03    </FriendlyFileName>
+          <ActualFileName>EZGO_TXT_440A_4kW_HuaSheng</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>Navitas 440A 4kW Club Car</ModelName>
+          <FriendlyFileName>10-000888-04    </FriendlyFileName>
+          <ActualFileName>CLUB_CAR_400A_4kW_HuaSheng</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>Navitas 440A 4kW Club Car</ModelName>
+          <FriendlyFileName>10-000888-05    </FriendlyFileName>
+          <ActualFileName>CLUB_CAR_400A_4kW_HuaSheng</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>Navitas 440A 4kW Club Car</ModelName>
+          <FriendlyFileName>10-000888-06    </FriendlyFileName>
+          <ActualFileName>CLUB_CAR_400A_4kW_HuaSheng</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>Navitas 440A 4kW Club Car</ModelName>
+          <FriendlyFileName>10-000888-07    </FriendlyFileName>
+          <ActualFileName>CLUB_CAR_400A_4kW_HuaSheng</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>N/A</ModelName>
+          <FriendlyFileName>10-000888-08    </FriendlyFileName>
+          <ActualFileName>Not Supported</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>Yamaha G29 440A 4kW</ModelName>
+          <FriendlyFileName>10-000888-09    </FriendlyFileName>
+          <ActualFileName>Yamaha_G29_440A_4kW_HuaSheng</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>N/A</ModelName>
+          <FriendlyFileName>10-000888-10    </FriendlyFileName>
+          <ActualFileName>Not Supported</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>ICON 440A</ModelName>
+          <FriendlyFileName>10-000888-14    </FriendlyFileName>
+          <ActualFileName>ICON_440A</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>Columbia 440A Gen4 3kW</ModelName>
+          <FriendlyFileName>10-000888-15    </FriendlyFileName>
+          <ActualFileName>Columbia_440A_Gen4_3kW</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>ROYAL EV 440A</ModelName>
+          <FriendlyFileName>10-000888-16    </FriendlyFileName>
+          <ActualFileName>ROYAL_EV_440A_v</ActualFileName>
+        </FileItem>
+      </FileItems>
+    </FirmwareGroup>
+    <FirmwareGroup>
+      <Title>10-000880</Title>
+      <StrogeType>External</StrogeType>
+      <SubDirectory>N/A</SubDirectory>
+      <FileItems>
+        <FileItem>
+          <ModelName>RXV 600A Curtis/Danaher</ModelName>
+          <FriendlyFileName>10-000880-01    </FriendlyFileName>
+          <ActualFileName>EZGO_RXV_600A</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>RXV 600A Curtis/Danaher</ModelName>
+          <FriendlyFileName>10-000880-02    </FriendlyFileName>
+          <ActualFileName>EZGO_RXV_600A</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>N/A</ModelName>
+          <FriendlyFileName>10-000880-03    </FriendlyFileName>
+          <ActualFileName>Not Supported</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>Navitas Chassis 600A 5kW</ModelName>
+          <FriendlyFileName>10-000880-04    </FriendlyFileName>
+          <ActualFileName>Navitas_Chassis_600A_5kW</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>EZGO L6 600A 72V 5kW</ModelName>
+          <FriendlyFileName>10-000880-05    </FriendlyFileName>
+          <ActualFileName>TAC2_600A_EZGO_L6_72V_5kW_HuaSheng</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>LandMaster 600A 5kW</ModelName>
+          <FriendlyFileName>10-000880-06    </FriendlyFileName>
+          <ActualFileName>LandMaster_600A_5kw_HuaSheng</ActualFileName>
+        </FileItem>
+		<FileItem>
+			<ModelName>KODIAK_600A</ModelName>
+			<FriendlyFileName>10-000880-08    </FriendlyFileName>
+			<ActualFileName>KODIAK_600A_v</ActualFileName>
+		</FileItem>
+      </FileItems>
+    </FirmwareGroup>
+    <FirmwareGroup>
+      <Title>10-000890</Title>
+      <StrogeType>External</StrogeType>
+      <SubDirectory>N/A</SubDirectory>
+      <FileItems>
+        <FileItem>
+          <ModelName>Yamaha DR2 600A</ModelName>
+          <FriendlyFileName>10-000890-01    </FriendlyFileName>
+          <ActualFileName>YDR2_600A</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>Navitas 600A 5kW Club Car</ModelName>
+          <FriendlyFileName>10-000890-02    </FriendlyFileName>
+          <ActualFileName>CLUB_CAR_600A_5kW_HuaSheng</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>Navitas 5kW TXT</ModelName>
+          <FriendlyFileName>10-000890-03    </FriendlyFileName>
+          <ActualFileName>EZGO_TXT_600A_5kW_HuaSheng</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>Navitas 600A 5kW Club Car</ModelName>
+          <FriendlyFileName>10-000890-04    </FriendlyFileName>
+          <ActualFileName>CLUB_CAR_600A_5kW_HuaSheng</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>Navitas 600A 5kW Club Car</ModelName>
+          <FriendlyFileName>10-000890-05    </FriendlyFileName>
+          <ActualFileName>CLUB_CAR_600A_5kW_HuaSheng</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>Navitas 600A 5kW Club Car</ModelName>
+          <FriendlyFileName>10-000890-06    </FriendlyFileName>
+          <ActualFileName>CLUB_CAR_600A_5kW_HuaSheng</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>Navitas 600A 5kW Club Car</ModelName>
+          <FriendlyFileName>10-000890-07    </FriendlyFileName>
+          <ActualFileName>CLUB_CAR_600A_5kW_HuaSheng</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>Yamaha G29 600A 4kW</ModelName>
+          <FriendlyFileName>10-000890-09    </FriendlyFileName>
+          <ActualFileName>Yamaha_G29_600A_4kW_HuaSheng</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>N/A</ModelName>
+          <FriendlyFileName>10-000890-10    </FriendlyFileName>
+          <ActualFileName>Not Supported</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>Navitas 600A 4kW Club Car</ModelName>
+          <FriendlyFileName>10-000890-12    </FriendlyFileName>
+          <ActualFileName>CLUB_CAR_600A_4KW_HuaSheng</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>Yamaha G29 600A 5kW</ModelName>
+          <FriendlyFileName>10-000890-13    </FriendlyFileName>
+          <ActualFileName>TAC2_600A_Yamaha_G29_5kW_HuaSheng</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>ICON 600A</ModelName>
+          <FriendlyFileName>10-000890-14    </FriendlyFileName>
+          <ActualFileName>ICON_600A</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>Navitas 5kW TXT</ModelName>
+          <FriendlyFileName>10-000890-15    </FriendlyFileName>
+          <ActualFileName>EZGO_TXT_600A_5kW_HuaSheng</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>Navitas Chassis 600A 5kW</ModelName>
+          <FriendlyFileName>10-000890-17    </FriendlyFileName>
+          <ActualFileName>Navitas_Chassis_600A_5kW</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>ROYAL EV 600A 72V</ModelName>
+          <FriendlyFileName>10-000890-18    </FriendlyFileName>
+          <ActualFileName>ROYAL_EV_600A_72V</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>Navitas Chassis 600A 5kW</ModelName>
+          <FriendlyFileName>10-000890-30F    </FriendlyFileName>
+          <ActualFileName>Navitas_Chassis_600A_5kW</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <ModelName>ROYAL EV 600A 72V</ModelName>
+          <FriendlyFileName>10-000890-30L    </FriendlyFileName>
+          <ActualFileName>ROYAL_EV_600A_72V</ActualFileName>
+        </FileItem>
+      </FileItems>
+    </FirmwareGroup>
+ </FirmwareGroups>
+</FirmwaresGroups>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:me="clr-namespace:NavitasBeta;assembly=NavitasBeta"
+             x:Class="NavitasBeta.DealerTabbedPage">
+  <!--Pages can be added as references or inline-->
+    <TabbedPage.Children>
+
+        <me:Gauge />
+        <me:DealerParametersPage/>
+        <me:DealerTechnicalReportPage/>
+        
+        <!--  <me:Page3 />  -->
+        <!-- <ContentPage Title="Dealer" /> -->
+
+    </TabbedPage.Children>
+    <!--  <ContentPage Title="Dashboard" /> -->
+    <!-- <ContentPage Title="Read Only Parameters" /> -->
+    <!-- <ContentPage Title="Writable Parameters" /> -->
+</TabbedPage>

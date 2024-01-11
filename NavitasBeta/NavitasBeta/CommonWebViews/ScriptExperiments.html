@@ -1,0 +1,179 @@
+﻿<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Dashboard HTML5 Canvas</title>
+    <link rel="stylesheet" href="./themes/odometer-theme-car.css" />
+    <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+
+    <!-- <script src="./frameworks/jquery-3.1.4.min.js"></script> -->
+    <script src="./frameworks/jquery-1.10.2.min.js"></script>
+    <script src="./frameworks/jquery.xml2json.js"></script>
+
+    <!--The next three used in basics.js are for backwards compatible things so that Safari(iOS webview) can handle the new Custom Event super() inheritance
+        very confusing for newbies and I should be carefull not to bring in new javascript/html revision features that may
+        not be supported by iOS yet
+    -->
+    <script src="./frameworks/min.js"></script>
+    <script src="./frameworks/ResizeObserver.global.js"></script>
+    <script src="./frameworks/polyfill.min.js"></script>
+
+    <!-- Navitas specific -->
+    <script src="./frameworks/TACDictionary.js"></script>
+    <script src="./frameworks/basics.js"></script>
+    <script src="./frameworks/NavitasModelVanillaJavascript.js"></script>
+
+    <!--spedometer stuff. Note: This has some references to odometer and gauges to place them around the speedometer     -->
+     <script src="./widgets/speedometer.js"></script> <!-- TODO: find the reference to the original the public source -->
+    
+    <!-- odometer stuff -->
+    <style>.odometer {font-size: 30px;}</style>
+    <script>window.odometerOptions = {format: '(ddd).d'};</script>
+    <script src="./widgets/odometer.js"></script> <!-- TODO: find the reference to the original the public source -->
+   
+    <!-- Gauge stuff. Note: Pure Javascript-->
+    <script src="./widgets/gauge.min.js"></script> <!-- source at https://canvas-gauges.com/documentation/user-guide/custom-builds -->
+
+    <script>
+        var App= {viewModelLocator: new ViewModelLocator}
+
+        // With jQuery
+        // $(document).ready(function() {
+        //   /* Do things after DOM has fully loaded */
+        // });
+        $(document).ready(function () {
+            //experimental radar scan
+            // $('#scan').click(function () {
+            // $('#scanimage').addClass('scanning');
+            // setTimeout(function () {
+            // $('#scanimage').removeClass('scanning');
+            // }, 20 * 1000);
+            // });
+        });
+
+        // Without jQuery
+        // Define a convenience method and use it
+        var ready = (callback) => {
+            if (document.readyState != "loading") callback();
+            else document.addEventListener("DOMContentLoaded", callback);
+        }
+
+        ready(() => {
+        
+            /* Do things after DOM has fully loaded */
+
+            //for simple code keep it in the HTML page
+            App.viewModelLocator.GetParameter("MTTEMPC").addEventListener("PropertyChanged", UpdateTemperatureGauge, false); 
+
+            function UpdateSpeedometer(e)
+            {
+                DrawSpeedometer(e.currentTarget.parameterValue);
+                //MyConsoleLog("Event subscriber on "+e.currentTarget.nodeName + ", " + e.detail.time.toLocaleString() + ": " + e.currentTarget.PropertyName + " = " + e.currentTarget._parameterValue.toString());
+                //MyConsoleLog(App.viewModelLocator.GetParameter("ROTORRPM").parameterValue);
+            }
+
+            App.viewModelLocator.GetParameter("SPEED").addEventListener("PropertyChanged", UpdateSpeedometer, false);
+            function UpdateTemperatureGauge(e)
+            {
+                var value = e.currentTarget.parameterValue;
+                var htmlElement = $('#MotorTemperatureGauge');
+
+                if (value > 100){
+                    htmlElement.attr('data-major-ticks', "0,20,40,60,80,100,120,140,160,180,200" );
+                    htmlElement.attr('data-highlights', '[{ "from": 0, "to": 80, "color": "rgba(0,128,0,1)" },{ "from": 80, "to": 120, "color": "rgba(255,255,0,1)" },{ "from": 120, "to": 200, "color": "rgba(255,0,0,1)" }]' );
+                }
+                else{
+                    htmlElement.attr('data-major-ticks', "0,10,20,30,40,50,60,70,80,90,100" );
+                    htmlElement.attr('data-highlights', '[{ "from": 0, "to": 160, "color": "rgba(0,128,0,1)" },{ "from": 160, "to": 200, "color": "rgba(255,255,0,1)" },{ "from": 200, "to": 200, "color": "rgba(255,0,0,1)" }]' );
+                }
+
+                htmlElement.attr('data-value', value.toFixed(0).toString());
+            }
+      
+
+            // App.viewModelLocator.GetParameter("SPEED").parameterValue = 0;
+            // App.viewModelLocator.GetParameter("TIREDIAMETER").parameterValue = 21;
+            // App.viewModelLocator.GetParameter("REARAXLERATIO").parameterValue = 12;
+            // App.viewModelLocator.GetParameter("ROTORRPM").parameterValue = 0;
+            // App.viewModelLocator.GetParameter("MTTEMPC").parameterValue = 55;
+
+            //setTimeout(start, 2000);
+            start();
+        });
+
+        var DEBUGVAR1 = 1; 
+        var DEBUGVAR2 = 2; 
+        var DEBUGVAR3 = 3; 
+       async function start()
+        {
+            
+            try{
+                var data = 'Read: [{"PropertyName":"ROTORRPM","parameterValue":' + simulatedROTORRPM + '},{"PropertyName":"MTTEMPC","parameterValue":2.0},{"PropertyName":"VBATVDC","parameterValue":3},{"PropertyName":"REARAXLERATIO","parameterValue":12},{"PropertyName":"TIREDIAMETER","parameterValue":18}]';
+                await NavitasAppJsonCommand(data, ()=>{if(NavitasAppJsonCommandResponseHappened) return true;},1000)
+
+                var data2 = 'Write: [{"PropertyName":"DEBUGVAR1","parameterValue":' + DEBUGVAR1 + '},{"PropertyName":"DEBUGVAR2","parameterValue":' + DEBUGVAR2 + '},{"PropertyName":"DEBUGVAR3","parameterValue":' + DEBUGVAR3 + '}]';
+                await NavitasAppJsonCommand(data2, ()=>{if(NavitasAppJsonCommandResponseHappened) return true;},1000)
+                DEBUGVAR1 += 1; 
+                DEBUGVAR2 += 1; 
+                DEBUGVAR3 += 1; 
+            }
+            catch(e)
+            {//presently NavitasAppJsonCommand also returns a reject on top of this exception, just for knowledge
+            //this may be confusing if a normal exception happens
+                console.log("caught it") 
+            }
+            //MyConsoleLog("time(ms1) " + (new Date().getTime()/1000%100).toFixed(3));
+        }     
+    </script>
+</head>
+
+<body style="background-color:#000000; color:#CCCCCC">
+    <form id="msgbox" action="#" method="get">
+        <fieldset>
+            <label for="msg">your message</label>
+            <input id="msg" value="" />
+            <button>SEND</button>
+        </fieldset>
+    </form>
+    <input type=text id="myText1">
+    <input type=text id="myText2">
+    <span type=text id="myDomElement" style="color:#888888" ;></span>
+    <br>
+    Type In Value: <input onfocusout="SPEED.parameterValue = this.value">
+    <br>
+    Value: <input id="myValue" value="321" readonly>
+    <br>
+    <div style="text-align:center;">
+        <canvas id="speedometerForeground" style="z-index: -1;">Canvas not available.</canvas>
+        <canvas id="speedometerBackground" style="z-index: -2;">Canvas not available.</canvas>
+    </div>
+    <div id="odometer" class="odometer" style="z-index: -4;text-align:center; background-color:#000000">123.4</div>
+    <!-- gauge docs at https://canvas-gauges.com/documentation/user-guide/configuration -->
+    <div>
+        <form id="drawTemp">
+            <input type="text" id="txtSpeed" name="txtSpeed" value="0" maxlength="3" />
+            <input type="button" value="Draw" onclick="DrawSpeedometer(document.getElementById('txtSpeed').value);">
+        </form>
+    </div>
+
+    Enter name: <input type="text" id="name">
+    <br />
+    <br />
+    <button type="button" onclick="javascript:invokeCSharpActionIsEnabled = true; PauseInvokeCSCode = false; startInvokeCSCode();">Start C# Calls</button>
+    <button type="button" onclick="PauseInvokeCSCode ^= 1; invokeCSharpActionIsEnabled = true;">Pause Calls</button>
+    <br />
+
+    <!-- gauge docs at https://canvas-gauges.com/documentation/user-guide/configuration -->
+    <canvas id="MotorTemperatureGauge" style="z-index:-3; text-align:center; position: fixed; top: 50%; margin-left: -10%; background-color:#000000; 
+        " data-type="linear-gauge" data-width="300" data-height="600" data-border-radius="20" data-borders="0" data-bar-begin-circle="false" data-title=false data-units="Motor °C" data-color-units="#EEE" data-minor-ticks="10" data-max-value="200" data-value="99" data-value-int="2" data-value-dec="0" data-major-ticks="0,20,40,60,80,100,120,140,160,180,200" data-tick-side="right" data-number-side="right" data-needle-side="right" data-animation-rule="linear" data-animation-duration="750" data-bar-stroke-width="5" data-value-box-border-radius="0" data-value-text-shadow="false" data-color-plate="#000" data-color-bar-progress="#080" data-color-Numbers="#EEE" data-color-Title="#EEE" data-highlights='[    {
+        { "from": 80, "to": 120, "color": "rgba(255,255,0,1)" },
+        { "from": 120, "to": 200, "color": "rgba(255,0,0,1)" }
+        ]' data-color-value-box-background="#000" data-color-value-box-rect="#000" data-color-value-box-rect-end="#000" data-color-value-text="#FFF"
+    ></canvas>
+
+    <canvas id="BatteryVoltageGauge" style="z-index:-3; text-align:center; scale: ; position: fixed; top: 50%; margin-left: 70%; background-color:#000000;
+         " data-type="linear-gauge" data-width="300" data-height="600" data-title=false data-units="Battery V" data-color-units="#eee" data-min-value="0" data-max-value="200" data-value-int="2" data-value-dec="1" data-major-ticks="0,20,40,60,80,100" data-minor-ticks="2" data-stroke-ticks="true" data-highlights='false' data-border-shadow-width="0" data-borders="false" data-bar-begin-circle="false" data-bar-width="10" data-tick-side="left" data-number-side="left" data-needle-side="left" data-needle-type="line" data-needle-width="3" data-color-needle="#222" data-color-needle-end="#222" data-animation-duration="1500" data-animation-rule="linear" data-animation-target="plate" data-color-plate="#000" data-color-bar-progress="#3D3" data-value="40" data-color-Numbers="#EEE" data-color-Title="#EEE" data-color-value-box-background="#000" data-color-value-box-rect="#000" data-color-value-box-rect-end="#000" data-color-value-text="#FFF"
+    ></canvas>
+    <textarea id='MyConsoleLogOutputArea' rows=40 cols=60 style="opacity:0.5;" />
+</body>
+</html>

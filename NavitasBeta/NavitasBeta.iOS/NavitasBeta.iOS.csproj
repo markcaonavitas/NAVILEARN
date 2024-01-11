@@ -1,0 +1,730 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9F5C698B-E278-4C94-9FF8-D5800FCFC736}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>NavitasBeta.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>NavitasBeta.iOS</AssemblyName>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <ProvisioningType>manual</ProvisioningType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>i386, x86_64</MtouchArch>
+    <MtouchLink>None</MtouchLink>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignKey>Apple Development: Don Robb (ULHFVU7QVS)</CodesignKey>
+    <CodesignProvision>VS: WildCard Development</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>i386, x86_64</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>Apple Distribution: Navitas Vehicle Systems Ltd (W488D5DHDZ)</CodesignKey>
+    <CodesignProvision>Navitas Dashboard 2020</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>TRACE;HOTRESTART;DEBUG;__IOS__;__MOBILE__;__UNIFIED__;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <CodesignKey>Apple Development: William Tran (W52GCLCH97)</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <IOSDebugOverWiFi>False</IOSDebugOverWiFi>
+    <IOSDebuggerPort>10000</IOSDebuggerPort>
+    <CodesignProvision>VS: WildCard Development</CodesignProvision>
+    <MtouchFastDev>false</MtouchFastDev>
+    <BuildIpa>true</BuildIpa>
+    <IpaPackageName>Navitas Dashboard</IpaPackageName>
+    <DeviceSpecificBuild>true</DeviceSpecificBuild>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchFloat32>true</MtouchFloat32>
+    <MtouchInterpreter>-all</MtouchInterpreter>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchEnableSGenConc>false</MtouchEnableSGenConc>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>Apple Distribution: Navitas Vehicle Systems Ltd (W488D5DHDZ)</CodesignKey>
+    <CodesignEntitlements>
+    </CodesignEntitlements>
+    <CodesignProvision>Navitas Dashboard 2020</CodesignProvision>
+    <MtouchDebug>true</MtouchDebug>
+    <BuildIpa>true</BuildIpa>
+    <IpaPackageName>Navitas Dashboard</IpaPackageName>
+    <DeviceSpecificBuild>false</DeviceSpecificBuild>
+    <CodesignExtraArgs />
+    <CodesignResourceRules />
+    <MtouchExtraArgs>--optimize=experimental-xforms-product-type --optimize=+force-rejected-types-removal --warn-on-type-ref=UIKit.UIWebView</MtouchExtraArgs>
+    <MtouchFastDev>false</MtouchFastDev>
+    <DefineConstants>
+    </DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhone\Ad-Hoc</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <BuildIpa>True</BuildIpa>
+    <CodesignProvision>49b15033-3a67-41da-83b7-a2c8dceb84d0</CodesignProvision>
+    <CodesignKey>iPhone Developer: Don Robb (ULHFVU7QVS)</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <OptimizePNGs>true</OptimizePNGs>
+    <IpaPackageName>Navitas Dashboard</IpaPackageName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhone\AppStore</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <CodesignProvision>Navitas Engineering App Store</CodesignProvision>
+    <CodesignKey>iPhone Distribution: Navitas Vehicle Systems Ltd (W488D5DHDZ)</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <BuildIpa>true</BuildIpa>
+    <IpaPackageName>Navitas Eng</IpaPackageName>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>NavitasBeta.iOS.Application</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
+    <AppExtensionDebugBundleId />
+  </PropertyGroup>
+  <PropertyGroup>
+    <UseShortFileNames>True</UseShortFileNames>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Adapter.cs" />
+    <Compile Include="Device.cs" />
+    <Compile Include="HybridWebViewRenderer.cs" />
+    <Compile Include="InfoService.cs" />
+    <Compile Include="IosDownloader.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="CustomTabbedPageRenderer.cs" />
+    <Compile Include="YesNoPopupLoader.cs" />
+    <None Include="Entitlements.plist" />
+    <None Include="Info.plist" />
+    <Compile Include="NSLogWriter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="ParseManager, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ParseManager\bin\Release\ParseManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NavitasBeta\NavitasBeta.csproj">
+      <Project>{7a24e02a-2c57-4ed5-815e-70bfed6570ca}</Project>
+      <Name>NavitasBeta</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OxyPlot.Xamarin.Forms.Platform.iOS\OxyPlot.Xamarin.Forms.Platform.iOS.csproj">
+      <Project>{6b6e500b-b75c-4a27-a73e-9f4de5fe6ed3}</Project>
+      <Name>OxyPlot.Xamarin.Forms.Platform.iOS</Name>
+      <IsAppExtension>false</IsAppExtension>
+      <IsWatchApp>false</IsWatchApp>
+    </ProjectReference>
+    <ProjectReference Include="..\ParseManager.iOS\ParseManager.iOS.csproj">
+      <Project>{d5f83a1f-e5fc-4fcf-9714-2c2bceaf4031}</Project>
+      <Name>ParseManager.iOS</Name>
+      <IsAppExtension>false</IsAppExtension>
+      <IsWatchApp>false</IsWatchApp>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BatteryEmpty.png" />
+    <BundleResource Include="Resources\popupSpeedWarningImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\BatteryFull.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\drawableportxxhdpiscreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\drawableportxxhdpiscreenlogin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconCommunication.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconError.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconGearF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconGearN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconGearR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IconKey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ionandroidcar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ionandroidoptions.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ioncloud.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ioncodedownload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\iongearb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ionhelp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ioniosspeedometer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ionlogout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ionplay.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ionstop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ionlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\1024x1024.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\icon-60@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\icon-76.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\icon-76@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\icon2xpro167x167.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\icon40@2x80x80.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\icon40x40.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\icon60@2x120x120.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\icon60@3x180x180.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\iconsmall29x29.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\iconsmall@2x58x58.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\AppIcons.appiconset\iconsmall@3x87x87.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\Default568h@2x640x1136.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\Default@2x640x960.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\DefaultLandscape1024x768.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\DefaultLandscape@2x2048x1536.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\DefaultPortrait@2x1536x2048.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\DefaultPortraitipad768x1024.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default%402x640x960.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default320x480.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default568h%402x640x1136.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default667h750x1334.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default736h1242x2208.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\DefaultLandscape%402x2048x1536.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\DefaultLandscape736h2208x1242.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\DefaultLandscape1024x768.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\DefaultPortrait%402x1536x2048.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\DefaultPortraitipad768x1024.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon2xpro167x167.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon40%402x80x80.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon40x40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon60%402x120x120.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon60%403x180x180.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon76%402x152x152.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon76x76.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\iconsmall%402x58x58.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\iconsmall%403x87x87.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\iconsmall29x29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ionlocked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ionunlocked.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\1024x1024.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="OxyPlot.Core">
+      <Version>2.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.Core">
+      <Version>17.3.0.34</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfGauge">
+      <Version>17.3.0.34</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Essentials">
+      <Version>1.7.0</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms">
+      <Version>5.0.0.2083</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\hamburger.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="..\NavitasBeta\CommonWebViews\DashboardScripting.html">
+      <Link>Content\DashboardScripting.html</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\CalibrateThrottle.html">
+      <Link>Content\CalibrateThrottle.html</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\ExternalLoader.html">
+      <Link>Content\ExternalLoader.html</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\frameworks\CommunicationsInterface.js">
+      <Link>Content\frameworks\CommunicationsInterface.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\frameworks\jquery-1.10.2.min.js">
+      <Link>Content\frameworks\jquery-1.10.2.min.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\frameworks\jquery-3.4.1.min.js">
+      <Link>Content\frameworks\jquery-3.4.1.min.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\frameworks\jquery.xml2json.js">
+      <Link>Content\frameworks\jquery.xml2json.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\frameworks\kalman-filter.min.js">
+      <Link>Content\frameworks\kalman-filter.min.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\frameworks\leaflet.js">
+      <Link>Content\frameworks\leaflet.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\frameworks\List.js">
+      <Link>Content\frameworks\List.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\frameworks\min.js">
+      <Link>Content\frameworks\min.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\frameworks\NavitasMotorControllerModel.js">
+      <Link>Content\frameworks\NavitasMotorControllerModel.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\frameworks\polyfill.min.js">
+      <Link>Content\frameworks\polyfill.min.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\frameworks\ResizeObserver.global.js">
+      <Link>Content\frameworks\ResizeObserver.global.js</Link>
+    </Content>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\golfcart.jpg">
+      <Link>Content\images\golfcart.jpg</Link>
+    </BundleResource>
+    <Content Include="..\NavitasBeta\CommonWebViews\frameworks\SimulatedCommandInterface.js">
+      <Link>Content\frameworks\SimulatedCommandInterface.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\frameworks\TACDictionary.js">
+      <Link>Content\frameworks\TACDictionary.js</Link>
+    </Content>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\BleSecured.png">
+      <Link>Resources\BleSecured.png</Link>
+    </BundleResource>
+    <Content Include="..\NavitasBeta\CommonWebViews\frameworks\TSXDictionary.js">
+      <Link>Content\frameworks\TSXDictionary.js</Link>
+    </Content>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\collapseIcon.png">
+      <Link>Resources\collapseIcon.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\DeleteIcon.png">
+      <Link>Resources\DeleteIcon.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\DemoWM.png">
+      <Link>Resources\DemoWM.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\backArrow.png">
+      <Link>Resources\backArrow.png</Link>
+    </BundleResource>
+    <Content Include="..\NavitasBeta\CommonWebViews\frameworks\ViewModelHook.js">
+      <Link>Content\frameworks\ViewModelHook.js</Link>
+    </Content>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\EditIcon.png">
+      <Link>Resources\EditIcon.png</Link>
+    </BundleResource>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\acceleration.svg">
+      <Link>Content\images\acceleration.svg</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\analytic.svg">
+      <Link>Content\images\analytic.svg</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\Fail.gif">
+      <Link>Content\images\Fail.gif</Link>
+    </Content>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\hide.png">
+      <Link>Resources\hide.png</Link>
+    </BundleResource>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\battery.svg">
+      <Link>Content\images\battery.svg</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\BRAKERELAYOUTPUT_OFF.svg">
+      <Link>Content\images\BRAKERELAYOUTPUT_OFF.svg</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\BRAKERELAYOUTPUT_ON.svg">
+      <Link>Content\images\BRAKERELAYOUTPUT_ON.svg</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\CHARGERINTERLOCKIN.svg">
+      <Link>Content\images\CHARGERINTERLOCKIN.svg</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\fail-icon.svg">
+      <Link>Content\images\fail-icon.svg</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\FootSwitchAndThrottle.gif">
+      <Link>Content\images\FootSwitchAndThrottle.gif</Link>
+    </Content>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\Information_icon.png">
+      <Link>Resources\Information_icon.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_ClubCar_Precedent_EZGO_TXT.png">
+      <Link>Resources\TAC2_ClubCar_Precedent_EZGO_TXT.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_ClubCar_Precedent_EZGO_TXT_forward_reverse.png">
+      <Link>Resources\TAC2_ClubCar_Precedent_EZGO_TXT_forward_reverse.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_ClubCar_Precedent_EZGO_TXT_key_run_charge.png">
+      <Link>Resources\TAC2_ClubCar_Precedent_EZGO_TXT_key_run_charge.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_1268_Resistive_ITS.png">
+      <Link>Resources\TAC2_EZGO_1268_Resistive_ITS.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_1268_Resistive_ITS_forward_reverse.png">
+      <Link>Resources\TAC2_EZGO_1268_Resistive_ITS_forward_reverse.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_1268_Resistive_ITS_key_run_charge.png">
+      <Link>Resources\TAC2_EZGO_1268_Resistive_ITS_key_run_charge.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV23.png">
+      <Link>Resources\TAC2_EZGO_RXV23.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV23_forward_reverse.png">
+      <Link>Resources\TAC2_EZGO_RXV23_forward_reverse.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV23_key_run_charge.png">
+      <Link>Resources\TAC2_EZGO_RXV23_key_run_charge.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV35.png">
+      <Link>Resources\TAC2_EZGO_RXV35.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV35_forward_reverse.png">
+      <Link>Resources\TAC2_EZGO_RXV35_forward_reverse.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV35_key_run_charge.png">
+      <Link>Resources\TAC2_EZGO_RXV35_key_run_charge.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_TSX.png">
+      <Link>Resources\TAC2_TSX.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_TSX_forward_reverse.png">
+      <Link>Resources\TAC2_TSX_forward_reverse.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_TSX_key_run_charge.png">
+      <Link>Resources\TAC2_TSX_key_run_charge.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_G29.png">
+      <Link>Resources\TAC2_Yamaha_G29.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_G29_forward_reverse.png">
+      <Link>Resources\TAC2_Yamaha_G29_forward_reverse.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_G29_key_run_charge.png">
+      <Link>Resources\TAC2_Yamaha_G29_key_run_charge.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_YDRE2.png">
+      <Link>Resources\TAC2_Yamaha_YDRE2.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_YDRE2_forward_reverse.png">
+      <Link>Resources\TAC2_Yamaha_YDRE2_forward_reverse.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_YDRE2_key_run_charge.png">
+      <Link>Resources\TAC2_Yamaha_YDRE2_key_run_charge.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_ClubCar_Precedent_EZGO_TXT_throttle_footsw.png">
+      <Link>Resources\TAC2_ClubCar_Precedent_EZGO_TXT_throttle_footsw.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_1268_Resistive_ITS_throttle_footsw.png">
+      <Link>Resources\TAC2_EZGO_1268_Resistive_ITS_throttle_footsw.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV23_brake_brakesw.png">
+      <Link>Resources\TAC2_EZGO_RXV23_brake_brakesw.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV23_throttle_footsw.png">
+      <Link>Resources\TAC2_EZGO_RXV23_throttle_footsw.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV35_brake_brakesw.png">
+      <Link>Resources\TAC2_EZGO_RXV35_brake_brakesw.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_EZGO_RXV35_throttle_footsw.png">
+      <Link>Resources\TAC2_EZGO_RXV35_throttle_footsw.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_TSX_throttle_footsw.png">
+      <Link>Resources\TAC2_TSX_throttle_footsw.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_G29_throttle_footsw.png">
+      <Link>Resources\TAC2_Yamaha_G29_throttle_footsw.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\TAC2_Yamaha_YDRE2_throttle_footsw.png">
+      <Link>Resources\TAC2_Yamaha_YDRE2_throttle_footsw.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\openIcon.png">
+      <Link>Resources\openIcon.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\ionunlocked.png">
+      <Link>Content\images\ionunlocked.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\ionlocked.png">
+      <Link>Content\images\ionlocked.png</Link>
+    </BundleResource>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\Pass.gif">
+      <Link>Content\images\Pass.gif</Link>
+    </Content>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\ProfileIcon.png">
+      <Link>Resources\ProfileIcon.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\help\TAC\board-electronics-computer-data-processing-50711.jpg">
+      <Link>Content\images\help\TAC\board-electronics-computer-data-processing-50711.jpg</Link>
+    </BundleResource>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\FORWARDSW.svg">
+      <Link>Content\images\FORWARDSW.svg</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\KEYIN.svg">
+      <Link>Content\images\KEYIN.svg</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\pass-icon.svg">
+      <Link>Content\images\pass-icon.svg</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\redPointer.gif">
+      <Link>Content\images\redPointer.gif</Link>
+    </Content>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\show.png">
+      <Link>Resources\show.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\whiteBackIcon.png">
+      <Link>Resources\whiteBackIcon.png</Link>
+    </BundleResource>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\TireSize.png">
+      <Link>Resources\TireSize.png</Link>
+    </BundleResource>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\REVBUZZEROUTPUT.svg">
+      <Link>Content\images\REVBUZZEROUTPUT.svg</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\REVBUZZEROUTPUT_OFF.svg">
+      <Link>Content\images\REVBUZZEROUTPUT_OFF.svg</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\REVBUZZEROUTPUT_ON.svg">
+      <Link>Content\images\REVBUZZEROUTPUT_ON.svg</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\REVERSESW.svg">
+      <Link>Content\images\REVERSESW.svg</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\stop.svg">
+      <Link>Content\images\stop.svg</Link>
+    </Content>
+    <BundleResource Include="..\NavitasBeta\CommonWebViews\images\SwipeDownFinger.png">
+      <Link>Resources\SwipeDownFinger.png</Link>
+    </BundleResource>
+    <Content Include="..\NavitasBeta\CommonWebViews\images\tire-size.svg">
+      <Link>Content\images\tire-size.svg</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\js\StartDiagnose.js">
+      <Link>Content\js\StartDiagnose.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\js\TestSequenceDictionary.js">
+      <Link>Content\js\TestSequenceDictionary.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\js\UserOnboarding.js">
+      <Link>Content\js\UserOnboarding.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\js\VehicleDiagnostics.js">
+      <Link>Content\js\VehicleDiagnostics.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\MainSolenoidTest.html">
+      <Link>Content\MainSolenoidTest.html</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\PnrdVerification.html">
+      <Link>Content\PnrdVerification.html</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\ReverseBuzzerTest.html">
+      <Link>Content\ReverseBuzzerTest.html</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\StartDiagnose.html">
+      <Link>Content\StartDiagnose.html</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\themes\examples.css">
+      <Link>Content\themes\examples.css</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\themes\odometer-theme-car.css">
+      <Link>Content\themes\odometer-theme-car.css</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\themes\odometer-theme-default.css">
+      <Link>Content\themes\odometer-theme-default.css</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\themes\UserOnboarding.css">
+      <Link>Content\themes\UserOnboarding.css</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\themes\VehicleDiagnostics.css">
+      <Link>Content\themes\VehicleDiagnostics.css</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\UserOnboarding.html">
+      <Link>Content\UserOnboarding.html</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\widgets\gauge.min.js">
+      <Link>Content\widgets\gauge.min.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\widgets\jquery.flot.js">
+      <Link>Content\widgets\jquery.flot.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\widgets\jquery.flot.min.js">
+      <Link>Content\widgets\jquery.flot.min.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\widgets\odometer.js">
+      <Link>Content\widgets\odometer.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\widgets\ProgressBarPercentPassFail.js">
+      <Link>Content\widgets\ProgressBarPercentPassFail.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\widgets\radarScan.js">
+      <Link>Content\widgets\radarScan.js</Link>
+    </Content>
+    <Content Include="..\NavitasBeta\CommonWebViews\widgets\speedometer.js">
+      <Link>Content\widgets\speedometer.js</Link>
+    </Content>
+    <BundleResource Include="Resources\whitehamburger.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties TriggeredFromHotReload="False" XamarinHotReloadWrongLinkerErrorInfoBarNavitasBetaiOSHideInfoBar="True" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

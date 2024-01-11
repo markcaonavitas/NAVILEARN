@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:CustomTabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:me="clr-namespace:NavitasBeta;assembly=NavitasBeta"
+             xmlns:local="clr-namespace:NavitasBeta;assembly=NavitasBeta"
+             x:Class="NavitasBeta.UserTabbedPage"
+             NavigationPage.HasNavigationBar="False" >
+    <local:CustomTabbedPage.Children>
+    </local:CustomTabbedPage.Children>
+</local:CustomTabbedPage>

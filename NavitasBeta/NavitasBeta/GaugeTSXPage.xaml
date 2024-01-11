@@ -1,0 +1,385 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:NavitasGeneralPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NavitasBeta.GaugeTSX"
+             xmlns:linear="clr-namespace:Syncfusion.SfGauge.XForms;assembly=Syncfusion.SfGauge.XForms"
+             xmlns:local="clr-namespace:NavitasBeta;assembly=NavitasBeta"
+             x:Name="page"
+             Title="Dashboard">
+    <ContentPage.Resources>
+        <local:BoolInverterConverter x:Key="boolInverterConverter" />
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <AbsoluteLayout x:Name="AbsoluteLayout">
+            <Grid x:Name="grid_gauge" AbsoluteLayout.LayoutBounds="0, 0, 1, 0.98" AbsoluteLayout.LayoutFlags="All">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="90"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width=".4*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width=".4*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Row="1" Grid.ColumnSpan="3" HorizontalOptions="Center">
+                    <!--if you already x:Name='ed it then bind it this way-->
+                    <Label x:Name="TapWord"  Text="Tap Caution Icon For Error Details"  TextColor="Yellow" Opacity="{Binding Source={x:Reference Name=CONTROLLERERROR}, Path=Opacity}" BackgroundColor="Transparent"  VerticalOptions="Start" HorizontalOptions="Center">
+                        <Label.FontSize>
+                            <OnIdiom x:TypeArguments="x:Double" Phone="10" Tablet="20" />
+                        </Label.FontSize>
+                    </Label>
+                </Grid>
+
+                <!--Since we can't have to things with the same "x:Name=..." we get something that needs the same binding like below"-->
+               <Label x:Name ="ControllerTemperature" TextColor="White" Text="{Binding Source={x:Reference Name=PARTEMPERATURECF}, Path=Value, StringFormat='Controller Temp&#x0a; {0:0.0} C'}" IsVisible ="{Binding Source={x:Reference Name=MILESORKILOMETERS}, Path=Value}" HorizontalOptions="Start" VerticalOptions="Start"  Grid.Row="1" Grid.Column="0">
+                    <Label.FontSize>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="12" Tablet="20" />
+                    </Label.FontSize>
+                </Label>
+                <Label x:Name ="ControllerTemperatureNobodyIsUsingThis" TextColor="White" Text="{Binding Source={x:Reference Name=PARTEMPERATURECF}, Path=Value, StringFormat='Controller Temp&#x0a; {0:0.0} F'}"  IsVisible ="{Binding Source={x:Reference Name=MILESORKILOMETERS}, Path=Value, Converter={StaticResource boolInverterConverter}}" HorizontalOptions="Start" VerticalOptions="Start"  Grid.Row="1" Grid.Column="0">
+                    <Label.FontSize>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="12" Tablet="20" />
+                    </Label.FontSize>
+                </Label>
+
+                <Label TextColor="White" Text="{Binding Source={x:Reference Name=PARBATTERYVOLTS}, Path=Value, StringFormat='Battery Voltage&#x0a; {0:0.0} V'}"   HorizontalOptions="EndAndExpand"  VerticalOptions="Start" Grid.Row="1" Grid.Column="2">
+                    <Label.FontSize>
+                        <OnIdiom x:TypeArguments="x:Double" Phone="12" Tablet="20" />
+                    </Label.FontSize>
+                </Label>
+
+
+                <linear:SfLinearGauge x:Name="MTEMPGauge" Scale=".5" Orientation="OrientationVertical"  VerticalOptions="Fill"  HorizontalOptions="Fill" Grid.Row="1" Grid.Column="0" >
+                    <linear:SfLinearGauge.Scales>
+                        <linear:LinearScale Offset="10" OpposedPosition="True" LabelColor="White"   MinimumValue="0" MaximumValue="200" Interval="50" ScaleBarColor="#FAECEC" MinorTicksPerInterval="1">
+                            <linear:LinearScale.ScaleBarSize>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <OnPlatform.iOS>
+                                        <OnIdiom x:TypeArguments="x:Double" Phone="5" Tablet="20" />
+                                    </OnPlatform.iOS>
+                                    <OnPlatform.Android>
+                                        <OnIdiom x:TypeArguments="x:Double" Phone="10" Tablet="30" />
+                                    </OnPlatform.Android>
+                                </OnPlatform>
+                            </linear:LinearScale.ScaleBarSize>
+                            <linear:LinearScale.LabelFontSize>
+                                <OnIdiom x:TypeArguments="x:Double" Phone="20" Tablet="20" />
+                            </linear:LinearScale.LabelFontSize>
+                            <linear:LinearScale.LabelOffset>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <OnPlatform.iOS>
+                                        <OnIdiom x:TypeArguments="x:Double" Phone="10" Tablet="10" />
+                                    </OnPlatform.iOS>
+                                    <OnPlatform.Android>
+                                        <OnIdiom x:TypeArguments="x:Double" Phone="10" Tablet="10" />
+                                    </OnPlatform.Android>
+                                </OnPlatform>
+                            </linear:LinearScale.LabelOffset>
+                            <linear:LinearScale.Pointers>
+                                <linear:BarPointer Value="{Binding Source={x:Reference Name=PARTEMPERATURECF}, Path=Value}" Color="Green" Thickness="30" >
+                                    <linear:BarPointer.Thickness>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <OnPlatform.iOS>
+                                                <OnIdiom x:TypeArguments="x:Double" Phone="5" Tablet="20" />
+                                            </OnPlatform.iOS>
+                                            <OnPlatform.Android>
+                                                <OnIdiom x:TypeArguments="x:Double" Phone="10" Tablet="30" />
+                                            </OnPlatform.Android>
+                                        </OnPlatform>
+                                    </linear:BarPointer.Thickness>
+                                </linear:BarPointer>
+                            </linear:LinearScale.Pointers>
+                            <linear:LinearScale.Ranges>
+                                <linear:LinearRange StartValue="0" Color="Green"   EndValue="120" StartWidth="10" EndWidth="10">
+                                </linear:LinearRange>
+                                <linear:LinearRange  StartValue="120" Color="Yellow" EndValue="140" StartWidth="10" EndWidth="10">
+                                </linear:LinearRange>
+                                <linear:LinearRange  StartValue="140" Color="Red" EndValue="200" StartWidth="10" EndWidth="10">
+                                </linear:LinearRange>
+                            </linear:LinearScale.Ranges>
+                            <linear:LinearScale.MajorTickSettings>
+                                <linear:LinearTickSettings Length="6" Thickness="1" Color="White">
+                                    <linear:LinearTickSettings.Offset>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <OnPlatform.iOS>
+                                                <OnIdiom x:TypeArguments="x:Double" Phone="-0.55" Tablet="-0.35" />
+                                            </OnPlatform.iOS>
+                                            <OnPlatform.Android>
+                                                <OnIdiom x:TypeArguments="x:Double" Phone="-0.15" Tablet="-0.15" />
+                                            </OnPlatform.Android>
+                                        </OnPlatform>
+
+                                    </linear:LinearTickSettings.Offset>
+                                </linear:LinearTickSettings>
+                            </linear:LinearScale.MajorTickSettings>
+                            <linear:LinearScale.MinorTickSettings>
+                                <linear:LinearTickSettings Length="3" Thickness="1" Color="White">
+                                    <linear:LinearTickSettings.Offset>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <OnPlatform.iOS>
+                                                <OnIdiom x:TypeArguments="x:Double" Phone="-0.55" Tablet="-0.35" />
+                                            </OnPlatform.iOS>
+                                            <OnPlatform.Android>
+                                                <OnIdiom x:TypeArguments="x:Double" Phone="-0.15" Tablet="-0.15" />
+                                            </OnPlatform.Android>
+                                        </OnPlatform>
+
+                                    </linear:LinearTickSettings.Offset>
+                                </linear:LinearTickSettings>
+                            </linear:LinearScale.MinorTickSettings>
+                        </linear:LinearScale>
+                    </linear:SfLinearGauge.Scales>
+                </linear:SfLinearGauge>
+
+                <linear:SfLinearGauge  x:Name="VBATGauge" Scale="0.5" Orientation="OrientationVertical" HorizontalOptions="Fill" VerticalOptions="Fill"  Grid.Row="1" Grid.Column="2">
+                    <linear:SfLinearGauge.Scales>
+                        <linear:LinearScale LabelColor="White" x:Name="scale" MinimumValue="0" MaximumValue="80" Interval="20"  ScaleBarColor="#FAECEC" MinorTicksPerInterval="1" >
+                            <linear:LinearScale.ScaleBarSize>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <OnPlatform.iOS>
+                                        <OnIdiom x:TypeArguments="x:Double" Phone="5" Tablet="20" />
+                                    </OnPlatform.iOS>
+                                    <OnPlatform.Android>
+                                        <OnIdiom x:TypeArguments="x:Double" Phone="10" Tablet="30" />
+                                    </OnPlatform.Android>
+                                </OnPlatform>
+                            </linear:LinearScale.ScaleBarSize>
+                            <linear:LinearScale.LabelFontSize>
+                                <OnIdiom x:TypeArguments="x:Double" Phone="20" Tablet="20" />
+                            </linear:LinearScale.LabelFontSize>
+                            <linear:LinearScale.LabelOffset>
+                                <OnPlatform x:TypeArguments="x:Double">
+                                    <OnPlatform.iOS>
+                                        <OnIdiom x:TypeArguments="x:Double" Phone="-10" Tablet="-10" />
+                                    </OnPlatform.iOS>
+                                    <OnPlatform.Android>
+                                        <OnIdiom x:TypeArguments="x:Double" Phone="-10" Tablet="-10" />
+                                    </OnPlatform.Android>
+                                </OnPlatform>
+                            </linear:LinearScale.LabelOffset>
+                            <linear:LinearScale.Pointers>
+                                <linear:BarPointer Value="{Binding Source={x:Reference Name=PARBATTERYVOLTS}, Path=Value}" Color="Lime"  Thickness="30">
+                                    <linear:BarPointer.Thickness>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <OnPlatform.iOS>
+                                                <OnIdiom x:TypeArguments="x:Double" Phone="5" Tablet="20" />
+                                            </OnPlatform.iOS>
+                                            <OnPlatform.Android>
+                                                <OnIdiom x:TypeArguments="x:Double" Phone="10" Tablet="30" />
+                                            </OnPlatform.Android>
+                                        </OnPlatform>
+                                    </linear:BarPointer.Thickness>
+                                </linear:BarPointer>
+                            </linear:LinearScale.Pointers>
+                            <linear:LinearScale.MajorTickSettings>
+                                <linear:LinearTickSettings Length="6" Thickness="1" Color="White">
+                                    <linear:LinearTickSettings.Offset>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <OnPlatform.iOS>
+                                                <OnIdiom x:TypeArguments="x:Double" Phone=".20" Tablet="0.20" />
+                                            </OnPlatform.iOS>
+                                            <OnPlatform.Android>
+                                                <OnIdiom x:TypeArguments="x:Double" Phone="-0.15" Tablet="-0.15" />
+                                            </OnPlatform.Android>
+                                        </OnPlatform>
+                                    </linear:LinearTickSettings.Offset>
+                                </linear:LinearTickSettings>
+                            </linear:LinearScale.MajorTickSettings>
+                            <linear:LinearScale.MinorTickSettings>
+                                <linear:LinearTickSettings Length="3" Thickness="1" Color="White">
+                                    <linear:LinearTickSettings.Offset>
+                                        <OnPlatform x:TypeArguments="x:Double">
+                                            <OnPlatform.iOS>
+                                                <OnIdiom x:TypeArguments="x:Double" Phone="0.20" Tablet="0.20" />
+                                            </OnPlatform.iOS>
+                                            <OnPlatform.Android>
+                                                <OnIdiom x:TypeArguments="x:Double" Phone="0.15" Tablet="0.15" />
+                                            </OnPlatform.Android>
+                                        </OnPlatform>
+                                    </linear:LinearTickSettings.Offset>
+                                </linear:LinearTickSettings>
+                            </linear:LinearScale.MinorTickSettings>
+                        </linear:LinearScale>
+                    </linear:SfLinearGauge.Scales>
+                </linear:SfLinearGauge>
+
+                <!--Don't know why but this is the third way of binding something to sync fusion stuff, the other two did not work-->
+                <linear:SfCircularGauge x:Name="PARMOTORRPM" Scale="1.3"  Grid.Row="1" Grid.Column="1" >
+                    <linear:SfCircularGauge.Scale>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <OnPlatform.iOS>
+                                <OnIdiom x:TypeArguments="x:Double" Phone="1.3" Tablet="1.3" />
+                            </OnPlatform.iOS>
+                            <OnPlatform.Android>
+                                <OnIdiom x:TypeArguments="x:Double" Phone="1.3" Tablet="1.3" />
+                            </OnPlatform.Android>
+                        </OnPlatform>
+                    </linear:SfCircularGauge.Scale>
+                    <linear:SfCircularGauge.Headers>
+                        <linear:Header x:Name="SPEEDUINT" Text="{Binding Path=parameterValueString}" TextSize="8" ForegroundColor="White" >
+                            <linear:Header.Position>
+                                <OnPlatform x:TypeArguments="Point" iOS="0.5,0.6" Android="0.5,0.6"  />
+                            </linear:Header.Position>
+                            <linear:Header.TextSize>
+                                <OnIdiom x:TypeArguments="x:Double" Phone="10" Tablet="15" />
+                            </linear:Header.TextSize>
+                        </linear:Header>
+                        <linear:Header Text="{Binding Path=parameterValue, StringFormat='{0:F0} rpm'}" TextSize="7" ForegroundColor="White">
+                            <linear:Header.Position>
+                                <OnPlatform x:TypeArguments="Point" iOS="0.5,0.8" Android="0.5,0.7"  />
+                            </linear:Header.Position>
+                            <linear:Header.TextSize>
+                                <OnIdiom x:TypeArguments="x:Double" Phone="10" Tablet="15" />
+                            </linear:Header.TextSize>
+                        </linear:Header>
+                    </linear:SfCircularGauge.Headers>
+                    <linear:SfCircularGauge.Scales>
+                        <linear:Scale LabelOffset="0.7" LabelColor="White" StartAngle="135" StartValue="0"  EndValue="{Binding Source={x:Reference Name=SPEEDOMETERMAXSPEEDMKPH}, Path=Value}" Interval="5" SweepAngle="270" RimThickness="3" RimColor="White" MinorTicksPerInterval="1">
+                            <linear:Scale.LabelFontSize>
+                                <OnIdiom x:TypeArguments="x:Double" Phone="10" Tablet="15"/>
+                            </linear:Scale.LabelFontSize>
+                            <linear:Scale.Pointers>
+                                <linear:RangePointer Value="{Binding Source={x:Reference Name=THRESHOLDONE}, Path=Value}" Color="Green" Thickness="10" Offset=".8">
+                                    <linear:RangePointer.Thickness>
+                                        <OnIdiom x:TypeArguments="x:Double" Phone="5" Tablet="10"/>
+                                    </linear:RangePointer.Thickness>
+                                </linear:RangePointer>
+                                <linear:RangePointer RangeStart="{Binding Source={x:Reference Name=THRESHOLDONE}, Path=Value}" Color="Yellow" Value="{Binding Source={x:Reference Name=THRESHOLDTWO}, Path=Value}" Offset=".8">
+                                    <linear:RangePointer.Thickness>
+                                        <OnIdiom x:TypeArguments="x:Double" Phone="5" Tablet="10"/>
+                                    </linear:RangePointer.Thickness>
+                                </linear:RangePointer>
+                                <linear:RangePointer RangeStart="{Binding Source={x:Reference Name=THRESHOLDTWO}, Path=Value}" Color="Red" Value="100" Offset=".8">
+                                    <linear:RangePointer.Thickness>
+                                        <OnIdiom x:TypeArguments="x:Double" Phone="5" Tablet="10"/>
+                                    </linear:RangePointer.Thickness>
+                                </linear:RangePointer>
+                                <linear:NeedlePointer Value="{Binding Source={x:Reference Name=SPEED}, Path=Value}" Color="White" KnobColor="White"  LengthFactor="0.9" Type="Triangle" >
+                                    <linear:NeedlePointer.KnobRadius>
+                                        <OnIdiom x:TypeArguments="x:Double" Phone="5" Tablet="8" />
+                                    </linear:NeedlePointer.KnobRadius>
+                                    <linear:NeedlePointer.Thickness>
+                                        <OnIdiom x:TypeArguments="x:Double" Phone="2" Tablet="5" />
+                                    </linear:NeedlePointer.Thickness>
+                                </linear:NeedlePointer>
+                            </linear:Scale.Pointers>
+                            <linear:Scale.MajorTickSettings>
+                                <linear:TickSettings Length="12" Offset=".9" Color ="White" Thickness="1"/>
+                            </linear:Scale.MajorTickSettings>
+                            <linear:Scale.MinorTickSettings>
+                                <linear:TickSettings  Length="6" Offset=".9" Color ="White" Thickness="1"/>
+                            </linear:Scale.MinorTickSettings>
+                        </linear:Scale>
+                    </linear:SfCircularGauge.Scales>
+                </linear:SfCircularGauge>
+
+                <Frame x:Name="LOCKED" Padding="0, 0, 0, 0"  BackgroundColor="Transparent" Grid.Row="1" Grid.Column="1" IsVisible="{Binding Path=parameterValue}" HorizontalOptions="Center" VerticalOptions="Center" >
+                    <local:CustomImage x:Name="LockImage" Scale="1"   >
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource" iOS="ionlocked.png" Android="ionlocked.png" WinPhone="Assets/ionlocked.png" />
+                        </Image.Source>
+                    </local:CustomImage>
+                </Frame>
+
+                <Frame x:Name="UNLOCKED" Padding="0, 0, 0, 0" BackgroundColor="Transparent" Grid.Row="2" Grid.Column="0" IsVisible="{Binding Path=parameterValue}" HorizontalOptions="Center" VerticalOptions="Center">
+                    <local:CustomImage x:Name="UnlockImage"  >
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource" iOS="ionunlocked.png" Android="ionunlocked.png" WinPhone="Assets/ionunlocked.png" />
+                        </Image.Source>
+                    </local:CustomImage>
+                </Frame>
+
+                <Image x:Name="NEUTRAL" Grid.Row="2" Grid.Column="1" IsVisible="{Binding Path=parameterValue}">
+                    <Image.Source>
+                        <OnPlatform x:TypeArguments="ImageSource" iOS="IconGearN.png" Android="IconGearN.png" WinPhone="Assets/IconGearN.png" />
+                    </Image.Source>
+                </Image>
+                <Image x:Name="FORWARDSWITCH" Grid.Row="2" Grid.Column="1" IsVisible="{Binding Path=parameterValue}">
+                    <Image.Source>
+                        <OnPlatform x:TypeArguments="ImageSource" iOS="IconGearF.png" Android="IconGearF.png" WinPhone="Assets/IconGearF.png" />
+                    </Image.Source>
+                </Image>
+                <Image x:Name="REVERSESWITCH" Grid.Row="2" Grid.Column="1"  IsVisible="{Binding Path=parameterValue}">
+                    <Image.Source>
+                        <OnPlatform x:TypeArguments="ImageSource" iOS="IconGearR.png" Android="IconGearR.png" WinPhone="Assets/IconGearR.png" />
+                    </Image.Source>
+                </Image>
+                <Image x:Name="KEY" Opacity ="{Binding Path=parameterValue}" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" IsVisible="True">
+                    <Image.Source>
+                        <OnPlatform x:TypeArguments="ImageSource" iOS="IconKey.png" Android="IconKey.png"  WinPhone="Assets/IconKey.png" />
+                    </Image.Source>
+                </Image>
+                <StackLayout x:Name="StatusStackLayout"  Grid.Row="3"  Grid.Column="0"  Grid.ColumnSpan="3" VerticalOptions="Start">
+                    <Label  x:Name="StatusLabel" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Black" TextColor="#367F56">
+                        <Label.FontSize>
+                            <OnIdiom x:TypeArguments="x:Double" Phone="12" Tablet="20" />
+                        </Label.FontSize>
+                    </Label>
+                </StackLayout>
+
+                <Label x:Name="PARSWITCHSTATES" Text="get this because it sets some comm and App opptions" IsVisible="False"/>
+                <Label x:Name="VEHICLELOCKED" Text="get this because it sets some comm and App opptions" IsVisible="False"/>
+                <Label x:Name="TIREDIAMETER" Text="get this because it sets some comm and App opptions" IsVisible="False"/>
+                <Label x:Name="REARAXLERATIO" Text="get this because it sets some comm and App opptions" IsVisible="False"/>
+                <Label x:Name="PARCONTROLLERMODELNUMBER" Text="get this because it sets some comm and App opptions" IsVisible="False"/>
+                <Label x:Name="PARSVARMACHINESTATE2" Text="get this because it sets some comm and App opptions" IsVisible="False"/>
+
+                <!--<Label x:Name="PARTEMPERATURE" Text="get this because it sets some comm and App opptions" IsVisible="False"/>
+		<Label x:Name="PARBATTERYVOLTS" Text="get this because it sets some comm and App opptions" IsVisible="False"/>-->
+                <!--<Label x:Name="SPEEDOMETERMAXSPEED" Text="get this because it sets some comm and App opptions" IsVisible="False"/>-->
+                <!--<Label x:Name="SPEED" Text="get this because it sets some comm and App opptions" IsVisible="False"/>-->
+                <Label x:Name="PARMOTORSPEED" Text="get this because it sets some comm and App opptions" IsVisible="False"/>
+                <!--<Label x:Name="LOCKSWITCH" Text="get this because it sets some comm and App opptions" IsVisible="False"/>-->
+                <!--<Label x:Name="NEUTRAL" Text="get this because it sets some comm and App opptions" IsVisible="False"/>
+        <Label x:Name="FORWARDSWITCH" Text="get this because it sets some comm and App opptions" IsVisible="False"/>
+        <Label x:Name="REVERSESWITCH" Text="get this because it sets some comm and App opptions" IsVisible="False"/>-->
+                <!--<Label x:Name="KEY" Text="get this because it sets some comm and App opptions" IsVisible="False"/>-->
+
+                <!--using Stepper because this variable is accessed a few time above and we cannot declare x:name=.. mor than once-->
+                <!--Stepper is a view that has a "Value=" to set.-->
+                <Stepper x:Name="SPEEDOMETERMAXSPEEDMKPH" Value="{Binding Path=parameterValue,Mode=OneWay}" IsVisible="False"/>
+                <Stepper x:Name="PARTEMPERATURECF" Maximum="200" Value="{Binding Path=parameterValue,Mode=OneWay}" IsVisible="False"/>
+                <Stepper x:Name="PARBATTERYVOLTS" Value="{Binding Path=parameterValue,Mode=OneWay}" IsVisible="False"/>
+                <Stepper x:Name="SPEED" Value="{Binding Path=parameterValue,Mode=OneWay}" IsVisible="False"/>
+                <Stepper x:Name="MILESORKILOMETERS" Value="{Binding Path=parameterBoolean,Mode=OneWay}" IsVisible="False"/>
+                <Stepper x:Name="THRESHOLDONE" Value="{Binding Path=parameterValue,Mode=OneWay}" IsVisible="False"/>
+                <Stepper x:Name="THRESHOLDTWO" Value="{Binding Path=parameterValue,Mode=OneWay}" IsVisible="False"/>
+            </Grid>
+            <!--fake toolbar at the bottom of this file to be on top of full screen graphics-->
+            
+            <StackLayout BackgroundColor="Transparent"
+                         Style="{StaticResource toolbarStyle}">
+                <StackLayout Style="{StaticResource toolbarElementsContainerStyle}">
+                    <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ShowMasterMenu" NumberOfTapsRequired="1" />
+                        </StackLayout.GestureRecognizers>
+                    <Image Source="whitehamburger.png" Margin="10,0" Scale="1.5" HorizontalOptions="Start"/>
+                    <Image Source="icon.png" Style="{StaticResource toolbarImageStyle}"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                        <local:CustomImage x:Name="CONTROLLERERROR" Scale="0.5" Opacity="{Binding Path=parameterValue}" HorizontalOptions="CenterAndExpand" Source="IconError.png"/>
+                        <Image x:Name="COMMERROR" Scale=".8" Opacity="{Binding Path=parameterValue}" HorizontalOptions="Center" Source="IconCommunication.png"/>
+                        <Label x:Name="PARSTARTUPERRORS" Text="Used for controller error display" IsVisible="False"/>
+                        <Label x:Name="PARRUNTIMEERRORSLOW" Text="Used for controller error display" IsVisible="False"/>
+                        <Label x:Name="PARRUNTIMEERRORSHIGH" Text="Used for controller error display" IsVisible="False"/>
+                </StackLayout>
+                    <Label Text="" FontSize="Default" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+            </StackLayout>
+            <StackLayout Style="{StaticResource warningContainerStyle}">
+                <Label x:Name="CONTROLLERWARNING"
+                       Text=""
+                       Opacity="{Binding Path=parameterValue}"
+                       Style="{StaticResource warningLabelStyle}"/>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+    <ContentPage.BackgroundColor>
+        <Color>Black</Color>
+    </ContentPage.BackgroundColor>
+
+</local:NavitasGeneralPage>

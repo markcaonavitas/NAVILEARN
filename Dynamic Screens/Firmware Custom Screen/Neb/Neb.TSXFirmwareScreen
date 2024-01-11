@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<FirmwaresGroups>
+  <FirmwareGroups>
+    <FirmwareGroup>
+      <GroupTitle>TSX 440A</GroupTitle>
+      <StrogeType>External</StrogeType>
+      <SubDirectory>N/A</SubDirectory>
+      <FileItems>
+        <FileItem>
+          <FriendlyFileName>10-000766     Stock Motor     </FriendlyFileName>
+          <ActualFileName>TSX.440_Stock_Motor</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <FriendlyFileName>10-000781     Series Motor    </FriendlyFileName>
+          <ActualFileName>TSX.440_Series</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <FriendlyFileName>10-000852    CVG STOCKCHASER    </FriendlyFileName>
+          <ActualFileName>TSX.440_CVG_STOCKCHASER</ActualFileName>
+        </FileItem>
+      </FileItems>
+    </FirmwareGroup>
+    <FirmwareGroup>
+      <GroupTitle>TSX 600A</GroupTitle>
+      <StrogeType>External</StrogeType>
+      <SubDirectory>N/A</SubDirectory>
+      <FileItems>
+        <FileItem>
+          <FriendlyFileName>10-000685    Stock Motor    </FriendlyFileName>
+          <ActualFileName>TSX.600_Stock_Motor</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <FriendlyFileName>10-000782    Series Motor    </FriendlyFileName>
+          <ActualFileName>TSX.600_Series</ActualFileName>
+        </FileItem>
+        <FileItem>
+          <FriendlyFileName>10-000783-01    72V HUNTVE MASTER 09 Motor    </FriendlyFileName>
+          <ActualFileName>TSX.600_HUNTVE_MASTER_72V_309_motor</ActualFileName>
+        </FileItem>
+      </FileItems>
+    </FirmwareGroup>
+ </FirmwareGroups>
+</FirmwaresGroups>

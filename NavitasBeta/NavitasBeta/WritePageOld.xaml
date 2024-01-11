@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NavitasBeta.WritePageOld"
+             Title="Writable" >
+    <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+    <TableView x:Name="tableView" Intent="Form">
+        <TableRoot Title="Data Form">
+            <TableSection Title="Writeable Parameters">
+                <ViewCell>
+                    <Button x:Name="FLAGGATEENABLE" Text="{Binding Path=FLAGGATEENABLE, StringFormat='Flag Gate Enable {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="SERIALNUMBERHIGH" Text="{Binding Path=SERIALNUMBERHIGH, StringFormat='Serial Number High {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="SERIALNUMBERLOW" Text="{Binding Path=SERIALNUMBERLOW, StringFormat='Serial Number Low {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="BRAKEMIN" Text="{Binding Path=BRAKEMIN, StringFormat='Brake Min {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="BRAKEMAX" Text="{Binding Path=BRAKEMAX, StringFormat='Brake Max {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="BRAKEFULL" Text="{Binding Path=BRAKEFULL, StringFormat='Brake Full {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="THROTTLEMIN" Text="{Binding Path=THROTTLEMIN, StringFormat='Throttle Min {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="THROTTLEMAX" Text="{Binding Path=THROTTLEMAX, StringFormat='Thottle Max {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="THROTTLEFULL" Text="{Binding Path=THROTTLEFULL, StringFormat='Thottle Full {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="THROTTLECENTER" Text="{Binding Path=THROTTLECENTER, StringFormat='Thottle Center {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="REVERSEENCODER" Text="{Binding Path=REVERSEENCODER, StringFormat='Reverse Encoder {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="DISABLEANALOGBRAKE" Text="{Binding Path=DISABLEANALOGBRAKE, StringFormat='Disable Analog Brake {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="DISABLEBRAKESWITCH" Text="{Binding Path=DISABLEBRAKESWITCH, StringFormat='Disable Brake Switch {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="DISABLEMOTOROVERTEMPTRIP" Text="{Binding Path=DISABLEMOTOROVERTEMPTRIP, StringFormat='Disable Motor Temp Trip {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="SPEEDOMETERMAXSPEED" Text="{Binding Path=SPEEDOMETERMAXSPEED, StringFormat='Speedometer Max Speed {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="TIRERADIUS" Text="{Binding Path=TIRERADIUS, StringFormat='Tire Radius {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="REARAXLERATIO" Text="{Binding Path=REARAXLERATIO, StringFormat='Rear Axle Ratio {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="MILESORKILOMETERS" Text="{Binding Path=MILESORKILOMETERS, StringFormat='0 for miles and 1 for kilometers {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="HILLBRAKESTRENGTH" Text="{Binding Path=HILLBRAKESTRENGTH, StringFormat='Hill Brake Strength % {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+   <!--             <ViewCell>
+                    <Button x:Name="OVTripV" Text="{Binding Path=OVTripV, StringFormat='O/V Trip (V) {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell> -->
+                <ViewCell>
+                    <Button x:Name="OTTripC" Text="{Binding Path=OTTripC, StringFormat='O/T Trip (C) {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+     <!--           <ViewCell>
+                    <Button x:Name="UVTRIPV" Text="{Binding Path=UVTRIPV, StringFormat='U/V Trip (V) {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell> -->
+                <ViewCell>
+                    <Button x:Name="OCTRIPA" Text="{Binding Path=OCTRIPA, StringFormat='O/C Trip (A) {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="AGAINAV" Text="{Binding Path=AGAINAV, StringFormat='A gain A/V {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="CGAINAV" Text="{Binding Path=CGAINAV, StringFormat='C gain A/V {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="NONFATALOTTRIPC" Text="{Binding Path=NONFATALOTTRIPC, StringFormat='non fatal O/T Trip (C) {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="MOTTRIPC" Text="{Binding Path=MOTTRIPC, StringFormat='M O/T Trip (C) {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="SAVEPARAMS" Text="{Binding Path=SAVEPARAMS, StringFormat='Save Params {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="INITPARAMS" Text="{Binding Path=INITPARAMS, StringFormat='Init Params {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="TESTMODE" Text="{Binding Path=TESTMODE, StringFormat='Test Mode {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="RATEDIRMS" Text="{Binding Path=RATEDIRMS, StringFormat='Rated Irms {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="RATEDVRMS" Text="{Binding Path=RATEDVRMS, StringFormat='Rated Vrms {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="RATEDFREQ" Text="{Binding Path=RATEDFREQ, StringFormat='Rated Freq {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="POLEPAIRS" Text="{Binding Path=POLEPAIRS, StringFormat='Pole Pairs {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="ENCPPR" Text="{Binding Path=ENCPPR, StringFormat='Enc PPR {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="RISERPMSEC" Text="{Binding Path=RISERPMSEC, StringFormat='Rise RPM/sec {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="FALLRPMSEC" Text="{Binding Path=FALLRPMSEC, StringFormat='Fall RPM/sec {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="RISEHZSEC" Text="{Binding Path=RISEHZSEC, StringFormat='Rise Hz/sec {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="FALLHZSEC" Text="{Binding Path=FALLHZSEC, StringFormat='Fall Hz/sec {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="ENCRPMSEC" Text="{Binding Path=ENCRPMSEC, StringFormat='Enc RPM/sec {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="DEADTIMECORRECTION" Text="{Binding Path=DEADTIMECORRECTION, StringFormat='Dead time correction {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="MSLIPVRMS" Text="{Binding Path=MSLIPVRMS, StringFormat='M slip Vrms {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="RSLIPVRMS" Text="{Binding Path=RSLIPVRMS, StringFormat='R slip Vrms {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="MINVOLTAGE" Text="{Binding Path=MINVOLTAGE, StringFormat='Min Voltage {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="SPDKP" Text="{Binding Path=SPDKP, StringFormat='Spd Kp {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="SPDKI" Text="{Binding Path=SPDKI, StringFormat='Spd Ki {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="MSLIPFREQHZ" Text="{Binding Path=MSLIPFREQHZ, StringFormat='M SlipFreq Hz {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="RSLIPFREQHZ" Text="{Binding Path=RSLIPFREQHZ, StringFormat='R SlipFreq Hz {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="MSLIPGAIN" Text="{Binding Path=MSLIPGAIN, StringFormat='M slip gain {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="RSLIPGAIN" Text="{Binding Path=RSLIPGAIN, StringFormat='R slip gain {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="FWDLMTRPM" Text="{Binding Path=FWDLMTRPM, StringFormat='Fwd Lmt RPM {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="RVSLMTRPM" Text="{Binding Path=RVSLMTRPM, StringFormat='Rvs Lmt RPM {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="FAULTRESET" Text="{Binding Path=FAULTRESET, StringFormat='Fault Reset {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="KPBATTERY" Text="{Binding Path=KPBATTERY, StringFormat='Kp Battery {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="KPACCEL" Text="{Binding Path=KPACCEL, StringFormat='Kp Accel {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="KPPHASE" Text="{Binding Path=KPPHASE, StringFormat='Kp Phase {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="IBATLIMIT" Text="{Binding Path=IBATLIMIT, StringFormat='Ibat Limit {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="FREQ" Text="{Binding Path=FREQ, StringFormat='Openloop Freq {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="MODINDEX" Text="{Binding Path=MODINDEX, StringFormat='Openloop Mod {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="NOMINALBATTERYV" Text="{Binding Path=NOMINALBATTERYV, StringFormat='Nominal Battery V {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="BOOTSLIPHZ" Text="{Binding Path=BOOTSLIPHZ, StringFormat='Boot Slip Hz {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="ADDRESS183" Text="{Binding Path=ADDRESS183, StringFormat='Address 183 {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="ADDRESS184" Text="{Binding Path=ADDRESS184, StringFormat='Address 184 {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="ADDRESS185" Text="{Binding Path=ADDRESS185, StringFormat='Address 185 {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="ADDRESS186" Text="{Binding Path=ADDRESS186, StringFormat='Address 186 {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="ADDRESS187" Text="{Binding Path=ADDRESS187, StringFormat='Address 187 {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="ADDRESS188" Text="{Binding Path=ADDRESS188, StringFormat='Address 188 {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="ADDRESS189" Text="{Binding Path=ADDRESS189, StringFormat='Address 189 {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+                <ViewCell>
+                    <Button x:Name="ADDRESS190" Text="{Binding Path=ADDRESS190, StringFormat='Address 190 {0}'}" Font="Large" IsEnabled="True" Clicked="OnButtonClicked" />
+                </ViewCell>
+            </TableSection>
+        </TableRoot>
+    </TableView>
+</ContentPage>

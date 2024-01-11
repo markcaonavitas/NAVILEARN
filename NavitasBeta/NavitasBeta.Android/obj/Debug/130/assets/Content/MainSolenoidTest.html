@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Solenoid Test</title>
+    <link rel="stylesheet" href="./themes/VehicleDiagnostics.css" media="all">
+    <!-- for easeier development  goto and install liverreload.something on your PC. It will automatically (live)update the screen when any file is saved -->
+    <!-- jquery does have some very usefull functions but be aware that javascript abilities get updated every few years -->
+    <script src="./frameworks/jquery-3.4.1.min.js"></script>
+    <script src="./frameworks/jquery.xml2json.js"></script>
+    <!--The next three are used in NavitasMotorControllerModel.js for backwards compatible things so that Safari(iOS webview) can handle the new Custom Event super() inheritance
+    very confusing for newbies and I should be carefull not to bring in new javascript/html revision features that may not be supported by iOS yet-->
+    <script src="./frameworks/min.js"></script>
+    <script src="./frameworks/ResizeObserver.global.js"></script>
+    <script src="./frameworks/polyfill.min.js"></script>
+    <!-- Navitas framework -->
+    <!-- NavitasMotorControllerModel.js is frameworkless, written to allow some simple MVVM (notify property has changed things) that frame works like Angular.js would do. It is a demonstration
+    of the high level but basic abilities of standalone javascript.  The style some code is meant to show similaritiies (reusable) to C#-->
+    <script src="./frameworks/List.js"></script>
+    <script src="./frameworks/ViewModelHook.js"></script>
+    <script src="./frameworks/TACDictionary.js"></script>
+    <script src="./frameworks/TSXDictionary.js"></script>
+    <script src="./frameworks/NavitasMotorControllerModel.js"></script>
+    <script src="./frameworks/CommunicationsInterface.js"></script>
+    <script src="./frameworks/SimulatedCommandInterface.js"></script>
+    <!-- New Javascript to Hardware Interfaces -->
+    <script src="./frameworks/PageParameterList.js"></script>
+    <script src="./frameworks/PageCommunicationsList.js"></script>
+    <script src="./frameworks/NavitasGeneralPageView.js"></script>
+    <script src="./frameworks/Queue.js"></script>
+    <script src="./frameworks/NavitasModbus.js"></script>
+    <!-- if below file is found HasBrowserCommandInterface is defined -->
+    <script src="./frameworks/BrowserCommandInterface.js"></script>
+    <!--The best thing to happen to javascript in 20 years is the Async..Await features. Using them with the promise concept allows code to hide callback hell-->
+    <!--graphing stuff. Note: This fully uses jQuery-->
+    <!-- <script language="javascript" type="text/javascript" src="./widgets/jquery.flot.min.js"></script> -->
+    <script src="./widgets/jquery.flot.js"></script> <!-- I modified the original source to get a different legend box size -->
+    <!--<link href="./themes/examples.css" rel="stylesheet" type="text/css" />-->
+    <!-- Navitas custom Progess Bar -->
+    <script src="./widgets/ProgressBarPercentPassFail.js"></script> <!-- lots of room for graphics improvement -->
+    <!-- Vehicle Diagnostics files -->
+    <script src="./js/VehicleDiagnostics.js"></script>
+    <script src="./js/TestSequenceDictionary.js"></script>
+
+    <script>
+         if (typeof App.VehicleDiagnostics == 'undefined') App = { VehicleDiagnostics: new VehicleDiagnostics() };
+
+        if (typeof HasBrowserCommandInterface != 'undefined') {
+        }
+        else {
+            App.NavitasMotorController = new NavitasMotorControllerModel(new CommunicationsInterface({})) //just so it looks like the c# NavitasBeta App.
+        }
+
+        window.addEventListener("unload", async function () {
+            App.VehicleDiagnostics.StopTest = false;
+            App.NavitasMotorController.Communications.bEnableCommunicationTransmissions = false;
+            console.log("Trying to Close ");
+            if (typeof HasBrowserCommandInterface != 'undefined') App.NavitasMotorController.Communications.DeviceSocket.websocket.close();
+        });
+
+       // Without jQuery
+        // Define a convenience method and use it
+        let ready = (callback) => {
+            //screen.orientation.addEventListener("change", callback);
+            if (document.readyState != "loading") callback();
+            else document.addEventListener("DOMContentLoaded", callback);
+        }
+        ready(async () => {
+            console.log("DOM loaded");
+            await WaitForPhoneAppToStartThis(); //uncomment to run App0
+        });
+
+        let SimulationCheckTimeout = 80; //a global var because static var is not a thing
+        async function WaitForPhoneAppToStartThis() {
+            //if this is running in the actual Phone App then the App will inject a function called invokeCSharpAction()
+            //so give it a couple seconds to do that (should only take 100ms)
+            //SimulationCheckTimeout = 0;
+            if (typeof HasBrowserCommandInterface != 'undefined') { //This must be running from a browser
+                //RG Nov 27, Something has to be done here if simulating
+                invokeSimulatedActionIsEnabled = false;
+                console.log("Browser detected");
+                App.NavitasMotorController.Communications.protocal.bEnableCommunicationTransmissions = true;
+                await App.NavitasMotorController.Communications.BeginThread();
+                while (App.NavitasMotorController.ModelType == "")// || App.RegressionTestBoxModelA.ModelType == "" || App.firmwareDownload.AlreadyTalkingToBootloader == true) //wait for communications to start
+                    await Task.Delay(500);
+                App.NavitasMotorController.CommandHandler = new BrowserCommandInterface(App.NavitasMotorController);
+                App.VehicleDiagnostics.InitializeDOMSelector();
+                App.VehicleDiagnostics.TestDict.MainSolenoidDiagnostics = new MainSolenoidDiagnostics();
+                await App.VehicleDiagnostics.TestDict.MainSolenoidDiagnostics.CreateDOM();
+            }
+            else if (typeof invokeCSharpAction == 'function') {
+                invokeSimulatedActionIsEnabled = false;
+                console.log("Phone app detected");
+                await App.NavitasMotorController.JsonCommands({ GetAppParameters: {} }); //will update things like App.NavitasMotorController.ModelType
+                App.VehicleDiagnostics.InitializeDOMSelector();
+                App.VehicleDiagnostics.TestDict.MainSolenoidDiagnostics = new MainSolenoidDiagnostics();
+                await App.VehicleDiagnostics.TestDict.MainSolenoidDiagnostics.CreateDOM();
+            }
+            else {
+                if (SimulationCheckTimeout == 0) {
+                    invokeSimulatedActionIsEnabled = true;
+                    console.log("Simulation detected");
+                    App.NavitasMotorController.Model = "TAC";
+                    App.SimulatedMotorController = new NavitasMotorControllerModel(new CommunicationsInterface({}));
+                    App.SimulatedMotorController.Model = "TAC";
+                    App.NavitasMotorController.CommandHandler = new SimulatedCommandInterface(App.NavitasMotorController, App.SimulatedMotorController);
+                    // InitializeSimulatorModel();
+                    // setTimeout(() => App.NavitasMotorController.CommandHandler.StartNavitasControllerSimulator(10, () => { DiagnosticsThrottleCalibrationSimulator() }), 101); //to run your specific Unit Test simulator
+                    App.VehicleDiagnostics.InitializeDOMSelector();
+                    App.VehicleDiagnostics.TestDict.MainSolenoidDiagnostics = new MainSolenoidDiagnostics();
+                    await App.VehicleDiagnostics.TestDict.MainSolenoidDiagnostics.CreateDOM();
+
+                }
+                else {
+                    SimulationCheckTimeout -= 1;
+                    setTimeout(WaitForPhoneAppToStartThis, 100);
+                }
+            }
+        }
+
+         class MainSolenoidDiagnostics {
+            constructor() {
+                this.setTimeoutId = 0;
+                // Get all defined class methods
+                const methods = Object.getOwnPropertyNames(Object.getPrototypeOf(this));
+                // Bind all methods
+                methods
+                    .filter(method => (method !== 'constructor'))
+                    .forEach((method) => { this[method] = this[method].bind(this); });
+
+                StationaryTestSequenceDictionary.outputs["main-solenoid-closed-and-opened-voltages"] = {
+                    isImplemented: true,
+                    vehicleType: [],
+                    isInteractive: false,
+                    description: "Check the voltage across the main solenoid increases or decreases at least 1V after closed or opened respectively.",
+                    run: this.MainSolenoidTest,
+                    manualControl: {
+                        description: ["Turn on main solenoid on or off"],
+                        run: [App.VehicleDiagnostics.MainSolenoidSwitch],
+                        type: ["toggle"],  // TODO: To be update in the future if more type needed. Currently available only: toggle.
+                        bind: ["SetOutputState\\&0x0001"]
+                    }
+                }
+                if (document.querySelector('body') != null) {
+                    // TODO: add if condition if the test is running individually
+                    document.querySelector('body').style.cssText = `
+                        position: absolute;
+                        background - color: rgba(101, 75, 75, 0);
+                        display: flex;
+                        flex-wrap: wrap;
+                        height: 100%;
+                        width: 100%;
+                        justify-content: center;
+                        align-items: center;
+                        overflow-y: auto;
+                        `
+                }
+            }
+
+            async MainSolenoidTest(canvas, testName) {
+                /*
+                * Check main solenoid voltages when open and close
+                */
+                let finalResult = "Pass";
+                let percentage = 0;
+
+                await App.NavitasMotorController.JsonCommands({
+                    Read: {
+                        "Options": 0,
+                        "SetOutputState": 0
+                    }
+                });
+                let initialOptionsValue = App.NavitasMotorController.GetParameter("Options").parameterValue;
+                let initialOutputState = App.NavitasMotorController.GetParameter("SetOutputState").parameterValue;
+
+                //------------ Check initial main solenoid voltage when opened ------------//
+                let stageName = "initial-open-voltage";
+                App.VehicleDiagnostics.BuildHTMLTable({
+                    SubTest: {
+                        name: testName,
+                        stage: stageName,
+                        text: "Check initial open main solenoid voltage"
+                    }
+                });
+                await App.NavitasMotorController.JsonCommands({
+                    Read: {
+                        "UNDERVOLTAGETHRESHOLD": 0,
+                        "OVERVOLTAGETHRESHOLD": 0
+                    }
+                });
+                await App.NavitasMotorController.JsonCommands({
+                    Write: {
+                        "Options": initialOptionsValue | (1 << 4),  // set bit 4 to 1 (enable manufacturing options)
+                        "SetOutputState": initialOutputState & ~(1 << 0)  // set bit 0 to 0 (main solenoid)
+                    }
+                });
+                let minValue = parseFloat(App.NavitasMotorController.GetParameter("UNDERVOLTAGETHRESHOLD").parameterValue.toFixed(2));
+                let maxValue = parseFloat(App.NavitasMotorController.GetParameter("OVERVOLTAGETHRESHOLD").parameterValue.toFixed(2));
+                let stageText = document.querySelector(`.test-info-text.${stageName}`);
+                let stageResult = document.querySelector(`.test-info-result.${stageName}`);
+                let result = await App.VehicleDiagnostics.TestResult(stageResult, "VBATVDC", undefined, undefined, minValue, maxValue);
+                result = result["VBATVDC"];
+                let mainSolenoidVoltageBeforeClosed = result.value;
+                if (result.result) {
+                    stageText.innerHTML = `Initial open main solenoid voltage is ${mainSolenoidVoltageBeforeClosed}V`;
+                } else {
+                    stageText.innerHTML = `Initial open main solenoid voltage ${mainSolenoidVoltageBeforeClosed}V is below minimum battery voltage ${minValue}V`;
+                    finalResult = "Fail";
+                }
+                percentage += 33.33;
+                progressBar(canvas, percentage, "");
+
+                //------------ Check main solenoid voltage when closed ------------//
+                stageName = "nominal-closed-voltage";
+                App.VehicleDiagnostics.BuildHTMLTable({
+                    SubTest: {
+                        name: testName,
+                        stage: stageName,
+                        text: "Check main solenoid voltage after closed"
+                    }
+                });
+                await App.NavitasMotorController.JsonCommands({
+                    Write: {
+                        "SetOutputState": initialOutputState | (1 << 0)  // set bit 0 to 1 (main solenoid)
+                    }
+                });
+                // await App.NavitasMotorController.JsonCommands({ Read: { "CONTACTORNOTCLOSEDTHRESHOLD": 0 } });
+                minValue = mainSolenoidVoltageBeforeClosed + 0.5;
+                minValue = parseFloat(minValue.toFixed(2));
+                stageText = document.querySelector(`.test-info-text.${stageName}`);
+                stageResult = document.querySelector(`.test-info-result.${stageName}`);
+                result = await App.VehicleDiagnostics.TestResult(stageResult, "VBATVDC", undefined, undefined, minValue, maxValue, 5);
+                result = result["VBATVDC"];
+                if (result.result) {
+                    stageText.innerHTML = `Main solenoid voltage after closed is ${result.value}V`;
+                } else {
+                    if (result.value < minValue) {
+                        stageText.innerHTML = `Main solenoid voltage after closed ${result.value}V is below minimum threshold voltage ${minValue}V`;
+                        finalResult = "Fail";
+                    } else if (result.value > maxValue) {
+                        stageText.innerHTML = `Main solenoid voltage after closed ${result.value}V is above maximum threshold voltage ${maxValue}V`;
+                        finalResult = "Fail";
+                    } else {
+                        stageText.innerHTML = `Main solenoid voltage after closed is ${result.value}V`;
+                    }
+                }
+                percentage += percentage;
+                progressBar(canvas, percentage, "");
+
+                //------------ Check main solenoid voltage when opened after closed ------------//
+                stageName = "nominal-opened-voltage";
+                App.VehicleDiagnostics.BuildHTMLTable({
+                    SubTest: {
+                        name: testName,
+                        stage: stageName,
+                        text: "Check main solenoid voltage after opened"
+                    }
+                });
+                let mainSolenoidVoltageBeforeOpened = parseFloat(App.NavitasMotorController.GetParameter("VBATVDC").parameterValue.toFixed(2));
+                await App.NavitasMotorController.JsonCommands({
+                    Write: {
+                        "SetOutputState": initialOutputState & ~(1 << 0)  // set bit 0 to 0 (main solenoid)
+                    }
+                })
+                minValue = mainSolenoidVoltageBeforeOpened - 1;
+                minValue = parseFloat(minValue.toFixed(2));
+                stageText = document.querySelector(`.test-info-text.${stageName}`);
+                stageResult = document.querySelector(`.test-info-result.${stageName}`);
+                result = await App.VehicleDiagnostics.TestResult(stageResult, "VBATVDC", undefined, undefined, minValue, maxValue, 3);
+                result = result["VBATVDC"];
+                if (result.result) {
+                    stageText.innerHTML = `Main solenoid voltage after opened is ${result.value}V`;
+                } else {
+                    if (result.value < minValue) {
+                        stageText.innerHTML = `Main solenoid voltage after opened ${result.value}V is below minimum threshold voltage ${minValue}V`;
+                        finalResult = "Fail";
+                    } else if (result.value > maxValue) {
+                        stageText.innerHTML = `Main solenoid voltage after opened ${result.value}V is above maximum threshold voltage ${maxValue}V`;
+                        finalResult = "Fail";
+                    } else {
+                        stageText.innerHTML = `Main solenoid voltage after opened is ${result.value}V`;
+                    }
+                }
+                percentage += percentage;
+                progressBar(canvas, percentage, "");
+
+                await App.NavitasMotorController.JsonCommands({
+                    Write: {
+                        "Options": initialOptionsValue,
+                        "SetOutputState": initialOutputState
+                    }
+                });
+
+                return {
+                    percent: percentage,
+                    result: finalResult
+                };
+            }
+
+            async UpdateGraph() {
+                if (!App.VehicleDiagnostics.TestRunning) {
+                    await App.NavitasMotorController.JsonCommands({
+                        Read: {
+                            "VBATVDC": 0
+                        }
+                    });
+                }
+                let yVal = App.NavitasMotorController.GetParameter("VBATVDC").parameterValue;
+                let xVal = App.VehicleDiagnostics.ChartDataDict["VBATVDC"].chartDPS.length;
+                if (xVal > 100) {
+                    App.VehicleDiagnostics.ChartDataDict["VBATVDC"].chartDPS.shift();
+                    App.VehicleDiagnostics.ChartDataDict["VBATVDC"].chartDPS.forEach((element, index, array) => {
+                        element[0] -= 1;
+                    });
+                    xVal = 100;
+                }
+                App.VehicleDiagnostics.ChartDataDict["VBATVDC"].chartDPS.push([xVal, yVal]);
+                await App.VehicleDiagnostics.UpdateChart("VBATVDC");
+                this.setTimeoutId = setTimeout(this.UpdateGraph, 15);
+            }
+
+            async CreateDOM() {
+                await App.NavitasMotorController.JsonCommands({
+                    Read: {
+                        "VBATVDC": 0
+                    }
+                });
+                let initialBatteryVoltage = App.NavitasMotorController.GetParameter("VBATVDC").parameterValue;
+                App.VehicleDiagnostics.BuildChart({
+                    param: `#line-chart-VBATVDC`,
+                    name: `${App.NavitasMotorController.GetParameter("VBATVDC").Name}`,
+                    type: "line",  // TODO:
+                    ymin: initialBatteryVoltage - 1,
+                    ymax: initialBatteryVoltage + 1
+                });
+                let mainSolenoidTest = StationaryTestSequenceDictionary.outputs["main-solenoid-closed-and-opened-voltages"];
+                App.VehicleDiagnostics.BuildHTMLTable({
+                    Test: {
+                        name: "main-solenoid-closed-and-opened-voltages",
+                        description: mainSolenoidTest.description,
+                        fn: mainSolenoidTest.run,
+                        mcontrol: mainSolenoidTest.manualControl
+                    }
+                });
+                if (document.querySelector('.button.walkthrough-close') != null) {//if body is available or injected
+                    document.querySelector('.button.walkthrough-close').addEventListener('click', () => {
+                        App.NavitasMotorController.JsonCommands({ Close: null });
+                    });
+
+                    this.setTimeoutId = setTimeout(this.UpdateGraph, 15);
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <style>
+        body {
+            position: absolute;
+            background-color: rgba(101, 75, 75, 0);
+            display: flex;
+            flex-wrap: wrap;
+            height: 100%;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            overflow-y: auto;
+        }
+
+        .walkthrough-popup {
+            background-color: rgb(157, 157, 157);
+            font-family: "Lato";
+            /*color: #eaeaea;*/
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 90%;
+            height: 70%;
+            overflow: hidden;
+            box-shadow: 0 6px 12px rgb(0 0 0 / 23%), 0 10px 40px rgb(0 0 0 / 19%);
+            position: relative;
+        }
+
+        .stationary-diagnostics {
+            display: flex;
+        }
+
+        .graphs {
+            height: 40%;
+            width: 100%;
+        }
+
+        .chart {
+            height: 100%;
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .test-details, .controls-body {
+            display: block;
+        }
+    </style>
+    <div class="resources">
+        <img class="popup-graph" id="popup-acceleration" src="./images/acceleration.svg" />
+        <img class="popup-graph" id="popup-stop" src="./images/stop.svg" />
+        <img class="popup-graph" id="REVBUZZEROUTPUT" src="./images/REVBUZZEROUTPUT.svg" />
+        <img class="popup-graph" id="REVBUZZEROUTPUT_ON" src="./images/REVBUZZEROUTPUT_ON.svg" />
+        <img class="popup-graph" id="REVBUZZEROUTPUT_OFF" src="./images/REVBUZZEROUTPUT_OFF.svg" />
+        <img class="popup-graph" id="BRAKERELAYOUTPUT_ON" src="images/BRAKERELAYOUTPUT_ON.svg" />
+        <img class="popup-graph" id="BRAKERELAYOUTPUT_OFF" src="images/BRAKERELAYOUTPUT_OFF.svg" />
+        <button class="popup-button" id="popup-custom-button" role="button">
+            <span class="popup-button-shadow"></span>
+            <span class="popup-button-edge"></span>
+            <span class="popup-button-front text"></span>
+        </button>
+        <button id="popup-custom-button-2" role="button"></button>
+        <input class="popup-button" id="popup-lock-button" type="image" src="./images/ionunlocked.png" />
+        <input class="popup-button" id="popup-unlock-button" type="image" src="./images/ionlocked.png" />
+        <div class="popup-toggle-buttons" id="popup-vehicle-switches">
+            <div class="button-cover" style="--switch-content: ''; display: none;">
+                <img class="button-image" src="" />
+                <div class="vehicle-switch b2">
+                    <input type="checkbox" class="checkbox" />
+                    <div class="knobs">
+                        <span>OFF</span>
+                    </div>
+                    <div class="layer"></div>
+                </div>
+            </div>
+        </div>
+        <div class="popup-progress-bar" id="popup-voltage-bar">
+            <input type="checkbox" id="progress-bar-overlay" />
+            <label for="progress-bar-overlay">
+                <div id="progress-bar-fill"><span id="progress-bar-current-value"></span></div>
+            </label>
+            <span>Voltage</span>
+            <span id="progress-bar-max-value"></span>
+        </div>
+        <div class="driving-chart" style="height: 20%; max-width: 80%; margin: 0 auto;"></div>
+        <label class="toggle">
+            <input type="checkbox" disabled>
+            <span class="toggle-slider"></span>
+        </label>
+    </div>
+    <div class="diagnostics-popup">
+        <div class="popup-graphs-area"></div>
+        <span class="popup-text" id="popup-custom-text"></span>
+        <div class="popup-buttons-area"></div>
+        <div class="popup-footer">
+            <button id="popup-skip-button" disabled>SKIP</button>
+        </div>
+    </div>
+    <div class="walkthrough-popup">
+        <div class="stationary-diagnostics">
+            <div class="graphs">
+                <div id="line-chart-VBATVDC" class="chart"></div>
+            </div>
+            <div class="stationary-diagnostics-body"></div>
+        </div>
+        <button class="button walkthrough-close">Close</button>
+    </div>
+</body>
+</html>

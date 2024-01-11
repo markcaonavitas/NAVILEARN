@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<FirmwaresGroups>
+  <FirmwareGroups>
+    <FirmwareGroup>
+      <Title>Moko Manufacturer</Title>
+      <StrogeType>External</StrogeType>
+      <SubDirectory>Released</SubDirectory>
+      <FileItems>
+        <FileItem>
+          <FriendlyFileName>TSX 600A Stock Motor</FriendlyFileName>
+          <ActualFileName>TSX3.0_600A_Stock_Motor</ActualFileName>
+        </FileItem>
+      </FileItems>
+    </FirmwareGroup>
+ </FirmwareGroups>
+</FirmwaresGroups>

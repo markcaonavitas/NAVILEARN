@@ -1,0 +1,156 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>User Onboarding</title>
+        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" />
+        <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
+        <link rel="stylesheet" href="./themes/UserOnboarding.css" />
+        <!-- for easeier development  goto and install liverreload.something on your PC. It will automatically (live)update the screen when any file is saved -->
+        <script>
+            let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            if (!isMobile) { //assume debugger utility below is only when running on PC
+            }
+            else {
+                //Below is necessary because Android does not start at full screen
+                //doesn't runn on PC, so we can use the screen resizing for some format checks
+                document.documentElement.style.height = screen.height + 'px';
+            }
+        </script>
+        <!-- jquery does have some very usefull functions but be aware that javascript abilities get updated every few years -->
+        <script src="./frameworks/jquery-3.4.1.min.js"></script>
+        <script src="./frameworks/jquery.xml2json.js"></script>
+        <!--The next three are used in NavitasMotorControllerModel.js for backwards compatible things so that Safari(iOS webview) can handle the new Custom Event super() inheritance
+        very confusing for newbies and I should be carefull not to bring in new javascript/html revision features that may not be supported by iOS yet-->
+        <script src="./frameworks/min.js"></script>
+        <script src="./frameworks/ResizeObserver.global.js"></script>
+        <script src="./frameworks/polyfill.min.js"></script>
+        <!-- Navitas framework -->
+        <!-- NavitasMotorControllerModel.js is frameworkless, written to allow some simple MVVM (notify property has changed things) that frame works like Angular.js would do. It is a demonstration
+        of the high level but basic abilities of standalone javascript.  The style some code is meant to show similaritiies (reusable) to C#-->
+        <script src="./frameworks/List.js"></script>
+        <script src="./frameworks/ViewModelHook.js"></script>
+        <script src="./frameworks/TACDictionary.js"></script>
+        <script src="./frameworks/TSXDictionary.js"></script>
+        <script src="./frameworks/NavitasMotorControllerModel.js"></script>
+        <script src="./frameworks/CommunicationsInterface.js"></script>
+        <script src="./frameworks/SimulatedCommandInterface.js"></script>
+        <!-- New Javascript to Hardware Interfaces -->
+        <script src="./frameworks/PageParameterList.js"></script>
+        <script src="./frameworks/PageCommunicationsList.js"></script>
+        <script src="./frameworks/NavitasGeneralPageView.js"></script>
+        <script src="./frameworks/Queue.js"></script>
+        <script src="./frameworks/NavitasModbus.js"></script>
+        <!-- if below file is found HasBrowserCommandInterface is defined -->
+        <script src="./frameworks/BrowserCommandInterface.js"></script>
+        <!--The best thing to happen to javascript in 20 years is the Async..Await features. Using them with the promise concept allows code to hide callback hell-->
+        <!--graphing stuff. Note: This fully uses jQuery-->
+        <!-- <script language="javascript" type="text/javascript" src="./widgets/jquery.flot.min.js"></script> -->
+        <script src="./widgets/jquery.flot.js"></script> <!-- I modified the original source to get a different legend box size -->
+        <!--<link href="./themes/examples.css" rel="stylesheet" type="text/css" />-->
+        <!-- Navitas custom Progess Bar -->
+        <script src="./widgets/ProgressBarPercentPassFail.js"></script> <!-- lots of room for graphics improvement -->
+    </head>
+    <body>
+        <div id="MyConsoleLogOutputArea"></div>
+        <div class="ui-walkthrough">
+            <div class="ui-description">
+                <div></div>
+                <p class="page-description"></p>
+                <button class="page-previous">Back</button>
+                <button class="page-next">Next</button>
+                <button class="page-close">Close</button>
+            </div>
+            <div class="page">
+                <div class="first-row greyout-transparent highlight-top"></div>
+                <div class="second-row">
+                    <div class="greyout-transparent highlight-left"></div>
+                    <div class="highlight"></div>
+                    <div class="greyout-transparent highlight-right"></div>
+                </div>
+                <div class="third-row greyout-transparent highlight-bottom"></div>
+            </div>
+        </div>
+        <div class="walkthrough-popup">
+            <div class="walkthrough-mainscreen">
+                <p class="walkthrough-description">Here you can find instructions for using the app and help for troubleshooting vehicle.</p>
+                <div class="walkthrough-guide">
+                    <h3>BEGINNER GUIDE</h3>
+                    <button class="button walkthrough-ui">UI Walkthrough</button>
+                    <button class="button walkthrough-setup">Begin Setup Wizard</button>
+                </div>
+                <div class="walkthrough-troubleshooting">
+                    <h3>VEHICLE DIAGNOSIS</h3>
+                    <button class="button troubleshooting-stationary">Start stationary test</button>
+                    <button class="button troubleshooting-driving">Start driving test</button>
+                </div>
+                <div class="walkthrough-navigation">
+                    <button class="button walkthrough-close">Return to Main Screen</button>
+                </div>
+            </div>
+            <div class="walkthrough">
+                <div class="walkthrough-pagination">
+                    <a class="dot active"></a>
+                    <a class="dot"></a>
+                    <a class="dot"></a>
+                    <a class="dot"></a>
+                    <a class="dot"></a>
+                </div>
+                <div class="walkthrough-body">
+                    <ul class="screens animate">
+                        <li class="screen active">
+                            <div class="media">
+                                <img class="image" src="./images/tire-size.svg">
+                            </div>
+                            <h3>Tire Size</h3>
+                            <p>Please check if the tire size settings is correct</p>
+                            <input id="tire-size">
+                            <input class="submit" type="button" value="Submit", style="color: black">
+                        </li>
+                        <li class="screen">
+                            <div class="media">
+                                <img class="image" src="./images/battery.svg">
+                            </div>
+                            <h3>Battery Type</h3>
+                            <p>Please check if the battery type is correct</p>
+                            <input id="battery-type">
+                            <input class="submit" type="button" value="Submit", style="color: black">
+                        </li>
+                        <li class="screen">
+                            <div class="media">
+                                <img class="image" src="">
+                            </div>
+                            <h3></h3>
+                            <p></p>
+                        </li>
+                        <li class="screen">
+                            <div class="media">
+                                <img class="image" src="https://s3.amazonaws.com/jebbles-codepen/file_icon_1.png">
+                            </div>
+                            <h3></h3>
+                            <p></p>
+                        </li>
+                        <li class="screen">
+                            <div class="media">
+                                <img class="image" src="https://s3.amazonaws.com/jebbles-codepen/comm_icon_1.png">
+                            </div>
+                            <h3></h3>
+                            <p></p>
+                        </li>
+                    </ul>
+                    <button class="prev-screen" disabled="">
+                        <i class="icon-angle-left"></i>
+                    </button>
+                    <button class="next-screen">
+                        <i class="icon-angle-right"></i>
+                    </button>
+                </div>
+                <div class="walkthrough-footer">
+<!--                    <button class="button prev-screen">Previous</button>-->
+<!--                    <button class="button next-screen">Next</button>-->
+                    <button class="button hide-screen">Exit</button>
+                </div>
+            </div>
+        </div>
+        <script src="./js/UserOnboarding.js"></script>
+    </body>
+</html>

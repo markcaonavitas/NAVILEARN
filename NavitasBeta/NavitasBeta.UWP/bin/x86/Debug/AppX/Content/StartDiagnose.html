@@ -1,0 +1,135 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Vehicle Diagnostics</title>
+    <!--<meta name="viewport" content="width=device-width" />-->
+    <link rel="stylesheet" href="./themes/VehicleDiagnostics.css" media="all" />
+    <link rel="stylesheet" href="./themes/leaflet.css" />
+    <!-- for easeier development  goto and install liverreload.something on your PC. It will automatically (live)update the screen when any file is saved -->
+    <script>
+        let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        if (!isMobile) { //assume debugger utility below is only when running on PC
+        }
+        else {
+            //Below is necessary because Android does not start at full screen
+            //doesn't runn on PC, so we can use the screen resizing for some format checks
+            document.documentElement.style.height = screen.height + 'px';
+        }
+    </script>
+    <!-- jquery does have some very usefull functions but be aware that javascript abilities get updated every few years -->
+    <script src="./frameworks/jquery-3.4.1.min.js"></script>
+    <script src="./frameworks/jquery.xml2json.js"></script>
+    <!--The next three are used in NavitasMotorControllerModel.js for backwards compatible things so that Safari(iOS webview) can handle the new Custom Event super() inheritance
+    very confusing for newbies and I should be carefull not to bring in new javascript/html revision features that may not be supported by iOS yet-->
+    <script src="./frameworks/min.js"></script>
+    <script src="./frameworks/ResizeObserver.global.js"></script>
+    <script src="./frameworks/polyfill.min.js"></script>
+    <!-- Navitas framework -->
+    <!-- NavitasMotorControllerModel.js is frameworkless, written to allow some simple MVVM (notify property has changed things) that frame works like Angular.js would do. It is a demonstration
+    of the high level but basic abilities of standalone javascript.  The style some code is meant to show similaritiies (reusable) to C#-->
+    <script src="./frameworks/List.js"></script>
+    <script src="./frameworks/ViewModelHook.js"></script>
+    <script src="./frameworks/TACDictionary.js"></script>
+    <script src="./frameworks/TSXDictionary.js"></script>
+    <script src="./frameworks/NavitasMotorControllerModel.js"></script>
+    <script src="./frameworks/CommunicationsInterface.js"></script>
+    <script src="./frameworks/SimulatedCommandInterface.js"></script>
+    <!-- Open-source interactive map JS library -->
+    <script src="./frameworks/leaflet.js"></script>
+    <!-- Kalman filter for smoothing out data point -->
+    <script src="./frameworks/kalman-filter.min.js"></script>
+    <!-- New Javascript to Hardware Interfaces -->
+    <script src="./frameworks/PageParameterList.js"></script>
+    <script src="./frameworks/PageCommunicationsList.js"></script>
+    <script src="./frameworks/NavitasGeneralPageView.js"></script>
+    <script src="./frameworks/Queue.js"></script>
+    <script src="./frameworks/NavitasModbus.js"></script>
+    <!-- if below file is found HasBrowserCommandInterface is defined -->
+    <script src="./frameworks/BrowserCommandInterface.js"></script>
+    <!--The best thing to happen to javascript in 20 years is the Async..Await features. Using them with the promise concept allows code to hide callback hell-->
+    <!--graphing stuff. Note: This fully uses jQuery-->
+    <!-- <script language="javascript" type="text/javascript" src="./widgets/jquery.flot.min.js"></script> -->
+    <script src="./widgets/jquery.flot.js"></script> <!-- I modified the original source to get a different legend box size -->
+    <!--<link href="./themes/examples.css" rel="stylesheet" type="text/css" />-->
+    <!-- Navitas custom Progess Bar -->
+    <script src="./widgets/ProgressBarPercentPassFail.js"></script> <!-- lots of room for graphics improvement -->
+    <script src="./js/VehicleDiagnostics.js"></script>
+    <script src="./js/TestSequenceDictionary.js"></script>
+    <script src="./js/StartDiagnose.js"></script>
+    <script src="./widgets/radarScan.js"></script>
+</head>
+<body>
+    <div class="resources">
+        <img class="popup-graph" id="popup-acceleration" src="./images/acceleration.svg"/>
+        <img class="popup-graph" id="popup-stop" src="./images/stop.svg"/>
+        <img class="popup-graph" id="REVBUZZEROUTPUT" src="./images/REVBUZZEROUTPUT.svg"/>
+        <img class="popup-graph" id="REVBUZZEROUTPUT_ON" src="./images/REVBUZZEROUTPUT_ON.svg"/>
+        <img class="popup-graph" id="REVBUZZEROUTPUT_OFF" src="./images/REVBUZZEROUTPUT_OFF.svg"/>
+        <img class="popup-graph" id="BRAKERELAYOUTPUT_ON" src="images/BRAKERELAYOUTPUT_ON.svg"/>
+        <img class="popup-graph" id="BRAKERELAYOUTPUT_OFF" src="images/BRAKERELAYOUTPUT_OFF.svg"/>
+        <button class="popup-button" id="popup-custom-button" role="button">
+            <span class="popup-button-shadow"></span>
+            <span class="popup-button-edge"></span>
+            <span class="popup-button-front text"></span>
+        </button>
+        <button id="popup-custom-button-2" role="button"></button>
+        <input class="popup-button" id="popup-lock-button" type="image" src="./images/ionunlocked.png"/>
+        <input class="popup-button" id="popup-unlock-button" type="image" src="./images/ionlocked.png"/>
+        <div class="popup-toggle-buttons" id="popup-vehicle-switches">
+            <div class="button-cover" style="--switch-content: ''; display: none;">
+                <img class="button-image" src="" />
+                <div class="vehicle-switch b2">
+                    <input type="checkbox" class="checkbox" />
+                    <div class="knobs">
+                        <span>OFF</span>
+                    </div>
+                    <div class="layer"></div>
+                </div>
+            </div>
+        </div>
+        <div class="popup-progress-bar" id="popup-voltage-bar">
+            <input type="checkbox" id="progress-bar-overlay"/>
+            <label for="progress-bar-overlay">
+                <div id="progress-bar-fill"><span id="progress-bar-current-value"></span></div>
+            </label>
+            <span>Voltage</span>
+            <span id="progress-bar-max-value"></span>
+        </div>
+        <div class="driving-chart" style="height: 20%; max-width: 80%; margin: 0 auto;"></div>
+        <label class="toggle">
+            <input type="checkbox">
+            <span class="toggle-slider"></span>
+        </label>
+    </div>
+    <div class="diagnostics-popup">
+        <div class="popup-graphs-area"></div>
+        <span class="popup-text" id="popup-custom-text"></span>
+        <div class="popup-buttons-area"></div>
+        <div class="popup-footer">
+            <button id="popup-skip-button" disabled>SKIP</button>
+        </div>
+    </div>
+    <div class="diagnostics-home">
+        <canvas id="myCanvas" style="border: 0px solid #d3d3d3; background: url('./images/golfcart.jpg'); background-size:100%"></canvas>
+        <h2 id="ready" style="display: none">Ready for Inspection</h2>
+        <button id="stationary-diag-button">Stationary Diagnostics</button>
+        <button id="driving-diag-button">Driving Diagnostics</button>
+    </div>
+    <div class="diagnostics-body">
+        <div class="control-frame">
+            <button class="control-button" type="button">START</button>
+        </div>
+        <div class="stationary-diagnostics">
+            <div class="stationary-diagnostics-body"></div>
+        </div>
+        <div class="driving-diagnostics">
+            <div id="map"></div>
+        </div>
+    </div>
+<!--    <script>-->
+<!--        $(function(){-->
+<!--            $("#MainSolenoidTest").load("MainSolenoidTest.html");-->
+<!--        });-->
+<!--    </script>-->
+</body>
+</html>

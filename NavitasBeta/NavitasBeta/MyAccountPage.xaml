@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NavitasBeta.MyAccountPage"
+             xmlns:local="clr-namespace:NavitasBeta;assembly=NavitasBeta"
+             x:Name="BindingToMyself"
+             NavigationPage.HasNavigationBar="False" >
+
+    <ContentPage.Resources>
+        <local:BoolInverterConverter x:Key="boolInverterConverter" />
+    </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <x:Reference Name="BindingToMyself"/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout Style="{StaticResource toolbarStyle}">
+                <StackLayout Style="{StaticResource toolbarElementsContainerStyle}">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="BackbuttonClicked" NumberOfTapsRequired="1" />
+                    </StackLayout.GestureRecognizers>
+                    <Image Source="backArrow.png"
+                           Scale=".8"
+                           Style="{StaticResource toolbarImageStyle}"/>
+                    <Image Source="icon.png"
+                           Style="{StaticResource toolbarImageStyle}"/>
+                    <Label Text="My Account"
+                           Style="{StaticResource titleStyle}"/>
+                </StackLayout>
+                <Label Text="" FontSize="Default" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+            </StackLayout>
+            <ScrollView Style="{StaticResource scrollViewProportion}">
+                <StackLayout>
+                    <StackLayout.Padding>
+                        <OnIdiom x:TypeArguments="Thickness" Tablet="150,0" Phone="20,0"/>
+                    </StackLayout.Padding>
+                    <StackLayout>
+                        <StackLayout.Padding>
+                            <OnIdiom x:TypeArguments="Thickness" Tablet="0,60" Phone="0,30"/>
+                        </StackLayout.Padding>
+                        <Image Source="ProfileIcon.png"
+                           HeightRequest="{OnIdiom 100, Phone=100, Tablet=200}"/>
+                    </StackLayout>
+                    <Grid ColumnSpacing="0">
+                        <Grid.RowSpacing>
+                            <OnIdiom x:TypeArguments="x:Double" Tablet="35" Phone="15"/>
+                        </Grid.RowSpacing>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="0"
+                           Grid.Column="0"
+                           FontAttributes="Bold"
+                           FontSize="Medium"
+                           Text="Username: "/>
+                        <Label Grid.Row="0"
+                           Grid.Column="1"
+                           FontSize="Medium"
+                           Text="{Binding currentUsername}"/>
+                        <Label Grid.Row="1"
+                           Grid.Column="0"
+                           FontAttributes="Bold"
+                           FontSize="Medium"
+                           Text="Access Level: "/>
+                        <Label Grid.Row="1"
+                           Grid.Column="1"
+                           FontSize="Medium"
+                           Text="{Binding accessLevel}"/>
+                        <Label Grid.Row="2"
+                           Grid.Column="0"
+                           FontAttributes="Bold"
+                           FontSize="Medium"
+                           Text="Your Vehicles: "/>
+                        <Label Grid.Row="3"
+                           Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                           FontSize="Medium"
+                           IsVisible="{Binding isDataEmpty}"
+                           Text="No vehicles have been registered to this account"/>
+                        <ListView x:Name="VehicleNameListView"
+                                  Grid.Row="3"
+                                  Grid.Column="0"
+                                  Grid.ColumnSpan="2"
+                                  HeightRequest="0"
+                                  SelectionMode="None"
+                                  IsVisible="{Binding isDataEmpty,Converter={StaticResource boolInverterConverter}}"
+                                  HasUnevenRows="true">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <FlexLayout AlignItems="Start">
+                                            <StackLayout FlexLayout.Basis="70%">
+                                                <Label Text="{Binding Name}"
+                                                       TextColor="#68B04D"
+                                                       FontSize="Medium"/>
+                                                <Entry  Placeholder="Add a nickname"
+                                                        ClearButtonVisibility="WhileEditing"
+                                                        Focused="AddNickNameFocused"
+                                                        Unfocused="InputEntryUnfocused"
+                                                        Completed="AddNickNameCompleted"
+                                                        IsVisible="False">
+                                                    <Entry.Triggers>
+                                                        <DataTrigger TargetType="Entry"
+                                                                     Binding="{Binding Path=Text.Length, Source={x:Reference lblNickName}}"
+                                                                     Value="0">
+                                                            <Setter Property="IsVisible" Value="True"/>
+                                                        </DataTrigger>
+                                                    </Entry.Triggers>
+                                                </Entry>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <StackLayout.Triggers>
+                                                        <DataTrigger TargetType="StackLayout"
+                                                                     Binding="{Binding Path=Text.Length, Source={x:Reference lblNickName}}"
+                                                                     Value="0">
+                                                            <Setter Property="IsVisible" Value="False"/>
+                                                        </DataTrigger>
+                                                    </StackLayout.Triggers>
+                                                    <Label x:Name="lblNickName"
+                                                           Text="{Binding NickName}"
+                                                           FontSize="Small" />
+                                                    <ImageButton Source="EditIcon.png"
+                                                                 BackgroundColor="Transparent"
+                                                                 HorizontalOptions="EndAndExpand"
+                                                                 HeightRequest="20"
+                                                                 Command="{Binding Path=BindingContext.EditVehicleCommand,
+                                                                                Source={x:Reference VehicleNameListView}}"
+                                                                 CommandParameter="{Binding .}"/>
+                                                </StackLayout>
+                                            </StackLayout>
+                                            <StackLayout FlexLayout.Basis="30%">
+                                                <ImageButton Source="DeleteIcon.png"
+                                                             BackgroundColor="Transparent"
+                                                             HeightRequest="25"
+                                                             HorizontalOptions="End"
+                                                             Command="{Binding Path=BindingContext.RemoveUserOwnershipCommand,
+                                                                            Source={x:Reference VehicleNameListView}}"
+                                                             CommandParameter="{Binding .}"/>
+                                            </StackLayout>
+                                        </FlexLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        <Label Grid.Row="4"
+                           Grid.Column="0"
+                           FontAttributes="Bold"
+                           FontSize="Medium"
+                            IsVisible="{Binding IsRealController}"
+                           Text="Approved Users: "/>
+                        <StackLayout x:Name="AddRegisteredUsersStackLayout"
+                                     Grid.Row="5"
+                                     Grid.Column="0"
+                                     Grid.ColumnSpan="2"
+                                     Orientation="Horizontal"
+                                     IsVisible="false">
+                            <Entry x:Name="usernameEntry"
+                                   ClearButtonVisibility="WhileEditing"
+                                   Text="{Binding NewUserInput}"
+                                   HorizontalOptions="FillAndExpand"
+                                   Unfocused="InputEntryUnfocused"
+                                   Completed="AddUserCompleted"/>
+                            <Frame x:Name="dealerRegisterFrame"
+                                   Padding="10,0"
+                                   Margin="5,0"
+                                   CornerRadius="5"
+                                   BorderColor="LightGray"
+                                   BackgroundColor="Transparent"
+                                   HasShadow="False">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="AddUsernameCommandAsTapGesture" NumberOfTapsRequired="1" />
+                                </Frame.GestureRecognizers>
+                                <Label HorizontalOptions="Start"
+                                       FontSize="Medium"
+                                       HorizontalTextAlignment="Center"
+                                       Text="Register this vehicle to your personal account"/>
+                            </Frame>
+                        </StackLayout>
+                        <ListView x:Name="AprovedDriversListView"
+                                  Grid.Row="6"
+                                  Grid.Column="0"
+                                  Grid.ColumnSpan="2"
+                                  SelectionMode="None"
+                                  HeightRequest="125"
+                                  IsVisible="{Binding IsRealController}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <FlexLayout JustifyContent="SpaceBetween"
+                                                    AlignItems="Center">
+                                            <StackLayout>
+                                                <Label Text="{Binding DisplayName}"
+                                                       TextColor="#68B04D"
+                                                       FontSize="Medium"/>
+                                            </StackLayout>
+                                            <ImageButton Source="DeleteIcon.png"
+                                                         BackgroundColor="Transparent"
+                                                         HeightRequest="25"
+                                                         IsVisible="{Binding Path=BindingContext.IsRegistered,
+                                                                                Source={x:Reference AprovedDriversListView}}"
+                                                         Command="{Binding Path=BindingContext.RemoveUsernameCommand,
+                                                                            Source={x:Reference AprovedDriversListView}}"
+                                                         CommandParameter="{Binding .}"/>
+                                        </FlexLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+            <ContentView x:Name="popupEditNickName"
+                         AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                         AbsoluteLayout.LayoutFlags="All"
+                         IsVisible="False"
+                         BackgroundColor="#C0202020"
+                         Padding="10">
+                <Frame VerticalOptions="Center"
+                       HasShadow="True"
+                       CornerRadius="5"
+                       Padding="10">
+                    <StackLayout>
+                        <Label Text="Edit your vehicle"
+                               FontAttributes="Bold"
+                               FontSize="Medium"
+                               HorizontalTextAlignment="Center"/>
+                        <Label Text="Serial Number" />
+                        <Entry Text="{Binding Name}" IsEnabled="False"/>
+                        <Label Text="Nick name"/>
+                        <Entry x:Name="entEditNickName"
+                               Text="{Binding NickName}"
+                               Focused="EditNickNameFocused"/>
+                        <StackLayout Orientation="Horizontal"
+                                     HorizontalOptions="End">
+                            <Button x:Name="btnSaveVehicle"
+                                    Padding="10,0"
+                                    Command="{Binding BindingContext.SaveVehicleCommand,
+                                                        Source={x:Reference BindingToMyself}}"
+                                    CommandParameter="{Binding .}"
+                                    Text="Save"/>
+                            <Button Text="Cancel"
+                                    Padding="10,0"
+                                    Clicked="CancelEditVehicle"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

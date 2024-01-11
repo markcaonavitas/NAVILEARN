@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PageViewModel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <PageTitle>Vehicle Test</PageTitle>
+  <PageType>TAC</PageType>
+  <PageGroups>
+	<PageGroup>
+	  <GroupViewType>Label</GroupViewType>
+	  <GroupTitle>Vehicle Diagnostics</GroupTitle>
+	  <GroupDescription>Troubleshoot vehicle</GroupDescription>
+	  <PageButtons>
+      <PageButton>
+        <Text>Start Diagnose.html</Text>
+      </PageButton>
+      <PageButton>
+        <Text>Main Solenoid Test.html</Text>
+      </PageButton>
+    </PageButtons>
+	</PageGroup>
+  </PageGroups>
+</PageViewModel>

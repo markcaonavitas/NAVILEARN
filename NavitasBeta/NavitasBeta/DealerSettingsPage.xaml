@@ -1,0 +1,913 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:NavitasGeneralPage xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:numeric="clr-namespace:NavitasBeta;assembly=NavitasBeta"
+    xmlns:local="clr-namespace:NavitasBeta;assembly=NavitasBeta"
+    x:Class="NavitasBeta.DealerSettingsPage"
+    Title="Settings">
+    <ContentPage.Resources>
+        <local:BoolInverterConverter x:Key="boolInverterConverter" />
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <!--won't scroll if full length, hence .98-->
+            <StackLayout Style="{StaticResource toolbarStyle}">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Start" >
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ShowMasterMenu" NumberOfTapsRequired="1" />
+                    </StackLayout.GestureRecognizers>
+                    <Image Source="hamburger.png" Margin="10,0,0,0" Scale="1.5" HorizontalOptions="Start"/>
+                    <Image Source="icon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <local:CustomImage x:Name="CONTROLLERERROR" Scale=".50" Opacity="{Binding Path=parameterValue}" HorizontalOptions="CenterAndExpand" Source="IconError.png"/>
+                    <Image x:Name="COMMERROR" Scale=".8" Opacity="{Binding Path=parameterValue}" HorizontalOptions="Center" Source="IconCommunication.png"/>
+                    <Label x:Name="GROUPONEFAULTS" Text="Used for controller error display" IsVisible="False"/>
+                    <Label x:Name="GROUPTWOFAULTS" Text="Used for controller error display" IsVisible="False"/>
+                    <Label x:Name="GROUPTHREEFAULTS" Text="Used for controller error display" IsVisible="False"/>
+                    <Label x:Name="GROUPFOURFAULTS" Text="Used for controller error display" IsVisible="False"/>
+                    <Label x:Name="GROUPONEWARNINGS" Text="Used for controller error display" IsVisible="False"/>
+                </StackLayout>
+                <Label Text="" FontSize="Default" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+            </StackLayout>
+            <ScrollView Style="{StaticResource scrollViewProportion}">
+                <StackLayout Orientation="Vertical" >
+                    <StackLayout Orientation="Vertical">
+                        <StackLayout Orientation="Horizontal">
+                            <Image IsVisible="True" Source="Information_icon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+                            <Label  Text="Speed Limits"  TextColor="#367F56"   FontSize="Default"  VerticalOptions="Center" HorizontalOptions="Start" HorizontalTextAlignment="Start"/>
+                            <Image IsVisible="False" Source="collapseIcon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="FillInDescriptions" NumberOfTapsRequired="1"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" IsVisible="False">
+                            <Label Padding="5,1,5,1" TextColor="#367F56" FontSize="Default"  VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"
+                            Text="To control the maximum speed of a vehicle you need to set the forward and reverse MPH speed limit.">
+                            </Label>
+                        </StackLayout>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout Orientation="Vertical" x:Name="PAR_MAX_MOTOR_FWD_SPEED_LIMIT_MPH">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0:F2}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"   WidthRequest="100"  >
+                                        <local:DoneEntry.HorizontalOptions>
+                                            <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                                        </local:DoneEntry.HorizontalOptions>
+                                    </local:DoneEntry>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout Orientation="Vertical" x:Name="PAR_MAX_MOTOR_REV_SPEED_LIMIT_MPH">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0:F2}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"   WidthRequest="100"  >
+                                        <local:DoneEntry.HorizontalOptions>
+                                            <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                                        </local:DoneEntry.HorizontalOptions>
+                                    </local:DoneEntry>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout Orientation="Vertical" x:Name="TIREDIAMETER">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start">
+                                    </Label>
+                                    <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0:F2}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"   WidthRequest="100"  >
+                                        <local:DoneEntry.HorizontalOptions>
+                                            <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                                        </local:DoneEntry.HorizontalOptions>
+                                    </local:DoneEntry>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout Orientation="Vertical" x:Name="REARAXLERATIO">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0:F2}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"   WidthRequest="100"  >
+                                        <local:DoneEntry.HorizontalOptions>
+                                            <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                                        </local:DoneEntry.HorizontalOptions>
+                                    </local:DoneEntry>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout Orientation="Vertical" x:Name="FWDLMTRPM">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <Label Text="{Binding Path=parameterValueString,  StringFormat='{0:F2}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"   WidthRequest="100"  />
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout Orientation="Vertical" x:Name="RVSLMTRPM">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <Label Text="{Binding Path=parameterValueString,  StringFormat='{0:F2}'}" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"   WidthRequest="100"  />
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical" IsVisible="{Binding Path=UserLevelEqualOrGreaterThanAdvancedUserProperty}">
+                        <StackLayout Orientation="Horizontal">
+                            <Image IsVisible="False" Source="Information_icon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+                            <Label  Text="Input Thresholds"  TextColor="#367F56"   FontSize="Default"  VerticalOptions="Center" HorizontalOptions="Start" HorizontalTextAlignment="Start"/>
+                            <Image IsVisible="False" Source="collapseIcon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+                            <StackLayout.GestureRecognizers>
+                                <!-- <TapGestureRecognizer Tapped="FillInDescriptions" NumberOfTapsRequired="1"/> -->
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" IsVisible="False">
+                            <Label TextColor="#367F56" FontSize="Default"  VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"
+                            Text="describe this section">
+                            </Label>
+                        </StackLayout>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout Orientation="Vertical" x:Name="THROTTLEMIN">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0:F2}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"   WidthRequest="100"  >
+                                        <local:DoneEntry.HorizontalOptions>
+                                            <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                                        </local:DoneEntry.HorizontalOptions>
+                                    </local:DoneEntry>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout Orientation="Vertical" x:Name="THROTTLEMAX">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0:F2}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"   WidthRequest="100"  >
+                                        <local:DoneEntry.HorizontalOptions>
+                                            <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                                        </local:DoneEntry.HorizontalOptions>
+                                    </local:DoneEntry>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout Orientation="Vertical" x:Name="THROTTLEFULL">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0:F2}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"   WidthRequest="100"  >
+                                        <local:DoneEntry.HorizontalOptions>
+                                            <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                                        </local:DoneEntry.HorizontalOptions>
+                                    </local:DoneEntry>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout x:Name="THERMISTOR_TYPE" Orientation="Vertical"  >
+                                <Label Text="Thermistor Type" TextColor="Black" VerticalOptions="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Center"/>
+                                        <Picker x:Name="TempPicker" ItemsSource="{Binding enumListName}" ItemDisplayBinding="{Binding .}" SelectedItem="{Binding parameterEnumString}" Title="Thermistor Selection" SelectedIndexChanged="PickerSelectedIndexChanged"   VerticalOptions="Center" HorizontalOptions ="End" FontSize="Small" >
+                                </Picker>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Vertical" IsVisible="{Binding Path=UserLevelEqualOrGreaterThanAdvancedUserProperty}">
+                        <StackLayout Orientation="Horizontal">
+                            <Image IsVisible="False" Source="Information_icon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+                            <Label  Text="Battery and Voltage Configuration"  TextColor="#367F56"   FontSize="Default"  VerticalOptions="Center" HorizontalOptions="Start" HorizontalTextAlignment="Start"/>
+                            <Image IsVisible="False" Source="collapseIcon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+                            <StackLayout.GestureRecognizers>
+                                <!-- <TapGestureRecognizer Tapped="FillInDescriptions" NumberOfTapsRequired="1"/> -->
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" IsVisible="False">
+                            <Label TextColor="#367F56" FontSize="Default"  VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"
+                            Text="describe this section">
+                            </Label>
+                        </StackLayout>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout x:Name="BATTERY_TYPE" Orientation="Vertical"  >
+                                <Label Text="Battery Type" TextColor="Black" VerticalOptions="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Center"/>
+                                <!--<Picker x:Name="ThePicker" ItemsSource="{Binding enumListName}" ItemDisplayBinding="{Binding .}" SelectedItem="{Binding parameterEnumString}" Title="Don't make you names any bigger than this" SelectedIndexChanged="PickerSelectedIndexChanged"   VerticalOptions="Center" HorizontalOptions ="End" FontSize="Small" >-->
+                                <Picker x:Name="ThePicker" ItemsSource="{Binding enumListName}" ItemDisplayBinding="{Binding .}" SelectedItem="{Binding parameterEnumString}" Title="Battery Selection -----------------------" SelectedIndexChanged="PickerSelectedIndexChanged"   VerticalOptions="Center" HorizontalOptions ="End" FontSize="Small" >
+                                </Picker>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout Orientation="Vertical" x:Name="NOMINALBATTERYV">
+                                <StackLayout.GestureRecognizers>
+                                    <!--<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />-->
+                                    <TapGestureRecognizer Tapped="AddStepper" NumberOfTapsRequired="2"  />
+                                    <!--<PanGestureRecognizer PanUpdated="AddStepper" />-->
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0:F2}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"   WidthRequest="100"  >
+                                        <local:DoneEntry.HorizontalOptions>
+                                            <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                                        </local:DoneEntry.HorizontalOptions>
+                                    </local:DoneEntry>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout Orientation="Vertical" x:Name="IBATLIMIT">
+                                <StackLayout.GestureRecognizers>
+                                    <!--<TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />-->
+                                    <TapGestureRecognizer Tapped="AddStepper" NumberOfTapsRequired="2"  />
+                                    <!--<PanGestureRecognizer PanUpdated="AddStepper" />-->
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0:F2}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"   WidthRequest="100"  >
+                                        <local:DoneEntry.HorizontalOptions>
+                                            <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                                        </local:DoneEntry.HorizontalOptions>
+                                    </local:DoneEntry>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout Orientation="Vertical" x:Name="MAINSOLENOIDV">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0:F2}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"   WidthRequest="100"  >
+                                        <local:DoneEntry.HorizontalOptions>
+                                            <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                                        </local:DoneEntry.HorizontalOptions>
+                                    </local:DoneEntry>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout Orientation="Vertical" x:Name="BrakeLightRelayVoltage">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0:F2}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"   WidthRequest="100"  >
+                                        <local:DoneEntry.HorizontalOptions>
+                                            <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                                        </local:DoneEntry.HorizontalOptions>
+                                    </local:DoneEntry>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout Orientation="Vertical" x:Name="TOGGLECHARGERSWITCH">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <Switch IsToggled="{Binding Path=parameterBoolean,Mode=OneWay}"   IsEnabled="True" Toggled="BitParameterToggled" Focused="ParameterFocused"  IsVisible="True" HorizontalOptions="EndAndExpand" />
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Vertical" IsVisible="{Binding Path=UserLevelEqualOrGreaterThanAdvancedUserProperty}">
+                        <StackLayout Orientation="Vertical" x:Name="DISABLEANALOGBRAKE" IsVisible="{Binding Path=parameterBoolean, Converter={StaticResource boolInverterConverter}, Mode=OneWay}">
+                            <StackLayout Orientation="Horizontal">
+                                <Image IsVisible="False" Source="Information_icon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+                                <Label  Text="RXV Only"  TextColor="#367F56"   FontSize="Default"  VerticalOptions="Center" HorizontalOptions="Start" HorizontalTextAlignment="Start"/>
+                                <Image IsVisible="False" Source="collapseIcon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+                                <StackLayout.GestureRecognizers>
+                                    <!-- <TapGestureRecognizer Tapped="FillInDescriptions" NumberOfTapsRequired="1"/> -->
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <StackLayout Orientation="Vertical" IsVisible="False">
+                                <Label TextColor="#367F56" FontSize="Default"  VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"
+                            Text="describe this section">
+                                </Label>
+                            </StackLayout>
+                            <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                                <StackLayout Orientation="Vertical" x:Name="BRAKEMIN">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                    </StackLayout.GestureRecognizers>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                        </Label>
+                                        <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0:F2}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"   WidthRequest="100"  >
+                                            <local:DoneEntry.HorizontalOptions>
+                                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                                            </local:DoneEntry.HorizontalOptions>
+                                        </local:DoneEntry>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+
+                            <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                                <StackLayout Orientation="Vertical" x:Name="BRAKEMAX">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                    </StackLayout.GestureRecognizers>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                        </Label>
+                                        <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0:F2}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"   WidthRequest="100"  >
+                                            <local:DoneEntry.HorizontalOptions>
+                                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                                            </local:DoneEntry.HorizontalOptions>
+                                        </local:DoneEntry>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                            <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                                <StackLayout Orientation="Vertical" x:Name="BRAKEFULL">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                    </StackLayout.GestureRecognizers>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                        </Label>
+                                        <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0:F2}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"   WidthRequest="100"  >
+                                            <local:DoneEntry.HorizontalOptions>
+                                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                                            </local:DoneEntry.HorizontalOptions>
+                                        </local:DoneEntry>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                            <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                                <StackLayout Orientation="Vertical" x:Name="ANALOGBRAKEGAIN">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                    </StackLayout.GestureRecognizers>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                        </Label>
+                                        <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0:F2}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"   WidthRequest="100"  >
+                                            <local:DoneEntry.HorizontalOptions>
+                                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                                            </local:DoneEntry.HorizontalOptions>
+                                        </local:DoneEntry>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+
+                            <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                                <StackLayout Orientation="Vertical" x:Name="PARKINGBRAKETESTFAILENCODERCOUNTS">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                    </StackLayout.GestureRecognizers>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                        </Label>
+                                        <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0:F2}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"   WidthRequest="100"  >
+                                            <local:DoneEntry.HorizontalOptions>
+                                                <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                                            </local:DoneEntry.HorizontalOptions>
+                                        </local:DoneEntry>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Vertical" IsVisible="{Binding Path=UserLevelEqualOrGreaterThanAdvancedUserProperty}">
+                        <StackLayout Orientation="Horizontal">
+                            <Image IsVisible="False" Source="Information_icon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+                            <Label  Text="Vehicle Direction"  TextColor="#367F56"   FontSize="Default"  VerticalOptions="Center" HorizontalOptions="Start" HorizontalTextAlignment="Start"/>
+                            <Image IsVisible="False" Source="collapseIcon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+                            <StackLayout.GestureRecognizers>
+                                <!-- <TapGestureRecognizer Tapped="FillInDescriptions" NumberOfTapsRequired="1"/> -->
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" IsVisible="False">
+                            <Label TextColor="#367F56" FontSize="Default"  VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"
+                            Text="describe this section">
+                            </Label>
+                        </StackLayout>
+                        <Label Text="Rear axles on a Club Car Precedent are mounted in the opposite direction than a TXT E-Z-GO. If the Vehicle moves properly but in the wrong direction BOTH of the below settings should be switched" TextColor="#367F56"  FontSize="Micro"  VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"/>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout Orientation="Vertical" x:Name="REVERSEENCODER">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <Switch IsToggled="{Binding Path=parameterBoolean,Mode=OneWay}"   IsEnabled="True" Toggled="BitParameterToggled" Focused="ParameterFocused"  IsVisible="True" HorizontalOptions="EndAndExpand" />
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout Orientation="Vertical" x:Name="REVERSEREARAXLEDIRECTION">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <Switch IsToggled="{Binding Path=parameterBoolean,Mode=OneWay}"   IsEnabled="True" Toggled="BitParameterToggled" Focused="ParameterFocused"  IsVisible="True" HorizontalOptions="EndAndExpand" />
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Vertical"  IsVisible="{Binding Path=UserLevelEqualOrGreaterThanAdvancedUserProperty}">
+                        <StackLayout Orientation="Horizontal">
+                            <Image IsVisible="False" Source="Information_icon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+                            <Label  Text="Off Road Performance"  TextColor="#367F56"   FontSize="Default"  VerticalOptions="Center" HorizontalOptions="Start" HorizontalTextAlignment="Start"/>
+                            <Image IsVisible="False" Source="collapseIcon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+                            <StackLayout.GestureRecognizers>
+                                <!-- <TapGestureRecognizer Tapped="FillInDescriptions" NumberOfTapsRequired="1"/> -->
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" IsVisible="False">
+                            <Label TextColor="#367F56" FontSize="Default"  VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"
+                            Text="describe this section">
+                            </Label>
+                        </StackLayout>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout Orientation="Vertical" x:Name="KPACCEL">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0:F2}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"   WidthRequest="100"  >
+                                        <local:DoneEntry.HorizontalOptions>
+                                            <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                                        </local:DoneEntry.HorizontalOptions>
+                                    </local:DoneEntry>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout Orientation="Vertical" x:Name="RISEHZSEC">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0:F2}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"   WidthRequest="100"  >
+                                        <local:DoneEntry.HorizontalOptions>
+                                            <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                                        </local:DoneEntry.HorizontalOptions>
+                                    </local:DoneEntry>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout Orientation="Vertical" x:Name="ANTIROLLBACK">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <Switch IsToggled="{Binding Path=parameterBoolean,Mode=OneWay}"   IsEnabled="True" Toggled="BitParameterToggled" Focused="ParameterFocused"  IsVisible="True" HorizontalOptions="EndAndExpand" />
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Vertical" IsVisible="{Binding Path=UserLevelEqualOrGreaterThanAdvancedUserProperty}">
+                        <StackLayout Orientation="Horizontal">
+                            <Image IsVisible="False" Source="Information_icon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+                            <Label  Text="Locked OTF Override"  TextColor="#367F56"   FontSize="Default"  VerticalOptions="Center" HorizontalOptions="Start" HorizontalTextAlignment="Start"/>
+                            <Image IsVisible="False" Source="collapseIcon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+                            <StackLayout.GestureRecognizers>
+                                <!-- <TapGestureRecognizer Tapped="FillInDescriptions" NumberOfTapsRequired="1"/> -->
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" IsVisible="False">
+                            <Label TextColor="#367F56" FontSize="Default"  VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"
+                            Text="describe this section">
+                            </Label>
+                        </StackLayout>
+                        <Label Text="If the vehicle is not equipped with a Navitas OTF module (or the OTF is locked) these values can be set" TextColor="#367F56"  FontSize="Micro"  VerticalOptions="Center" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start"/>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout Orientation="Vertical" x:Name="PROGIN">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <Label Text="{Binding Path=parameterEnumString, StringFormat='{0}'}" TextColor="Gray" FontSize="Micro" VerticalOptions="Center" HorizontalOptions="EndAndExpand"  HorizontalTextAlignment="End"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout Orientation="Vertical" x:Name="OTFPROG1MAX">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <local:DoneEntry Text="{Binding Path=parameterValue,  StringFormat='{0:F0}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"   WidthRequest="100"  >
+                                        <local:DoneEntry.HorizontalOptions>
+                                            <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                                        </local:DoneEntry.HorizontalOptions>
+                                    </local:DoneEntry>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout Orientation="Vertical" x:Name="OTFPROG2MAX">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <local:DoneEntry Text="{Binding Path=parameterValue,  StringFormat='{0:F0}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"   WidthRequest="100"  >
+                                        <local:DoneEntry.HorizontalOptions>
+                                            <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                                        </local:DoneEntry.HorizontalOptions>
+                                    </local:DoneEntry>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout Orientation="Vertical" x:Name="OTFPROG3MAX">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <local:DoneEntry Text="{Binding Path=parameterValue,  StringFormat='{0:F0}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"   WidthRequest="100"  >
+                                        <local:DoneEntry.HorizontalOptions>
+                                            <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                                        </local:DoneEntry.HorizontalOptions>
+                                    </local:DoneEntry>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Vertical" IsVisible="{Binding Path=UserLevelEqualOrGreaterThanAdvancedUserProperty}">
+                        <StackLayout Orientation="Horizontal">
+                            <Image IsVisible="False" Source="Information_icon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+                            <Label  Text="App Dashboard Graphic Style"  TextColor="#367F56"   FontSize="Default"  VerticalOptions="Center" HorizontalOptions="Start" HorizontalTextAlignment="Start"/>
+                            <Image IsVisible="False" Source="collapseIcon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+                            <StackLayout.GestureRecognizers>
+                                <!-- <TapGestureRecognizer Tapped="FillInDescriptions" NumberOfTapsRequired="1"/> -->
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" IsVisible="False">
+                            <Label TextColor="#367F56" FontSize="Default"  VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"
+                            Text="describe this section">
+                            </Label>
+                        </StackLayout>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout Orientation="Vertical" x:Name="SPEEDOMETERMAXSPEED">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}"  TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <local:DoneEntry Text="{Binding Path=parameterValueString,  StringFormat='{0:F2}'}" Keyboard="Numeric" Focused="ParameterFocused" Unfocused="ParameterUnfocused" Completed="ParameterCompleted" TextColor="Black" FontSize="Default" VerticalOptions="Center"  IsPassword="False" IsVisible="True" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="End"   WidthRequest="100"  >
+                                        <local:DoneEntry.HorizontalOptions>
+                                            <OnPlatform  x:TypeArguments="LayoutOptions" iOS="FillAndExpand"  Android="EndAndExpand"/>
+                                        </local:DoneEntry.HorizontalOptions>
+                                    </local:DoneEntry>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Vertical" IsVisible="{Binding Path=UserLevelEqualOrGreaterThanAdvancedUserProperty}">
+                        <StackLayout Orientation="Horizontal">
+                            <Image IsVisible="False" Source="Information_icon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+                            <Label  Text="Vehicle Information"  TextColor="#367F56"   FontSize="Default"  VerticalOptions="Center" HorizontalOptions="Start" HorizontalTextAlignment="Start"/>
+                            <Image IsVisible="False" Source="collapseIcon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+                            <StackLayout.GestureRecognizers>
+                                <!-- <TapGestureRecognizer Tapped="FillInDescriptions" NumberOfTapsRequired="1"/> -->
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" IsVisible="False">
+                            <Label TextColor="#367F56" FontSize="Default"  VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"
+                            Text="describe this section">
+                            </Label>
+                        </StackLayout>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout Orientation="Vertical" x:Name="SPEED">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" />
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <Label Text="{Binding Path=parameterValue,  StringFormat='{0:F1}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" />
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout Orientation="Vertical" x:Name="FilteredSOC_q12">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" />
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <Label Text="{Binding Path=parameterValueString,  StringFormat='{0:F2}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" />
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout Orientation="Vertical" x:Name="VBATVDC">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" />
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <Label Text="{Binding Path=parameterValueString,  StringFormat='{0:F2}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" />
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout Orientation="Vertical" x:Name="IBATADC">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" />
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <Label Text="{Binding Path=parameterValueString,  StringFormat='{0:F2}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" />
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout Orientation="Vertical" x:Name="VECTORCURRENT">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" />
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <Label Text="{Binding Path=parameterValueString,  StringFormat='{0:F2}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" />
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout Orientation="Vertical" x:Name="ROTORRPM">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" />
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <Label Text="{Binding Path=parameterValueString,  StringFormat='{0:F2}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" />
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout Orientation="Vertical" x:Name="VTHROTTLEV">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" />
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <Label Text="{Binding Path=parameterValueString,  StringFormat='{0:F2}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" />
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout Orientation="Vertical" x:Name="THROTTLEPERCENTAGE">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" />
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <Label Text="{Binding Path=parameterValueString, StringFormat='{0:F2}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" />
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout Orientation="Vertical" x:Name="VBRAKEV">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" />
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <Label Text="{Binding Path=parameterValueString,  StringFormat='{0:F2}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" />
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout Orientation="Vertical" x:Name="PBTEMPC">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" />
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <Label Text="{Binding Path=parameterValueString,  StringFormat='{0:F2}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" />
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout Orientation="Vertical" x:Name="MTTEMPC">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" />
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <Label Text="{Binding Path=parameterValueString,  StringFormat='{0:F2}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" />
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout Orientation="Vertical" x:Name="SLIPREFSNAP2">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" />
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <Label Text="{Binding Path=parameterValueString,  StringFormat='{0:F2}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" />
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout Orientation="Vertical" x:Name="SLIPREFSNAP3">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" />
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <Label Text="{Binding Path=parameterValueString,  StringFormat='{0:F2}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" />
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1">
+                            <StackLayout Orientation="Vertical" x:Name="VelocityLoopSpeedRefInputRPM_q16">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SelectForDataLogging" NumberOfTapsRequired="2"  />
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Orientation="Horizontal">
+                                    <Switch HorizontalOptions="Start" IsToggled="{Binding Path=SelectedForDatalogging,Mode=TwoWay}" IsVisible="True" />
+                                    <Label Text="{Binding Path=Name,  StringFormat='{0}'}" TextColor="Black"   FontSize="Default" VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" >
+                                    </Label>
+                                    <Label Text="{Binding Path=parameterValueString,  StringFormat='{0:F2}'}" TextColor="Gray" FontSize="Default" VerticalOptions="Center" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" />
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                    <Label x:Name="KEYIN" Text="Why does this hang" IsVisible="False"/>
+
+                    <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1"  IsVisible="{Binding Path=UserLevelEqualOrGreaterThanAdvancedUserProperty}">
+                        <Button  x:Name="START" Text="START DATALOG"  Clicked="START_Clicked" IsEnabled="true"/>
+                    </Frame>
+                    <StackLayout Orientation="Vertical">
+                        <StackLayout Orientation="Horizontal">
+                            <Image IsVisible="True" Source="Information_icon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+                            <Label  Text="Controller Settings Storage"  TextColor="#367F56"   FontSize="Default"  VerticalOptions="Center" HorizontalOptions="Start" HorizontalTextAlignment="Start"/>
+                            <Image IsVisible="False" Source="collapseIcon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="FillInDescriptions" NumberOfTapsRequired="1"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" IsVisible="False">
+                            <Label Padding="5,1,5,1" TextColor="#367F56" FontSize="Default"  VerticalOptions="Center" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"
+                            Text="Changes to most settings on this page are immediately active.&#x0a; You must press the save button below to permanently store the values on the controller.&#x0a;&#x0a; The initialize button will restore factory defaults and override any of your changes. Factory defaults are also effective immediately and must be saved to the controller to be made permanent&#x0a;&#x0a; ">
+                            </Label>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1" HorizontalOptions="FillAndExpand">
+                                <Button x:Name="INITIALIZESETTINGS" Text="Initialize"   FontSize="Default" IsEnabled="True" Clicked="INITIALIZESETTINGS_Clicked" />
+                            </Frame>
+                            <Frame OutlineColor="Black" Padding="5,1,5,1" Margin="5,1,5,1" HorizontalOptions="FillAndExpand">
+                                <Button x:Name="SAVECHANGES" Text="Save"  FontSize="Default" IsEnabled="True" Clicked="SAVECHANGES_Clicked" />
+                            </Frame>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout x:Name="RequestAdvancedUserStackLayout"
+                                 IsVisible="{Binding Path=IsRequestAdvancedUserEnable}">
+                        <StackLayout Orientation="Horizontal">
+                            <Image IsVisible="True" Source="Information_icon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+                            <Label  Text="Advanced Settings"  TextColor="#367F56"   FontSize="Default"  VerticalOptions="Center" HorizontalOptions="Start" HorizontalTextAlignment="Start"/>
+                            <Image IsVisible="False" Source="collapseIcon.png" Margin="0" Scale=".6" HorizontalOptions="Start"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="FillInDescriptions" NumberOfTapsRequired="1"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical" IsVisible="False">
+                            <Label TextColor="Red"
+                                   FontSize="Large"
+                                   Text="Disclaimer"/>
+                            <Label Padding="5,1,5,1"
+                               TextColor="Red"
+                               FontSize="Default"
+                               VerticalOptions="Center"
+                               HorizontalOptions="FillAndExpand"
+                               HorizontalTextAlignment="Start"
+                               Text="By changing settings in the APP you are accepting the liabilities of making any changes that can result in personal harm as wel as that can result in early failure of the Navitas controller and/or other vehicle components.&#x0a;&#x0a;Navitas is not liable for any damage resulting from changes to settings">
+                            </Label>
+                        </StackLayout>
+                        <StackLayout>
+                            <Frame OutlineColor="Black"
+                                   Padding="5,1,5,1"
+                                   Margin="5,1,5,1"
+                                   HorizontalOptions="Center">
+                                <Button x:Name="RequestAdvancedAccess"
+                                    Text="Request Advanced Access"
+                                    Clicked="OnRequestAdvancedAccessButtonClicked"/>
+                            </Frame>
+                        </StackLayout>
+                    </StackLayout>
+                    <Label x:Name="Options" Text="this is how we read related values that are not shown on this page" IsVisible="False"/>
+                    <Label x:Name="InvertDigitalInput" Text="this is how we read related values that are not shown on this page" IsVisible="False"/>
+                </StackLayout>
+            </ScrollView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</local:NavitasGeneralPage>

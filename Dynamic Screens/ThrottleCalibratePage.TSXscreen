@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PageViewModel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <PageTitle>Throttle Calibrate</PageTitle>
+  <PageType>TSX</PageType>
+  <PageGroups>
+    <PageGroup>
+      <GroupViewType>Label</GroupViewType>
+      <GroupTitle>Throttle Inputs</GroupTitle>
+      <GroupDescription>describe this section</GroupDescription>
+      <GroupDescriptionButtons>
+        <GroupDescriptionButton>
+          <Text>Calibrate Throttle.html</Text>
+        </GroupDescriptionButton>
+      </GroupDescriptionButtons>
+      <PageItems>
+        <PageItem>
+          <ViewType>ReadOnlyTwoDecimalPlaces</ViewType>
+          <PropertyName>PARPRIMTHROTVOLTS</PropertyName>
+          <TapGesutreRecognizer>CalibrateThrottle.html</TapGesutreRecognizer>
+        </PageItem>
+        <PageItem>
+          <ViewType>Hidden</ViewType>
+          <PropertyName>PARSWITCHSTATES</PropertyName>
+        </PageItem>
+        <PageItem>
+          <ViewType>Enum</ViewType>
+          <PropertyName>AUX1SWITCH</PropertyName>
+        </PageItem>
+      </PageItems>
+    </PageGroup>
+  </PageGroups>
+</PageViewModel>

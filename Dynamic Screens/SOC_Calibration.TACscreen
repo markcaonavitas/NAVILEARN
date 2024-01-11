@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PageViewModel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <PageTitle>SOC</PageTitle>
+    <PageType>TAC</PageType>
+    <PageControl>Show Only This Page</PageControl>
+    <PageGroups>
+        <PageGroup>
+            <GroupViewType>Label</GroupViewType>
+            <GroupTitle>Calculated State of Charge</GroupTitle>
+            <PageItems>
+                <PageItem>
+                    <ViewType>Float</ViewType>
+                    <PropertyName>FilteredSOC_q12</PropertyName>
+                    <!-- <Bit>1</Bit> -->
+                </PageItem>
+                <PageItem>
+                    <ViewType>Float</ViewType>
+                    <PropertyName>Soc_puq24</PropertyName>
+                    <!-- <Bit>1</Bit> -->
+                </PageItem>
+            </PageItems>
+        </PageGroup>
+        <PageGroup>
+            <GroupViewType>Label</GroupViewType>
+            <GroupTitle>Battery Inputs</GroupTitle>
+            <PageItems>
+                <PageItem>
+                    <ViewType>Float</ViewType>
+                    <PropertyName>VBATVDC</PropertyName>
+                    <!-- <Bit>1</Bit> -->
+                </PageItem>
+                <PageItem>
+                    <ViewType>Float</ViewType>
+                    <PropertyName>Vdcbus_V_q7</PropertyName>
+                    <!-- <Bit>1</Bit> -->
+                </PageItem>
+                <PageItem>
+                    <ViewType>Float</ViewType>
+                    <PropertyName>LogicPower_V_q7</PropertyName>
+                    <!-- <Bit>1</Bit> -->
+                </PageItem>
+            </PageItems>
+        </PageGroup>
+        <PageGroup>
+            <GroupViewType>Label</GroupViewType>
+            <GroupTitle>Nominal Battery Adjustments</GroupTitle>
+            <PageItems>
+                <PageItem>
+                    <ViewType>Float</ViewType>
+                    <PropertyName>NOMINALBATTERYV</PropertyName>
+                    <!-- <Bit>1</Bit> -->
+                </PageItem>
+            </PageItems>
+        </PageGroup>
+    </PageGroups>
+</PageViewModel>

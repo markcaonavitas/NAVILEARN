@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NavitasBeta.DealerParametersTSXPage"             
+             xmlns:numeric="clr-namespace:Syncfusion.SfNumericUpDown.XForms;assembly=Syncfusion.SfNumericUpDown.XForms"
+             Title="Parameters"
+              BackgroundColor="Silver">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="60, 60, 60, 60"  Android="60, 60, 60, 60">
+            <OnPlatform.iOS>
+                <OnIdiom x:TypeArguments="Thickness"  Phone="30, 30, 30, 120" Tablet="60, 60, 60, 480"/>
+            </OnPlatform.iOS>
+            <OnPlatform.Android>
+                <OnIdiom x:TypeArguments="Thickness"  Phone="30, 30, 30, 120" Tablet="60, 60, 60, 660"/>
+            </OnPlatform.Android>
+        </OnPlatform>
+    </ContentPage.Padding>
+    <ContentPage.Content>
+
+        <Frame Padding="10, 10, 10, 10" BackgroundColor="Black" Grid.Row="0" Grid.Column="0">
+            <Frame.Padding>
+                <OnPlatform  x:TypeArguments="Thickness" iOS="10, 10, 10, 10"  Android="10, 10, 10, 10">
+                    <OnPlatform.iOS>
+                        <OnIdiom x:TypeArguments="Thickness"  Phone="5, 5, 5, 5" Tablet="10, 10, 10, 10"/>
+                    </OnPlatform.iOS>
+                    <OnPlatform.Android>
+                        <OnIdiom x:TypeArguments="Thickness"  Phone="5, 5, 5, 5" Tablet="10, 10, 10, 10"/>
+                    </OnPlatform.Android>
+                </OnPlatform>
+            </Frame.Padding>
+            <Frame BackgroundColor="Gray" OutlineColor="Black"  >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <!--       <RowDefinition Height="*" /> -->
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <!--      <RowDefinition Height="*" /> -->
+                        <!--         <RowDefinition Height="*" />  -->
+                        <!--              <RowDefinition Height="*" /> -->
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label  Grid.Row="0" Grid.Column="0"  TextColor="Black" Text="Parameter Setting"   Grid.ColumnSpan="2" VerticalOptions="Start" HorizontalOptions="Center">
+                        <Label.FontSize>
+                            <OnIdiom x:TypeArguments="x:Double" Phone="10" Tablet="20" />
+                        </Label.FontSize>
+                    </Label>
+                    <Label  x:Name="TireSizeLabel" Grid.Row="2" Grid.Column="0"   TextColor="Black" Text="Tire Diameter:"  VerticalOptions="Center"  HorizontalOptions="Start">
+                        <Label.FontSize>
+                            <OnIdiom x:TypeArguments="x:Double" Phone="10" Tablet="20" />
+                        </Label.FontSize>
+                    </Label>
+                    <Grid  Grid.Row="2" Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label x:Name="TireDiameterLabel"  Text="{Binding Path=TIREDIAMETER, StringFormat='{0}'}"    TextColor="Black"  Grid.Row="0" Grid.Column="0"   VerticalOptions="Center" HorizontalOptions="CenterAndExpand">
+                            <Label.FontSize>
+                                <OnIdiom x:TypeArguments="x:Double" Phone="10" Tablet="20" />
+                            </Label.FontSize>
+                        </Label>
+                        <Button x:Name="TireSizeMinusButton" Grid.Row="0" Grid.Column="1" Text="-" BackgroundColor="Gray"  IsEnabled="True" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"   Clicked="TireSizeMinusButton_Clicked">
+                            <Button.FontSize>
+                                <OnIdiom x:TypeArguments="x:Double" Phone="10" Tablet="20" />
+                            </Button.FontSize>
+                        </Button>
+                        <Button x:Name="TireSizePlusButton" Grid.Row="0" Grid.Column="2" Text="+"  BackgroundColor="Gray" IsEnabled="True" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Clicked="TireSizePlusButton_Clicked">
+                            <Button.FontSize>
+                                <OnIdiom x:TypeArguments="x:Double" Phone="10" Tablet="20" />
+                            </Button.FontSize>
+                        </Button>
+                    </Grid>
+                    
+                    <!--               <numeric:SfNumericUpDown  x:Name="TireSizeNumericUpDown" Grid.Row="2" Grid.Column="1"   AllowNull="true" TextColor="Black" ParsingMode="Double" Value="{Binding Path=TIREDIAMETER}" TextAlignment="Center" FormatString="n" SpinButtonAlignment="Right" MaximumDecimalDigits="1"    ValueChanged="TireSizeNumericUpDown_ValueChanged" StepValue="0.1" AutoReverse="true" Minimum="7.0" Maximum="30.0">
+                        <numeric:SfNumericUpDown.FontSize>
+                            <OnPlatform  x:TypeArguments="x:Int32" >
+                                <OnPlatform.iOS>
+                                    <OnIdiom x:TypeArguments="x:Int32"  Phone="10" Tablet="10"/>
+                                </OnPlatform.iOS>
+                                <OnPlatform.Android>
+                                    <OnIdiom x:TypeArguments="x:Int32"  Phone="5" Tablet="10"/>
+                                </OnPlatform.Android>
+                            </OnPlatform>
+                        </numeric:SfNumericUpDown.FontSize>
+                    </numeric:SfNumericUpDown> -->
+
+                    <Label  x:Name="RearAxleRatioLabel" Grid.Row="3" Grid.Column="0"  TextColor="Black" Text="Rear Axle Ratio:"  VerticalOptions="Center"  HorizontalOptions="Start">
+                        <Label.FontSize>
+                            <OnIdiom x:TypeArguments="x:Double" Phone="10" Tablet="20" />
+                        </Label.FontSize>
+                    </Label>
+                    <Grid  Grid.Row="3" Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Label x:Name="RearAxleLabel"  Text="{Binding Path=REARAXLERATIO, StringFormat='{0}'}"    TextColor="Black"  Grid.Row="0" Grid.Column="0"   VerticalOptions="Center" HorizontalOptions="CenterAndExpand">
+                            <Label.FontSize>
+                                <OnIdiom x:TypeArguments="x:Double" Phone="10" Tablet="20" />
+                            </Label.FontSize>
+                        </Label>
+                        <Button x:Name="RearAxleMinusButton" Grid.Row="0" Grid.Column="1" Text="-" BackgroundColor="Gray"  IsEnabled="True" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"   Clicked="RearAxleMinusButton_Clicked">
+                            <Button.FontSize>
+                                <OnIdiom x:TypeArguments="x:Double" Phone="10" Tablet="20" />
+                            </Button.FontSize>
+                        </Button>
+                        <Button x:Name="RearAxlePlusButton" Grid.Row="0" Grid.Column="2" Text="+"  BackgroundColor="Gray" IsEnabled="True" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Clicked="RearAxlePlusButton_Clicked">
+                            <Button.FontSize>
+                                <OnIdiom x:TypeArguments="x:Double" Phone="10" Tablet="20" />
+                            </Button.FontSize>
+                        </Button>
+                    </Grid>
+
+
+                    <!--                    <numeric:SfNumericUpDown  x:Name="RearAxleRatioNumericUpDown" Grid.Row="3" Grid.Column="1"  AllowNull="true" TextColor="Black" ParsingMode="Double" Value="{Binding Path=REARAXLERATIO}" TextAlignment="Center" FormatString="n" SpinButtonAlignment="Right" MaximumDecimalDigits="1"    ValueChanged="RearAxleRatioNumericUpDown_ValueChanged" StepValue="0.1" AutoReverse="true" Minimum="6.0" Maximum="20.0">
+                        <numeric:SfNumericUpDown.FontSize>
+                            <OnPlatform  x:TypeArguments="x:Int32" >
+                                <OnPlatform.iOS>
+                                    <OnIdiom x:TypeArguments="x:Int32"  Phone="10" Tablet="10"/>
+                                </OnPlatform.iOS>
+                                <OnPlatform.Android>
+                                    <OnIdiom x:TypeArguments="x:Int32"  Phone="5" Tablet="10"/>
+                                </OnPlatform.Android>
+                            </OnPlatform>
+                        </numeric:SfNumericUpDown.FontSize>
+                    </numeric:SfNumericUpDown> -->
+                    <Label  x:Name="BatteryVoltageLabel" Grid.Row="4" Grid.Column="0"   TextColor="Black" Text="Battery Voltage:"  VerticalOptions="Center"  HorizontalOptions="Start">
+                        <Label.FontSize>
+                            <OnIdiom x:TypeArguments="x:Double" Phone="10" Tablet="20" />
+                        </Label.FontSize>
+                    </Label>
+                    <Button x:Name="BatteryVoltageButton" Grid.Row="4" Grid.Column="1" Text="48 Volts"  IsEnabled="False" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Clicked="OnButtonClicked">
+                        <Button.FontSize>
+                            <OnIdiom x:TypeArguments="x:Double" Phone="10" Tablet="20" />
+                        </Button.FontSize>
+                    </Button>
+                    <Label  x:Name="VehilceSpeedLimitLabel" Grid.Row="5" Grid.Column="0"  TextColor="Black" Text="Vehicle Speed Limit:"  VerticalOptions="Center"  HorizontalOptions="Start">
+                        <Label.FontSize>
+                            <OnIdiom x:TypeArguments="x:Double" Phone="10" Tablet="20" />
+                        </Label.FontSize>
+                    </Label>
+                    <Button x:Name="VehilceSpeedLimitButton" Grid.Row="5" Grid.Column="1"   Text="{Binding Path=SPEEDOMETERMAXSPEED, StringFormat='{0} Miles/Hour'}"  IsEnabled="False" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Clicked="OnButtonClicked">
+                        <Button.FontSize>
+                            <OnIdiom x:TypeArguments="x:Double" Phone="10" Tablet="20" />
+                        </Button.FontSize>
+                    </Button>
+                    <Button x:Name="SaveChangesButton" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"   Text="Save Changes"  IsEnabled="True" VerticalOptions="Center" HorizontalOptions="Center" Clicked="SaveChangesButton_Clicked">
+                        <Button.FontSize>
+                            <OnIdiom x:TypeArguments="x:Double" Phone="10" Tablet="20" />
+                        </Button.FontSize>
+                    </Button>
+                </Grid>
+            </Frame>
+        </Frame>
+    </ContentPage.Content>
+
+</ContentPage>

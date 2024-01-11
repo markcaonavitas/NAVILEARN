@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="NavitasBeta.LoginPage"
+             x:Name="BindingToMyself"
+             NavigationPage.HasNavigationBar="False" >
+    <ContentPage.BindingContext>
+        <x:Reference Name="BindingToMyself"/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <Image Source="drawableportxxhdpiscreenlogin.png"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="FillAndExpand"
+                   Aspect="AspectFill"
+                   AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                   AbsoluteLayout.LayoutFlags="All"/>
+            <StackLayout Style="{StaticResource toolbarStyle}">
+                <StackLayout Style="{StaticResource toolbarElementsContainerStyle}">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="BackbuttonClicked" NumberOfTapsRequired="1" />
+                    </StackLayout.GestureRecognizers>
+                    <Image Source="backArrow.png"
+                           Scale=".8"
+                           Style="{StaticResource toolbarImageStyle}"/>
+                    <Image Source="icon.png"
+                           Style="{StaticResource toolbarImageStyle}"/>
+                    <Label Text="Log in"
+                           Style="{StaticResource titleStyle}"/>
+                </StackLayout>
+                <Label Text="" FontSize="Default" VerticalOptions="Center" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+            </StackLayout>
+            <ScrollView AbsoluteLayout.LayoutBounds="0, 1, 1, 0.65"
+                        AbsoluteLayout.LayoutFlags="All">
+                <StackLayout VerticalOptions="StartAndExpand">
+                    <StackLayout.Padding>
+                        <OnIdiom x:TypeArguments="Thickness" Tablet="180,0" Phone="10,0"/>
+                    </StackLayout.Padding>
+                    <ActivityIndicator x:Name="activityIndicator" />
+                    <Label x:Name="messageLabel" HorizontalOptions="CenterAndExpand"/>
+                    <Label Text="Username or Email" />
+                    <Entry x:Name="usernameEntry" Placeholder="Enter your username or email" />
+                    <Label Text="Password" />
+                    <Grid>
+                        <Entry x:Name="passwordEntry" IsPassword="true" Placeholder="Enter your password"/>
+                        <Image x:Name="passwordShowHideIcon"
+                               Source="show.png"
+                               HorizontalOptions="EndAndExpand"
+                               HeightRequest="30"
+                               WidthRequest="30">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="ShowHideToggle" NumberOfTapsRequired="1" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </Grid>
+                    <Button Text="Login"
+                            Margin="0,25"
+                            Clicked="OnLoginButtonClicked"/>
+                    <Label HorizontalOptions="CenterAndExpand"
+                           Margin="0,10">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Need an account? " />
+                                <Span Text="Sign up"
+                                      TextColor="Blue"
+                                      TextDecorations="Underline">
+                                    <Span.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnSignUpButtonClicked" NumberOfTapsRequired="1" />
+                                    </Span.GestureRecognizers>
+                                </Span>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label HorizontalOptions="CenterAndExpand"
+                           Margin="0,10"
+                           TextColor="Blue"
+                           Text="Forgot password?"
+                           TextDecorations="Underline">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnForgotPasswordClicked" NumberOfTapsRequired="1" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <!--<Label HorizontalOptions="CenterAndExpand"
+                           Margin="0,10"
+                           TextColor="Blue"
+                           Text="Forgot username?"
+                           TextDecorations="Underline">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnForgotUsernameClicked" NumberOfTapsRequired="1" />
+                        </Label.GestureRecognizers>
+                    </Label>-->
+                </StackLayout>
+            </ScrollView>
+
+            <ContentView x:Name="popupForgotPassword"
+                         x:FieldModifier="public"
+                         AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                         AbsoluteLayout.LayoutFlags="All"
+                         IsVisible="False"
+                         BackgroundColor="#C0202020"
+                         Padding="10, 0">
+                <Frame HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       BackgroundColor="White"
+                       CornerRadius="10"
+                       HasShadow="True">
+                    <StackLayout Padding="10">
+                        <Label HorizontalOptions="FillAndExpand"
+                               Text="Please enter your email address. You will receive a link to create a new password via email shortly."
+                               TextColor="Black"
+                               LineHeight="1.2"/>
+                        <Entry x:Name="emailResetPassordEntry"
+                               Placeholder="Email address"/>
+                        <StackLayout Orientation="Horizontal"
+                                 HorizontalOptions="EndAndExpand">
+                            <Button Text="Reset password"
+                                    Clicked="OnResetPasswordClicked"/>
+                            <Button Text="Cancel"
+                                    Clicked="OnCancelResetPasswordClicked"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+            </ContentView>
+
+
+            <!--<ContentView x:Name="popupForgotUsername"
+                         x:FieldModifier="public"
+                         AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                         AbsoluteLayout.LayoutFlags="All"
+                         IsVisible="False"
+                         BackgroundColor="#C0202020"
+                         Padding="10, 0">
+                <Frame HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       BackgroundColor="White"
+                       CornerRadius="10"
+                       HasShadow="True">
+                    <StackLayout Padding="10">
+                        <Label HorizontalOptions="Fill"
+                               Margin="0,10">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Username input is case sensitive, so you could attempt to capitalize the first letter and re-login to check if it works or not.&#x0a;"
+                                          LineHeight="1.5"/>
+                                    <Span Text="If it does not work, please press " LineHeight="1.5"/>
+                                    <Span Text="forgot password"
+                                      TextColor="Blue"
+                                      TextDecorations="Underline">
+                                        <Span.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnForgotPasswordClicked" NumberOfTapsRequired="1" />
+                                        </Span.GestureRecognizers>
+                                    </Span>
+                                    <Span Text=" and follow the instruction. You might notice your username appears at the very end of the reset password link.&#x0a;"
+                                          LineHeight="1.5"/>
+                                    <Span Text="Please note that you are not required to click the link if you decide not to"
+                                          FontAttributes="Bold"
+                                          LineHeight="1.5"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Button Text="Close"
+                                HorizontalOptions="EndAndExpand"
+                                Clicked="OnCloseClicked"/>
+                    </StackLayout>
+                </Frame>
+            </ContentView>-->
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>
