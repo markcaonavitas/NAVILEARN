@@ -1,6 +1,0 @@
-C:\TestRepoMark\NavitasBeta\NavitasBeta\OxyPlot.Xamarin.Forms\bin\Debug\OxyPlot.Xamarin.Forms.dll
-C:\TestRepoMark\NavitasBeta\NavitasBeta\OxyPlot.Xamarin.Forms\bin\Debug\OxyPlot.Xamarin.Forms.pdb
-C:\TestRepoMark\NavitasBeta\NavitasBeta\OxyPlot.Xamarin.Forms\obj\Debug\OxyPlot.Xamarin.Forms.csproj.AssemblyReference.cache
-C:\TestRepoMark\NavitasBeta\NavitasBeta\OxyPlot.Xamarin.Forms\obj\Debug\OxyPlot.Xamarin.Forms.csproj.CoreCompileInputs.cache
-C:\TestRepoMark\NavitasBeta\NavitasBeta\OxyPlot.Xamarin.Forms\obj\Debug\OxyPlot.Xamarin.Forms.dll
-C:\TestRepoMark\NavitasBeta\NavitasBeta\OxyPlot.Xamarin.Forms\obj\Debug\OxyPlot.Xamarin.Forms.pdb
